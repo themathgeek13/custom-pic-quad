@@ -35,11 +35,6 @@ extern const  	float		_MPU_Gyro_YSlope;
 //------------------------------------------------------------------
 extern 	  		float		_MPU_Gyro_ZOffset;	// Calculated
 extern const  	float		_MPU_Gyro_ZSlope;
-//----------------------------------------------------
-// Gyro Z offset requires special treatment for added
-// error elimination...
-//----------------------------------------------------
-extern			float		_MPU_Gyro_IIR;
 //==================================================================
 // Accl Sensitivity: G per units of LSB (at 2 G range)
 extern const 	float		_MPU_Accl_Sensitivity;

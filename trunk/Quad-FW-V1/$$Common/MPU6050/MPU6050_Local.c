@@ -36,12 +36,6 @@ const  	float		_MPU_Gyro_YSlope		=  1.20;
 //------------------------------------------------------------------
 	  	float		_MPU_Gyro_ZOffset		=  0.0;		// Calculated
 const  	float		_MPU_Gyro_ZSlope		= -0.0964; 
-//----------------------------------------------------
-// Gyro Z offset requires special treatment for added
-// error elimination...
-//----------------------------------------------------
-		float		_MPU_Gyro_IIR			= 10240.0;	// Adjusted based
-														// Rate Divisor
 //==================================================================
 // Accl Sensitivity: G per unit of LSB (at 2 G range)
 const 	float		_MPU_Accl_Sensitivity	= 0.00006103515625;

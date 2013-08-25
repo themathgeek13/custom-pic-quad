@@ -101,11 +101,6 @@ uint	MPUReset(byte RateDiv, byte DLPF)
 		}  
 	while (TMRGetRTC() < EndTime);
 	
-	//-------------------------------------------
-	// Adjust Yaw Gyro IIR filtering for Rate Div
-	//-------------------------------------------
-	_MPU_Gyro_IIR = 10240.0/(float)(RateDiv + 1);
-	
 	//*********************************************************
 	// final step - Calibration of Gyros
 	//---------------------------------------------------------

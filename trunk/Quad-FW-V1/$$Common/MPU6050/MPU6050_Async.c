@@ -168,16 +168,6 @@ uint	_MPUAsyncRead(MPUSample* pSample)
 				(Weight * RawData.GZ - (_MPU_Gyro_ZOffset + _MPU_Gyro_ZSlope*TDev)) * _MPU_Gyro_Sensitivity,
 				&pSample->G
 				);
-	//-----------------------------------------------
-	// Adjust Yaw Gyro drift...
-	//-----------------------------------------------
-	if (Ready_Cnt > 0)
-		// Adjustment of drift is done once per consumed sample
-		{
-		float K = (float)Ready_Cnt;
-		// IIR "filtering" of Yaw Gyro
-		_MPU_Gyro_ZOffset = (_MPU_Gyro_ZOffset*(_MPU_Gyro_IIR - K) + K*(Weight * RawData.GZ - _MPU_Gyro_ZSlope*TDev))/_MPU_Gyro_IIR;
-		}
 	//----------------------------------------------
 	// Set sample timestamp
 	//----------------------------------------------

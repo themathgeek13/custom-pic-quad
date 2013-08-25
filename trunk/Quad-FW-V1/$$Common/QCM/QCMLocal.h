@@ -72,6 +72,43 @@ float inline static QCMRangeToHalfPi(float Value)
 
 
 //*****************************************************
+// Local static variables used in Differentiation routine
+//*****************************************************
+static float	_QCM_LastRollErr	= 0.0;
+static float	_QCM_LastPitchErr	= 0.0;
+static float	_QCM_LastYawErr		= 0.0;
+//*****************************************************
+// QCM Step Differentiation routine
+//*****************************************************
+void inline static QCMStepDifferentiator()
+	{
+	if (QSD.dT > 0.001)		// On the first step after
+							// RESET QSD.dT set to 0.0
+		{
+		float Frequency		= 1.0 / QSD.dT;
+		//---------------------------------
+		QSD.RollErrDer	= QCMRangeToPi(		QSD.RollError  - _QCM_LastRollErr) 	* Frequency;
+		QSD.PitchErrDer	= QCMRangeToHalfPi(	QSD.PitchError - _QCM_LastPitchErr) * Frequency;
+		QSD.YawErrDer	= QCMRangeToPi(		QSD.YawError   - _QCM_LastYawErr) 	* Frequency;
+		}
+	else
+		{
+		QSD.RollErrDer		= 0.0;
+		QSD.PitchErrDer		= 0.0;
+		QSD.YawErrDer		= 0.0;
+		}
+	//-------------------------------------------------
+	// Capture current Roll, Pitch, and Yaw errors for
+	// subsequent error change differentiation 
+	//-------------------------------------------------
+	_QCM_LastRollErr	= QSD.RollError;
+	_QCM_LastPitchErr	= QSD.PitchError;
+	_QCM_LastYawErr		= QSD.YawError;
+	//-------------------------------------------------		
+	}
+	
+		
+//*****************************************************
 // QCM Step Integration routine
 //*****************************************************
 void inline static QCMStepIntegrator()

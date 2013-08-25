@@ -44,8 +44,8 @@ float const		_PID_Roll_Kd		= 0.075;
 float const		_PID_Pitch_Kp		= 0.450;
 float const		_PID_Pitch_Kd		= 0.075;
 //============================================================
-float const		_PID_Yaw_Kp			= 0.350;
-float const		_PID_Yaw_Kd			= 0.150;
+float const		_PID_Yaw_Kp			= 0.400;
+float const		_PID_Yaw_Kd			= 0.200;
 //************************************************************
 
 

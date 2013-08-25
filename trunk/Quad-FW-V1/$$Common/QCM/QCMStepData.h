@@ -14,11 +14,7 @@ typedef struct
 	float	dT;			// Integration/Differentiation time
 						// step (in seconds)
 	//-------------------------------------------------
-	float	LastRoll;
-	float	LastPitch;
-	float	LastYaw;
-	//-------------------------------------------------
-	
+
 	//=================================================
 	float	Throttle;
 	//=================================================
@@ -38,12 +34,12 @@ typedef struct
 	float	RollErrorSum;
 	float	PitchErrorSum;
 	float	YawErrorSum;
-	//=================================================
-	// State change derivatives
 	//-------------------------------------------------
-	float	RollPVDer;
-	float	PitchPVDer;
-	float	YawPVDer;		
+	// Error Change derivatives
+	//-------------------------------------------------
+	float	RollErrDer;
+	float	PitchErrDer;
+	float	YawErrDer;		
 	//=================================================
 	// Proportional components of motor control
 	//-------------------------------------------------
