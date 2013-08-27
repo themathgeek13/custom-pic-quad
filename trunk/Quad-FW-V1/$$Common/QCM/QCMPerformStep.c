@@ -16,6 +16,11 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 		{
 		// The first step in the current flight
 		QSD.dT = 0.0;
+		// Capture current Roll, Pitch, and Yaw for subsequent
+		// differentiation to identify state change derivatives
+		QSD.LastRoll	= IMU->Roll;
+		QSD.LastPitch	= IMU->Pitch;
+		QSD.LastYaw		= IMU->Yaw;
 		}
 	else
 		{
@@ -107,22 +112,41 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//************************************************************
 	//{
 	//------------------------------------------------------------
-	// Calculate state derivative term
+	// Calculate state derivative - to improve stability we use PID
+	// method based upon the Derivative of the Process Variable (PV)
 	//------------------------------------------------------------
-	QCMStepDifferentiator(); // First, calculate error derivatives
+	if (QSD.dT > 0.001) // Just to be sure...
+		{
+		float Frequency		= 1.0 / QSD.dT;
+		//---------------------------------
+		QSD.RollPVDer		= QCMRangeToPi(		IMU->Roll  - QSD.LastRoll) 	* Frequency;
+		QSD.PitchPVDer		= QCMRangeToHalfPi(	IMU->Pitch - QSD.LastPitch) * Frequency;
+		QSD.YawPVDer		= QCMRangeToPi(		IMU->Yaw   - QSD.LastYaw) 	* Frequency;
+		}
+	else
+		{
+		QSD.RollPVDer		= 0.0;
+		QSD.PitchPVDer		= 0.0;
+		QSD.YawPVDer		= 0.0;
+		}
+	// Capture current Roll, Pitch, and Yaw for subsequent
+	// differentiation to identify state change derivatives
+	QSD.LastRoll	= IMU->Roll;
+	QSD.LastPitch	= IMU->Pitch;
+	QSD.LastYaw		= IMU->Yaw;
 	//------------------------------------------------------------
-	// Caculate Differential term of the control input from PID
+	// Caculate Differential term; PID-weighted derivative terms
+	// are negated to bring them into conformance with the error
 	//------------------------------------------------------------
-	QSD.DeltaRollDiff	= _PID_Roll_Kd  * QSD.RollErrDer;
-	QSD.DeltaPitchDiff	= _PID_Pitch_Kd * QSD.PitchErrDer;
-	QSD.DeltaYawDiff	= _PID_Yaw_Kd   * QSD.YawErrDer;
+	QSD.DeltaRollDiff	= -_PID_Roll_Kd  * QSD.RollPVDer;
+	QSD.DeltaPitchDiff	= -_PID_Pitch_Kd * QSD.PitchPVDer;
+	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawPVDer;
 	//}
 	//************************************************************
-	
 
 	//************************************************************
 	// Calculate Roll-Pitch-Yaw "adjustment" based upon State
-	// Change integral error
+	// Change derivatives
 	//************************************************************
 	//{
 	//------------------------------------------------------------

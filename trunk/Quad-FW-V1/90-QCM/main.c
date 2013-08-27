@@ -31,6 +31,12 @@ struct
 	//-----------------		
 	float	Inclination;			
 	//-----------------------------------------------
+	// Orientation Data change rate (true derivative)
+	//-----------------------------------------------
+	float	RollDer;			
+	float	PitchDer;			
+	float	YawDer;			
+	//-----------------------------------------------
 	// Control Data
 	//-----------------------------------------------
 	float	RC_Throttle;
@@ -41,12 +47,6 @@ struct
 	// RC Yaw integral (target Yaw)
 	//-----------------------------------------------
 	float	RC_Yaw_Int;		// RC Yaw integral
-	//-----------------------------------------------
-	// Orientation Data Error Rate (true derivative)
-	//-----------------------------------------------
-	float	RollErrDer;			
-	float	PitchErrDer;			
-	float	YawErrDer;			
 	//-----------------------------------------------
 	// QCM Control Data
 	//-----------------------------------------------
@@ -328,16 +328,16 @@ Re_Start:
 		TM.Yaw			= IMU.Yaw;
 		TM.Inclination	= IMU.Incl;
 		//----------------------
+		TM.RollDer		= QSD.RollPVDer;
+		TM.PitchDer		= QSD.PitchPVDer;
+		TM.YawDer		= QSD.YawPVDer;
+		//----------------------
 		TM.RC_Throttle	= RC.Throttle;
 		TM.RC_Roll		= RC.Roll;
 		TM.RC_Pitch		= RC.Pitch;
 		TM.RC_Yaw		= RC.Yaw;
 		//----------------------
 		TM.RC_Yaw_Int	= QSD.RCYawInt;
-		//----------------------
-		TM.RollErrDer	= QSD.RollErrDer;
-		TM.PitchErrDer	= QSD.PitchErrDer;
-		TM.YawErrDer	= QSD.YawErrDer;
 		//----------------------
 		TM.DRProp		= QSD.DeltaRollProp;
 		TM.DRDiff		= QSD.DeltaRollDiff;
