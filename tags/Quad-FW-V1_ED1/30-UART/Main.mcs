@@ -1,0 +1,747 @@
+[Header]
+MagicCookie={0b13fe8c-dfe0-40eb-8900-6712719559a7}
+Version=1.0
+[File000]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\main.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File001]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\BLI.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File002]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\BLIInit.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File003]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\BLILocal.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File004]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\BLIMorse.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File005]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\TMR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File006]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\TMR_ISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File007]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\TMRInit.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File008]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\TMRLocal.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File009]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File010]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File011]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_ISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File012]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_Local.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File013]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_Sync.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File014]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_SyncRead.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File015]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_SyncWrite.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File016]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\I2C_Async.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File017]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\Vector.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File018]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Async.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File019]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File020]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_ISR_INT1.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File021]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Local.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File022]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Mgmt.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File023]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Reset.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File024]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\MPU6050_Sync.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File025]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_Async.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File026]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File027]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_ISR_INT2.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File028]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_Local.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File029]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_Mgmt.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File030]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\HMCMAG_Sync.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=-D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1
+[File031]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\main.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File032]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\BLI.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File033]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\BLIInit.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File034]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\BLILocal.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File035]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\BLIMorse.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File036]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\TMR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File037]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\TMR_ISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File038]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\TMRInit.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File039]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\TMRLocal.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File040]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File041]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\Vector.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File042]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_Local.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File043]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_TX_API.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File044]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_TX_Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File045]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_TX_ISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File046]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_RX_API.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File047]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_RX_Init.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File048]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\UART_RX_ISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File049]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\ADC.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File050]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\ADCInit.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File051]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\ADCISR.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File052]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\ADCLocal.o
+Folder=Intermediary
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={069BD372-6CA0-40D4-BF2F-5DC806D05083}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-g -Wall
+TraceCmdString=
+DebugOptions=
+[File053]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\Main.cof
+Folder=Output
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PICKIT2=1 --defsym=__ICD2RAM=1
+[File054]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\20-I2C\Main.hex
+Folder=Output
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\I2C\I2C_Init.c|..\$$Common\I2C\I2C_ISR.c|..\$$Common\I2C\I2C_Local.c|..\$$Common\I2C\I2C_Sync.c|..\$$Common\I2C\I2C_SyncRead.c|..\$$Common\I2C\I2C_SyncWrite.c|..\$$Common\I2C\I2C_Async.c|..\$$Common\Vector\Vector.c|..\$$Common\MPU6050\MPU6050_Async.c|..\$$Common\MPU6050\MPU6050_Init.c|..\$$Common\MPU6050\MPU6050_ISR_INT1.c|..\$$Common\MPU6050\MPU6050_Local.c|..\$$Common\MPU6050\MPU6050_Mgmt.c|..\$$Common\MPU6050\MPU6050_Reset.c|..\$$Common\MPU6050\MPU6050_Sync.c|..\$$Common\HMCMAG\HMCMAG_Async.c|..\$$Common\HMCMAG\HMCMAG_Init.c|..\$$Common\HMCMAG\HMCMAG_ISR_INT2.c|..\$$Common\HMCMAG\HMCMAG_Local.c|..\$$Common\HMCMAG\HMCMAG_Mgmt.c|..\$$Common\HMCMAG\HMCMAG_Sync.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=--defsym=__MPLAB_DEBUG=1 --defsym=__MPLAB_DEBUGGER_PICKIT2=1 --defsym=__ICD2RAM=1
+[File055]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\Main.cof
+Folder=Output
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=
+[File056]
+Location=D:\AZarenin\@@Development\HE\MicroChip\PIC24H\PIC24HJ128GP204\ControlBoard\30-UART\Main.hex
+Folder=Output
+DeviceName=PIC24HJ128GP204
+LanguageToolSuiteID={479DDE59-4D56-455E-855E-FFF59A3DB57E}
+LanguageToolID={433C3D55-811D-409D-A6BF-159CF9355B42}
+LanguageToolLocation=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-ld.exe
+PPAD=$(BINDIR)||$(TMPDIR)||$(AINDIR)||$(INCDIR)|.;..\$$Common||$(LIBDIR)||$(LKRDIR)||
+SOLK=<src>|main.c|..\$$Common\BLI\BLI.c|..\$$Common\BLI\BLIInit.c|..\$$Common\BLI\BLILocal.c|..\$$Common\BLI\BLIMorse.c|..\$$Common\TMR\TMR.c|..\$$Common\TMR\TMR_ISR.c|..\$$Common\TMR\TMRInit.c|..\$$Common\TMR\TMRLocal.c|..\$$Common\Init\Init.c|..\$$Common\Vector\Vector.c|..\$$Common\UART\UART_Local.c|..\$$Common\UART\UART_TX_API.c|..\$$Common\UART\UART_TX_Init.c|..\$$Common\UART\UART_TX_ISR.c|..\$$Common\UART\UART_RX_API.c|..\$$Common\UART\UART_RX_Init.c|..\$$Common\UART\UART_RX_ISR.c|..\$$Common\ADC\ADC.c|..\$$Common\ADC\ADCInit.c|..\$$Common\ADC\ADCISR.c|..\$$Common\ADC\ADCLocal.c||<obj>||<lib>||<lkr>||
+SuiteArgsString=
+ToolArgsString=-o"$(BINDIR_)$(TARGETBASE).$(TARGETSUFFIX)" -Map="$(BINDIR_)$(TARGETBASE).map" --report-mem
+TraceCmdString=
+DebugOptions=
+[TOOL_LOC_STAMPS]
+tool_loc{069BD372-6CA0-40D4-BF2F-5DC806D05083}=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-gcc.exe
+tool_loc{433C3D55-811D-409D-A6BF-159CF9355B42}=C:\Program Files (x86)\Microchip\mplabc30\v3.31\bin\pic30-ld.exe
