@@ -206,7 +206,7 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	// These constants are dependent on motors, props, and
 	// C.G. placement - should be adjusted if anything changes...
 	QSD.DeltaRoll 	-= 0.0030 * Power;	
-	QSD.DeltaPitch	+= 0.0000 * Power;
+//	QSD.DeltaPitch	+= 0.0000 * Power;
 	QSD.DeltaYaw	-= 0.0050 * Power;
 	
 	
