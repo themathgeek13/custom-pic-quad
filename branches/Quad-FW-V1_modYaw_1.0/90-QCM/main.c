@@ -328,16 +328,14 @@ Re_Start:
 		TM.Yaw			= IMU.Yaw;
 		TM.Inclination	= IMU.Incl;
 		//----------------------
-		TM.RollDer		= QSD.RollPVDer;
-		TM.PitchDer		= QSD.PitchPVDer;
-		TM.YawDer		= QSD.YawPVDer;
+		TM.RollDer		= QSD.RollDer;
+		TM.PitchDer		= QSD.PitchDer;
+		TM.YawDer		= QSD.YawDer;
 		//----------------------
 		TM.RC_Throttle	= RC.Throttle;
 		TM.RC_Roll		= RC.Roll;
 		TM.RC_Pitch		= RC.Pitch;
 		TM.RC_Yaw		= RC.Yaw;
-		//----------------------
-		TM.RC_Yaw_Int	= QSD.RCYawInt;
 		//----------------------
 		TM.DRProp		= QSD.DeltaRollProp;
 		TM.DRDiff		= QSD.DeltaRollDiff;

@@ -73,29 +73,7 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//------------------------------------------------------------
 	QSD.RollError	= QCMRangeToPi(		RC->Roll  - IMU->Roll);
 	QSD.PitchError	= QCMRangeToHalfPi(	RC->Pitch - IMU->Pitch);
-	//------------------------------------------------------------
-	// Yaw is kind of "special case" - no need to control Yaw
-	// until we get into air...
-	//------------------------------------------------------------
-	if (QSD.Throttle > _PID_ThrottleNoFly)
-		{
-		// Yaw input from RC is treated as "rate", so first it has to
-		// be integrated... We select weighting factor (0.5) so that
-		// at max RC Yaw rate (1 rad/sec) the rate of turn control
-		// set point change is limited to 0.5 rad/sec.
-		QSD.RCYawInt   += RC->Yaw * 0.5 * QSD.dT;
-		// Now we need to bring it into the range -Pi < RCYawInt <= Pi
-		QSD.RCYawInt	= QCMRangeToPi(QSD.RCYawInt);
-		//------------------------------------------------------------
-		// Now we may calculate Yaw error...
-		QSD.YawError	= QCMRangeToPi(QSD.RCYawInt - IMU->Yaw);
-		}
-	else
-		{
-		// Quad is still on the ground...
-		QSD.RCYawInt	= 0.0;
-		QSD.YawError	= 0.0;	// No Yaw control applied...
-		}
+	QSD.YawError	= QCMRangeToPi(		RC->Yaw   - IMU->Yaw);
 
 	//------------------------------------------------------------
 	// Calculate Proportional term
@@ -119,15 +97,15 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 		{
 		float Frequency		= 1.0 / QSD.dT;
 		//---------------------------------
-		QSD.RollPVDer		= QCMRangeToPi(		IMU->Roll  - QSD.LastRoll) 	* Frequency;
-		QSD.PitchPVDer		= QCMRangeToHalfPi(	IMU->Pitch - QSD.LastPitch) * Frequency;
-		QSD.YawPVDer		= QCMRangeToPi(		IMU->Yaw   - QSD.LastYaw) 	* Frequency;
+		QSD.RollDer		= QCMRangeToPi(		IMU->Roll  - QSD.LastRoll) 	* Frequency;
+		QSD.PitchDer	= QCMRangeToHalfPi(	IMU->Pitch - QSD.LastPitch) * Frequency;
+		QSD.YawDer		= QCMRangeToPi(		IMU->Yaw   - QSD.LastYaw) 	* Frequency;
 		}
 	else
 		{
-		QSD.RollPVDer		= 0.0;
-		QSD.PitchPVDer		= 0.0;
-		QSD.YawPVDer		= 0.0;
+		QSD.RollDer		= 0.0;
+		QSD.PitchDer	= 0.0;
+		QSD.YawDer		= 0.0;
 		}
 	// Capture current Roll, Pitch, and Yaw for subsequent
 	// differentiation to identify state change derivatives
@@ -136,11 +114,12 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	QSD.LastYaw		= IMU->Yaw;
 	//------------------------------------------------------------
 	// Caculate Differential term; PID-weighted derivative terms
-	// are negated to bring them into conformance with the error
+	// are negated so that differential term "works" against
+	// process change derivative 
 	//------------------------------------------------------------
-	QSD.DeltaRollDiff	= -_PID_Roll_Kd  * QSD.RollPVDer;
-	QSD.DeltaPitchDiff	= -_PID_Pitch_Kd * QSD.PitchPVDer;
-	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawPVDer;
+	QSD.DeltaRollDiff	= -_PID_Roll_Kd  * QSD.RollDer;
+	QSD.DeltaPitchDiff	= -_PID_Pitch_Kd * QSD.PitchDer;
+	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawDer;
 	//}
 	//************************************************************
 

@@ -22,11 +22,6 @@ typedef struct
 	//=================================================
 	float	Throttle;
 	//=================================================
-	// Yaw control is treated as "rate" so to generate
-	// yaw control we need to "integrate" RC-Yaw input
-	//-------------------------------------------------
-	float	RCYawInt;
-	//=================================================
 	// Error variables by axis
 	//-------------------------------------------------
 	float	RollError;
@@ -41,9 +36,9 @@ typedef struct
 	//=================================================
 	// State change derivatives
 	//-------------------------------------------------
-	float	RollPVDer;
-	float	PitchPVDer;
-	float	YawPVDer;		
+	float	RollDer;
+	float	PitchDer;
+	float	YawDer;		
 	//=================================================
 	// Proportional components of motor control
 	//-------------------------------------------------

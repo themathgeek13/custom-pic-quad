@@ -29,9 +29,9 @@
 //
 //******************************************************
 
-//------------------------------------------------------
+//----------------------------------------------------------
 // Receiver data interface
-//------------------------------------------------------
+//----------------------------------------------------------
 typedef struct 
 	{
 	//----------------------
@@ -46,92 +46,86 @@ typedef struct
 	} RCData;
 
 
-//**************************************************
+//**********************************************************
 // RCInit function initializes IC Module.
-//**************************************************
+//**********************************************************
 void	RCInit(int IL);	// Parameter (1<=IL<=7) defines the
 						// priority of CN interrupt routine.
-//--------------------------------------------------
+//----------------------------------------------------------
 
-//**************************************************
+//**********************************************************
 // RCArm function - enforces "arming" of the remote.
 // The THROTTLE should go above 75% and then below
 // 10% of the total range.
-//**************************************************
+//**********************************************************
 void			RCArm();
 
-//**************************************************
+//**********************************************************
 // RCRead function read values from the RC receiver
 // in "normalized" form: 
 // -1.0 <= X <= 1.0 for Roll, Pitch, and Yaw,
 //  0.0 <= X <= 1.0 for Throttle.
-//--------------------------------------------------
+//----------------------------------------------------------
 // Return value indicates whether a new sample ob-
 // tained from the receiver.
-//--------------------------------------------------
+//----------------------------------------------------------
 // NOTE: Output data structure updated ONLY if a new
 //       sample is available!
-//**************************************************
+//**********************************************************
 uint		RCRead(RCData*	RCSample);
 
 
-//**************************************************
+//**********************************************************
 // Same as RCRead(...) function, but will block untill
 // the new reading is available from receiver.
-//**************************************************
+//**********************************************************
 uint		RCReadWhenReady(RCData*	RCSample);
 
-//**************************************************
+//**********************************************************
 // Returns Connection Status
 // 1 - Connection to transmitter is maintained
 // 0 - Connection to transmitter is lost
-//**************************************************
+//**********************************************************
 uint		RCIsLinked();
 
-//**************************************************
-// RCSetLNRate(...) applies linear rate
-// to Roll-Pitch-Yaw controls and removes "low" zone
-// on Yaw control to prevent "slow" rotation
-//**************************************************
+//**********************************************************
+// RCSetLNRate(...) applies linear rate to Roll-Pitch-Yaw
+// controls and normalizes RC input to +/- 0.3 rad
+// (~20 degrees) for Roll and Pitch and to +/- 3 rad
+// (~172 degrees) for Yaw
+//**********************************************************
 void static inline	RCSetLNRate(RCData*	RCSample)
 	{
-	if (fabsf(RCSample->Yaw) < 0.02)
-		RCSample->Yaw  = 0.0;	// Eliminate jitter
-	//---------------------------------------------
-	RCSample->Roll 	= 0.30 * RCSample->Roll;
-	RCSample->Pitch = 0.30 * RCSample->Pitch;
-	// Yaw is anyway treated as a "rate" through
-	// Integration in a step routine, so the "dampening"
-	// will take place there
-	//RCSample->Yaw	= 0.250 * RCSample->Yaw;
+	RCSample->Roll 	= 0.35 * RCSample->Roll;
+	RCSample->Pitch = 0.35 * RCSample->Pitch;
+	RCSample->Yaw	= 3.00 * RCSample->Yaw;
 	}
 
-//**************************************************
+//**********************************************************
 // RCSetSign(float Sign, float Value) - helper
 // function to change the sign of Value depending
 // on the sign of the Sign variable
-//**************************************************
+//**********************************************************
 float static inline	RCSetSign(float Sign, float Value)
 	{
 	return Sign < 0.0 ? -Value : (Sign > 0.0 ? Value : 0.0);
 	}
 
 
-//**************************************************
-// RCSetSQRate(...) applies square (quadratic) rate
-// to Roll-Pitch-Yaw controls and removes "low" zone
-// on Yaw control to prevent "slow" rotation
-//**************************************************
+//**********************************************************
+// RCSetSQRate(...) applies square (quadratic) rate to
+// Roll-Pitch-Yaw controls and normalizes RC input to
+// +/- 0.3 rad (~20 degrees) for Roll and Pitch and to
+// +/- 3 rad (~172 degrees) for Yaw
+//**********************************************************
 void static inline	RCSetSQRate(RCData*	RCSample)
 	{
-	RCSample->Roll 	= RCSetSign(RCSample->Roll,  0.625 * RCSample->Roll  * RCSample->Roll);
-	RCSample->Pitch = RCSetSign(RCSample->Pitch, 0.625 * RCSample->Pitch * RCSample->Pitch);
-	RCSample->Yaw	= RCSetSign(RCSample->Yaw,   0.500 * RCSample->Yaw   * RCSample->Yaw);
-	if (fabsf(RCSample->Yaw) < 0.005)
-		RCSample->Yaw  = 0.0;	// Eliminate jitter
+	RCSample->Roll 	= RCSetSign(RCSample->Roll,  0.30 * RCSample->Roll  * RCSample->Roll);
+	RCSample->Pitch = RCSetSign(RCSample->Pitch, 0.30 * RCSample->Pitch * RCSample->Pitch);
+	RCSample->Yaw	= RCSetSign(RCSample->Yaw,   3.00 * RCSample->Yaw   * RCSample->Yaw);
 	}
 
-//=====================================================
+//==========================================================
 #endif
 
 
