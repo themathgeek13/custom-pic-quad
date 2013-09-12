@@ -12,7 +12,7 @@ float const 	_PID_ThrottleMin	= 0.0;
 // adjustments that may be too large for stable controlled
 // flight, so we limit "adjustment" for each axis to a certain
 // percentage of the current Throttle level
-float const 	_PID_ControlLimit	= 0.25;
+float const 	_PID_ControlLimit	= 0.30;
 //------------------------------------------------------------
 
 //============================================================
@@ -22,7 +22,7 @@ float const 	_PID_ControlLimit	= 0.25;
 // value to prevent integrator "wind-up" when model is not
 // in flight mode (armed, but still on the ground)
 //------------------------------------------------------------
-float const		_PID_ThrottleNoFly	= 0.45;	
+float const		_PID_ThrottleNoFly	= 0.25;	
 //------------------------------------------------------------
 // Integrator "slow-down" factor to prevent rapid changes on
 // large deviations

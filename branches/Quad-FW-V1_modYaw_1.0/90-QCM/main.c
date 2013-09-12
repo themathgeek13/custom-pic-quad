@@ -44,10 +44,6 @@ struct
 	float	RC_Pitch;
 	float	RC_Yaw;
 	//-----------------------------------------------
-	// RC Yaw integral (target Yaw)
-	//-----------------------------------------------
-	float	RC_Yaw_Int;		// RC Yaw integral
-	//-----------------------------------------------
 	// QCM Control Data
 	//-----------------------------------------------
 	float	DRProp;
@@ -212,15 +208,11 @@ Re_Start:
 		//============================================================
 		// Smooth RC data 
 		//------------------------------------------------------------
-		// Roll and pitch are smoothed with the IIR(32)
+		// Roll, Pitch, and Yaw are smoothed with the IIR(32)
 		//------------------------------------------------------------
 		RC.Roll		= (RC.Roll		* 31.0	+ RCNative.Roll		) * 0.03125;	// 1/32 = 0.03125
 		RC.Pitch	= (RC.Pitch		* 31.0 	+ RCNative.Pitch	) * 0.03125;
-		//------------------------------------------------------------
-		// Yaw is smoothed with the IIR(8) (it is further smoothed
-		// through integration in the QCM Step routine)
-		//------------------------------------------------------------
-		RC.Yaw		= (RC.Yaw		* 7 	+ RCNative.Yaw		) * 0.12500;	// 1/8 = 0.125
+		RC.Yaw		= (RC.Yaw		* 31.0	+ RCNative.Yaw		) * 0.03125;	
 		//------------------------------------------------------------
 		// Throttle is smoothed with the IIR(4) 
 		//------------------------------------------------------------
@@ -298,7 +290,7 @@ Re_Start:
 		// dangerously tilted (> 70 degrees) while
 		// RC Throttle is low - to protect props 
 		//----------------------------------------
-		if (IMU.Incl <= 0.342 && RC.Throttle <= 0.4)
+		if (IMU.Incl <= 0.342 && RC.Throttle <= 0.35)
 			{
 			// Override motor control
 			MC.F = MC.B = MC.L = MC.R = 0;

@@ -163,7 +163,7 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//************************************************************
 	// Identify vurrent control limit based upon the Throttle
 	// value and pre-set control limit
-	float CM	= QSD.Throttle * _PID_ControlLimit;	
+	float CM	= RC->Throttle * _PID_ControlLimit;	 // QSD.Throttle 
 
 	// Roll ----------------------------------------
 	if (QSD.DeltaRoll >  CM)	QSD.DeltaRoll 	=  CM;
