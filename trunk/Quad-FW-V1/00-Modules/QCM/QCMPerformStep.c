@@ -7,36 +7,23 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	{
 
 	//============================================================
-	// Identify Integration/Differentiation time interval for the
-	// current step; initialize LastRC values on start.
+	// Identify Integration time interval for the current step.
 	//------------------------------------------------------------
-	//{
 	ulong	CurrentTS	= TMRGetTS();	// Capture timestamp
 	if (0 == QSD.LastTS)
-		{
 		// The first step in the current flight
 		QSD.dT = 0.0;
-		// Capture current Roll, Pitch, and Yaw for subsequent
-		// differentiation to identify state change derivatives
-		QSD.LastRoll	= IMU->Roll;
-		QSD.LastPitch	= IMU->Pitch;
-		QSD.LastYaw		= IMU->Yaw;
-		}
 	else
-		{
 		// Not the first step, we have saved values from last step
 		QSD.dT = ((float)(CurrentTS - QSD.LastTS)) * TMRGetTSRate();
-		}
 	// Store current timestamp for next iteration
 	QSD.LastTS = CurrentTS;
-	//}
 	//============================================================
 			
 
 	//************************************************************
 	// Process Throttle
 	//************************************************************
-	//{
 	QSD.Throttle = RC->Throttle;
 	//------------------------------------------------------------
 	// Calculate throttle "adjustment" based upon Inclination
@@ -55,7 +42,6 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//------------------------------------------------------------
 	if (QSD.Throttle > 0.85)
 		QSD.Throttle = 0.85;
-	//}
 	//************************************************************
 
 
@@ -88,30 +74,15 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	// Calculate Roll-Pitch-Yaw "adjustment" based upon State
 	// Change derivatives
 	//************************************************************
-	//{
-	//------------------------------------------------------------
 	// Calculate state derivative - to improve stability we use PID
 	// method based upon the Derivative of the Process Variable (PV)
 	//------------------------------------------------------------
-	if (QSD.dT > 0.001) // Just to be sure...
-		{
-		float Frequency		= 1.0 / QSD.dT;
-		//---------------------------------
-		QSD.RollDer		= QCMRangeToPi(		IMU->Roll  - QSD.LastRoll) 	* Frequency;
-		QSD.PitchDer	= QCMRangeToHalfPi(	IMU->Pitch - QSD.LastPitch) * Frequency;
-		QSD.YawDer		= QCMRangeToPi(		IMU->Yaw   - QSD.LastYaw) 	* Frequency;
-		}
-	else
-		{
-		QSD.RollDer		= 0.0;
-		QSD.PitchDer	= 0.0;
-		QSD.YawDer		= 0.0;
-		}
-	// Capture current Roll, Pitch, and Yaw for subsequent
-	// differentiation to identify state change derivatives
-	QSD.LastRoll	= IMU->Roll;
-	QSD.LastPitch	= IMU->Pitch;
-	QSD.LastYaw		= IMU->Yaw;
+	Vector	dPVdT;
+	DCMToEarth(&(IMU->GyroRate), &dPVdT);
+	// Save calculated derivatives
+	QSD.RollDer		= dPVdT.X;
+	QSD.PitchDer	= dPVdT.Y;
+	QSD.YawDer		= dPVdT.Z;
 	//------------------------------------------------------------
 	// Caculate Differential term; PID-weighted derivative terms
 	// are negated so that differential term "works" against
@@ -120,15 +91,12 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	QSD.DeltaRollDiff	= -_PID_Roll_Kd  * QSD.RollDer;
 	QSD.DeltaPitchDiff	= -_PID_Pitch_Kd * QSD.PitchDer;
 	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawDer;
-	//}
 	//************************************************************
 
 	//************************************************************
-	// Calculate Roll-Pitch-Yaw "adjustment" based upon State
-	// Change derivatives
+	// Calculate Roll-Pitch-Yaw "adjustment" based upon Error
+	// integral
 	//************************************************************
-	//{
-	//------------------------------------------------------------
 	// Calculate Integral term
 	//------------------------------------------------------------
 	QCMStepIntegrator();	// First, update Integrator variables
@@ -138,7 +106,6 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	QSD.DeltaRollInt 	= _PID_Roll_Kp   * QSD.RollErrorSum;
 	QSD.DeltaPitchInt 	= _PID_Pitch_Kp  * QSD.PitchErrorSum;
 	QSD.DeltaYawInt 	= _PID_Yaw_Kp	 * QSD.YawErrorSum;
-	//}
 	//************************************************************
 
 	//************************************************************
@@ -193,8 +160,6 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//************************************************************
 	// Implement motor power adjustments
 	//************************************************************
-	//{
-	//************************************************************
 	// Throttle adjustment for the transverse direction
 	// REMEBER: Roll angle is positive when we bank right
 	//------------------------------------------------------------
@@ -216,8 +181,6 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//--------------
 	MC->R += QSD.DeltaYaw;
 	MC->L += QSD.DeltaYaw;
-	//--------------
-	//}
 	//************************************************************
 
 	//***********************************************************
