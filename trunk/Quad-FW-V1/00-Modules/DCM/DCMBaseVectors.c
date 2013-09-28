@@ -9,9 +9,9 @@ void		DCMGetMatrix(	Vector*		XEarth,
 							Vector*		YEarth,
 							Vector*		ZEarth)
 	{
-	DCMXEarth(&_DCMRM, XEarth);
-	DCMYEarth(&_DCMRM, YEarth);
-	DCMZEarth(&_DCMRM, ZEarth);
+	_DCMXEarth(&_DCMRM, XEarth);
+	_DCMYEarth(&_DCMRM, YEarth);
+	_DCMZEarth(&_DCMRM, ZEarth);
 	}
 //=============================================================
 
@@ -19,7 +19,7 @@ void		DCMGetMatrix(	Vector*		XEarth,
 // DCMToEarth rotates provided vector from Body frame to Earth
 // frame using current DCM matrix
 //=============================================================
-Vector*	DCMToEarth(Vector* pV, Vector* pRes)
+Vector*		DCMToEarth(Vector* pV, Vector* pRes)
 	{
 	//--------------------------------------------------
 	// Definition of Rotation to Earth:
@@ -41,7 +41,7 @@ Vector*	DCMToEarth(Vector* pV, Vector* pRes)
 // DCMToBody rotates provided vector from Earth frame to Body
 // frame using current DCM matrix
 //=============================================================
-Vector*	DCMToBody(Vector* pV, Vector* pRes)
+Vector*		DCMToBody(Vector* pV, Vector* pRes)
 	{
 	//--------------------------------------------------
 	// Definition of Rotation to Body:

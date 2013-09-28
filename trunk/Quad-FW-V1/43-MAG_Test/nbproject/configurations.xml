@@ -179,7 +179,7 @@
         <property key="fast-math" value="true"/>
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="false"/>
-        <property key="oXC16glb-macros" value="__PIC24H__;MAG_Use"/>
+        <property key="oXC16glb-macros" value="__PIC24H__;__MAG_Use__"/>
         <property key="output-file-format" value="elf"/>
         <property key="save-temps" value="false"/>
       </C30Global>

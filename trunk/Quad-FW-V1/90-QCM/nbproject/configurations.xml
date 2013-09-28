@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../00-Modules/System.h</itemPath>
+      <itemPath>../00-Modules/Profile.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -235,7 +236,7 @@
         <property key="fast-math" value="true"/>
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="false"/>
-        <property key="oXC16glb-macros" value="__PIC24H__"/>
+        <property key="oXC16glb-macros" value=""/>
         <property key="output-file-format" value="elf"/>
         <property key="save-temps" value="false"/>
         <appendMe value="-finline -finline-functions -Winline"/>

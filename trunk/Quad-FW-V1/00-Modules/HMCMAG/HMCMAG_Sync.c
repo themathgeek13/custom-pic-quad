@@ -1,13 +1,12 @@
-#ifdef MAG_Use
-//*************************************************************
-
 #include "HMCMAG\HMCMAG_Local.h"
-
+//*******************************************************
+#ifdef __MAG_Use__
+//*******************************************************
 
 //=============================================================
 // Synchronous READ SAMPLE API (visible externally)
 //-------------------------------------------------------------
-uint		HMCReadSample(pHMCSample pSample)
+uint		HMCReadSample(HMCSample* pSample)
 	{
 	uint			RC		= 0;
 	_HMCRawData		RawData;
@@ -179,6 +178,6 @@ Retry:	// Wait for RDY signal
 
 
 //***************************************************************
-#endif /* MAG_Use */
+#endif /* __MAG_Use__ */
 
 

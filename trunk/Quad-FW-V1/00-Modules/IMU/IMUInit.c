@@ -9,22 +9,29 @@ ulong	IMUInit()
 	{
 	_IMUInit 		= 0;
 	//*******************************************************
-	BLIAsyncMorse("W", 1);
-	//*******************************************************
-	if (MPUAsyncStart())
-		BLIDeadStop("A", 1);
-	//*******************************************************
-	MPUSample	MPUReading;
-	DCMData		IMUResult;
-	//*******************************************************
-	// Clear accumulated sensor readings
-	//-------------------------------------------------------
-	if (MPUAsyncReadWhenReady(&MPUReading)) 
-		BLIDeadStop("A", 1);
-	//*******************************************************
 	// Reset DCM algorithm
 	//-------------------------------------------------------
 	DCMReset();
+	//*******************************************************
+	BLIAsyncMorse("W", 1);
+	//*******************************************************
+	MPUSample	MPUReading;
+	DCMData		IMUResult;
+	//-------------------------------------------------------
+	#ifdef __MAG_Use__
+	HMCSample	HMCReading;
+	if (HMCAsyncStart())
+		BLIDeadStop("M", 1);
+	// Clear accumulated sensor readings
+	if (HMCAsyncReadWhenReady(&HMCReading))
+		BLIDeadStop("M", 1);
+	#endif
+	//-------------------------------------------------------
+	if (MPUAsyncStart())
+		BLIDeadStop("A", 1);
+	// Clear accumulated sensor readings
+	if (MPUAsyncReadWhenReady(&MPUReading)) 
+		BLIDeadStop("A", 1);
 	//*******************************************************
 	// Update DCM until it is synchronized with current
 	// orientation vector
@@ -43,6 +50,11 @@ ulong	IMUInit()
 		//----------------------------
 		StCount++;
 		}
+	//*******************************************************
+	#ifdef __MAG_Use__
+	if (HMC_OK == HMCAsyncReadWhenReady(&HMCReading))
+		DCMSetAzimuth(&HMCReading.M);
+	#endif
 	//*******************************************************
 	_IMUInit = 1;
 	//*******************************************************

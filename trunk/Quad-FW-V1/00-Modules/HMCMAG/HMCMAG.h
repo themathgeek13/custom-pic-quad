@@ -1,7 +1,7 @@
-#ifdef MAG_Use
-//*****************************************************
-
 #include "System.h"
+//*****************************************************
+#ifdef __MAG_Use__
+//*****************************************************
 #include "I2C\I2C.h"
 #include "Vector\Vector.h"
 
@@ -29,7 +29,7 @@ typedef	struct
 	//-----------------------------------------------
 	Vector	M;
 	//-----------------------------------------------
-	}	HMCSample, *pHMCSample;
+	}	HMCSample;
 
 //-----------------------------------------------------
 // Custom HMC functions
@@ -82,7 +82,7 @@ uint	HMCSetRegB(		byte	 RegB);
 //-----------------------------------------------------
 // Synchronous interface
 //-----------------------------------------------------
-uint	HMCReadSample(pHMCSample pSample);
+uint	HMCReadSample(HMCSample* pSample);
 
 //-----------------------------------------------------
 // Asynchronous interface
@@ -90,12 +90,12 @@ uint	HMCReadSample(pHMCSample pSample);
 uint	HMCAsyncStart();
 uint	HMCAsyncStop();
 
-uint	HMCAsyncRead(pHMCSample pSample);
-uint	HMCAsyncReadIfReady(pHMCSample pSample);
-uint	HMCAsyncReadWhenReady(pHMCSample pSample);
+uint	HMCAsyncRead(HMCSample* pSample);
+uint	HMCAsyncReadIfReady(HMCSample* pSample);
+uint	HMCAsyncReadWhenReady(HMCSample* pSample);
 
 //=====================================================
 #endif
 
 //*****************************************************
-#endif /* MAG_Use */
+#endif /* __MAG_Use__ */

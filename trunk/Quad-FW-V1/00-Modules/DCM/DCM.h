@@ -15,6 +15,8 @@ typedef struct
 	//--------------
 	float	Incl;
 	//--------------
+	float	Azimuth;
+	//--------------
 	Vector	GyroRate;
 	//--------------
 	}	DCMData;
@@ -22,6 +24,7 @@ typedef struct
 // DCMReset resets DCM to initial state and resets _DCMReady
 //-------------------------------------------------------------
 void		DCMReset();
+void		DCMSetAzimuth(Vector* pMag);
 //=============================================================
 // DCMPerformStep returns value of _DCMReady
 //-------------------------------------------------------------
@@ -37,7 +40,7 @@ void		DCMGetMatrix(	Vector*		XEarth,
 							Vector*		YEarth,
 							Vector*		ZEarth);
 //=====================================================
-Vector*	DCMToEarth(	Vector* pV, Vector* pRes);
-Vector*	DCMToBody(	Vector* pV, Vector* pRes);
+Vector*		DCMToEarth(	Vector* pV, Vector* pRes);
+Vector*		DCMToBody(	Vector* pV, Vector* pRes);
 //=============================================================
 #endif

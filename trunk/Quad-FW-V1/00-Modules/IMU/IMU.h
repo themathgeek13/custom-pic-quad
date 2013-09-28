@@ -1,6 +1,9 @@
 #include "System.h"
 #include "MPU6050\MPU6050.h"
 #include "DCM\DCM.h"
+#ifdef __MAG_Use__
+	#include "HMCMAG\HMCMAG.h"
+#endif
 
 //=====================================================
 #ifndef __IMU_H

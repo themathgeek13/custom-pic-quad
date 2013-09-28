@@ -1,7 +1,7 @@
 #include "DCM\DCMLocal.h"
 
 //==================================================================================
-pDCM	_DCMMultiply(DCM* pLeft, DCM* pRight, DCM* pResult)
+DCM*	_DCMMultiply(DCM* pLeft, DCM* pRight, DCM* pResult)
 	{
 	// Perform multiplication:
 	// First row...

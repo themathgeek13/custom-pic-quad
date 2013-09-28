@@ -22,7 +22,7 @@ int main(void)
 	if (MPUInit(3, 1))	// Initialize motion Sensor - 1 kHz/4 (250 Hz)
 		BLIDeadStop("EA", 2);
 	//--------------------------
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
 							// ODR  = 6 (max, 75 Hz),
 							// Gain = 2 (1.3 Gs)
@@ -50,14 +50,14 @@ int main(void)
 	uint			RC			= 0;
 	//--------------------------
 	MPUSample		AGSample;
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	HMCSample		MSample;
 	#endif
 	//--------------------------
 	if (MPUAsyncStart())
 		BLIDeadStop("A", 1);
 	//--------------------------
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	if (HMCAsyncStart())
 		BLIDeadStop("M", 1);
 	#endif
@@ -67,7 +67,7 @@ int main(void)
 		ulong	TS;		// Timestamp of the cycle
 		//-----------------------------------------------
 		ulong	MPUCount;	// Sequential number of MPU sample
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		ulong	MAGCount;	// Sequential number of MAG sample
 		#endif
 		//-----------------------------------------------
@@ -78,7 +78,7 @@ int main(void)
 		// Gyroscopes	(in Rad/sec)
 		//-----------------------------------------------
 		Vector	G;
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		//-----------------------------------------------
 		// Magnetometer (in mGs)
 		//-----------------------------------------------
@@ -91,7 +91,7 @@ int main(void)
 		{
 		TMRDelay(100);
 		//------------------------	
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		RC 	= HMCAsyncReadWhenReady(&MSample);
 		if (RC) BLIDeadStop("M", 1);
 		#endif
@@ -100,13 +100,13 @@ int main(void)
 		if (RC) BLIDeadStop("A", 1);
 		//---------------------------------------------	
 		UData.MPUCount	= AGSample.Count;
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		UData.MAGCount	= MSample.Count;
 		#endif
 		//------------------------
 		VectorCopy(&AGSample.A, &UData.A);
 		VectorCopy(&AGSample.G, &UData.G);
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		VectorCopy(&MSample.M,  &UData.M);
 		#endif
 		//------------------------
