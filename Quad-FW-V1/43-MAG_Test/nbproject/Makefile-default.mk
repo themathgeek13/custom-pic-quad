@@ -82,386 +82,386 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/261189241/BLI.o: ../00-Modules/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLI.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLI.c  -o ${OBJECTDIR}/_ext/261189241/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLI.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLI.c  -o ${OBJECTDIR}/_ext/261189241/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLI.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLI.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLIInit.o: ../00-Modules/BLI/BLIInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLIInit.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/261189241/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIInit.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/261189241/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIInit.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLIInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLILocal.o: ../00-Modules/BLI/BLILocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLILocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/261189241/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLILocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/261189241/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLILocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLILocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLIMorse.o: ../00-Modules/BLI/BLIMorse.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/261189241/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/261189241/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCM.o: ../00-Modules/DCM/DCM.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCM.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCM.c  -o ${OBJECTDIR}/_ext/261190888/DCM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCM.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCM.c  -o ${OBJECTDIR}/_ext/261190888/DCM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCM.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCM.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o: ../00-Modules/DCM/DCMBaseVectors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMBaseVectors.c  -o ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMBaseVectors.c  -o ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMConstructors.o: ../00-Modules/DCM/DCMConstructors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMConstructors.c  -o ${OBJECTDIR}/_ext/261190888/DCMConstructors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMConstructors.c  -o ${OBJECTDIR}/_ext/261190888/DCMConstructors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMLocal.o: ../00-Modules/DCM/DCMLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMLocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMLocal.c  -o ${OBJECTDIR}/_ext/261190888/DCMLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMLocal.c  -o ${OBJECTDIR}/_ext/261190888/DCMLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMMethods.o: ../00-Modules/DCM/DCMMethods.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMMethods.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMMethods.c  -o ${OBJECTDIR}/_ext/261190888/DCMMethods.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMMethods.c  -o ${OBJECTDIR}/_ext/261190888/DCMMethods.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o: ../00-Modules/HMCMAG/HMCMAG_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Async.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Async.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o: ../00-Modules/HMCMAG/HMCMAG_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Init.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Init.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o: ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o: ../00-Modules/HMCMAG/HMCMAG_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Local.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Local.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o: ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o: ../00-Modules/HMCMAG/HMCMAG_Sync.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Sync.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Sync.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Async.o: ../00-Modules/I2C/I2C_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Async.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Async.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Async.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Init.o: ../00-Modules/I2C/I2C_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Init.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Init.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_ISR.o: ../00-Modules/I2C/I2C_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_ISR.c  -o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_ISR.c  -o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Local.o: ../00-Modules/I2C/I2C_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Local.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Local.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Sync.o: ../00-Modules/I2C/I2C_Sync.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Sync.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Sync.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o: ../00-Modules/I2C/I2C_SyncRead.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncRead.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncRead.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o: ../00-Modules/I2C/I2C_SyncWrite.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncWrite.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncWrite.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492825802/Init.o: ../00-Modules/Init/Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492825802 
 	@${RM} ${OBJECTDIR}/_ext/492825802/Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492825802/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMR.o: ../00-Modules/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR.c  -o ${OBJECTDIR}/_ext/261206579/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR.c  -o ${OBJECTDIR}/_ext/261206579/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMRInit.o: ../00-Modules/TMR/TMRInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMRInit.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/261206579/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRInit.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/261206579/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRInit.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMRInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMRLocal.o: ../00-Modules/TMR/TMRLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/261206579/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/261206579/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMR_ISR.o: ../00-Modules/TMR/TMR_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_Local.o: ../00-Modules/UART/UART_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_Local.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_API.o: ../00-Modules/UART/UART_TX_API.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_API.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_API.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o: ../00-Modules/UART/UART_TX_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Init.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Init.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o: ../00-Modules/UART/UART_TX_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/main.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/_ext/261189241/BLI.o: ../00-Modules/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLI.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLI.c  -o ${OBJECTDIR}/_ext/261189241/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLI.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLI.c  -o ${OBJECTDIR}/_ext/261189241/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLI.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLI.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLIInit.o: ../00-Modules/BLI/BLIInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLIInit.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/261189241/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIInit.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/261189241/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIInit.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLIInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLILocal.o: ../00-Modules/BLI/BLILocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLILocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/261189241/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLILocal.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/261189241/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLILocal.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLILocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261189241/BLIMorse.o: ../00-Modules/BLI/BLIMorse.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261189241 
 	@${RM} ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/261189241/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/261189241/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261189241/BLIMorse.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCM.o: ../00-Modules/DCM/DCM.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCM.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCM.c  -o ${OBJECTDIR}/_ext/261190888/DCM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCM.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCM.c  -o ${OBJECTDIR}/_ext/261190888/DCM.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCM.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCM.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o: ../00-Modules/DCM/DCMBaseVectors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMBaseVectors.c  -o ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMBaseVectors.c  -o ${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMBaseVectors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMConstructors.o: ../00-Modules/DCM/DCMConstructors.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMConstructors.c  -o ${OBJECTDIR}/_ext/261190888/DCMConstructors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMConstructors.c  -o ${OBJECTDIR}/_ext/261190888/DCMConstructors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMConstructors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMLocal.o: ../00-Modules/DCM/DCMLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMLocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMLocal.c  -o ${OBJECTDIR}/_ext/261190888/DCMLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMLocal.c  -o ${OBJECTDIR}/_ext/261190888/DCMLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261190888/DCMMethods.o: ../00-Modules/DCM/DCMMethods.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261190888 
 	@${RM} ${OBJECTDIR}/_ext/261190888/DCMMethods.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMMethods.c  -o ${OBJECTDIR}/_ext/261190888/DCMMethods.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/DCM/DCMMethods.c  -o ${OBJECTDIR}/_ext/261190888/DCMMethods.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261190888/DCMMethods.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o: ../00-Modules/HMCMAG/HMCMAG_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Async.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Async.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o: ../00-Modules/HMCMAG/HMCMAG_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Init.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Init.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o: ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o: ../00-Modules/HMCMAG/HMCMAG_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Local.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Local.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o: ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Mgmt.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o: ../00-Modules/HMCMAG/HMCMAG_Sync.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1219465957 
 	@${RM} ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Sync.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/HMCMAG/HMCMAG_Sync.c  -o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Async.o: ../00-Modules/I2C/I2C_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Async.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Async.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Async.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Init.o: ../00-Modules/I2C/I2C_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Init.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Init.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_ISR.o: ../00-Modules/I2C/I2C_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_ISR.c  -o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_ISR.c  -o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Local.o: ../00-Modules/I2C/I2C_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Local.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Local.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_Sync.o: ../00-Modules/I2C/I2C_Sync.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Sync.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_Sync.c  -o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o: ../00-Modules/I2C/I2C_SyncRead.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncRead.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncRead.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o: ../00-Modules/I2C/I2C_SyncWrite.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261195156 
 	@${RM} ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncWrite.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/I2C/I2C_SyncWrite.c  -o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492825802/Init.o: ../00-Modules/Init/Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492825802 
 	@${RM} ${OBJECTDIR}/_ext/492825802/Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492825802/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMR.o: ../00-Modules/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR.c  -o ${OBJECTDIR}/_ext/261206579/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR.c  -o ${OBJECTDIR}/_ext/261206579/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMRInit.o: ../00-Modules/TMR/TMRInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMRInit.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/261206579/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRInit.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/261206579/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRInit.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMRInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMRLocal.o: ../00-Modules/TMR/TMRLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/261206579/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/261206579/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMRLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/261206579/TMR_ISR.o: ../00-Modules/TMR/TMR_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/261206579 
 	@${RM} ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_Local.o: ../00-Modules/UART/UART_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_Local.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_Local.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_Local.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_API.o: ../00-Modules/UART/UART_TX_API.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_API.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_API.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o: ../00-Modules/UART/UART_TX_Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Init.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Init.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o: ../00-Modules/UART/UART_TX_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/main.o.d 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
@@ -483,12 +483,12 @@ endif
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG   -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -Wl,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG   -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
 	
 else
 dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -D__PIC24H__ -DMAG_Use -fast-math -Wl,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -D__PIC24H__ -D__MAG_Use__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
 	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/43-MAG_Test.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf 
 	
 endif

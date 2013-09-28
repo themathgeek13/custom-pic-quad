@@ -12,6 +12,13 @@ void	DCMReset()
 	_DCMRM.Rxx = _DCMRM.Ryy = _DCMRM.Rzz	= 1.0;
 	_DCMRM.Rxy = _DCMRM.Rxz = _DCMRM.Ryx = _DCMRM.Ryz = _DCMRM.Rzx = _DCMRM.Rzy = 0.0;
 	//------------------------------------------------------------------
+	// Magnetic Azimuth initially set to 0.0 (assuming North)
+	// and initial magnetic vector nullified
+	//------------------------------------------------------------------
+	_DCM_BaseAzimuth	= 0.0;
+	VectorSet(0.0, 0.0, 0.0, &_DCM_BaseMAG);
+
+	//------------------------------------------------------------------
 	// Now we need to set indicator that DCM is not synchronized yet
 	_DCMReady		=   0;
 	// And we need to reset DCM Step Control Variables
@@ -29,6 +36,26 @@ void	DCMReset()
 	//==================================================================
 	VectorSet(0.0, 0.0, 0.0, &_DCMAccIterm);
 	//==================================================================
+	}
+//==================================================================================
+
+//==================================================================================
+void	DCMSetAzimuth(Vector* pMag)
+	{
+	//------------------------------------------------------------------
+	// Resets base Azimuth (initial orientation related to magnetic
+	// NORTH) based upon Magnetometer sample in the Body Frame
+	//------------------------------------------------------------------
+	// First, transform to Earth frame
+	//-----------------------------------------------
+	DCMToEarth(pMag, &_DCM_BaseMAG);
+	//-----------------------------------------------
+	// then calculate Base Azimuth
+	//-----------------------------------------------
+	if (0 != _DCM_BaseMAG.X || 0 != _DCM_BaseMAG.Y )
+		_DCM_BaseAzimuth = atan2f(-_DCM_BaseMAG.Y, _DCM_BaseMAG.X);
+	else
+		_DCM_BaseAzimuth = 0.0;
 	}
 //==================================================================================
 
@@ -86,7 +113,7 @@ uint	DCMPerformStep(	Vector*		pGyroRaw,
 	VectorNormalize(pAccRaw, &AccNorm);
 	// Extract Z-axis in the Earth frame as seen from the Body frame
 	// from the DCM
-	DCMZEarth(&_DCMRM, &ZEarth);
+	_DCMZEarth(&_DCMRM, &ZEarth);
 	//---------------------------------------------------------
 	// Cross-product of the axis Z in the Earth frame (as seen
 	// from the Body frame) of the DCM with the normalized
@@ -165,12 +192,13 @@ uint	DCMPerformStep(	Vector*		pGyroRaw,
 	//---------------------------------------------------------------------------
 	// Load Current orientation parameters into DCMData
 	//---------------------------------------------------------------------------
-	pIMUResult->Roll	= DCMRoll(&_DCMRM);
-	pIMUResult->Pitch	= DCMPitch(&_DCMRM);
-	pIMUResult->Yaw		= DCMYaw(&_DCMRM);
-	// There is a function DCMIncl(...) to retrieve Inclination,
-	// but it is so trivial that we will just "spell" it inline :)
-	pIMUResult->Incl	= _DCMRM.Rzz;
+	pIMUResult->Roll	= _DCMRoll(&_DCMRM);
+	pIMUResult->Pitch	= _DCMPitch(&_DCMRM);
+	pIMUResult->Yaw		= _DCMYaw(&_DCMRM);
+	//------------------------------------------------------------
+	pIMUResult->Incl	= _DCMIncl(&_DCMRM);
+	//---------------------------------------------------------------------------
+	pIMUResult->Azimuth	= _DCM_BaseAzimuth + pIMUResult->Yaw;
 	//---------------------------------------------------------------------------
 	VectorCopy(pGyroRaw, &pIMUResult->GyroRate);
 	//----------------------------------------------------------------------------

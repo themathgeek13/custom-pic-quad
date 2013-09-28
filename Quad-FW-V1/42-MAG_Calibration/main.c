@@ -19,7 +19,7 @@ int main(void)
 	TMRDelay(1000);		// Wait for 1 sec so that the shake from turning on
 						// power switch dissipates...
 	//--------------------------
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
 						// ODR  = 6 (max, 75 Hz),
 						// Gain = 2 (1.3 Gs)
@@ -45,7 +45,7 @@ int main(void)
 	// BaudRate = 1000	=> 2,500,000 bps
 	//*******************************************************************
 
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	uint			RC			= 0;
 	//--------------------------
 	HMCSample		MSample;

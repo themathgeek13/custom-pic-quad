@@ -175,16 +175,17 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	if (QSD.DeltaYaw >    CM)	QSD.DeltaYaw 	=  CM;
 	if (QSD.DeltaYaw <   -CM)	QSD.DeltaYaw 	= -CM;
 	
-//	//************************************************************
-//	// Implement Motor Balance adjustment for Roll-Pitch
-//	//************************************************************
-//	// NOTE: this adjustment is not subject to control limit
-//	QSD.Voltage = ADCGetBatteryVoltage();
-//	float Power = QSD.Throttle * QSD.Voltage;
-//	// Using calculated constants....
-//	// These constants are dependent on motors, props, and
-//	// C.G. placement - should be adjusted if anything changes...
-//	QSD.DeltaRoll 	-= 0.0030 * Power;
+	//************************************************************
+	// Implement Motor Balance adjustment for Roll-Pitch
+	//************************************************************
+	// NOTE: this adjustment is not subject to control limit
+	QSD.Voltage = ADCGetBatteryVoltage();
+	//------------------------------------------------------------
+	float Power = QSD.Throttle * QSD.Voltage;
+	// Using calculated constants....
+	// These constants are dependent on motors, props, and
+	// C.G. placement - should be adjusted if anything changes...
+	QSD.DeltaRoll 	+= 0.0030 * Power;
 //	QSD.DeltaPitch	+= 0.0000 * Power;
 //	QSD.DeltaYaw	-= 0.0050 * Power;
 	

@@ -1,11 +1,8 @@
-#ifdef MAG_Use
-//*************************************************************
-
-#include "System.h"
-#include "I2C\I2C.h"
-#include "TMR\TMR.h"
 #include "HMCMAG\HMCMAG.h"
-#include "Vector\Vector.h"
+//*************************************************************
+#ifdef __MAG_Use__
+//*************************************************************
+#include "TMR\TMR.h"
 
 //=====================================================
 #ifndef __HMCMAG_Local_H
@@ -89,6 +86,6 @@ uint	_HMCReadRawData(_pHMCRawData pRawData);
 #endif
 
 //***************************************************************
-#endif /* MAG_Use */
+#endif /* __MAG_Use__ */
 
 

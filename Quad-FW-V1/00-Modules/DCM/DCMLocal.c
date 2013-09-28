@@ -9,7 +9,10 @@ DCM		_DCMRM =
 		0.0,	1.0,	0.0,	// "identity" matrix as the Body frame
 		0.0,	0.0,	1.0		// assumed to coincide with the Earth frame
 		};
-
+//-------------------------------------------------------------
+float	_DCM_BaseAzimuth	= 0.0;	// Initial magnetic Azimuth
+Vector	_DCM_BaseMAG		= 		// Initial Magnetic vector (Earth Frame)
+		{ 0.0, 0.0, 0.0};
 //-------------------------------------------------------------
 // DCM Algorith Step Control Variables
 //-------------------------------------------------------------

@@ -11,6 +11,9 @@
 #include "UART\UART.h"
 #include "DCM\DCM.h"
 #include "IMU\IMU.h"
+#ifdef __MAG_Use__
+	#include "HMCMAG\HMCMAG.h"
+#endif
 
 #include "QCM\QCM.h"
 #include "QCM\QCMStepData.h"		// Needed for Telemetry data
@@ -28,8 +31,15 @@ struct
 	float	Roll;			
 	float	Pitch;			
 	float	Yaw;			
-	//-----------------		
-	float	Inclination;			
+	//-----------------
+	float	Inclination;
+	//-----------------
+	float	Azimuth;
+	//-----------------------------------------------
+	// Orientation Data change rate (gyro rate
+	// brought to Earth Frame)
+	//-----------------------------------------------
+	Vector	Omega;
 	//-----------------------------------------------
 	// Orientation Data change rate (true derivative)
 	//-----------------------------------------------
@@ -76,7 +86,6 @@ int main(void)
 	//*******************************************************************
 	// Initialization of HW components/modules
 	//===================================================================
-	//{
 	Init();
 	TMRInit(2);			// Initialize Timer interface with Priority=2
 	BLIInit();			// Initialize Signal interface
@@ -107,7 +116,6 @@ int main(void)
 	TMRDelay(2000); 	// Wait for extra 2 sec - to let ESC arm...
 						// (finish the song :) )
 	BLISignalOFF();
-	//}
 	//===================================================================
 
 	//*******************************************************************
@@ -130,10 +138,24 @@ int main(void)
 	BLIAsyncMorse(	"R", 1);
 	RCArm();	
 	//==================================================================
+	// Initialize sensors...
+	//------------------------------------------------------------------
+	BLIAsyncMorse(	"I", 1);
+	//==================================================================
+	#ifdef __MAG_Use__
+		//--------------------------------------------------------------
+		// Initialize Magnetometer
+		//--------------------------------------------------------------
+		if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
+								// ODR  = 6 (max, 75 Hz),
+								// Gain = 2 (1.3 Gs)
+								// DLPF = 0 (no averaging)
+			BLIDeadStop("EM", 2);
+	#endif
+	//==================================================================
 	// Initialize motion sensor - rotation rate baseline established at
 	// this time - QUAD should be motionless!!!
 	//------------------------------------------------------------------
-	BLIAsyncMorse(	"I", 1);
 	if (MPUInit(0, 3))	// Initialize motion Sensor
 						// 1 kHz/(0+1) = 1000 Hz (1ms)
 						// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
@@ -199,11 +221,13 @@ Re_Start:
 		if (RCRead(&RCNative))
 			{
 			//------------------------------------------------------------
-			// Normalize Roll, Pitch, and Yaw control
-			// settings from RC Receiver 		
+			// Normalize Roll and Pitch control input from RC Receiver to
+			// +/- 0.35 rad (~20 degrees) and Yaw control input to
+			// +/- 3.00 rad (~172 degrees)
 			//------------------------------------------------------------
-			RCSetLNRate(&RCNative);	// Apply linear rate
-//			RCSetSQRate(&RCNative);	// Apply Quadratic rate
+			RCNative.Roll 	= 0.35 * RCNative.Roll;
+			RCNative.Pitch	= 0.35 * RCNative.Pitch;
+			RCNative.Yaw	= 3.00 * RCNative.Yaw;
 			}
 		//============================================================
 		// Smooth RC data 
@@ -319,6 +343,9 @@ Re_Start:
 		TM.Pitch		= IMU.Pitch;
 		TM.Yaw			= IMU.Yaw;
 		TM.Inclination	= IMU.Incl;
+		TM.Azimuth		= IMU.Azimuth;
+		//----------------------
+		DCMToEarth(&IMU.GyroRate, &TM.Omega);
 		//----------------------
 		TM.RollDer		= QSD.RollDer;
 		TM.PitchDer		= QSD.PitchDer;

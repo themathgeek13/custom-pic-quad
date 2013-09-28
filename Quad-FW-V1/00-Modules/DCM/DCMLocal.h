@@ -1,4 +1,7 @@
 #include "DCM\DCM.h"
+#ifdef __MAG_Use__
+	#include "HMCMAG\HMCMAG.h"
+#endif
 
 //=====================================================
 #ifndef __DCMLocal_H
@@ -21,9 +24,12 @@ typedef struct
 	float	Rxx, Rxy, Rxz;	// Xe/b - X axis of Earth frame seen from the Body frame
 	float	Ryx, Ryy, Ryz;	// Ye/b - Y axis of Earth frame seen from the Body frame
 	float	Rzx, Rzy, Rzz;	// Ze/b - Z axis of Earth frame seen from the Body frame
-	} DCM, *pDCM;
+	} DCM;
 //-------------------------------------------------------------
 extern	DCM			_DCMRM;				// Rotation matrix
+//-------------------------------------------------------------
+extern	float		_DCM_BaseAzimuth;	// Initial magnetic Azimuth
+extern	Vector		_DCM_BaseMAG;		// Initial Magnetic vector (Earth Frame)
 //=============================================================
 // DCM Algorith Step Control Variables
 //-------------------------------------------------------------
@@ -42,11 +48,11 @@ extern 	Vector		_DCMAccIterm;
 //------------------------------------------------------------------
 
 //=============================================================
-pDCM	_DCMCopy(DCM* pBaseDCM, DCM* pNewDCM);
-pDCM	_DCMSmallRotation(Vector* pDR, DCM* pNewDCM);
+DCM*	_DCMCopy(DCM* pBaseDCM, DCM* pNewDCM);
+DCM*	_DCMSmallRotation(Vector* pDR, DCM* pNewDCM);
 //=============================================================
-pDCM	_DCMMultiply(DCM* pLeft, DCM* pRight, DCM* pResult);
-pDCM	_DCMNormalize(DCM* pBase, DCM* pNorm);
+DCM*	_DCMMultiply(DCM* pLeft, DCM* pRight, DCM* pResult);
+DCM*	_DCMNormalize(DCM* pBase, DCM* pNorm);
 //=============================================================
 
 
@@ -56,7 +62,7 @@ pDCM	_DCMNormalize(DCM* pBase, DCM* pNorm);
 //==========================================================================
 //	  -Pi <= Roll  <=  +Pi
 //-------------------------------------------------------------
-float	inline static DCMRoll(DCM* pBase)	
+float	inline static _DCMRoll(DCM* pBase)
 	{
 	if (0 == pBase->Rzy && 0 == pBase->Rzz )
 		return 0.0;	// Special case
@@ -66,7 +72,7 @@ float	inline static DCMRoll(DCM* pBase)
 //-------------------------------------------------------------
 //	-Pi/2 <= Pitch <= +Pi/2
 //-------------------------------------------------------------
-float	inline static DCMPitch(DCM* pBase)	
+float	inline static _DCMPitch(DCM* pBase)
 	{
 	if (pBase->Rzx >=  1.0)	return -1.570796;
 	if (pBase->Rzx <= -1.0)	return +1.570796;
@@ -76,7 +82,7 @@ float	inline static DCMPitch(DCM* pBase)
 //-------------------------------------------------------------
 //	  -Pi <= Yaw   <=  +Pi
 //-------------------------------------------------------------
-float	inline static DCMYaw(DCM* pBase)	
+float	inline static _DCMYaw(DCM* pBase)
 	{
 	if (0 == pBase->Ryx && 0 == pBase->Rxx )
 		return 0.0;	// Special case
@@ -88,7 +94,7 @@ float	inline static DCMYaw(DCM* pBase)
 // For "level" position Incl ~= 1.0 (Cos(0) = 1.0)
 // For "upside-down" position Incl ~= -1.0 (Cos(Pi) = -1.0)
 //-------------------------------------------------------------
-float	inline static DCMIncl(DCM* pBase)	//   -1.0 <= Incl  <= +1.0
+float	inline static _DCMIncl(DCM* pBase)	//   -1.0 <= Incl  <= +1.0
 	{ return pBase->Rzz; }
 //==========================================================================
 
@@ -96,13 +102,13 @@ float	inline static DCMIncl(DCM* pBase)	//   -1.0 <= Incl  <= +1.0
 // Body axis in the Earth frame of reference are
 // the columns of the Rotation Matrix
 //==========================================================================
-pVector inline static DCMXBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMXBody(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxx, pBaseDCM->Ryx, pBaseDCM->Rzx, pRes); }
 //------------------------------------------------
-pVector inline static DCMYBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMYBody(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxy, pBaseDCM->Ryy, pBaseDCM->Rzy, pRes); }
 //------------------------------------------------
-pVector inline static DCMZBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMZBody(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxz, pBaseDCM->Ryz, pBaseDCM->Rzz, pRes); }
 //==========================================================================
 
@@ -110,13 +116,13 @@ pVector inline static DCMZBody(DCM* pBaseDCM, Vector* pRes)
 // Earth axis in the Body frame of reference are
 // the rows of the Rotation Matrix
 //==========================================================================
-pVector inline static DCMXEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMXEarth(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxx, pBaseDCM->Rxy, pBaseDCM->Rxz, pRes); }
 //------------------------------------------------
-pVector inline static DCMYEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMYEarth(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Ryx, pBaseDCM->Ryy, pBaseDCM->Ryz, pRes); }
 //------------------------------------------------
-pVector inline static DCMZEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMZEarth(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rzx, pBaseDCM->Rzy, pBaseDCM->Rzz, pRes); }
 //==========================================================================
 

@@ -6,7 +6,7 @@
 #include "ADC\ADC.h"
 #include "I2C\I2C.h"
 #include "MPU6050\MPU6050.h"
-#ifdef MAG_Use
+#ifdef __MAG_Use__
 #include "HMCMAG\HMCMAG.h"
 #endif
 #include "UART\UART.h"
@@ -30,7 +30,7 @@ int main(void)
 	if (MPUInit(3, 1))	// Initialize motion Sensor - 1 kHz/3 (333 Hz)
 		BLIDeadStop("EA", 2);
 	//--------------------------
-	#ifdef MAG_Use
+	#ifdef __MAG_Use__
 	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
 						// ODR  = 6 (max, 75 Hz),
 						// Gain = 2 (1.3 Gs)
@@ -56,7 +56,7 @@ int main(void)
 		float Roll;
 		float Pitch;
 		float Yaw;
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		float Azimuth;
 		#endif
 		} 		UARTData;
@@ -78,7 +78,7 @@ int main(void)
 		UARTData.Roll 		= IMUResult.Roll;
 		UARTData.Pitch		= IMUResult.Pitch;
 		UARTData.Yaw		= IMUResult.Yaw;
-		#ifdef MAG_Use
+		#ifdef __MAG_Use__
 		UARTData.Azimuth	= IMUResult.Azimuth;
 		#endif
 		//----------------------------

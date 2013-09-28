@@ -1,7 +1,8 @@
-#ifdef MAG_Use
+#include "HMCMAG\HMCMAG_Local.h"
+//*******************************************************
+#ifdef __MAG_Use__
 //*******************************************************
 
-#include "HMCMAG\HMCMAG_Local.h"
 //-------------------------------------------------------
 // HMC Asynchronous Read operation is closely linked with
 // the operation of the I2C module, thus we need to bring
@@ -161,7 +162,7 @@ uint	_HMCAsyncRead(HMCSample* pSample)
 //===============================================================
 
 //***************************************************************
-#endif /* MAG_Use */
+#endif /* __MAG_Use__ */
 
 
 

@@ -13,16 +13,16 @@ typedef struct
 	float	X;
 	float	Y;
 	float	Z;
-	} Vector, *pVector;
+	} Vector;
 //==============================================================
-pVector	inline static VectorSet(float X, float Y, float Z, Vector* pRes)
+inline static Vector*	VectorSet(float X, float Y, float Z, Vector* pRes)
 	{
 	pRes->X	= X;	pRes->Y	= Y;	pRes->Z	= Z;
 	//-------------------------------------------
 	return pRes;
 	}
 //==============================================================
-pVector	inline static VectorCopy(Vector* pV1, Vector* pRes)
+inline static Vector*	VectorCopy(Vector* pV1, Vector* pRes)
 	{
 	pRes->X	= pV1->X;
 	pRes->Y	= pV1->Y;
@@ -31,12 +31,12 @@ pVector	inline static VectorCopy(Vector* pV1, Vector* pRes)
 	return pRes;
 	}
 //==============================================================
-float	inline static VectorDotProduct(Vector* pV1, Vector* pV2)
+inline static float		VectorDotProduct(Vector* pV1, Vector* pV2)
 	{
 	return pV1->X*pV2->X + pV1->Y*pV2->Y + pV1->Z*pV2->Z;
 	}
 //==============================================================
-pVector	inline static VectorCrossProduct(Vector* pV1, Vector* pV2, Vector* pRes)
+inline static Vector*	VectorCrossProduct(Vector* pV1, Vector* pV2, Vector* pRes)
 	{
 	pRes->X	= pV1->Y*pV2->Z - pV1->Z*pV2->Y;
 	pRes->Y	= pV1->Z*pV2->X - pV1->X*pV2->Z;
@@ -45,7 +45,7 @@ pVector	inline static VectorCrossProduct(Vector* pV1, Vector* pV2, Vector* pRes)
 	return pRes;
 	}
 //==============================================================
-pVector	inline static VectorAdd(Vector* pV1, Vector* pV2, Vector* pRes)
+inline static Vector*	VectorAdd(Vector* pV1, Vector* pV2, Vector* pRes)
 	{
 	pRes->X	= pV1->X + pV2->X;
 	pRes->Y	= pV1->Y + pV2->Y;
@@ -54,7 +54,7 @@ pVector	inline static VectorAdd(Vector* pV1, Vector* pV2, Vector* pRes)
 	return pRes;
 	}
 //==============================================================
-pVector	inline static VectorSub(Vector* pV1, Vector* pV2, Vector* pRes)
+inline static Vector*	VectorSub(Vector* pV1, Vector* pV2, Vector* pRes)
 	{
 	pRes->X	= pV1->X - pV2->X;
 	pRes->Y	= pV1->Y - pV2->Y;
@@ -63,7 +63,7 @@ pVector	inline static VectorSub(Vector* pV1, Vector* pV2, Vector* pRes)
 	return pRes;
 	}
 //==============================================================
-pVector	inline static VectorMultiply(Vector* pV1, float Scalar, Vector* pRes)
+inline static Vector*	VectorMultiply(Vector* pV1, float Scalar, Vector* pRes)
 	{
 	pRes->X	= pV1->X * Scalar;
 	pRes->Y	= pV1->Y * Scalar;
@@ -72,12 +72,12 @@ pVector	inline static VectorMultiply(Vector* pV1, float Scalar, Vector* pRes)
 	return pRes;
 	}
 //==============================================================
-float	inline static VectorSize(Vector* pV1)
+inline static float		VectorSize(Vector* pV1)
 	{
 	return sqrtf(pV1->X*pV1->X + pV1->Y*pV1->Y + pV1->Z*pV1->Z);
 	}
 //==============================================================
-pVector	inline static VectorNormalize(Vector* pV1, Vector* pRes)
+inline static Vector*	VectorNormalize(Vector* pV1, Vector* pRes)
 	{
 	float 	Size = VectorSize(pV1);
 	if (Size < 1.0e-14)
