@@ -54,6 +54,10 @@ ulong	IMUInit()
 	#ifdef __MAG_Use__
 	if (HMC_OK == HMCAsyncReadWhenReady(&HMCReading))
 		DCMSetAzimuth(&HMCReading.M);
+	//----------------------------------------------
+	// Stop magnetometer as it is not used in flight
+	//----------------------------------------------
+	HMCAsyncStop();
 	#endif
 	//*******************************************************
 	_IMUInit = 1;
