@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+<<<<<<< .mine
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/DCM/DCMLocal.h</file>
         <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/90-QCM/main.c</file>
         <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMPerformStep.c</file>
         <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMLocal.h</file>
         <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMConst.c</file>
         <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/IMU/IMUInit.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/DCM/DCMBaseVectors.c</file>
+=======
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/90-QCM/main.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMPerformStep.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMLocal.h</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/QCM/QCMConst.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/IMU/IMUInit.c</file>
+>>>>>>> .r43
     </open-files>
 </project-private>
