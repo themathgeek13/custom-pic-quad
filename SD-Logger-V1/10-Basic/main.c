@@ -19,8 +19,6 @@ int main(void)
 	TMRInit(2);		// Initialize Timer interface with Priority=2
 	BLIInit();		// Initialize Signal interface
 	//*******************************************************************
-//	_T1IE 	= 0; 		// Temporarily disable Timer1 interrupt
-	//*******************************************************************
 	ulong	i;
 
 	DBG_1_ON();
