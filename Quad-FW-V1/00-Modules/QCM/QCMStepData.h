@@ -14,6 +14,8 @@ typedef struct
 	float	dT;			// Integration/Differentiation time
 						// step (in seconds)
 	//-------------------------------------------------
+	// Saved to facilitate calculation of State Derivative
+	//-------------------------------------------------
 	float	LastRoll;
 	float	LastPitch;
 	float	LastYaw;
