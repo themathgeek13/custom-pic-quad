@@ -32,7 +32,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) _T3Interrupt(void)
 	// Reset control automaton
 	//-----------------------------------------------------
 	_RCState		= 0;	
-	_CN17IE			= 1;	// Enable CN interrupt on Ch1 (CN17/RC7)
+	_CN15IE			= 1;	// Enable CN interrupt on Ch5 (CN15/RB11)
 							// Hopefully CN interrupt will happen
 							// before the Timer3 interrupt :)	
 	//-----------------------------------------------------
@@ -66,24 +66,24 @@ void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void)
 	//----------------------------------------------------------------
 	switch (_RCState)
 		{
-		case	0:	// We are expecting the rising edge on Ch1
-			if (1 == _RC7)
+		case	0:	// We are expecting the rising edge on Ch5
+			if (1 == _RB11)
 				{
-				// Yest, this is the rising edge on Ch1
+				// Yest, this is the rising edge on Ch5
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
 				_RCState++;									// Advance state
 				//----------------------
-				_CN20IE	= 1;		// Prepare for Ch2 (CN20/RC8)
+				_CN16IE	= 1;		// Prepare for Ch4 (CN16/RB10)
 				}
 			else
 				// Unexpected pin configuration!
 				goto ResetAutomaton;
 			break;
 
-		case	1:	// We are expecting the rising edge on Ch2
-			if (1 == _RC8)
+		case	1:	// We are expecting the rising edge on Ch4
+			if (1 == _RB10)
 				{
-				// Yest, this is the rising edge on Ch2
+				// Yest, this is the rising edge on Ch4
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
 				_RCState++;									// Advance state
 				//----------------------
@@ -101,29 +101,29 @@ void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void)
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
 				_RCState++;									// Advance state
 				//----------------------
-				_CN16IE	= 1;	// Prepare for Ch4 (CN16/RB10)
+				_CN20IE	= 1;	// Prepare for Ch2 (CN20/RC8)
 				}
 			else
 				// Unexpected pin configuration!
 				goto ResetAutomaton;
 			break;
 
-		case	3:	// We are expecting the rising edge on Ch4
-			if (1 == _RB10)
+		case	3:	// We are expecting the rising edge on Ch2
+			if (1 == _RC8)
 				{
-				// Yes, this is the rising edge on Ch4
+				// Yes, this is the rising edge on Ch2
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
 				_RCState++;									// Advance state
 				//----------------------
-				_CN15IE	= 1;	// Prepare for Ch5 (CN15/RB11)
+				_CN17IE	= 1;	// Prepare for Ch1 (CN17/RC7)
 				}
 			else
 				// Unexpected pin configuration!
 				goto ResetAutomaton;
 			break;
 
-		case	4:	// We are expecting the rising edge on Ch5
-			if (1 == _RB11)
+		case	4:	// We are expecting the rising edge on Ch1
+			if (1 == _RC7)
 				{
 				// Yes, this is the rising edge on Ch5
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
@@ -132,7 +132,7 @@ void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void)
 				// Now we will be waiting for the falling edge on the
 				// same channel Ch5
 				//----------------------
-				_CN15IE	= 1;	// Prepare for Ch5 (CN15/RB11)
+				_CN17IE	= 1;	// Prepare for Ch1 (CN17/RC7)
 				}
 			else
 				// Unexpected pin configuration!
@@ -140,7 +140,7 @@ void __attribute__((interrupt, no_auto_psv)) _CNInterrupt(void)
 			break;
 
 		case	5:	// We are expecting the falling edge on Ch5
-			if (0 == _RB11)
+			if (0 == _RC7)
 				{
 				// Yes, this is the falling edge on Ch5
 				_RCTimes.RCTimingArray[_RCState] 	= TS;	// Capture time
@@ -177,11 +177,11 @@ VerifyTiming:
 	// Calculate pulse width on each of the channels
 	//-----------------------------------------------
 	{
-	Temp.Ch1 = 	_RCTimes.Ch2Start - _RCTimes.Ch1Start; 
-	Temp.Ch2 = 	_RCTimes.Ch3Start - _RCTimes.Ch2Start; 
-	Temp.Ch3 = 	_RCTimes.Ch4Start - _RCTimes.Ch3Start; 
-	Temp.Ch4 = 	_RCTimes.Ch5Start - _RCTimes.Ch4Start; 
-	Temp.Ch5 = 	_RCTimes.Ch5End   - _RCTimes.Ch5Start; 
+	Temp.Ch1 = 	_RCTimes.Ch1End	  - _RCTimes.Ch1Start; 
+	Temp.Ch2 = 	_RCTimes.Ch1Start - _RCTimes.Ch2Start - 350;
+	Temp.Ch3 = 	_RCTimes.Ch2Start - _RCTimes.Ch3Start - 350;
+	Temp.Ch4 = 	_RCTimes.Ch3Start - _RCTimes.Ch4Start - 350;
+	Temp.Ch5 = 	_RCTimes.Ch4Start - _RCTimes.Ch5Start - 350;
 	//-----------------------------------------------
 	// Verify pulse width on each of the channels
 	//-----------------------------------------------
@@ -229,16 +229,17 @@ VerifyTiming:
 	//-----------------------------------------------
 	// Expose RAW pulse width on each of the channels
 	//-----------------------------------------------
-	_RCRawSample.Ch1	= Temp.Ch1 - _RCTimeCountMidPoint;	// Roll
-	_RCRawSample.Ch2	= Temp.Ch2 - _RCTimeCountMidPoint;	// Pitch
-	_RCRawSample.Ch4	= Temp.Ch4 - _RCTimeCountMidPoint;	// Yaw
+	_RCRawSample.Ch5	= Temp.Ch5 - _RCTimeCountMin;		// Throttle
 	//-----------------------------------------------
-	_RCRawSample.Ch3	= Temp.Ch3 - _RCTimeCountMin;		// Throttle
+	_RCRawSample.Ch4	= Temp.Ch4 - _RCTimeCountMidPoint;	// Roll
+	_RCRawSample.Ch3	= Temp.Ch3 - _RCTimeCountMidPoint;	// Pitch
+	_RCRawSample.Ch2	= Temp.Ch2 - _RCTimeCountMidPoint;	// Yaw
 	//-----------------------------------------------
-	if (Temp.Ch5 < _RCTimeCountMidPoint)					// Control
-		_RCRawSample.Ch5	= 0;
+	//-----------------------------------------------
+	if (Temp.Ch1 < _RCTimeCountMidPoint)					// Control
+		_RCRawSample.Ch1	= 0;
 	else
-		_RCRawSample.Ch5	= 1;
+		_RCRawSample.Ch1	= 1;
 	//-----------------------------------------------
 	// Set flags
 	//-----------------------------------------------
@@ -268,7 +269,7 @@ ResetAutomaton:
 	// Reset control automaton
 	//-----------------------------------------------------
 	_RCState	= 0;	
-	_CN17IE		= 1;	// Enable CN interrupt on Ch1 (CN17/RC7)	
+	_CN15IE		= 1;	// Enable CN interrupt on Ch5 (CN15/RB11)
 	//-----------------------------------------------------
 	return;
 	}

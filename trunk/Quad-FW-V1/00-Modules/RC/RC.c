@@ -90,20 +90,20 @@ uint	RCRead(RCData*	RCSample)
 		// Sample is "stale" - probably we lost connection to transmit-
 		// ter - let's slowly "degrade" control values
 		//------------------------------------------------------------
-		_RCRawSample.Ch1 = (29 * _RCRawSample.Ch1) >> 5;	// Roll
-		_RCRawSample.Ch2 = (29 * _RCRawSample.Ch2) >> 5;	// Pitch
-		_RCRawSample.Ch4 = (29 * _RCRawSample.Ch4) >> 5;	// Yaw
+		_RCRawSample.Ch4 = (7 * _RCRawSample.Ch4) >> 3;	// Roll
+		_RCRawSample.Ch3 = (7 * _RCRawSample.Ch3) >> 3;	// Pitch
+		_RCRawSample.Ch2 = (7 * _RCRawSample.Ch2) >> 3;	// Yaw
 		//----------------------------------------------
 		// To facilitate "safe landing" Throttle signal
 		// deteriorates much slower...
-		_RCRawSample.Ch3 = (126 * _RCRawSample.Ch3) >> 7;	// Throttle
+		_RCRawSample.Ch5 = (127 * _RCRawSample.Ch5) >> 7;	// Throttle
 		//----------------------------------------------
-		if (_RCRawSample.Ch3 > 200)
-			_RCRawSample.Ch5 = 1;	// To avoid immediate cut-off binary
+		if (_RCRawSample.Ch5 > 500)
+			_RCRawSample.Ch1 = 1;	// To avoid immediate cut-off binary
 									// control signal maintained at 1
 									// while Throttle "degrades"
 		else
-			_RCRawSample.Ch5 = 0;	// Finally force "cut-off"...
+			_RCRawSample.Ch1 = 0;	// Finally force "cut-off"...
 		//------------------------------------------------------------
 		// Reset "stale" flag
 		//------------------------------------------------------------
@@ -126,24 +126,20 @@ uint	RCRead(RCData*	RCSample)
 	//================================================================
 
 	//================================================================
-	RCSample->Throttle	=  ((float)RCRawSample.Ch3) * _RCPlusRange;
+	RCSample->Throttle	=  ((float)RCRawSample.Ch5) * _RCPlusRange;
 	if (fabsf(RCSample->Throttle) < 0.01) RCSample->Throttle = 0.0;
 	//-------------------
-	RCSample->Roll		=  ((float)RCRawSample.Ch1) * _RCPlusMinusRange;
+	RCSample->Roll		= ((float)RCRawSample.Ch4) * _RCPlusMinusRange;
 	//-------------------
-			// When the stick goes forward receiver reading is increasing;
-			// However to comply with our IMU axis orientation moving stick
-			// forward (nose - down) should result in NEGATIVE pitch, so we
-			// need to reverse the Pitch value:
-	RCSample->Pitch		= -((float)RCRawSample.Ch2) * _RCPlusMinusRange;
+	RCSample->Pitch		= ((float)RCRawSample.Ch3) * _RCPlusMinusRange;
 	//-------------------
-	RCSample->Yaw		=  ((float)RCRawSample.Ch4) * _RCPlusMinusRange;
+	RCSample->Yaw		= ((float)RCRawSample.Ch2) * _RCPlusMinusRange;
 	//----------------------------------------------------------------
 	// Filtering out potential sporadic drops in Control signal
 	//----------------------------------------------------------------
 	RCSample->Control	= 1; 	// Default "safe" setting
 	//----------------------
-	if (RCRawSample.Ch5 > 0)
+	if (RCRawSample.Ch1 > 0)
 		// Reset counter of "low" samples
 		_RCControlCount = _RCControlMin;
 	else
