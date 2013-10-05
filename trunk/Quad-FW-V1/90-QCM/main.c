@@ -36,11 +36,16 @@ struct
 	//-----------------
 	float	Azimuth;
 	//-----------------------------------------------
+	// Orientation Data change rate (gyro rate
+	// brought to Earth Frame)
+	//-----------------------------------------------
+	Vector	Omega;
+	//-----------------------------------------------
 	// Orientation Data change rate (true derivative)
 	//-----------------------------------------------
-	float	OmegaRoll;
-	float	OmegaPitch;
-	float	OmegaYaw;
+	float	RollDer;			
+	float	PitchDer;			
+	float	YawDer;			
 	//-----------------------------------------------
 	// Control Data
 	//-----------------------------------------------
@@ -340,9 +345,11 @@ Re_Start:
 		TM.Inclination	= IMU.Incl;
 		TM.Azimuth		= IMU.Azimuth;
 		//----------------------
-		TM.OmegaRoll	= QSD.RollDer;
-		TM.OmegaPitch	= QSD.PitchDer;
-		TM.OmegaYaw		= QSD.YawDer;
+		DCMToEarth(&IMU.GyroRate, &TM.Omega);
+		//----------------------
+		TM.RollDer		= QSD.RollDer;
+		TM.PitchDer		= QSD.PitchDer;
+		TM.YawDer		= QSD.YawDer;
 		//----------------------
 		TM.RC_Throttle	= RC.Throttle;
 		TM.RC_Roll		= RC.Roll;
