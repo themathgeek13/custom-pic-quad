@@ -82,66 +82,77 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/_ext/2016097133/BLI.o: ../00-Shared/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLI.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLI.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLI.c  -o ${OBJECTDIR}/_ext/2016097133/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLI.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLI.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLIInit.o: ../00-Shared/BLI/BLIInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIInit.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIInit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/2016097133/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLIInit.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLIInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLILocal.o: ../00-Shared/BLI/BLILocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLILocal.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLILocal.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/2016097133/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLILocal.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLILocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLIMorse.o: ../00-Shared/BLI/BLIMorse.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIMorse.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/2016097133/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016095523/DBG.o: ../00-Shared/DBG/DBG.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016095523 
 	@${RM} ${OBJECTDIR}/_ext/2016095523/DBG.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016095523/DBG.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/DBG/DBG.c  -o ${OBJECTDIR}/_ext/2016095523/DBG.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016095523/DBG.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016095523/DBG.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1925740636/Init.o: ../00-Shared/Init/Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1925740636 
 	@${RM} ${OBJECTDIR}/_ext/1925740636/Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1925740636/Init.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/Init/Init.c  -o ${OBJECTDIR}/_ext/1925740636/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1925740636/Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1925740636/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMR.o: ../00-Shared/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMR.c  -o ${OBJECTDIR}/_ext/2016079795/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMRInit.o: ../00-Shared/TMR/TMRInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRInit.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRInit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/2016079795/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMRInit.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMRInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMRLocal.o: ../00-Shared/TMR/TMRLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRLocal.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/2016079795/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o: ../00-Shared/TMR/TMR_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
@@ -149,66 +160,77 @@ else
 ${OBJECTDIR}/_ext/2016097133/BLI.o: ../00-Shared/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLI.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLI.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLI.c  -o ${OBJECTDIR}/_ext/2016097133/BLI.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLI.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLI.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLIInit.o: ../00-Shared/BLI/BLIInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIInit.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIInit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLIInit.c  -o ${OBJECTDIR}/_ext/2016097133/BLIInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLIInit.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLIInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLILocal.o: ../00-Shared/BLI/BLILocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLILocal.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLILocal.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLILocal.c  -o ${OBJECTDIR}/_ext/2016097133/BLILocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLILocal.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLILocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016097133/BLIMorse.o: ../00-Shared/BLI/BLIMorse.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016097133 
 	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016097133/BLIMorse.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/BLI/BLIMorse.c  -o ${OBJECTDIR}/_ext/2016097133/BLIMorse.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016097133/BLIMorse.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016095523/DBG.o: ../00-Shared/DBG/DBG.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016095523 
 	@${RM} ${OBJECTDIR}/_ext/2016095523/DBG.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016095523/DBG.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/DBG/DBG.c  -o ${OBJECTDIR}/_ext/2016095523/DBG.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016095523/DBG.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016095523/DBG.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/1925740636/Init.o: ../00-Shared/Init/Init.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1925740636 
 	@${RM} ${OBJECTDIR}/_ext/1925740636/Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1925740636/Init.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/Init/Init.c  -o ${OBJECTDIR}/_ext/1925740636/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1925740636/Init.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1925740636/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMR.o: ../00-Shared/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMR.c  -o ${OBJECTDIR}/_ext/2016079795/TMR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMR.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMRInit.o: ../00-Shared/TMR/TMRInit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRInit.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRInit.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMRInit.c  -o ${OBJECTDIR}/_ext/2016079795/TMRInit.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMRInit.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMRInit.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMRLocal.o: ../00-Shared/TMR/TMRLocal.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMRLocal.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMRLocal.c  -o ${OBJECTDIR}/_ext/2016079795/TMRLocal.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMRLocal.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o: ../00-Shared/TMR/TMR_ISR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/2016079795 
 	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Shared/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/2016079795/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/2016079795/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR} 
 	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Shared" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
