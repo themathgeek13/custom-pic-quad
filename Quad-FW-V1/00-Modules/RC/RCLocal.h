@@ -9,23 +9,23 @@
 //-----------------------------------------------------------
 // RCTimingData Structure is used internally to represent
 // start/end time(s) of receiver pulses for each channel
-// NOTE: Typically there is about 50 nsec interval between
+// NOTE: Typically there is about 70 usec interval between
 // 		 the falling edge of one channel and rising edge
-//		 of subsequent one; this time is too small to affect
-//		 the value of the channel signal, so we assume that
-//		 the falling edge on a channel coincides in time
-//		 with the rising one of subsequent one.
+//		 of subsequent one; we will adjust for this interval
+//		 in the code because (a) it is regular, and (b) it
+//		 does not make sense to generate another interrupt
+//		 to measure a known value.
 //-----------------------------------------------------------
 typedef union 
 	{
 	struct
 		{
-		long	Ch1Start;		
-		long	Ch2Start;		
-		long	Ch3Start;	
-		long	Ch4Start;	
-		long	Ch5Start;	
-		long	Ch5End;	
+		long	Ch5Start;
+		long	Ch4Start;
+		long	Ch3Start;
+		long	Ch2Start;
+		long	Ch1Start;
+		long	Ch1End;
 		// Ch6 is not routed on the board so it is being ignored...
 		};
 	long RCTimingArray[6];
@@ -38,11 +38,11 @@ typedef union
 //-----------------------------------------------------------
 typedef struct 
 	{
-	long	Ch1;		
-	long	Ch2;		
-	long	Ch3;	
-	long	Ch4;	
-	long	Ch5;	
+	long	Ch1;		// Control
+	long	Ch2;		// Yaw
+	long	Ch3;		// Pitch
+	long	Ch4;		// Roll
+	long	Ch5;		// Throttle
 	} RCRawData;
 
 //************************************************************

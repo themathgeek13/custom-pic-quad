@@ -20,12 +20,17 @@
 //		 RCInit().
 //------------------------------------------------------
 // Receiver channels connected to the following pins:
+// NOTE: Channels are being activated in reverse order,
+//		 so first we will receive pulse on Ch5 (Throttle)
+//		 and last - on Ch1 - Control.
+//		 The board was originally designed and marked for 72MHz
+//		 receivers, which have different order of channels.
 //
-// Roll:		Ch1 (CN17/RC7),  -1.0 <= X <= 1.0, Right(+)
-// Pitch:		Ch2 (CN20/RC8),  -1.0 <= X <= 1.0, Forward(+) 
-// Throttle:	Ch3 (CN19/RC9),   0.0 <= X <= 1.0
-// Yaw:			Ch4 (CN16/RB10), -1.0 <= X <= 1.0, Clockwise(+)  
-// Control:		Ch5 (CN15/RB11),  X = {0, 1}, 1 -> Switch UP
+// Control:		Ch1 (CN17/RC7),  X = {0, 1}, 1 -> Switch UP (Gear)
+// Yaw:			Ch2 (CN20/RC8),  -1.0 <= X <= 1.0, Clockwise(+)
+// Pitch:		Ch3 (CN19/RC9),  -1.0 <= X <= 1.0, Forward(+)
+// Roll:		Ch4 (CN16/RB10), -1.0 <= X <= 1.0, Right(+)
+// Throttle:	Ch5 (CN15/RB11),  0.0 <= X <= 1.0
 //
 //******************************************************
 
@@ -35,13 +40,13 @@
 typedef struct 
 	{
 	//----------------------
-	float		Throttle;	// Ch3 (CN19/RC9)
+	float		Throttle;	// Ch5 (CN15/RB11)
 	//----------------------
-	float		Roll;		// Ch1 (CN17/RC7)
-	float		Pitch;		// Ch2 (CN20/RC8)
-	float		Yaw;		// Ch4 (CN16/RB10)
+	float		Roll;		// Ch4 (CN16/RB10)
+	float		Pitch;		// Ch3 (CN19/RC9)
+	float		Yaw;		// Ch2 (CN20/RC8)
 	//----------------------
-	uint		Control;	// Ch5 (CN15/RB11) 
+	uint		Control;	// Ch1 (CN17/RC7)
 	//----------------------
 	} RCData;
 
