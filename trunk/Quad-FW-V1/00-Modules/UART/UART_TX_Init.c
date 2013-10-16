@@ -1,22 +1,8 @@
-#include "UART\UART_Local.h"
+#include "UART\UART_TX_Local.h"
 
 //************************************************************
 void	UARTInitTX(uint IL, uint BaudRate)
 	{
-	//--------------------------------------------------------
-	// PIC24HJ128GP204 UART1 (TX) pin map for this application
-	//--------------------------------------------------------
-	//	U1Tx 	= RP17/RC1
-	//	U1CTS 	= RP16/RC0
-	//--------------------------------------------------------
-	// NOTE: RC0 and RC1 are multiplexed with AN6 and AN7 of ADC;
-	// These pins should be put into digital mode prior to
-	// be used by UART (please check ADCInit for possible con-
-	// flicts!)
-	_PCFG6	= 1;	// Release pin AN6 (RC0) for Digital I/O
-	_PCFG7	= 1;	// Release pin AN7 (RC1) for Digital I/O
-	//=========================================================
-	
 		
 	//---------------------------------------------------------
 	if (IL < 1) IL = 1;
@@ -47,7 +33,7 @@ void	UARTInitTX(uint IL, uint BaudRate)
 	// is operating at 40 MHz (Fcy = 40,000,000)
 	//=========================================================
 	//---------------------------------------------------------
-	U1MODE			= 0;		// Disable UART1 for configuration
+	UMODE			= 0;		// Disable UARTx for configuration
 	// Default configuration sets UART into the:
 	// "8-N-1" mode, IrDA disabled, UxCTS and UxRTS/BCLK pins 
 	// controlled by port latches, Wake-up disabled, loopback
@@ -58,34 +44,16 @@ void	UARTInitTX(uint IL, uint BaudRate)
 	// later enabling UART1 module we need to enable module in
 	// PMDx
 	//---------------------------------------------------------
-	_U1MD	= 0;		// Enable UART1 module
+	UPMD	= 0;		// Enable UARTx module
 	//---------------------------------------------------------
 	
 	//---------------------------------------------------------
-	// Please NOTE that in the 16-bit series of MCUs UART pins
-	// are not pre-defined, but instead are controlled through
+	// Map MCU pins used by UART module through
 	// REMAPPABLE PIN SELECT feature.
-	//---------------------------------------------------------
-	// Writing to RP control registers is protected by IOLOCK
-	// bit in the OSCCON register. Please note that as part of
-	// oscillator switch in the "Init" routine this bit was
-	// cleared, which enables writing to these register at any
-	// time.
 	//---------------------------------------------------------
 	// NOTE: Pins need to be mapped PRIOR to setting UxMODE.UEN
 	//---------------------------------------------------------
-	// Configure Transmitter's pins...
-	//---------------------------------------------------------
-	_RP17R 	= 3; 	// (OUT) pin RP17/RC1 mapped to U1Tx
-	//----------------------
-	_U1CTSR = 16; 	// (IN)  U1CTS mapped to pin RP16/RC0
-	//---------------------------------------------------------
-	// Configure Receiver's pins...
-	//---------------------------------------------------------	
-	// As we use UART1 ONLY to send data, to "save" MCU pins 
-	// we may map U1RX to Vss and U1RTS leave unmapped.
-	//---------------------------------------------------------
-	_U1RXR	= 0b11111;	// U1RX tied to Vss
+	 _UARTInitTXPinMap();
 	
 	
 	
@@ -137,7 +105,7 @@ void	UARTInitTX(uint IL, uint BaudRate)
 			1 = 2 Stop bits
 			0 = 1 Stop bit	
 	*/	
-	_UEN	= 0b10;	// UxTX, UxRX, UxCTS and UxRTS pins are
+	UEN	= 0b10;		// UxTX, UxRX, UxCTS and UxRTS pins are
 					// enabled and used - the HW flow control mode	
 	//---------------------------------------------------------
 
@@ -200,12 +168,12 @@ void	UARTInitTX(uint IL, uint BaudRate)
 		0 = Receive buffer is empty
 	*/
 	//---------------------------------------------------------
-	U1STA				= 0;	// Set all to defaults 
+	USTA				= 0;	// Set all to defaults 
 	// UTXISEL = 10	Interrupt when a character is transferred to the 
 	//				Transmit Shift register and as result, the transmit 
 	//				buffer becomes empty
-	_UTXISEL1	= 0b1;	// Generate interrupt when 
-	_UTXISEL0	= 0b0;	// buffer is EMPTY
+	UTXISEL1	= 0b1;	// Generate interrupt when 
+	UTXISEL0	= 0b0;	// buffer is EMPTY
 
 	//---------------------------------------------------------
 	/*	UXBRG: UARTX Baud Rate Register
@@ -243,49 +211,49 @@ void	UARTInitTX(uint IL, uint BaudRate)
 		//		21	113,636
 		//		...
 		//---------------------------------------------------------------
-		case 1000:	U1BRG =   0;	break;		// 2,500,000
-		case  500:	U1BRG =   1;	break;		// 1,250,000
-		case  350:	U1BRG =   2;	break;		//   833,333
-		case  250:	U1BRG =   3;	break;		//   625,000
-		case  200:	U1BRG =   4;	break;		//   500,000
-		case  100:	U1BRG =   9;	break;		//   250,000 
+		case 1000:	UBRG =   0;	break;		// 2,500,000
+		case  500:	UBRG =   1;	break;		// 1,250,000
+		case  350:	UBRG =   2;	break;		//   833,333
+		case  250:	UBRG =   3;	break;		//   625,000
+		case  200:	UBRG =   4;	break;		//   500,000
+		case  100:	UBRG =   9;	break;		//   250,000 
 		//---------------------------------------------------------------
-		case   48:	U1BRG =  21;	break;		//   115,200 (113636, -1.36%)
-		case   24:	U1BRG =  42;	break;		//    57,600 ( 58140, 0.94%)
-		case   16:	U1BRG =  64;	break;		//    38,400 ( 38462, 0.16%)
-		case    8:	U1BRG = 129;	break;		//    19,200 ( 19231, 0.16%)
-		case    6:	U1BRG = 173;	break;		//    14,400 ( 14368, -0.22%)
-		case    4:	U1BRG = 259;	break;		//     9,600 (  9615, 0.16%)
-		case    3:	U1BRG = 346;	break;		//     7,200 (  7205, 0.07%)
-		case    2:	U1BRG = 520;	break;		//     4,800 (  4798, -0.04%)
+		case   48:	UBRG =  21;	break;		//   115,200 (113636, -1.36%)
+		case   24:	UBRG =  42;	break;		//    57,600 ( 58140, 0.94%)
+		case   16:	UBRG =  64;	break;		//    38,400 ( 38462, 0.16%)
+		case    8:	UBRG = 129;	break;		//    19,200 ( 19231, 0.16%)
+		case    6:	UBRG = 173;	break;		//    14,400 ( 14368, -0.22%)
+		case    4:	UBRG = 259;	break;		//     9,600 (  9615, 0.16%)
+		case    3:	UBRG = 346;	break;		//     7,200 (  7205, 0.07%)
+		case    2:	UBRG = 520;	break;		//     4,800 (  4798, -0.04%)
 		//-------------------------------
 		case    1:
-		default:	U1BRG = 1041;	break;		//   2,400 (  2399, -0.04%)
+		default:	UBRG = 1041;	break;	//   2,400 (  2399, -0.04%)
 		}
 	//---------------------------------------------------------
 
 
 	//---------------------------------------------------------
-	_U1TXIE		= 0;			// Disable UART TX interrupt	
-	_U1RXIE		= 0;			// Disable UART RX interrupt	
+	UTXIE		= 0;			// Disable UART TX interrupt	
+	URXIE		= 0;			// Disable UART RX interrupt	
 	//--------------------------------						
-	_U1TXIF		= 0; 			// Clear UART TX interrupt flag
-	_U1RXIF		= 0; 			// Clear UART RX interrupt flag
+	UTXIF		= 0; 			// Clear UART TX interrupt flag
+	URXIF		= 0; 			// Clear UART RX interrupt flag
 	//--------------------------------						
-	_U1TXIP		= _UART_IL_TX; 	// Set UART TX interrupt priority
-	_U1RXIP		= 0; 			// Set UART RX interrupt priority
+	UTXIP		= _UART_IL_TX; 	// Set UART TX interrupt priority
+	URXIP		= 0; 			// Set UART RX interrupt priority
 								// Setting U1RXIP = 0 effectively
 								// disables RX interrupt.
 	//---------------------------------------------------------
 	// After configuration complete enable UART module	
 	//---------------------------------------------------------
-	_UARTEN	= 1;	
+	UARTEN		= 1;
 	//---------------------------------------------------------
-	// Now we may enable UART1 Transmit function after safety
+	// Now we may enable UARTx Transmit function after safety
 	// delay in one cycle.	
 	//---------------------------------------------------------
 	asm ("nop"); 		
-	_UTXEN		= 1;
+	UTXEN		= 1;
 	}
 
 //************************************************************

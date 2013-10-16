@@ -143,7 +143,7 @@ void	ADCInit(uint IL)
 	//=========================================================
 	while ( 0 == _ADCValue );		// Wait for first sample...
 	//---------------------------------------------------------
-	if (_ADCValue > 2208)					// V > 8.55v
+	if (_ADCValue > 2272)					// V > 8.80v
 		_ADCCellCnt = 3;					// 3-cell
 	else	if (_ADCValue > 1472)			// V > 5.70v
 				_ADCCellCnt = 2;			// 2-cell...
@@ -152,7 +152,8 @@ void	ADCInit(uint IL)
 	//--------------------------------------
 	_ADCBatMinV		= _ADCMinV  * _ADCCellCnt;
 	_ADCBatRange	= _ADCRange * _ADCCellCnt;
-
+	//--------------------------------------
+	_ADCBatNomV		= (_ADCBatMinV + _ADCBatRange) * _ADCVRate;
 	//=========================================================
 	return;
 	}

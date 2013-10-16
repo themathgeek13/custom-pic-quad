@@ -1,5 +1,6 @@
 #include "System.h"
 #include "Vector\Vector.h"
+#include "Matrix3D\Matrix3D.h"
 
 //=====================================================
 #ifndef __DCM_H
@@ -32,13 +33,11 @@ uint		DCMPerformStep(	Vector*		pGyroRaw,
 							Vector*		pAccRaw,
 							DCMData*	pIMUResult);
 //=============================================================
-// DCMGetMatrix returns current Rotation Matrix by rows.
+// DCMGetMatrix returns current Rotation Matrix.
 // NOTE: rows of the DCM represent Earth frame axis in the
 //		 Body frame od reference
 //-------------------------------------------------------------
-void		DCMGetMatrix(	Vector*		XEarth,
-							Vector*		YEarth,
-							Vector*		ZEarth);
+Matrix*		DCMGetMatrix(	Matrix*		M);
 //=====================================================
 Vector*		DCMToEarth(	Vector* pV, Vector* pRes);
 Vector*		DCMToBody(	Vector* pV, Vector* pRes);

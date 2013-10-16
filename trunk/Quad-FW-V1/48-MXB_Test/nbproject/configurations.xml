@@ -15,14 +15,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="00-Modules" displayName="00-Modules" projectFiles="true">
-        <logicalFolder name="ADC" displayName="ADC" projectFiles="true">
-          <itemPath>../00-Modules/ADC/ADC.c</itemPath>
-          <itemPath>../00-Modules/ADC/ADC.h</itemPath>
-          <itemPath>../00-Modules/ADC/ADCInit.c</itemPath>
-          <itemPath>../00-Modules/ADC/ADCISR.c</itemPath>
-          <itemPath>../00-Modules/ADC/ADCLocal.c</itemPath>
-          <itemPath>../00-Modules/ADC/ADCLocal.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="BLI" displayName="BLI" projectFiles="true">
           <itemPath>../00-Modules/BLI/BLI.c</itemPath>
           <itemPath>../00-Modules/BLI/BLI.h</itemPath>
@@ -31,71 +23,9 @@
           <itemPath>../00-Modules/BLI/BLILocal.h</itemPath>
           <itemPath>../00-Modules/BLI/BLIMorse.c</itemPath>
         </logicalFolder>
-        <logicalFolder name="DBG" displayName="DBG" projectFiles="true">
-          <itemPath>../00-Modules/DBG/DBG.c</itemPath>
-          <itemPath>../00-Modules/DBG/DBG.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="DCM" displayName="DCM" projectFiles="true">
-          <itemPath>../00-Modules/DCM/DCM.c</itemPath>
-          <itemPath>../00-Modules/DCM/DCM.h</itemPath>
-          <itemPath>../00-Modules/DCM/DCMBaseVectors.c</itemPath>
-          <itemPath>../00-Modules/DCM/DCMConstructors.c</itemPath>
-          <itemPath>../00-Modules/DCM/DCMLocal.c</itemPath>
-          <itemPath>../00-Modules/DCM/DCMLocal.h</itemPath>
-          <itemPath>../00-Modules/DCM/DCMMethods.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="HMCMAG" displayName="HMCMAG" projectFiles="true">
-          <itemPath>../00-Modules/HMCMAG/HMCMAG.h</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Async.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Init.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.h</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Mgmt.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_Sync.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
-          <itemPath>../00-Modules/I2C/I2C.h</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_Async.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_Init.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_ISR.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_Local.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_Local.h</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_Sync.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_SyncRead.c</itemPath>
-          <itemPath>../00-Modules/I2C/I2C_SyncWrite.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="IMU" displayName="IMU" projectFiles="true">
-          <itemPath>../00-Modules/IMU/IMU.c</itemPath>
-          <itemPath>../00-Modules/IMU/IMU.h</itemPath>
-          <itemPath>../00-Modules/IMU/IMUInit.c</itemPath>
-          <itemPath>../00-Modules/IMU/IMULocal.h</itemPath>
-        </logicalFolder>
         <logicalFolder name="Init" displayName="Init" projectFiles="true">
           <itemPath>../00-Modules/Init/Init.c</itemPath>
           <itemPath>../00-Modules/Init/Init.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f1" displayName="Matrix3D" projectFiles="true">
-          <itemPath>../00-Modules/Matrix3D/Matrix3D.h</itemPath>
-          <itemPath>../00-Modules/Matrix3D/Matrix3D.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="MCM" displayName="MCM" projectFiles="true">
-          <itemPath>../00-Modules/MCM/MCM.c</itemPath>
-          <itemPath>../00-Modules/MCM/MCM.h</itemPath>
-          <itemPath>../00-Modules/MCM/MCMInit.c</itemPath>
-          <itemPath>../00-Modules/MCM/MCMLocal.c</itemPath>
-          <itemPath>../00-Modules/MCM/MCMLocal.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="MPU6050" displayName="MPU6050" projectFiles="true">
-          <itemPath>../00-Modules/MPU6050/MPU6050.h</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Async.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Init.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_ISR_INT1.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Local.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Local.h</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Mgmt.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Reset.c</itemPath>
-          <itemPath>../00-Modules/MPU6050/MPU6050_Sync.c</itemPath>
         </logicalFolder>
         <logicalFolder name="MXB" displayName="MXB" projectFiles="true">
           <itemPath>../00-Modules/MXB/MXB.c</itemPath>
@@ -105,23 +35,6 @@
           <itemPath>../00-Modules/MXB/MXB.h</itemPath>
           <itemPath>../00-Modules/MXB/MXBLocal.h</itemPath>
           <itemPath>../00-Modules/MXB/MXBProfile.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="QCM" displayName="QCM" projectFiles="true">
-          <itemPath>../00-Modules/QCM/QCM.h</itemPath>
-          <itemPath>../00-Modules/QCM/QCMBatteryMgmt.c</itemPath>
-          <itemPath>../00-Modules/QCM/QCMConst.c</itemPath>
-          <itemPath>../00-Modules/QCM/QCMLocal.h</itemPath>
-          <itemPath>../00-Modules/QCM/QCMNormalize.c</itemPath>
-          <itemPath>../00-Modules/QCM/QCMPerformStep.c</itemPath>
-          <itemPath>../00-Modules/QCM/QCMStepData.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="RC" displayName="RC" projectFiles="true">
-          <itemPath>../00-Modules/RC/RC.c</itemPath>
-          <itemPath>../00-Modules/RC/RC.h</itemPath>
-          <itemPath>../00-Modules/RC/RCInit.c</itemPath>
-          <itemPath>../00-Modules/RC/RCLocal.c</itemPath>
-          <itemPath>../00-Modules/RC/RCLocal.h</itemPath>
-          <itemPath>../00-Modules/RC/RC_ISR.c</itemPath>
         </logicalFolder>
         <logicalFolder name="TMR" displayName="TMR" projectFiles="true">
           <itemPath>../00-Modules/TMR/TMR.c</itemPath>
@@ -139,9 +52,6 @@
           <itemPath>../00-Modules/UART/UART_TX_Local.c</itemPath>
           <itemPath>../00-Modules/UART/UART_TX_Local.h</itemPath>
           <itemPath>../00-Modules/UART/UART_TX.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="Vector" displayName="Vector" projectFiles="true">
-          <itemPath>../00-Modules/Vector/Vector.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>

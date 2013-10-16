@@ -8,20 +8,46 @@
 #include "ADC\ADC.h"
 #include "I2C\I2C.h"
 #include "MPU6050\MPU6050.h"
-#include "UART\UART.h"
+#include "UART\UART_TX.h"
 #include "DCM\DCM.h"
 #include "IMU\IMU.h"
+#include "QCM\QCM.h"
+
+#include "QCM\QCMStepData.h"		// Needed for Telemetry data
+
+//---------------------------------
+// Header for optional HW components
+//---------------------------------
 #ifdef __MAG_Use__
 	#include "HMCMAG\HMCMAG.h"
 #endif
-
-#include "QCM\QCM.h"
-#include "QCM\QCMStepData.h"		// Needed for Telemetry data
+#ifdef __MXB_Use__
+	#include "MXB\MXB.h"
+#endif
+//---------------------------------
 
 //***************************************************
 // Telemetry data exchange format
 //***************************************************
-//{
+// Uncomment the following define if you would like
+// to report PID controller results
+//---------------------------------------------------
+//#define _PID_
+//---------------------------------------------------
+// Uncomment the following define if you would like
+// to report details of PID components of Motor Control
+// Requires that _PID_ is defined
+//---------------------------------------------------
+//#define _PID_Details
+//---------------------------------------------------
+// Configuration verification
+//---------------------------------------------------
+#ifdef _PID_Details
+	#ifndef _PID_
+		#error _PID_Details requires _PID_
+	#endif
+#endif
+//***************************************************
 struct
 	{
 	ulong	TS;				// Timestamp (ticks)
@@ -53,23 +79,39 @@ struct
 	float	RC_Roll;
 	float	RC_Pitch;
 	float	RC_Yaw;
+
+	#ifdef __MXB_Use__
+	//-----------------------------------------------
+	// Altitude and vertical Speed
+	//-----------------------------------------------
+	MXBData	MXB;
+	#endif
+
+	#ifdef _PID_
 	//-----------------------------------------------
 	// QCM Control Data
 	//-----------------------------------------------
-	float	DRProp;
-	float	DRDiff;
-	float	DRInt;
+	#ifdef _PID_Details
+		float	DRProp;
+		float	DRDiff;
+		float	DRInt;
+	#endif
 	float	DRTot;
 	//-------------
-	float	DPProp;
-	float	DPDiff;
-	float	DPInt;
+	#ifdef _PID_Details
+		float	DPProp;
+		float	DPDiff;
+		float	DPInt;
+	#endif
 	float	DPTot;
 	//-------------
-	float	DYProp;
-	float	DYDiff;
-	float	DYInt;
+	#ifdef _PID_Details
+		float	DYProp;
+		float	DYDiff;
+		float	DYInt;
+	#endif
 	float	DYTot;
+	#endif
 	//-----------------------------------------------
 	// Motor Control Data
 	//-----------------------------------------------
@@ -78,7 +120,6 @@ struct
 	float	Voltage;		// Battery Voltage	
 	//----------------------
 	} TM;		// Telemetry data structure
-//}
 //=====================================================
 
 int main(void)
@@ -132,15 +173,17 @@ int main(void)
 	
 	MCMData		MC;				// Motor control Variables
 
+	float		BatNomV		= ADCGetBatteryVoltage();
+
 	//==================================================================
 	// Wait for the Receiver ARMing: Throttle should go up and then down
 	//------------------------------------------------------------------
-	BLIAsyncMorse(	"R", 1);
+	BLIAsyncMorse(	"O", 1);	// doh - doh - doh 
 	RCArm();	
 	//==================================================================
 	// Initialize sensors...
 	//------------------------------------------------------------------
-	BLIAsyncMorse(	"I", 1);
+	BLIAsyncMorse(	"I", 1);	// dit - dit
 	//==================================================================
 	#ifdef __MAG_Use__
 		//--------------------------------------------------------------
@@ -153,6 +196,14 @@ int main(void)
 			BLIDeadStop("EM", 2);
 	#endif
 	//==================================================================
+	#ifdef __MXB_Use__
+		//--------------------------------------------------------------
+		// Initialize MaxBotix range finder
+		//--------------------------------------------------------------
+		if (0 == MXBInit(3, &TM.MXB))
+			BLIDeadStop("ES", 2);
+	#endif
+	//==================================================================
 	// Initialize motion sensor - rotation rate baseline established at
 	// this time - QUAD should be motionless!!!
 	//------------------------------------------------------------------
@@ -160,11 +211,13 @@ int main(void)
 						// 1 kHz/(0+1) = 1000 Hz (1ms)
 						// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
 		BLIDeadStop("EA", 2);
+	//------------------------------------------------------------------
+	BLIAsyncStop();
 	//==================================================================
 
 Re_Start:
 	//==================================================================
-	BLIAsyncMorse("O", 1);			// dit-dit-dit
+	BLIAsyncMorse("O", 1);			// doh - doh - doh 
 	RCReadWhenReady(&RCNative);		// Get reading from receiver
 	while 	(
 				0 == RCNative.Control 
@@ -175,7 +228,7 @@ Re_Start:
 		RCReadWhenReady(&RCNative);	// Get next reading from receiver
 		}
 	//==================================================================
-	BLIAsyncMorse("S", 1);			// dah-dah-dah
+	BLIAsyncMorse("T", 1);			// doh
 	MPUAsyncStop();
 	if (MPUCalibrate() != MPU_OK)	
 		// Gyro Calibration filed
@@ -184,11 +237,11 @@ Re_Start:
 	//==================================================================
 	// Start IMU and wait until orientation estimate stabilizes
 	//------------------------------------------------------------------
-	BLIAsyncMorse(	"I", 1);
+	BLIAsyncMorse(	"E", 1);		// dit
 	IMUInit();
-	//==================================================================
+	//------------------------------------------------------------------
 	QCMReset();			// Initialize (reset) QCM variables
-	//==================================================================
+	//------------------------------------------------------------------
 	BLIAsyncStop();
 	//==================================================================
 
@@ -217,8 +270,8 @@ Re_Start:
 		// (we will get out of this call even if connection to the
 		// receiver is lost!)
 		//============================================================
-		//{
-		if (RCRead(&RCNative))
+		// <editor-fold defaultstate="collapsed" desc="Process Receiver feed">
+		if ( RCRead(&RCNative) )
 			{
 			//------------------------------------------------------------
 			// Normalize Roll and Pitch control input from RC Receiver to
@@ -234,16 +287,21 @@ Re_Start:
 		//------------------------------------------------------------
 		// Roll, Pitch, and Yaw are smoothed with the IIR(32)
 		//------------------------------------------------------------
-		RC.Roll		= (RC.Roll		* 31.0	+ RCNative.Roll		) * 0.03125;	// 1/32 = 0.03125
-		RC.Pitch	= (RC.Pitch		* 31.0 	+ RCNative.Pitch	) * 0.03125;
-		RC.Yaw		= (RC.Yaw		* 31.0	+ RCNative.Yaw		) * 0.03125;	
+		RC.Roll		= (RC.Roll	* 31.0	+ RCNative.Roll	) * 0.03125;	// 1/32 = 0.03125
+		RC.Pitch	= (RC.Pitch	* 31.0 	+ RCNative.Pitch) * 0.03125;
+		RC.Yaw		= (RC.Yaw	* 31.0	+ RCNative.Yaw	) * 0.03125;	
 		//------------------------------------------------------------
-		// Throttle is smoothed with the IIR(4) 
+		// Throttle is smoothed with the IIR(4) and adjusted to
+		// account for actual battery voltage. This is done to
+		// improve "hovering" when throttle stick is not moving.
 		//------------------------------------------------------------
-		RC.Throttle	= (RC.Throttle	* 3		+ RCNative.Throttle	) * 0.25000;	// 1/4 = 0.25
+		// Adjust Native (from RC) throttle to a value corresponding
+		float BatAdjTh	= RCNative.Throttle	* BatNomV / ADCGetBatteryVoltage();
+		//-----------------------------------------
+		RC.Throttle	= (RC.Throttle * 3	+ BatAdjTh) * 0.25000;	// 1/4 = 0.25
 		//-----------------------------------------
 		RC.Control	= RCNative.Control;
-		//}
+		// </editor-fold>
 		//============================================================
 
 
@@ -314,7 +372,7 @@ Re_Start:
 		// dangerously tilted (> 70 degrees) while
 		// RC Throttle is low - to protect props 
 		//----------------------------------------
-		if (IMU.Incl <= 0.342 && RC.Throttle <= 0.35)
+		if (IMU.Incl <= 0.342 && RC.Throttle <= 0.40)
 			{
 			// Override motor control
 			MC.F = MC.B = MC.L = MC.R = 0;
@@ -330,10 +388,10 @@ Re_Start:
 		//===========================================================
 		// Load and post telemetry data (non-blocking call)
 		//-----------------------------------------------------------
-		//{
-		StepTS =  TMRGetTS();
+		// <editor-fold defaultstate="collapsed" desc="Populating Telemetry">
+		StepTS =  TMRGetTS(); 
 		//-----------------------------------------
-		if (0 == StartTS)
+		if ( 0 == StartTS )
 			// Time stamp of cycle start!
 			StartTS =  StepTS;
 		//-----------------------------------------
@@ -356,26 +414,37 @@ Re_Start:
 		TM.RC_Pitch		= RC.Pitch;
 		TM.RC_Yaw		= RC.Yaw;
 		//----------------------
+		#ifdef __MXB_Use__
+		MXBRead(&TM.MXB);
+		#endif
+		//----------------------
+		#ifdef _PID_
+		#ifdef _PID_Details
 		TM.DRProp		= QSD.DeltaRollProp;
 		TM.DRDiff		= QSD.DeltaRollDiff;
 		TM.DRInt		= QSD.DeltaRollInt;
+		#endif
 		TM.DRTot		= QSD.DeltaRoll;
 		//-------------
+		#ifdef _PID_Details
 		TM.DPProp		= QSD.DeltaPitchProp;
 		TM.DPDiff		= QSD.DeltaPitchDiff;
 		TM.DPInt		= QSD.DeltaPitchInt;
+		#endif
 		TM.DPTot		= QSD.DeltaPitch;
 		//-------------
+		#ifdef _PID_Details
 		TM.DYProp		= QSD.DeltaYawProp;
 		TM.DYDiff		= QSD.DeltaYawDiff;
 		TM.DYInt		= QSD.DeltaYawInt;
+		#endif
 		TM.DYTot		= QSD.DeltaYaw;
+		#endif
 		//----------------------
 		TM.Throttle		= QSD.Throttle;				// Real Throttle
 		//----------------------
 		TM.Voltage 		= QSD.Voltage;
-
-		//}
+		// </editor-fold>
 		//===========================================================
 		UARTPostIfReady( (unsigned char *) &TM, sizeof(TM)	);
 		//===========================================================

@@ -37,6 +37,11 @@ float inline	ADCGetBatteryVoltage()
 	return ((float)_ADCValue) * _ADCVRate;
 	}
 //************************************************************
+float inline	ADCGetBatteryNomVoltage()
+	{
+	return _ADCBatNomV;
+	}
+//************************************************************
 
 
 

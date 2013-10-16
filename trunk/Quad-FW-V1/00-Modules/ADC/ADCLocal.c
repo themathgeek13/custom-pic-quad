@@ -12,9 +12,14 @@ uint  volatile	_ADCSCnt		= 0;	// Sample count
 //==================================================================
 //	Run Variables (set in ADCGetCellCount())
 //------------------------------------------------------------------
+// These three values are represented in ADC counts:
 uint 			_ADCCellCnt		= 0;	// Set in ADCInit()
 uint 			_ADCBatMinV		= 0;	// Set in ADCInit()
 uint 			_ADCBatRange	= 0;	// Set in ADCInit()
+//------------------------------------------------------------------
+// The following value represented in Volts:
+float			_ADCBatNomV		= 0.0;	// Set in ADCInit()
+
 
 //------------------------------------------------------------------
 //	Constants
