@@ -1,17 +1,25 @@
 #include "DCM\DCMLocal.h"
 
 //=============================================================
-// DCMGetMatrix returns current Rotation Matrix by rows.
+// DCMGetMatrix returns current Rotation Matrix.
 // NOTE: rows of the DCM represent Earth frame axis in the
 //		 Body frame od reference
 //-------------------------------------------------------------
-void		DCMGetMatrix(	Vector*		XEarth,
-							Vector*		YEarth,
-							Vector*		ZEarth)
+Matrix*		DCMGetMatrix(Matrix* M)
 	{
-	_DCMXEarth(&_DCMRM, XEarth);
-	_DCMYEarth(&_DCMRM, YEarth);
-	_DCMZEarth(&_DCMRM, ZEarth);
+	M->M_1_1 = _DCMRM.Rxx;
+	M->M_1_2 = _DCMRM.Rxy;
+	M->M_1_3 = _DCMRM.Rxz;
+	//---------------------------
+	M->M_2_1 = _DCMRM.Ryx;
+	M->M_2_2 = _DCMRM.Ryy;
+	M->M_2_3 = _DCMRM.Ryz;
+	//---------------------------
+	M->M_3_1 = _DCMRM.Rzx;
+	M->M_3_2 = _DCMRM.Rzy;
+	M->M_3_3 = _DCMRM.Rzz;
+	//---------------------------
+	return M;
 	}
 //=============================================================
 
@@ -30,11 +38,7 @@ Vector*		DCMToEarth(Vector* pV, Vector* pRes)
 	//	Ye	= YEarth * InBody
 	//	Ze	= ZEarth * InBody
 	//--------------------------------------------------
-	pRes->X	= _DCMRM.Rxx*pV->X + _DCMRM.Rxy*pV->Y + _DCMRM.Rxz*pV->Z;
-	pRes->Y	= _DCMRM.Ryx*pV->X + _DCMRM.Ryy*pV->Y + _DCMRM.Ryz*pV->Z;
-	pRes->Z	= _DCMRM.Rzx*pV->X + _DCMRM.Rzy*pV->Y + _DCMRM.Rzz*pV->Z;
-	//---------------------------------------------------------------
-	return pRes;
+	return MatrixTimesVector((Matrix*)&_DCMRM, pV, pRes);
 	}
 
 //=============================================================
@@ -46,17 +50,14 @@ Vector*		DCMToBody(Vector* pV, Vector* pRes)
 	//--------------------------------------------------
 	// Definition of Rotation to Body:
 	//--------------------------------------------------
-	// 	Vbody	= R(Transposed)*Vearth
+	// 	Vbody	= R(Transposed)*Vearth, or
+	//	Vbody	= Vearth*R
 	//--------------------------------------------------
 	//	Xb	= InEarth * XBody
 	//	Yb	= InEarth * YBody
 	//	Zb	= InEarth * ZBody
 	//--------------------------------------------------
-	pRes->X	= pV->X*_DCMRM.Rxx + pV->Y*_DCMRM.Ryx + pV->Z*_DCMRM.Rzx;
-	pRes->Y	= pV->X*_DCMRM.Rxy + pV->Y*_DCMRM.Ryy + pV->Z*_DCMRM.Rzy;
-	pRes->Z	= pV->X*_DCMRM.Rxz + pV->Y*_DCMRM.Ryz + pV->Z*_DCMRM.Rzz;
-	//---------------------------------------------------------------
-	return pRes;
+	return VectorTimesMatrix(pV, (Matrix*)&_DCMRM, pRes);
 	}
 //=============================================================
 

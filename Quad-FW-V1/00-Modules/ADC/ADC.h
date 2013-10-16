@@ -16,8 +16,12 @@ void	ADCInit(uint IL);	// Parameter (1<=IL<=7) defines the
 uint inline		ADCGetRawSample();
 uint inline		ADCGetCellCount();
 
-float inline	ADCGetBatteryStatus();	// Charge level in %
+// Charge level in %
+float inline	ADCGetBatteryStatus();
+// Battery current voltage
 float inline	ADCGetBatteryVoltage();
+// Battery nominal max voltage
+float inline	ADCGetBatteryNomVoltage();
 
 //=====================================================
 #endif

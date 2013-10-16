@@ -18,6 +18,7 @@ extern uint		volatile	_ADCSCnt;
 extern uint 				_ADCCellCnt;	
 extern uint 				_ADCBatMinV;
 extern uint 				_ADCBatRange;
+extern float				_ADCBatNomV;
 //-----------------------------------------------------
 //	Constants
 //-----------------------------------------------------

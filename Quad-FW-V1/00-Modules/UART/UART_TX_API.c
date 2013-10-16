@@ -1,6 +1,4 @@
-#include <string.h>
-
-#include "UART\UART_Local.h"
+#include "UART\UART_TX_Local.h"
 
 //************************************************************
 void	UARTPostWhenReady(	uchar * Data, 
@@ -26,8 +24,12 @@ void	UARTPostIfReady(	uchar * Data,
 	_UART_TX_Buf_Len	= DataLen;		
 	_UART_TX_Buf_Index	= 0;
 	//----------------------------------
-	if (DataLen);
-		memcpy(_UART_TX_Buf, Data, DataLen); 
+	if (DataLen)
+		{
+		uint i;
+		for ( i= 0; i < DataLen; i++)
+			_UART_TX_Buf[i] = Data[i];
+		}
 	//----------------------------------
 	// As we generate UART TX interrupts only when buffer
 	// is empty and we set TX READY bit right after pushing
@@ -36,12 +38,12 @@ void	UARTPostIfReady(	uchar * Data,
 	// the buffer...
 	// Send "START" delimiter (double _UART_Start)
 	//----------------------------------
-	U1TXREG = _UART_Start;
+	UTXREG = _UART_Start;
 	asm ("nop"); 			// We need at least one cycle 
 							// delay between writes to U1TXREG ...
-	U1TXREG = _UART_Start;
+	UTXREG = _UART_Start;
 	//----------------------------------
-	IEC0bits.U1TXIE	= 0b1;			// Enable UART TX interrupt
+	UTXIE	= 0b1;			// Enable UART TX interrupt
 	//----------------------------------
 	return;
 	}
