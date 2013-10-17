@@ -11,7 +11,9 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	// current step; initialize LastRC values on start.
 	//------------------------------------------------------------
 	//{
-	ulong	CurrentTS	= TMRGetTS();	// Capture timestamp
+	ulong	CurrentTS	= IMU->TS;	// Capture timestamp of last
+									// IMU update
+	//------------------------------------------------------------
 	if (0 == QSD.LastTS)
 		{
 		// The first step in the current flight

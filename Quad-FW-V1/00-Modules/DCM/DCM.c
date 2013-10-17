@@ -61,7 +61,8 @@ void	DCMSetAzimuth(Vector* pMag)
 
 
 //==================================================================================
-uint	DCMPerformStep(	Vector*		pGyroRaw,
+uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
+						Vector*		pGyroRaw,
 						Vector*		pAccRaw,
 						DCMData*	pIMUResult)
 	{
@@ -73,13 +74,12 @@ uint	DCMPerformStep(	Vector*		pGyroRaw,
 							// so this call is just a NOP
 		//-----------------------------------------------------------
 		_DCM_TimeRate	= TMRGetTSRate();
-		_DCM_TS			= TMRGetTS();
+		_DCM_TS			= TS;
 		//-----------------------------------------------------------
 		return _DCMReady;	// Initialized to "0", indicating that
 							// stability is not reached yet...
 		}
 	//==========================================================================
-	ulong	TS 			= TMRGetTS();	// Current time stamp
 	float	TimeStep	= _DCM_TimeRate * (TS - _DCM_TS);
 			_DCM_TS		= TS;
 	//--------------------------------------------------------------------------
@@ -200,7 +200,11 @@ uint	DCMPerformStep(	Vector*		pGyroRaw,
 	//---------------------------------------------------------------------------
 	pIMUResult->Azimuth	= _DCM_BaseAzimuth + pIMUResult->Yaw;
 	//---------------------------------------------------------------------------
+	// Expose input data
+	//---------------------------------------------------------------------------
+	pIMUResult->TS	= TS;
 	VectorCopy(pGyroRaw, &pIMUResult->GyroRate);
+	VectorCopy(pAccRaw,  &pIMUResult->Gravity);
 	//----------------------------------------------------------------------------
 	return	_DCMReady;
 	}

@@ -173,7 +173,7 @@ int main(void)
 	
 	MCMData		MC;				// Motor control Variables
 
-	float		BatNomV		= ADCGetBatteryVoltage();
+	float		BatNomV		= ADCGetBatteryNomVoltage();
 
 	//==================================================================
 	// Wait for the Receiver ARMing: Throttle should go up and then down
@@ -304,12 +304,11 @@ Re_Start:
 		// </editor-fold>
 		//============================================================
 
-
 		//============================================================
 		// Implement Motor Cut-Off if RC Control is LOW
 		//============================================================
-		//{
-		if (0 == RC.Control)
+		// <editor-fold defaultstate="collapsed" desc="Process RC Control">
+		if ( 0 == RC.Control )
 			{
 			// Yes, Control is reliably low!
 			//--------------------------------------------
@@ -331,19 +330,21 @@ Re_Start:
 			//----------------------------------
 			goto Re_Start;
 			}
-		//}
+		// </editor-fold>
 		//============================================================
 
 		//============================================================
 		// Obtain and process battery charge status
 		//============================================================
+		// <editor-fold defaultstate="collapsed" desc="Process Battery level">
 		float BatteryCharge	= QCMBatteryMgmt();	
-		if (BatteryCharge < 0.35 /* < 35% */ )
+		if (BatteryCharge < 0.35)	// BC < 35%
 			{
 			float MaxLevel = 2.0 * BatteryCharge;
 			if (RC.Throttle > MaxLevel)
 				RC.Throttle = MaxLevel;
 			}
+		// </editor-fold>
 		//============================================================
 
 		//============================================================
@@ -403,7 +404,18 @@ Re_Start:
 		TM.Inclination	= IMU.Incl;
 		TM.Azimuth		= IMU.Azimuth;
 		//----------------------
-		DCMToEarth(&IMU.GyroRate, &TM.Omega);
+		// <editor-fold defaultstate="collapsed" desc="Rotate Gyro Vector">
+		//------------------------------------------------------
+		// We rotate Gyro vector using "partial" DCM built using
+		// only Roll and Pitch angles as the actual Yaw does not
+		// affect Angualr Velocity by axis
+		//------------------------------------------------------
+		Matrix		NoYawDCM;
+		// Generate partial rotation matrix
+		MatrixEulerRotation(IMU.Roll, IMU.Pitch, 0.0, &NoYawDCM);
+		// Rotate Gyro vector
+		MatrixTimesVector(&NoYawDCM, &IMU.GyroRate, &TM.Omega);
+		// </editor-fold>
 		//----------------------
 		TM.RollDer		= QSD.RollDer;
 		TM.PitchDer		= QSD.PitchDer;
