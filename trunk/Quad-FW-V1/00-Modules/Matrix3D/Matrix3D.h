@@ -6,6 +6,9 @@
 #ifndef __MATRIX3D_H
 #define	__MATRIX3D_H
 //=====================================================================
+#define	Deg(x)   ((float)x * 57.29578)
+#define Rad(x)	 ((float)x * 0.0174533)
+//=====================================================================
 typedef struct
 	{
 	float	M_1_1, M_1_2, M_1_3;		// First row
@@ -27,6 +30,117 @@ static inline Matrix*	MatrixTranspose(Matrix* S, Matrix* T)
 	T->M_3_2	= S->M_2_3;
 	T->M_3_3	= S->M_3_3;
 	//---------------------
+	return T;
+	}
+//=====================================================================
+static inline Matrix*	MatrixEulerRotation(float	Roll,
+											float	Pitch,
+											float	Yaw,
+											Matrix* T)
+	{
+	float	SinRoll		= sinf(Roll);
+	float	CosRoll		= cosf(Roll);
+	float	SinPitch	= sinf(Pitch);
+	float	CosPitch	= cosf(Pitch);
+	float	SinYaw		= sinf(Yaw);
+	float	CosYaw		= cosf(Yaw);
+	//----------------------------------------
+	// First column
+	//----------------------------------------
+	T->M_1_1	= CosPitch * CosYaw;
+	T->M_2_1	= CosPitch * SinYaw;
+	T->M_3_1	= -SinPitch;
+	//---------------------
+	// Second column
+	//----------------------------------------
+	T->M_1_2	= SinRoll * SinPitch * CosYaw - CosRoll * SinYaw;
+	T->M_2_2	= SinRoll * SinPitch * SinYaw + CosRoll * CosYaw;
+	T->M_3_2	= SinRoll * CosPitch;
+	//---------------------
+	// Third column
+	//----------------------------------------
+	T->M_1_3	= CosRoll * SinPitch * CosYaw + SinRoll * SinYaw;
+	T->M_2_3	= CosRoll * SinPitch * SinYaw - SinRoll * CosYaw;
+	T->M_3_3	= CosRoll * CosPitch;
+	//----------------------------------------
+	return T;
+	}
+//=====================================================================
+static inline Matrix*	MatrixRollRotation(float Roll, Matrix* T)
+	{
+	float	SinRoll		= sinf(Roll);
+	float	CosRoll		= cosf(Roll);
+	//----------------------------------------
+	// First column
+	//----------------------------------------
+	T->M_1_1	=  1.0;
+	T->M_2_1	=  0.0;
+	T->M_3_1	=  0.0;
+	//---------------------
+	// Second column
+	//----------------------------------------
+	T->M_1_2	=  0.0;
+	T->M_2_2	=  CosRoll;
+	T->M_3_2	=  SinRoll;
+	//---------------------
+	// Third column
+	//----------------------------------------
+	T->M_1_3	=  0.0;
+	T->M_2_3	= -SinRoll;
+	T->M_3_3	=  CosRoll;
+	//----------------------------------------
+	return T;
+	}
+//=====================================================================
+static inline Matrix*	MatrixPitchRotation(float Pitch, Matrix* T)
+	{
+	float	SinPitch	= sinf(Pitch);
+	float	CosPitch	= cosf(Pitch);
+	//----------------------------------------
+	// First column
+	//----------------------------------------
+	T->M_1_1	=  CosPitch;
+	T->M_2_1	=  0.0;
+	T->M_3_1	= -SinPitch;
+	//---------------------
+	// Second column
+	//----------------------------------------
+	T->M_1_2	=  0.0;
+	T->M_2_2	=  1.0;
+	T->M_3_2	=  0.0;
+	//---------------------
+	// Third column
+	//----------------------------------------
+	T->M_1_3	=  SinPitch;
+	T->M_2_3	=  0.0;
+	T->M_3_3	=  CosPitch;
+	//----------------------------------------
+	return T;
+	}
+//=====================================================================
+static inline Matrix*	MatrixYawRotation(float	Yaw, Matrix* T)
+	{
+	float	SinYaw		= sinf(Yaw);
+	float	CosYaw		= cosf(Yaw);
+	//----------------------------------------
+	// First column
+	//----------------------------------------
+	T->M_1_1	=  CosYaw;
+	T->M_2_1	=  SinYaw;
+	T->M_3_1	=  0.0;
+	//---------------------
+	// Second column
+	//----------------------------------------
+	T->M_1_2	= -SinYaw;
+	T->M_2_2	=  CosYaw;
+	T->M_3_2	=  0.0;
+	//---------------------
+	// Third column
+	//----------------------------------------
+	T->M_1_3	=  0.0;
+	T->M_2_3	=  0.0;
+	T->M_3_3	=  1.0;
+	//----------------------------------------
 	return T;
 	}
 //=====================================================================

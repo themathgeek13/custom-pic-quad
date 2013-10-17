@@ -44,7 +44,8 @@ ulong	IMUInit()
 		if (MPUAsyncReadWhenReady(&MPUReading)) 
 			BLIDeadStop("A", 1);
 		//----------------------------
-		IsReady = DCMPerformStep(	&MPUReading.G, 
+		IsReady = DCMPerformStep(	 MPUReading.TS,
+									&MPUReading.G,
 									&MPUReading.A, 
 									&IMUResult);
 		//----------------------------

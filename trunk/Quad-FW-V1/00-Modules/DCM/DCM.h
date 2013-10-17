@@ -10,6 +10,10 @@
 //==================================================================
 typedef struct
 	{
+	ulong	TS;		// Timestamp of the cycle
+	//-----------------------------------------------
+	// Attitude
+	//-----------------------------------------------
 	float	Roll;
 	float	Pitch;
 	float	Yaw;
@@ -17,8 +21,11 @@ typedef struct
 	float	Incl;
 	//--------------
 	float	Azimuth;
-	//--------------
+	//-----------------------------------------------
+	// Base input data
+	//-----------------------------------------------
 	Vector	GyroRate;
+	Vector	Gravity;
 	//--------------
 	}	DCMData;
 //=============================================================
@@ -29,7 +36,8 @@ void		DCMSetAzimuth(Vector* pMag);
 //=============================================================
 // DCMPerformStep returns value of _DCMReady
 //-------------------------------------------------------------
-uint		DCMPerformStep(	Vector*		pGyroRaw,
+uint		DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
+							Vector*		pGyroRaw,
 							Vector*		pAccRaw,
 							DCMData*	pIMUResult);
 //=============================================================

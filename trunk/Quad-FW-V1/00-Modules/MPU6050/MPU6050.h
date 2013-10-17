@@ -42,8 +42,6 @@ typedef	struct
 //-----------------------------------------------------
 uint	MPUInit(byte RateDiv, byte DLPF);
 //-----------------------------------------------------
-uint	MPUReset(byte RateDiv, byte DLPF);
-//-----------------------------------------------------
 // Low-pass filter (DLPF) configuration:
 //-----------------------------------------------------
 //	DLPF	Accelerometer (Fs=1kHz) 	Gyroscope  
@@ -56,6 +54,8 @@ uint	MPUReset(byte RateDiv, byte DLPF);
 //	5		 10		13.8				 10		13.4		1
 //	6		  5		19.0				  5		18.6		1
 //	7		RSV		----				RSV		----		8
+//-----------------------------------------------------
+uint	MPUReset(byte RateDiv, byte DLPF);
 //-----------------------------------------------------
 uint	MPUCalibrate();
 //-----------------------------------------------------

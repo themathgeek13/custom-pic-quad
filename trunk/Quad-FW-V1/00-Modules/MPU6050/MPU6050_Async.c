@@ -130,6 +130,10 @@ uint	_MPUAsyncRead(MPUSample* pSample)
   	RESTORE_CPU_IPL(current_cpu_ipl);
 
 	//==============================================
+	// Set sample timestamp
+	//----------------------------------------------
+	pSample->TS	= TMRGetTS();
+	//==============================================
 	float	TDev;
 	//----------------------------------------------
 	// Adjust Sample Weight to account for multiple samples
@@ -168,10 +172,6 @@ uint	_MPUAsyncRead(MPUSample* pSample)
 				(Weight * RawData.GZ - (_MPU_Gyro_ZOffset + _MPU_Gyro_ZSlope*TDev)) * _MPU_Gyro_Sensitivity,
 				&pSample->G
 				);
-	//----------------------------------------------
-	// Set sample timestamp
-	//----------------------------------------------
-	pSample->TS	= TMRGetTS();
 	//----------------------------------------------
 	return MPU_OK; 			// The return code was OK	
 	}
