@@ -26,19 +26,18 @@ ulong	TMRGetTS(void)
 	}
 //************************************************************
 
+
+//************************************************************
+// Return Elapsed Time value (in milliseconds)
 //************************************************************
 ulong	TMRGetRTC(void)
 	{
-	ulong	Time;
-	//---------------------------------------------------
-	// Read and return Elapsed Time value (in milliseconds)
-	//---------------------------------------------------
-	char saved_ipl;                       
-	SET_AND_SAVE_CPU_IPL(saved_ipl,_TMRIL);
-	Time = _TMR_RT_ElapsedTime;
-	RESTORE_CPU_IPL(saved_ipl);
-	//---------------------------------------------------
-	return	Time;
+	//======================================================
+	// Important NOTE: Timer counter updated every 125 usec!
+	//------------------------------------------------------
+	// Convert to milliseconds and Return Elapsed Time
+	//------------------------------------------------------
+	return	((TMRGetRTCTicks() + 4) >> 3); // Round and convert to msec
 	}
 //************************************************************
 
@@ -47,23 +46,51 @@ ulong	TMRGetRTC(void)
 //************************************************************
 void	TMRDelay(ulong Delay)
 	{
-	ulong Time	= TMRGetRTC();
-	ulong Threshold = Time + Delay; 
 	//----------------------------------------------------
-	// Implement dealy
+	// Implements "delay" by combining setting Alarm and
+	// waiting for the Alarm in one function
 	//----------------------------------------------------
-	while (Time < Threshold)
-	    {Time = TMRGetRTC();}
+	TMRWaitAlarm(TMRSetAlarm(Delay));
 	//---------------------------------------------------
 	return;
 	}
 //************************************************************
 
+//************************************************************
+// Sets "alarm" time "AlarmDelay" milliseconds in the future
+//************************************************************
+ulong	TMRSetAlarm(ulong AlarmDelay)
+	{
+	//======================================================
+	// Read Elapsed Time value (in timer units - 125 usec)
+	// and combine with AlarmDelay converted to ticks
+	//------------------------------------------------------
+	// Return alarm timestamp
+	return	(TMRGetRTCTicks() + (AlarmDelay << 3));
+	}
+//************************************************************
 
+//************************************************************
+// Waits until the previously set "alarm" time expires
+//************************************************************
+void	TMRWaitAlarm(ulong AlarmTime)
+	{
+	//======================================================
+	// Read and Check Time value (in timer units - 125 usec)
+	//------------------------------------------------------
+	while (AlarmTime > TMRGetRTCTicks());
+	return;		// Current time is past Alarm time
+	}
+//************************************************************
+
+
+//************************************************************
+// Registers callback in "OffsetMS" milliseconds
 //************************************************************
 void	TMRCallBackAfter(	ulong 		OffsetMS, 
 							TMRCallBack callBack)
 	{
+	//======================================================
 	char saved_ipl;                       
 	SET_AND_SAVE_CPU_IPL(saved_ipl,_TMRIL);
 	//--------------------------------------------------
@@ -72,10 +99,16 @@ void	TMRCallBackAfter(	ulong 		OffsetMS,
 	_RTCIF 	= 0; 		// Clear RTCC interrupt flag
 	_RTCIE 	= 1; 		// Enable RTCC interrupt
 	//--------------------------------------------------
-	// Reset callback request
+	// Set callback request
 	//--------------------------------------------------
 	_TMR_CallBack				= callBack;
-	_TMR_CallBack_TriggerTime 	= _TMR_RT_ElapsedTime + OffsetMS;
+	//======================================================
+	// Important NOTE: Timer counter updated every 125 usec!
+	//------------------------------------------------------
+	// Time offset need to be converted to timer units
+	//------------------------------------------------------
+	_TMR_CallBack_TriggerTime 	= _TMR_RT_ElapsedTime 
+								+ (OffsetMS << 3);
 	//--------------------------------------------------
 	RESTORE_CPU_IPL(saved_ipl);
 	//---------------------------------------------------

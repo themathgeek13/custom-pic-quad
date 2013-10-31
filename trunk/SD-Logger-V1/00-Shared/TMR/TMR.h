@@ -41,10 +41,9 @@ void			TMRInit(uint IL);
 //----------------------------------------------------
 ulong	TMRGetTS();
 //----------------------------------------------------
-// Get elapsed time since program start in milliseconds
+//  Return Elapsed Time value in milliseconds
 //----------------------------------------------------
 ulong	TMRGetRTC(void);
-
 
 
 //************************************************************
@@ -52,10 +51,13 @@ ulong	TMRGetRTC(void);
 //************************************************************
 void	TMRDelay(ulong Delay);
 //************************************************************
-// Blocks execution until Threshold milliseconds from program
-// start time
+// Sets "alarm" time "AlarmDelay" milliseconds in the future
 //************************************************************
-void	TMRDelayUntil(ulong Threshold);
+ulong	TMRSetAlarm(ulong AlarmDelay);
+//************************************************************
+// Blocks execution until the previously set "alarm" time expires
+//************************************************************
+void	TMRWaitAlarm(ulong AlarmTime);
 
 
 //----------------------------------------------------
