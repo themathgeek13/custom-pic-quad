@@ -102,13 +102,13 @@ float	inline static _DCMIncl(DCM* pBase)	//   -1.0 <= Incl  <= +1.0
 // Body axis in the Earth frame of reference are
 // the columns of the Rotation Matrix
 //==========================================================================
-inline static Vector* _DCMXBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMBodyX(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxx, pBaseDCM->Ryx, pBaseDCM->Rzx, pRes); }
 //------------------------------------------------
-inline static Vector* _DCMYBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMBodyY(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxy, pBaseDCM->Ryy, pBaseDCM->Rzy, pRes); }
 //------------------------------------------------
-inline static Vector* _DCMZBody(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMBodyZ(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxz, pBaseDCM->Ryz, pBaseDCM->Rzz, pRes); }
 //==========================================================================
 
@@ -116,13 +116,13 @@ inline static Vector* _DCMZBody(DCM* pBaseDCM, Vector* pRes)
 // Earth axis in the Body frame of reference are
 // the rows of the Rotation Matrix
 //==========================================================================
-inline static Vector* _DCMXEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMEarthX(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rxx, pBaseDCM->Rxy, pBaseDCM->Rxz, pRes); }
 //------------------------------------------------
-inline static Vector* _DCMYEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMEarthY(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Ryx, pBaseDCM->Ryy, pBaseDCM->Ryz, pRes); }
 //------------------------------------------------
-inline static Vector* _DCMZEarth(DCM* pBaseDCM, Vector* pRes)
+inline static Vector* _DCMEarthZ(DCM* pBaseDCM, Vector* pRes)
 	{ return VectorSet(pBaseDCM->Rzx, pBaseDCM->Rzy, pBaseDCM->Rzz, pRes); }
 //==========================================================================
 

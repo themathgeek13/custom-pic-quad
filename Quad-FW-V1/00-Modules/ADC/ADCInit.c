@@ -59,7 +59,9 @@ void	ADCInit(uint IL)
 	// Thus we will settle on the following values:
 	// Tad   = 100*Tcy  =  2.5 us (ADCS = 99)
 	// Tsamp =  26*Tad  = 65.0 us (SAMC = 25)
-	// Tconv = (26+14)*Tad = 40*2.5 = 100 us.
+	// Tconv = (26+14)*Tad = 40*2.5 = 100 us, which results
+	// exactly in the minimal recommended conversion rate of
+	// 10 KHz.
 	//---------------------------------------------------------
 
 

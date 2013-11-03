@@ -32,11 +32,10 @@
 typedef struct
 	{
 	//----------------------
-	float		Altitude;	// In meters
+	ulong		TS;			// Timestamp of the last
+							// measurement (in timer ticks)
 	//----------------------
-	float		Speed;		// In m/sec
-							// If Altitude increases the
-							// Speed will take positive value
+	float		Altitude;	// In meters
 	//----------------------
 	} MXBData;
 
@@ -51,10 +50,11 @@ uint	MXBInit(int			IL,		// Parameter (1<=IL<=7)
 				MXBData*	MXBSample);
 							
 //*******************************************************************
-// MXBResetBase() function adjust altitude to 0 by calculating
+// MXBCalculateBase(...) function adjust altitude to 0 by calculating
 // distance from sensor to the ground when quad is on the ground.
 //====================================================================
-uint	MXBResetBase(MXBData*	MXBSample);
+uint	MXBCalculateBase(MXBData*	MXBSample);
+
 //*******************************************************************
 // MXBSetBase(...) function adjust altitude to 0 taking into
 // account provided distance from sensor to the ground when quad
@@ -68,14 +68,6 @@ uint	MXBSetBase(float Base);
 // is at least one captured sample since last call to the function.
 //====================================================================
 uint	MXBRead(MXBData*	MXBSample);
-
-//*******************************************************************
-// MXBReadDLPF(...) function - returns calculated Altitude and
-// Speed low-pass filtered according to the value of DLPF parameter.
-// DLPF >= 2, other wise an error returned; The larger the value
-// of DLPF parameter the lower the pass frequency and higher delay!
-//====================================================================
-uint	MXBReadDLPF(uint DLPF, MXBData*	MXBSample);
 
 //*******************************************************************
 // MXBReadWhenReady(...) function - returns calculated Altitude and

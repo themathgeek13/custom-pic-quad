@@ -26,7 +26,7 @@ const 	float		_MPU_Gyro_Sensitivity	= 0.001064225153655;
 // Gyro temperature/offset compensation to bring the sample in reference
 // to 0 deg/sec (per axis)
 //------------------------------------------------------------------
-	 	float		_MPU_Gyro_BaseTemp		=  0.0;	// Measured
+	 	float		_MPU_Gyro_BaseTemp		=  0.0;		// Measured
 //------------------------------------------------------------------
 	  	float		_MPU_Gyro_XOffset		=  0.0;		// Calculated
 const  	float		_MPU_Gyro_XSlope		= -0.79;

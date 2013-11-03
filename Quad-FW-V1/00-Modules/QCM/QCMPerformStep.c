@@ -2,6 +2,16 @@
 #include "QCM\QCMLocal.h"
 //**********************************************************************
 
+//*****************************************************
+// QCM Step ReSet routine
+//*****************************************************
+void QCMReset()
+	{
+	QSD.LastTS	= 0;
+	}
+
+
+
 //**********************************************************************
 void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	{
@@ -10,11 +20,11 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	// Identify Integration/Differentiation time interval for the
 	// current step; initialize LastRC values on start.
 	//------------------------------------------------------------
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Step Initialization/Set Up">
 	ulong	CurrentTS	= IMU->TS;	// Capture timestamp of last
 									// IMU update
 	//------------------------------------------------------------
-	if (0 == QSD.LastTS)
+	if ( 0 == QSD.LastTS )
 		{
 		// The first step in the current flight
 		QSD.dT = 0.0;
@@ -31,14 +41,13 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 		}
 	// Store current timestamp for next iteration
 	QSD.LastTS = CurrentTS;
-	//}
+	// </editor-fold>
 	//============================================================
 			
-
 	//************************************************************
 	// Process Throttle
 	//************************************************************
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Normalize throttle">
 	QSD.Throttle = RC->Throttle;
 	//------------------------------------------------------------
 	// Calculate throttle "adjustment" based upon Inclination
@@ -47,7 +56,7 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	// to Inclination.
 	//------------------------------------------------------------
 	if (IMU->Incl > 0.0)
-		{
+	    {
 		float	K = IMU->Incl;
 		if (K < 0.8)	K = 0.8;	// Limit correction to 25%
 		QSD.Throttle /= K;
@@ -57,16 +66,15 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//------------------------------------------------------------
 	if (QSD.Throttle > 0.85)
 		QSD.Throttle = 0.85;
-	//}
+	// </editor-fold>
 	//************************************************************
-
-
 
 	//************************************************************
 	// Calculate Roll-Pitch-Yaw "adjustments" based upon IMU and
 	// RC control input
 	//************************************************************
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Calculate Proportiona PID component">
+	//------------------------------------------------------------
 	// First, calculate direct control error(s) AND bring them
 	// into the proper range...
 	// Makes sense to do it while the model is still on the ground
@@ -83,19 +91,19 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	QSD.DeltaRollProp 	= _PID_Roll_Kp   * QSD.RollError;
 	QSD.DeltaPitchProp 	= _PID_Pitch_Kp  * QSD.PitchError;
 	QSD.DeltaYawProp 	= _PID_Yaw_Kp  	 * QSD.YawError;
-	//}
+	// </editor-fold>
 	//************************************************************
 		
 	//************************************************************
 	// Calculate Roll-Pitch-Yaw "adjustment" based upon State
 	// Change derivatives
 	//************************************************************
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Calculate Derivative PID component">
 	//------------------------------------------------------------
 	// Calculate state derivative - to improve stability we use PID
 	// method based upon the Derivative of the Process Variable (PV)
 	//------------------------------------------------------------
-	if (QSD.dT > 0.001) // Just to be sure...
+	if ( QSD.dT > 0.001 ) // Just to be sure...
 		{
 		float Frequency		= 1.0 / QSD.dT;
 		//---------------------------------
@@ -117,35 +125,35 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	//------------------------------------------------------------
 	// Caculate Differential term; PID-weighted derivative terms
 	// are negated so that differential term "works" against
-	// process change derivative 
+	// process change derivative
 	//------------------------------------------------------------
 	QSD.DeltaRollDiff	= -_PID_Roll_Kd  * QSD.RollDer;
 	QSD.DeltaPitchDiff	= -_PID_Pitch_Kd * QSD.PitchDer;
-	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawDer;
-	//}
+	QSD.DeltaYawDiff	= -_PID_Yaw_Kd   * QSD.YawDer; // </editor-fold>
 	//************************************************************
 
 	//************************************************************
 	// Calculate Roll-Pitch-Yaw "adjustment" based upon State
 	// Change derivatives
 	//************************************************************
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Calculate Integral PID component">
 	//------------------------------------------------------------
 	// Calculate Integral term
 	//------------------------------------------------------------
 	QCMStepIntegrator();	// First, update Integrator variables
 	//------------------------------------------------------------
 	// Now calculate adjustment as an additional contribution to
-	// the proportional term 
+	// the proportional term
 	QSD.DeltaRollInt 	= _PID_Roll_Kp   * QSD.RollErrorSum;
 	QSD.DeltaPitchInt 	= _PID_Pitch_Kp  * QSD.PitchErrorSum;
 	QSD.DeltaYawInt 	= _PID_Yaw_Kp	 * QSD.YawErrorSum;
-	//}
+	// </editor-fold>
 	//************************************************************
 
 	//************************************************************
 	// Calculate total 3-D adjustment
 	//************************************************************
+	// <editor-fold defaultstate="collapsed" desc="Calculate Total PID Adjustment">
 	QSD.DeltaRoll	= QSD.DeltaRollProp			// Proportional
 					+ QSD.DeltaRollDiff			// Differential
 					+ QSD.DeltaRollInt;			// Integral
@@ -158,49 +166,54 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	QSD.DeltaYaw	= QSD.DeltaYawProp			// Proportional
 					+ QSD.DeltaYawDiff			// Differential
 					+ QSD.DeltaYawInt;			// Integral
+	// </editor-fold>
 	//************************************************************
 
 	//************************************************************
 	// Implement CONTROL limits
 	//************************************************************
+	// <editor-fold defaultstate="collapsed" desc="Apply Control limits">
 	// Identify vurrent control limit based upon the Throttle
 	// value and pre-set control limit
-	float CM	= RC->Throttle * _PID_ControlLimit;	 // QSD.Throttle 
+	float CM	= RC->Throttle * _PID_ControlLimit;	 // QSD.Throttle
 
 	// Roll ----------------------------------------
-	if (QSD.DeltaRoll >  CM)	QSD.DeltaRoll 	=  CM;
-	if (QSD.DeltaRoll < -CM)	QSD.DeltaRoll 	= -CM;
+	if ( QSD.DeltaRoll >  CM )	QSD.DeltaRoll 	=  CM;
+	if ( QSD.DeltaRoll < -CM )	QSD.DeltaRoll 	= -CM;
 	// Pitch ---------------------------------------
-	if (QSD.DeltaPitch >  CM)	QSD.DeltaPitch 	=  CM;
-	if (QSD.DeltaPitch < -CM)	QSD.DeltaPitch 	= -CM;
+	if ( QSD.DeltaPitch >  CM )	QSD.DeltaPitch 	=  CM;
+	if ( QSD.DeltaPitch < -CM )	QSD.DeltaPitch 	= -CM;
 	// Yaw ---------------------------------------
-	if (QSD.DeltaYaw >    CM)	QSD.DeltaYaw 	=  CM;
-	if (QSD.DeltaYaw <   -CM)	QSD.DeltaYaw 	= -CM;
+	if ( QSD.DeltaYaw >    CM )	QSD.DeltaYaw 	=  CM;
+	if ( QSD.DeltaYaw <   -CM )	QSD.DeltaYaw 	= -CM;
+	// </editor-fold>
 	
 	//************************************************************
 	// Implement Motor Balance adjustment for Roll-Pitch
 	//************************************************************
+	// <editor-fold defaultstate="collapsed" desc="Implement Motor Balance adjustment">
 	// NOTE: this adjustment is not subject to control limit
-	QSD.Voltage = ADCGetBatteryVoltage();
 	//------------------------------------------------------------
-	float Power = QSD.Throttle * QSD.Voltage;
+	//	QSD.Voltage = ADCGetBatteryVoltage();
+	//	float Power = QSD.Throttle * QSD.Voltage;
 	// Using calculated constants....
 	// These constants are dependent on motors, props, and
 	// C.G. placement - should be adjusted if anything changes...
-	QSD.DeltaRoll 	+= 0.0030 * Power;
-//	QSD.DeltaPitch	+= 0.0000 * Power;
-//	QSD.DeltaYaw	-= 0.0050 * Power;
+	//	QSD.DeltaRoll 	+= 0.0020 * Power;
+	//	QSD.DeltaPitch	+= 0.0000 * Power;
+	//	QSD.DeltaYaw	-= 0.0050 * Power;
+	// </editor-fold>
 	
 	
 	//************************************************************
 	// Implement motor power adjustments
 	//************************************************************
-	//{
+	// <editor-fold defaultstate="collapsed" desc="Set levels for individual motors">
 	//************************************************************
 	// Throttle adjustment for the transverse direction
 	// REMEBER: Roll angle is positive when we bank right
 	//------------------------------------------------------------
-	MC->R	= QSD.Throttle - QSD.DeltaRoll;	
+	MC->R	= QSD.Throttle - QSD.DeltaRoll;
 	MC->L	= QSD.Throttle + QSD.DeltaRoll;
 	//------------------------------------------------------------
 	// Throttle adjustment in the longitudinal direction
@@ -219,11 +232,11 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC)
 	MC->R += QSD.DeltaYaw;
 	MC->L += QSD.DeltaYaw;
 	//--------------
-	//}
+	// </editor-fold>
 	//************************************************************
 
 	//***********************************************************
-	// Normalize all calculated Throttle values 
+	// Normalize all calculated Motor Throttle values
 	//-----------------------------------------------------------
 	QCMNormalize(MC);
 	//***********************************************************

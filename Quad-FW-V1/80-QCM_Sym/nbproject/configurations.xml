@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>../00-Modules/System.h</itemPath>
+      <itemPath>../00-Modules/Profile.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -43,6 +44,9 @@
           <itemPath>../00-Modules/DCM/DCMLocal.h</itemPath>
           <itemPath>../00-Modules/DCM/DCMMethods.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="f2" displayName="DEF" projectFiles="true">
+          <itemPath>../00-Modules/DEF/DEF.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="HMCMAG" displayName="HMCMAG" projectFiles="true">
           <itemPath>../00-Modules/HMCMAG/HMCMAG.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Async.c</itemPath>
@@ -74,6 +78,9 @@
           <itemPath>../00-Modules/Init/Init.c</itemPath>
           <itemPath>../00-Modules/Init/Init.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="f1" displayName="Matrix3D" projectFiles="true">
+          <itemPath>../00-Modules/Matrix3D/Matrix3D.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="MCM" displayName="MCM" projectFiles="true">
           <itemPath>../00-Modules/MCM/MCM.c</itemPath>
           <itemPath>../00-Modules/MCM/MCM.h</itemPath>
@@ -91,6 +98,15 @@
           <itemPath>../00-Modules/MPU6050/MPU6050_Mgmt.c</itemPath>
           <itemPath>../00-Modules/MPU6050/MPU6050_Reset.c</itemPath>
           <itemPath>../00-Modules/MPU6050/MPU6050_Sync.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="MXB" displayName="MXB" projectFiles="true">
+          <itemPath>../00-Modules/MXB/MXB.c</itemPath>
+          <itemPath>../00-Modules/MXB/MXBInit.c</itemPath>
+          <itemPath>../00-Modules/MXB/MXBLocal.c</itemPath>
+          <itemPath>../00-Modules/MXB/MXB_ISR.c</itemPath>
+          <itemPath>../00-Modules/MXB/MXB.h</itemPath>
+          <itemPath>../00-Modules/MXB/MXBLocal.h</itemPath>
+          <itemPath>../00-Modules/MXB/MXBProfile.h</itemPath>
         </logicalFolder>
         <logicalFolder name="QCM" displayName="QCM" projectFiles="true">
           <itemPath>../00-Modules/QCM/QCM.h</itemPath>
@@ -116,6 +132,8 @@
           <itemPath>../00-Modules/RC/RCSymData_MB_Ramp.h</itemPath>
           <itemPath>../00-Modules/RC/RCSymData_MB_Soft.h</itemPath>
           <itemPath>../00-Modules/RC/RCSymData_YawTest.h</itemPath>
+          <itemPath>../00-Modules/RC/RCSymData_VibroTest.h</itemPath>
+          <itemPath>../00-Modules/RC/RCSym_Local.h</itemPath>
         </logicalFolder>
         <logicalFolder name="TMR" displayName="TMR" projectFiles="true">
           <itemPath>../00-Modules/TMR/TMR.c</itemPath>
@@ -126,12 +144,13 @@
           <itemPath>../00-Modules/TMR/TMR_ISR.c</itemPath>
         </logicalFolder>
         <logicalFolder name="UART" displayName="UART" projectFiles="true">
-          <itemPath>../00-Modules/UART/UART.h</itemPath>
-          <itemPath>../00-Modules/UART/UART_Local.c</itemPath>
-          <itemPath>../00-Modules/UART/UART_Local.h</itemPath>
           <itemPath>../00-Modules/UART/UART_TX_API.c</itemPath>
           <itemPath>../00-Modules/UART/UART_TX_Init.c</itemPath>
           <itemPath>../00-Modules/UART/UART_TX_ISR.c</itemPath>
+          <itemPath>../00-Modules/UART/UART_TX_Profile.h</itemPath>
+          <itemPath>../00-Modules/UART/UART_TX_Local.c</itemPath>
+          <itemPath>../00-Modules/UART/UART_TX_Local.h</itemPath>
+          <itemPath>../00-Modules/UART/UART_TX.h</itemPath>
         </logicalFolder>
         <logicalFolder name="Vector" displayName="Vector" projectFiles="true">
           <itemPath>../00-Modules/Vector/Vector.h</itemPath>
@@ -217,6 +236,7 @@
         <property key="preprocessor-macros" value=""/>
         <property key="scalar-model" value="default"/>
         <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
       </C30>
       <C30-AS>
         <property key="assembler-symbols" value=""/>
@@ -238,14 +258,50 @@
         <property key="warning-level" value="emit-warnings"/>
       </C30-AS>
       <C30-LD>
+        <property key="additional-options-use-response-files" value="false"/>
+        <property key="boot-eeprom" value="no_eeprom"/>
+        <property key="boot-flash" value="no_flash"/>
+        <property key="boot-ram" value="no_ram"/>
+        <property key="boot-write-protect" value="no_write_protect"/>
+        <property key="enable-check-sections" value="false"/>
+        <property key="enable-data-init" value="true"/>
+        <property key="enable-default-isr" value="true"/>
+        <property key="enable-handles" value="true"/>
+        <property key="enable-pack-data" value="true"/>
+        <property key="extra-lib-directories" value=""/>
+        <property key="general-code-protect" value="no_code_protect"/>
+        <property key="general-write-protect" value="no_write_protect"/>
+        <property key="generate-cross-reference-file" value="false"/>
+        <property key="heap-size" value=""/>
+        <property key="input-libraries" value=""/>
+        <property key="linker-symbols" value=""/>
+        <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
+        <property key="oXC16ld-extra-opts" value=""/>
+        <property key="oXC16ld-fill-upper" value="0"/>
+        <property key="oXC16ld-force-link" value="false"/>
+        <property key="oXC16ld-no-smart-io" value="false"/>
+        <property key="oXC16ld-nostdlib" value="false"/>
+        <property key="oXC16ld-stackguard" value="16"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="remove-unused-sections" value="false"/>
+        <property key="report-memory-usage" value="true"/>
+        <property key="secure-eeprom" value="no_eeprom"/>
+        <property key="secure-flash" value="no_flash"/>
+        <property key="secure-ram" value="no_ram"/>
+        <property key="secure-write-protect" value="no_write_protect"/>
+        <property key="stack-size" value="16"/>
+        <property key="symbol-stripping" value=""/>
+        <property key="trace-symbols" value=""/>
+        <property key="warn-section-align" value="false"/>
       </C30-LD>
       <C30Global>
         <property key="fast-math" value="true"/>
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="false"/>
-        <property key="oXC16glb-macros" value="__PIC24H__"/>
+        <property key="oXC16glb-macros" value=""/>
         <property key="output-file-format" value="elf"/>
         <property key="save-temps" value="false"/>
+        <appendMe value="-finline -finline-functions -Winline"/>
       </C30Global>
       <PICkit3PlatformTool>
         <property key="ADC 1" value="true"/>

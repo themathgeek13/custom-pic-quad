@@ -172,7 +172,7 @@ uint	_MPUAsyncRead(MPUSample* pSample)
 				(Weight * RawData.GZ - (_MPU_Gyro_ZOffset + _MPU_Gyro_ZSlope*TDev)) * _MPU_Gyro_Sensitivity,
 				&pSample->G
 				);
-	//----------------------------------------------
+	//-----------------------------------------------
 	return MPU_OK; 			// The return code was OK	
 	}
 //*************************************************************

@@ -50,7 +50,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) ICInterrupt(void)
 			// Reset to wait for rising edge
 			_MXBStart = 0;
 			// Capture TS of the most recent measurement
-			// (required for Speed calculation)
+			// (may be required for Speed calculation)
 			_MXBRecentTS = TS;
 			}
 		}

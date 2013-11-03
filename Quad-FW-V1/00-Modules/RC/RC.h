@@ -50,7 +50,24 @@ typedef struct
 	//----------------------
 	} RCData;
 
-
+static inline RCData* RCDataReset(RCData* I)
+	{
+	I->Throttle	= I->Roll = I->Pitch = I->Yaw = 0.0;
+	I->Control	= 0;
+	//----------------------------------------------
+	return I;
+	}
+static inline RCData* RCDataCopy(RCData* F, RCData* T)
+	{
+	T->Throttle	= F->Throttle;
+	T->Roll		= F->Roll;
+	T->Pitch	= F->Pitch;
+	T->Yaw		= F->Yaw;
+	//----------------------------------------------
+	T->Control	= F->Control;
+	//----------------------------------------------
+	return T;
+	}
 //**********************************************************
 // RCInit function initializes IC Module.
 //**********************************************************
@@ -63,7 +80,7 @@ void	RCInit(int IL);	// Parameter (1<=IL<=7) defines the
 // The THROTTLE should go above 75% and then below
 // 10% of the total range.
 //**********************************************************
-void			RCArm();
+void	RCArm();
 
 //**********************************************************
 // RCRead function read values from the RC receiver
@@ -77,21 +94,21 @@ void			RCArm();
 // NOTE: Output data structure updated ONLY if a new
 //       sample is available!
 //**********************************************************
-uint		RCRead(RCData*	RCSample);
+uint	RCRead(RCData*	RCSample);
 
 
 //**********************************************************
 // Same as RCRead(...) function, but will block untill
 // the new reading is available from receiver.
 //**********************************************************
-uint		RCReadWhenReady(RCData*	RCSample);
+uint	RCReadWhenReady(RCData*	RCSample);
 
 //**********************************************************
 // Returns Connection Status
 // 1 - Connection to transmitter is maintained
 // 0 - Connection to transmitter is lost
 //**********************************************************
-uint		RCIsLinked();
+uint	RCIsLinked();
 
 //==========================================================
 #endif

@@ -19,34 +19,6 @@ uint	MXBReadWhenReady(MXBData*	MXBSample)
 	}
 //********************************************************************
 
-
-//*******************************************************************
-// MXBReadDLPF(...) function - returns calculated Altitude and
-// Speed low-pass filtered according to the value of DLPF parameter.
-// DLPF >= 2, other wise an error returned; The larger the value
-// of DLPF parameter the lower the pass frequency and higher delay!
-//====================================================================
-uint	MXBReadDLPF(uint DLPF, MXBData*	MXBSample)
-	{
-	if (0 == _MXBInit)
-		return 0;			// Component not initialized
-	//---------------------------------------------------------------
-	if (DLPF < 2)
-		return 0;			// Invalid DLPF value
-	//---------------------------------------------------------------
-	MXBRead(&_NewMXBReading);
-	//---------------------------------------------------------------
-	float	A		= (float)(DLPF - 1);
-	float	Denom	= 1.0 / (float)(DLPF);
-	//---------------------------------------------------------------
-	MXBSample->Altitude = (MXBSample->Altitude * A	+ _NewMXBReading.Altitude) * Denom;
-	MXBSample->Speed	= (MXBSample->Speed * A		+ _NewMXBReading.Speed	 ) * Denom;
-	//---------------------------------------------------------------
-	return 1;
-	}
-//********************************************************************
-
-
 //********************************************************************
 // MXBRead function - returns calculated Altitude and Speed if there
 // is at least one captured sample since last call to the function.
@@ -87,7 +59,6 @@ uint	MXBRead(MXBData*	MXBSample)
 	//----------------------------------------------------------------
 	_MXBReady		= 0;		// Sample is consumed...
 	_MXBSum			= 0;
-	_MXBRecentTS	= 0;
 	//================================================================
 	// Leave Critical Section
 	//================================================================
@@ -95,34 +66,17 @@ uint	MXBRead(MXBData*	MXBSample)
 	//================================================================
 
 	//================================================================
-	// Calculate Altitude and Speed
+	// Calculate Altitude
 	//----------------------------------------------------------------
 	float	MXBAltitude	= ((float)MXBTimeSum) * _MXBCF;
 	if (MXBReadyCount > 1)
 		// Several samples were aggregated, let's get average
 		MXBAltitude /= (float)MXBReadyCount;
 	//----------------------------------------------------------------
-	float	MXBSpeed	= 0.0;
-	if	(
-		_MXBLastTS	> 0
-		&&
-		MXBRecentTS > 0
-		)
-		{
-		float	Interval = (float)(MXBRecentTS - _MXBLastTS)*TMRGetTSRate();
-		if (Interval > 0.001)	// Sanity check
-			MXBSpeed = (MXBAltitude - _MXBLastAlt)/Interval;
-		}
-	//----------------------------------------------------------------
-	// Update saved values for speed calculation on next sample read
-	//----------------------------------------------------------------
-	_MXBLastAlt	= MXBAltitude;
-	_MXBLastTS	= MXBRecentTS;
-	//----------------------------------------------------------------
 	// Update output data structure
 	//----------------------------------------------------------------
+	MXBSample->TS		= MXBRecentTS;
 	MXBSample->Altitude	= MXBAltitude - _MXBOffset;
-	MXBSample->Speed	= MXBSpeed;
 	//================================================================
 	return MXBReadyCount;	// MXBSample updated with new sample 
 							// averaged over MXBReadyCount measurements.
@@ -149,10 +103,10 @@ uint	MXBSetBase(float Base)
 
 
 //*******************************************************************
-// MXBResetBase() function adjust altitude to 0 by calculating
+// MXBCalculateBase(...) function adjust altitude to 0 by calculating
 // distance from sensor to the ground when quad is on the ground.
 //====================================================================
-uint	MXBResetBase(MXBData*	MXBSample)
+uint	MXBCalculateBase(MXBData*	MXBSample)
 	{
 	//----------------------------------------------------------------
 	if (0 == _MXBInit)
@@ -173,16 +127,11 @@ uint	MXBResetBase(MXBData*	MXBSample)
 	// Capture current "altitude" as ground offset
 	//----------------------------------------------------------------
 	_MXBOffset	= MXBSample->Altitude;
+
 	//----------------------------------------------------------------
-	// Reset DLPF temporary value
-	//----------------------------------------------------------------
-	_NewMXBReading.Altitude	= 0.0;
-	_NewMXBReading.Speed	= 0.0;
-	//----------------------------------------------------------------
-	// Reset output data structure
+	// Reset Altitude in the output data structure
 	//----------------------------------------------------------------
 	MXBSample->Altitude	= 0.0;
-	MXBSample->Speed	= 0.0;
 	//----------------------------------------------------------------
 	return RC;		// Non-zero value (number of samples averaged) -
 					// Success!

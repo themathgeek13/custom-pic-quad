@@ -14,8 +14,7 @@ uint	MXBInit(int IL,	// Parameter (1<=IL<=7) defines the
 	{
 	if (_MXBInit)
 		// Component already initialized...
-		// Just reset the base altitude
-		return MXBResetBase(MXBSample);
+		return 1;		// Success (already initialized)
 	//----------------------------------------------------
 	_MXBInit	= 1;	// Set initialization flag
 	//====================================================
@@ -71,7 +70,11 @@ uint	MXBInit(int IL,	// Parameter (1<=IL<=7) defines the
 	//---------------------------------------------------------
 	ICM	= 1;	// Capture mode, interrupt on every edge
 	//---------------------------------------------------------
-	// Reset the base altitude as part of initialization
+	// Read 10 samples as part of initialization
+	int i;
+	for (i = 0; i < 10; i++)
+		MXBReadWhenReady(MXBSample);
+	// Initialization completed...
 	return MXBReadWhenReady(MXBSample);
 	}
 //----------------------------------------------------------
