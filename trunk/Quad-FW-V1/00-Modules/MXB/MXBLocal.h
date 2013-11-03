@@ -30,19 +30,9 @@ extern uint			_MXBInit;	// Initialization flag
 extern float		_MXBOffset;
 
 //************************************************************
-// Temporary values used in DLPF calculation
-//------------------------------------------------------------
-extern MXBData		_NewMXBReading;
-
-//************************************************************
-// Temporary values used in Speed calculation
-//------------------------------------------------------------
-// Previous measurement used in calculating Speed
-extern float		_MXBLastAlt;
-// Time stamp (in timer tics) of last measurement
-extern ulong		_MXBLastTS;
-//------------------------------------------------
 // Time stamp (in timer tics) of the most recent measurement
+// (may be required by the host for Speed calculation)
+//------------------------------------------------------------
 extern ulong		_MXBRecentTS;
 
 //************************************************************

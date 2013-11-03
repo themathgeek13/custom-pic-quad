@@ -3,7 +3,7 @@
 //*************************************************************
 void __attribute__((__interrupt__, __no_auto_psv__)) _T1Interrupt(void)
 	{
-	// Happens every 1 millisecond...
+	// Happens every 125 microsecond...
 	_T1IF = 0; 					// Clear Timer1 interrupt flag
 	_TMR_RT_ElapsedTime++;		// Increment real time counter
 	//--------------------------------------------------------

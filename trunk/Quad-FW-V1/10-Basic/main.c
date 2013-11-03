@@ -18,17 +18,25 @@ int main(void)
 //	_TRISA10 = 0;
 //	_LATA10 = 0;
 
-	long i = 7;
-	long k = 0;
+	long i	= 0;
+	for (i = 0; i < 1000; i++);
+
+	ulong	Delay = 10;
+	ulong	RTC;
+	ulong	Alarm;
+
+	RTC		= TMRGetRTC();
+	Alarm	= TMRSetAlarm(Delay);
+
+	i++;
+
+	BLISignalON();
 	while (1)
-		{
-		i = (7 * i) >> 3;
-		k = i;
-		}
-
-
-
-
+	  {
+		TMRDelay(1000);
+		BLISignalFlip();
+	  }
+	
 
 
 	BLISignalON();

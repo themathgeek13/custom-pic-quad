@@ -82,7 +82,7 @@ void	TMRInit(uint IL)
 									// Maximum interval ~1.6 msec
 	//---------------------------------------------------------
 	TMR1 				= 0; 		// Clear timer register
-	PR1					= 39999;	// 1 msec cycle
+	PR1					= 4999;		// 125 usec cycle
 	//=========================================================
 	// Configure Timer1 interrupts
 	//---------------------------------------------------------							

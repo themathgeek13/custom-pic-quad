@@ -1,5 +1,6 @@
-#include "RC\RCSym.h"
+#include "RC\RCSym_Local.h"
 
+//#include "RC\RCSymData_VibroTest.h"
 #include "RC\RCSymData_BalanceHard.h"
 //#include "RC\RCSymData_BalanceTest.h"
 //#include "RC\RCSymData_MB_Ramp.h"
@@ -44,25 +45,12 @@ RetryHigh:
 	//--------------------------------------	
 	// Reinitialize simulation sequence
 	//--------------------------------------	
-	_RCSymStart			= TMRGetRTC();
+	RCSymReset();
 	//-----------------------------------------------
 	return;
 	}
 //************************************************************
 
-//************************************************************
-// RCSymReset function - resets simulation sequence
-//************************************************************
-void	RCSymReset()
-	{
-	//--------------------------------------	
-	// Reinitialize simulation sequence
-	//--------------------------------------	
-	_RCSymStart			= TMRGetRTC();
-	//-----------------------------------------------
-	return;
-	}
-//************************************************************
 
 
 //************************************************************
@@ -71,7 +59,7 @@ void	RCSymReset()
 //************************************************************
 uint	RCSymReadWhenReady(RCData*	RCSample)
 	{
-	while(!_RCSampleReady);	// Wait for new reading from receiver
+	while(0 == _RCSampleReady);	// Wait for new reading from receiver
 	//===========================================================
 	return RCSymRead(RCSample);
 	}
@@ -88,34 +76,29 @@ uint	RCSymRead(RCData*	RCSample)
 						// real receiver - RCSample structure
 						// is not updated!
 	//---------------------------------------------------
-	RCData	tempData;
-	ulong	Now			=	TMRGetRTC();
-	//---------------------------------------------------
 	// Read sample from Receiver
 	//---------------------------------------------------
-	uint RC = RCRead(&tempData);
+	uint RC = RCRead(RCSample);
 	//---------------------------------------------------
-	// Prepare output data
-	//---------------------------------------------------
-	RCSample->Throttle	= 0.0;
-	//------------------------
-	RCSample->Roll		= 0.0;
-	RCSample->Pitch		= 0.0;
-	RCSample->Yaw		= 0.0;
-	//------------------------
-	RCSample->Control	=   0;
-	//---------------------------------------------------
-	if (0 == tempData.Control)
+	if (0 == RCSample->Control)
 		{
+		//--------------------------------------
+		// Reset output data
+		//--------------------------------------
+		RCSample->Throttle	= 0.0;
+		//------------------------
+		RCSample->Roll		= 0.0;
+		RCSample->Pitch		= 0.0;
+		RCSample->Yaw		= 0.0;
 		//--------------------------------------	
 		// Reinitialize simulation sequence
 		//--------------------------------------	
-		_RCSymStart			= Now;
+		RCSymReset();
 		//--------------------------------------	
 		return RC;
 		}
 	//---------------------------------------------------
-	ulong SymDet =	(Now - _RCSymStart) / 20; 	// Number of 20-ms slots
+	ulong SymDet =	(TMRGetRTC() - _RCSymStart) / 20; 	// Number of 20-ms slots
 												// since simulation start
 	//---------------------------------------------------
 	if (SymDet < _RCSymCount)
@@ -131,6 +114,22 @@ uint	RCSymRead(RCData*	RCSample)
 		RCSample->Yaw		= ((float)_RCSymStream[SymIdx].Yaw)			*0.01;
 		//--------------------------------------
 		RCSample->Control	= 1;
+		}
+	else
+		// Simulation sequence exhausted!
+		{
+		//--------------------------------------
+		// Reset output data
+		//--------------------------------------
+		RCSample->Throttle	= 0.0;
+		//------------------------
+		RCSample->Roll		= 0.0;
+		RCSample->Pitch		= 0.0;
+		RCSample->Yaw		= 0.0;
+		//--------------------------------------
+		// Force RC Control to 0
+		//--------------------------------------
+		RCSample->Control	= 0;
 		}
 	//---------------------------------------------------
 	return RC;

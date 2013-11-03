@@ -15,24 +15,34 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void)
 	_ADCSCnt++;					// Increment sample count in
 								// buffer
 	//---------------------------------------------------
-	if (_ADCSCnt >= 64)			// 64 samples in buffer
+	if (_ADCSCnt >= 128)		// 128 samples in buffer
 		{
+		//----------------------------------------------
+		// Calculate new value as average of accumulated
+		// samples.
+		//----------------------------------------------
+		ulong	NewValue = (_ADCBuffer + 64) >> 7;
+		//----------------------------------------------
+		// Given the configured ADC rate of 10 KHz, the
+		// first update to ADCValue takes 12.8 msec with
+		// every subsequent update taking 6.4 msec
+		//----------------------------------------------
 		if (0 == _ADCValue)
 			{
 			// First ADC sample - take "as-is"
 			//------------------------------------------------
-			// Add 32 and divide by 64 - average with rounding
-			_ADCValue 	= (_ADCBuffer + 32) >> 6;	
+			// Add 64 and divide by 128 - average with rounding
+			_ADCValue 	= NewValue;
 			}
 		else
 			{
 			// Subsequent samples - apply IIR filtering:
 			// FilteredValue = (15*FilteredValue + NewValue)/16
 			//------------------------------------------------
-			_ADCValue	= (_ADCValue * 15 + ((_ADCBuffer + 32) >> 6)) >> 4;
+			_ADCValue	= (_ADCValue * 15 + NewValue) >> 4;
 			}
 		//--------------------------------------------------------
-		_ADCSCnt	= 32;		// Half of the series consumed
+		_ADCSCnt	= 64;		// Half of the series consumed
 								// Buffer halved (with rounding)
 		_ADCBuffer	= (_ADCBuffer + 1) >> 1;
 		}

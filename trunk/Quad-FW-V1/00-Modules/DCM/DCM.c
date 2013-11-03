@@ -96,7 +96,7 @@ uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
 	//--------------------------------------------------------------------------
 	// Local variables used in calculations of the Accelerometer-based correction
 	//--------------------------------------------------------------------------
-	Vector			ZEarth;			// Earth vertical in the Body frame
+	Vector			EarthZ;			// Earth vertical in the Body frame
 	Vector			AccNorm;		// Normalized Accelerometer measurement
 									// in the Body frame
 	Vector			AccError;		// Rotational "error" between the Earth ver-
@@ -113,7 +113,7 @@ uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
 	VectorNormalize(pAccRaw, &AccNorm);
 	// Extract Z-axis in the Earth frame as seen from the Body frame
 	// from the DCM
-	_DCMZEarth(&_DCMRM, &ZEarth);
+	_DCMEarthZ(&_DCMRM, &EarthZ);
 	//---------------------------------------------------------
 	// Cross-product of the axis Z in the Earth frame (as seen
 	// from the Body frame) of the DCM with the normalized
@@ -123,7 +123,7 @@ uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
 	// much the Rotation Matrix need to be rotated so that these
 	// vectors match.
 	//---------------------------------------------------------
-	VectorCrossProduct(&ZEarth, &AccNorm, &AccError);
+	VectorCrossProduct(&EarthZ, &AccNorm, &AccError);
 	//---------------------------------------------------------
 	// Accelerometer correction P-Term
 	//---------------------------------------------------------

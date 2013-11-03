@@ -3,7 +3,7 @@
 #include "Init\Init.h"
 #include "TMR\TMR.h"
 #include "BLI\BLI.h"
-#include "UART\UART.h"
+#include "UART\UART_TX.h"
 #include "ADC\ADC.h"
 
 int main(void)
@@ -13,7 +13,7 @@ int main(void)
 	TMRInit(2);			// Initialize Timer interface with Priority=2
 	BLIInit();			// Initialize Signal interface
 	ADCInit(3);			// Initialize ADC
-	UARTInitTX(6, 48);	// Initialize UART1 for TX
+	UARTInitTX(6, 350);	// Initialize UART1 for TX
 	// This initialization routine accepts BaudRate in multiples
 	// of 2400 bps; Thus:
 	// BaudRate =   1	=>   2400 bps
@@ -37,18 +37,29 @@ int main(void)
 		uint			Stat;
 		} UData;
 
-
+	int i = 0;
+	int j = 0;
 	BLISignalON();
-	while(1)	
+	while(j < 10)
 		{
-		TMRDelay(1000);
+		TMRDelay(10);
 		//--------------------------
 		UData.V		= ADCGetBatteryVoltage();
 		UData.Raw 	= ADCGetRawSample();
 		UData.Stat	= ADCGetBatteryStatus();
 		//--------------------------
 		UARTPostWhenReady((uchar*)&UData, sizeof(UData));
-		BLISignalFlip();
+		i++;
+		//--------------------------
+		if (i >= 100)
+			{
+			UARTPostWhenReady(NULL, 0);
+			BLISignalFlip();
+			//------------------------
+			i = 0;
+			j++;
+			}
+		TMRDelay(10);
 		}
 
 

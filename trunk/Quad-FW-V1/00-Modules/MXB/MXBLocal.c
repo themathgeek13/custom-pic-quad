@@ -24,18 +24,9 @@ uint		_MXBInit			= 0;
 float		_MXBOffset		= 0.0;
 
 //************************************************************
-// Temporary values used in DLPF calculation
+// Time stamp (in timer tics) of the most recent measurement
+// (may be required by the host for Speed calculation)
 //------------------------------------------------------------
-MXBData		_NewMXBReading	= {0.0, 0.0};
-
-//************************************************************
-// Temporary values used in Speed calculation
-//------------------------------------------------------------
-// Previous measurement used in calculating Speed
-float		_MXBLastAlt			= 0.0;
-// Time stamp (in timer tics) of last measurement
-ulong		_MXBLastTS			= 0;
-// Time stamp (in timer tics) of current measurement
 ulong		_MXBRecentTS		= 0;
 
 //************************************************************

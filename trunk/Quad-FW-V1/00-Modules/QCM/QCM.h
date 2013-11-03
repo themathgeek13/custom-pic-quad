@@ -10,7 +10,7 @@
 //=====================================================
 
 float	QCMBatteryMgmt();
-
+void	QCMReset();
 void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC);
 
 //=====================================================

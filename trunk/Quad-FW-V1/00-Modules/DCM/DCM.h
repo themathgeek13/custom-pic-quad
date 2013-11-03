@@ -50,4 +50,19 @@ Matrix*		DCMGetMatrix(	Matrix*		M);
 Vector*		DCMToEarth(	Vector* pV, Vector* pRes);
 Vector*		DCMToBody(	Vector* pV, Vector* pRes);
 //=============================================================
+// DCMEarthX returns X axis of Earth frame as seen from the
+// Body frame (roll axis) from the current DCM matrix
+//-------------------------------------------------------------
+Vector*		DCMEarthX(Vector* EarthX);
+//=============================================================
+// DCMEarthY returns Y axis of Earth frame as seen from the
+// Body frame (pitch axis) from the current DCM matrix
+//-------------------------------------------------------------
+Vector*		DCMEarthY(Vector* EarthY);
+//=============================================================
+// DCMEarthZ returns Z axis of Earth frame as seen from the
+// Body frame (yaw axis) from the current DCM matrix
+//-------------------------------------------------------------
+Vector*		DCMEarthZ(Vector* EarthZ);
+//==========================================================================
 #endif
