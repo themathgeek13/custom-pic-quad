@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/30-UART.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=30-UART.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=30-uart/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/20-UART.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=20-UART.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=20-uart/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/30-uart/bin
+makeDirectory ${TMPDIR}/20-uart/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/30-uart.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/20-uart.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/30-uart.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/20-uart.tar *
 checkReturnCode
 
 # Cleanup

@@ -2,7 +2,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>20-I2C</name>
+            <name>30-I2C</name>
             <creation-uuid>c50d0995-2eb7-41c7-bfbd-fdba6d0e34ab</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
