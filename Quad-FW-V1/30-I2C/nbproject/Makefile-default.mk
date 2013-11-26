@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 # Object Directory
@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/DBG/DBG.c ../00-Modules/HMCMAG/HMCMAG_Async.c ../00-Modules/HMCMAG/HMCMAG_Init.c ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c ../00-Modules/HMCMAG/HMCMAG_Local.c ../00-Modules/HMCMAG/HMCMAG_Mgmt.c ../00-Modules/HMCMAG/HMCMAG_Sync.c ../00-Modules/I2C/I2C_Async.c ../00-Modules/I2C/I2C_Init.c ../00-Modules/I2C/I2C_ISR.c ../00-Modules/I2C/I2C_Local.c ../00-Modules/I2C/I2C_Sync.c ../00-Modules/I2C/I2C_SyncRead.c ../00-Modules/I2C/I2C_SyncWrite.c ../00-Modules/Init/Init.c ../00-Modules/MPU6050/MPU6050_Async.c ../00-Modules/MPU6050/MPU6050_Init.c ../00-Modules/MPU6050/MPU6050_ISR_INT1.c ../00-Modules/MPU6050/MPU6050_Local.c ../00-Modules/MPU6050/MPU6050_Mgmt.c ../00-Modules/MPU6050/MPU6050_Reset.c ../00-Modules/MPU6050/MPU6050_Sync.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c main.c ../00-Modules/MPL3115/MPL3115_Async.c ../00-Modules/MPL3115/MPL3115_ISR.c ../00-Modules/MPL3115/MPL3115_Init.c ../00-Modules/MPL3115/MPL3115_Local.c ../00-Modules/MPL3115/MPL3115_Mgmt.c ../00-Modules/MPL3115/MPL3115_Sync.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_ISR.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_Local.c
+SOURCEFILES_QUOTED_IF_SPACED=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/DBG/DBG.c ../00-Modules/HMCMAG/HMCMAG_Async.c ../00-Modules/HMCMAG/HMCMAG_Init.c ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c ../00-Modules/HMCMAG/HMCMAG_Local.c ../00-Modules/HMCMAG/HMCMAG_Mgmt.c ../00-Modules/HMCMAG/HMCMAG_Sync.c ../00-Modules/I2C/I2C_Async.c ../00-Modules/I2C/I2C_Init.c ../00-Modules/I2C/I2C_ISR.c ../00-Modules/I2C/I2C_Local.c ../00-Modules/I2C/I2C_Sync.c ../00-Modules/I2C/I2C_SyncRead.c ../00-Modules/I2C/I2C_SyncWrite.c ../00-Modules/Init/Init.c ../00-Modules/MPL3115/MPL3115_Async.c ../00-Modules/MPL3115/MPL3115_ISR.c ../00-Modules/MPL3115/MPL3115_Init.c ../00-Modules/MPL3115/MPL3115_Local.c ../00-Modules/MPL3115/MPL3115_Mgmt.c ../00-Modules/MPL3115/MPL3115_Sync.c ../00-Modules/MPU6050/MPU6050_Async.c ../00-Modules/MPU6050/MPU6050_Init.c ../00-Modules/MPU6050/MPU6050_ISR_INT1.c ../00-Modules/MPU6050/MPU6050_Local.c ../00-Modules/MPU6050/MPU6050_Mgmt.c ../00-Modules/MPU6050/MPU6050_Reset.c ../00-Modules/MPU6050/MPU6050_Sync.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_ISR.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_Local.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/261190851/DBG.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_Async.o ${OBJECTDIR}/_ext/261195156/I2C_Init.o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o ${OBJECTDIR}/_ext/261195156/I2C_Local.o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/261189241/BLI.o.d ${OBJECTDIR}/_ext/261189241/BLIInit.o.d ${OBJECTDIR}/_ext/261189241/BLILocal.o.d ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d ${OBJECTDIR}/_ext/261190851/DBG.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d ${OBJECTDIR}/_ext/261195156/I2C_Async.o.d ${OBJECTDIR}/_ext/261195156/I2C_Init.o.d ${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d ${OBJECTDIR}/_ext/261195156/I2C_Local.o.d ${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d ${OBJECTDIR}/_ext/492825802/Init.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o.d ${OBJECTDIR}/_ext/261206579/TMR.o.d ${OBJECTDIR}/_ext/261206579/TMRInit.o.d ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/261190851/DBG.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_Async.o ${OBJECTDIR}/_ext/261195156/I2C_Init.o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o ${OBJECTDIR}/_ext/261195156/I2C_Local.o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/261189241/BLI.o.d ${OBJECTDIR}/_ext/261189241/BLIInit.o.d ${OBJECTDIR}/_ext/261189241/BLILocal.o.d ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d ${OBJECTDIR}/_ext/261190851/DBG.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o.d ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o.d ${OBJECTDIR}/_ext/261195156/I2C_Async.o.d ${OBJECTDIR}/_ext/261195156/I2C_Init.o.d ${OBJECTDIR}/_ext/261195156/I2C_ISR.o.d ${OBJECTDIR}/_ext/261195156/I2C_Local.o.d ${OBJECTDIR}/_ext/261195156/I2C_Sync.o.d ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o.d ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o.d ${OBJECTDIR}/_ext/492825802/Init.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o.d ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o.d ${OBJECTDIR}/_ext/261206579/TMR.o.d ${OBJECTDIR}/_ext/261206579/TMRInit.o.d ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/261190851/DBG.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_Async.o ${OBJECTDIR}/_ext/261195156/I2C_Init.o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o ${OBJECTDIR}/_ext/261195156/I2C_Local.o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o
+OBJECTFILES=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/261190851/DBG.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Async.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Init.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_ISR_INT2.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Local.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Mgmt.o ${OBJECTDIR}/_ext/1219465957/HMCMAG_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_Async.o ${OBJECTDIR}/_ext/261195156/I2C_Init.o ${OBJECTDIR}/_ext/261195156/I2C_ISR.o ${OBJECTDIR}/_ext/261195156/I2C_Local.o ${OBJECTDIR}/_ext/261195156/I2C_Sync.o ${OBJECTDIR}/_ext/261195156/I2C_SyncRead.o ${OBJECTDIR}/_ext/261195156/I2C_SyncWrite.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Init.o ${OBJECTDIR}/_ext/1095620897/MPU6050_ISR_INT1.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Local.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Mgmt.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Reset.o ${OBJECTDIR}/_ext/1095620897/MPU6050_Sync.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/DBG/DBG.c ../00-Modules/HMCMAG/HMCMAG_Async.c ../00-Modules/HMCMAG/HMCMAG_Init.c ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c ../00-Modules/HMCMAG/HMCMAG_Local.c ../00-Modules/HMCMAG/HMCMAG_Mgmt.c ../00-Modules/HMCMAG/HMCMAG_Sync.c ../00-Modules/I2C/I2C_Async.c ../00-Modules/I2C/I2C_Init.c ../00-Modules/I2C/I2C_ISR.c ../00-Modules/I2C/I2C_Local.c ../00-Modules/I2C/I2C_Sync.c ../00-Modules/I2C/I2C_SyncRead.c ../00-Modules/I2C/I2C_SyncWrite.c ../00-Modules/Init/Init.c ../00-Modules/MPU6050/MPU6050_Async.c ../00-Modules/MPU6050/MPU6050_Init.c ../00-Modules/MPU6050/MPU6050_ISR_INT1.c ../00-Modules/MPU6050/MPU6050_Local.c ../00-Modules/MPU6050/MPU6050_Mgmt.c ../00-Modules/MPU6050/MPU6050_Reset.c ../00-Modules/MPU6050/MPU6050_Sync.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c main.c ../00-Modules/MPL3115/MPL3115_Async.c ../00-Modules/MPL3115/MPL3115_ISR.c ../00-Modules/MPL3115/MPL3115_Init.c ../00-Modules/MPL3115/MPL3115_Local.c ../00-Modules/MPL3115/MPL3115_Mgmt.c ../00-Modules/MPL3115/MPL3115_Sync.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_ISR.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_Local.c
+SOURCEFILES=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/DBG/DBG.c ../00-Modules/HMCMAG/HMCMAG_Async.c ../00-Modules/HMCMAG/HMCMAG_Init.c ../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c ../00-Modules/HMCMAG/HMCMAG_Local.c ../00-Modules/HMCMAG/HMCMAG_Mgmt.c ../00-Modules/HMCMAG/HMCMAG_Sync.c ../00-Modules/I2C/I2C_Async.c ../00-Modules/I2C/I2C_Init.c ../00-Modules/I2C/I2C_ISR.c ../00-Modules/I2C/I2C_Local.c ../00-Modules/I2C/I2C_Sync.c ../00-Modules/I2C/I2C_SyncRead.c ../00-Modules/I2C/I2C_SyncWrite.c ../00-Modules/Init/Init.c ../00-Modules/MPL3115/MPL3115_Async.c ../00-Modules/MPL3115/MPL3115_ISR.c ../00-Modules/MPL3115/MPL3115_Init.c ../00-Modules/MPL3115/MPL3115_Local.c ../00-Modules/MPL3115/MPL3115_Mgmt.c ../00-Modules/MPL3115/MPL3115_Sync.c ../00-Modules/MPU6050/MPU6050_Async.c ../00-Modules/MPU6050/MPU6050_Init.c ../00-Modules/MPU6050/MPU6050_ISR_INT1.c ../00-Modules/MPU6050/MPU6050_Local.c ../00-Modules/MPU6050/MPU6050_Mgmt.c ../00-Modules/MPU6050/MPU6050_Reset.c ../00-Modules/MPU6050/MPU6050_Sync.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_ISR.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_Local.c main.c
 
 
 CFLAGS=
@@ -72,7 +72,7 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=24HJ128GP204
 MP_LINKER_FILE_OPTION=,--script=p24HJ128GP204.gld
@@ -212,6 +212,48 @@ ${OBJECTDIR}/_ext/492825802/Init.o: ../00-Modules/Init/Init.c  nbproject/Makefil
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492825802/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o: ../00-Modules/MPL3115/MPL3115_Async.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Async.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o: ../00-Modules/MPL3115/MPL3115_ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_ISR.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o: ../00-Modules/MPL3115/MPL3115_Init.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Init.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o: ../00-Modules/MPL3115/MPL3115_Local.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Local.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o: ../00-Modules/MPL3115/MPL3115_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Mgmt.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o: ../00-Modules/MPL3115/MPL3115_Sync.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Sync.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o: ../00-Modules/MPU6050/MPU6050_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1095620897 
 	@${RM} ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o.d 
@@ -289,55 +331,6 @@ ${OBJECTDIR}/_ext/261206579/TMR_ISR.o: ../00-Modules/TMR/TMR_ISR.c  nbproject/Ma
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o: ../00-Modules/MPL3115/MPL3115_Async.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Async.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o: ../00-Modules/MPL3115/MPL3115_ISR.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_ISR.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o: ../00-Modules/MPL3115/MPL3115_Init.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Init.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o: ../00-Modules/MPL3115/MPL3115_Local.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Local.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o: ../00-Modules/MPL3115/MPL3115_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Mgmt.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o: ../00-Modules/MPL3115/MPL3115_Sync.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Sync.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/492512300/UART_TX_API.o: ../00-Modules/UART/UART_TX_API.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d 
@@ -365,6 +358,13 @@ ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o: ../00-Modules/UART/UART_TX_Local.c 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/_ext/261189241/BLI.o: ../00-Modules/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
@@ -500,6 +500,48 @@ ${OBJECTDIR}/_ext/492825802/Init.o: ../00-Modules/Init/Init.c  nbproject/Makefil
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/Init/Init.c  -o ${OBJECTDIR}/_ext/492825802/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492825802/Init.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492825802/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o: ../00-Modules/MPL3115/MPL3115_Async.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Async.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o: ../00-Modules/MPL3115/MPL3115_ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_ISR.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o: ../00-Modules/MPL3115/MPL3115_Init.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Init.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o: ../00-Modules/MPL3115/MPL3115_Local.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Local.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o: ../00-Modules/MPL3115/MPL3115_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Mgmt.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o: ../00-Modules/MPL3115/MPL3115_Sync.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Sync.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o: ../00-Modules/MPU6050/MPU6050_Async.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1095620897 
 	@${RM} ${OBJECTDIR}/_ext/1095620897/MPU6050_Async.o.d 
@@ -577,55 +619,6 @@ ${OBJECTDIR}/_ext/261206579/TMR_ISR.o: ../00-Modules/TMR/TMR_ISR.c  nbproject/Ma
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/TMR/TMR_ISR.c  -o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o: ../00-Modules/MPL3115/MPL3115_Async.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Async.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Async.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o: ../00-Modules/MPL3115/MPL3115_ISR.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_ISR.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o: ../00-Modules/MPL3115/MPL3115_Init.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Init.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o: ../00-Modules/MPL3115/MPL3115_Local.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Local.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o: ../00-Modules/MPL3115/MPL3115_Mgmt.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Mgmt.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Mgmt.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o: ../00-Modules/MPL3115/MPL3115_Sync.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/_ext/1087220677 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/MPL3115/MPL3115_Sync.c  -o ${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1087220677/MPL3115_Sync.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/492512300/UART_TX_API.o: ../00-Modules/UART/UART_TX_API.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/492512300 
 	@${RM} ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d 
@@ -654,6 +647,13 @@ ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o: ../00-Modules/UART/UART_TX_Local.c 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_Local.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 endif
 
 # ------------------------------------------------------------------------------------
@@ -671,15 +671,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -D__PIC24H__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -D__PIC24H__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
-	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/20-I2C.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -D__PIC24H__ -fast-math -Wl,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/30-I2C.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf 
 	
 endif
 
