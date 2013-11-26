@@ -1,7 +1,5 @@
 #include "HMCMAG\HMCMAG_Local.h"
 //*******************************************************
-#ifdef __MAG_Use__
-//*******************************************************
 
 //-------------------------------------------------------
 // HMC Asynchronous Read operation is closely linked with
@@ -27,7 +25,7 @@ uint		HMCAsyncStart()
 	// Enable INT2 interrupts
 	//---------------------------------------------------------							
 	_INT2IF = 0;			// Clear the INT2 interrupt flag
-	I2CRegisterInt(2, 1);	// Enable INT2 interrupt and re-
+	I2CRegisterSubscr(2);	// Enable INT2 interrupt and re-
 							// gister with I2C module- when 
 							// HMC magnetometer has sample,
 							// the interrupt will be triggered
@@ -48,7 +46,7 @@ uint	HMCAsyncStop()
 	//=====================================================
 	// Disable ASYNC driver - INT2
 	//=====================================================
-	I2CRegisterInt(2, 0);	// Disable and deregister
+	I2CDeRegisterSubscr(2);	// Disable and deregister
 							// INT2 interrupt
 	_INT2IF = 0;			// Clear the INT2 interrupt flag
 	//=========================================================
@@ -161,8 +159,6 @@ uint	_HMCAsyncRead(HMCSample* pSample)
 	}
 //===============================================================
 
-//***************************************************************
-#endif /* __MAG_Use__ */
 
 
 

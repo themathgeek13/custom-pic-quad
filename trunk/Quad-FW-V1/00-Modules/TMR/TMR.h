@@ -51,9 +51,17 @@ ulong	TMRGetRTC(void);
 //************************************************************
 void	TMRDelay(ulong Delay);
 //************************************************************
+// Blocks for "Delay" ticks
+//************************************************************
+void	TMRDelayTicks(ulong Delay);
+//************************************************************
 // Sets "alarm" time "AlarmDelay" milliseconds in the future
 //************************************************************
 ulong	TMRSetAlarm(ulong AlarmDelay);
+//************************************************************
+// Sets "alarm" time "AlarmTicks" ticks in the future
+//************************************************************
+ulong	TMRSetAlarmTicks(ulong AlarmTicks);
 //************************************************************
 // Blocks execution until the previously set "alarm" time expires
 //************************************************************

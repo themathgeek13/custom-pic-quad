@@ -285,7 +285,7 @@ int main(void)
 	//--------------------------------------------------------------
 	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
 							// ODR  = 6 (max, 75 Hz),
-							// Gain = 2 (1.3 Gs)
+							// Gain = 1 (1.3 Gs)
 							// DLPF = 0 (no averaging)
 		BLIDeadStop("EM", 2);
 	#endif

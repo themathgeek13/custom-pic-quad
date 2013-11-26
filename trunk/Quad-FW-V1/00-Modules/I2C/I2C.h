@@ -4,20 +4,18 @@
 #ifndef __I2C_H
 #define __I2C_H
 //=====================================================
-#define	I2C_OK		0
-#define I2C_WCOL	1
-#define I2C_NACK	2
-#define	I2C_TOUT	3
-#define	I2C_OVFL	4
+#define	I2CRC_OK	0
+#define I2CRC_WCOL	1
+#define I2CRC_NACK	2
+#define	I2CRC_TOUT	3
+#define	I2CRC_OVFL	4
 //--------------------
-#define	I2C_NRDY	6		// I2C not initialized
-#define	I2C_SBSY	8		// I2C is busy with SYNC
-#define	I2C_ABSY	9		// I2C is busy with ASYNC
-#define	I2C_BUSY   10		// I2C bus is busy?
+#define	I2CRC_NRDY	6		// I2C not initialized
+#define	I2CRC_SBSY	8		// I2C is busy with SYNC
+#define	I2CRC_ABSY	9		// I2C is busy with ASYNC
+#define	I2CRC_BUSY 10		// I2C bus is busy?
 //--------------------
-#define I2C_RC_MAX 10		// Highest error code from I2C
-//---------------------------------
-#define	I2C_NACKRetry 50	// Retry count for NACK code
+#define I2CRC_MAX  10		// Highest error code from I2C
 //-----------------------------------------------------
 // Generic pointer to I2C Interrupt routine
 //-----------------------------------------------------
@@ -55,7 +53,8 @@ uint	I2CAsyncStart(I2CCallBack callBack);
 //-----------------------------------------------------
 void	I2CAsyncStop();
 //-----------------------------------------------------
-void	I2CRegisterInt(uint IntNum, uint IntEnFlag);
+void	I2CRegisterSubscr(uint SubNum);
+void	I2CDeRegisterSubscr(uint SubNum);
 //============================================================
 
 #endif

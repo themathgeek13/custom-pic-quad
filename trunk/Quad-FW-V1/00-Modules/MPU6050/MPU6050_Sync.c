@@ -70,17 +70,17 @@ uint	_MPURead(	byte 	Register,
 	if (_MPU_Async)
 		return MPU_ABSY;		// Asynchronous operation in progress...
 	//*********************************************************
-	uint	RC		= I2C_OK;
+	uint	RC		= MPU_OK;
 	uint	Count	= 0;
 	//---------------------------------------------------------
 RetryNACK:
 	RC = I2CSyncRead(_MPU_Addr, Register, Buffer, BufLen);
 	switch (RC)
 		{
-		case I2C_OK:
-			return I2C_OK;
+		case I2CRC_OK:
+			return MPU_OK;
 
-		case I2C_NACK:
+		case I2CRC_NACK:
 			Count++;
 			if (Count < I2C_NACKRetry)
 				goto RetryNACK;
@@ -104,17 +104,17 @@ uint	_MPUWrite(	byte	 Register,
 	if (_MPU_Async)
 		return MPU_ABSY;		// Asynchronous operation in progress...
 	//*********************************************************
-	uint	RC		= I2C_OK;
+	uint	RC		= MPU_OK;
 	uint	Count	= 0;
 	//---------------------------------------------------------
 RetryNACK:
 	RC = I2CSyncWrite(_MPU_Addr, Register, Buffer, BufLen);
 	switch (RC)
 		{
-		case I2C_OK:
-			return I2C_OK;
+		case I2CRC_OK:
+			return MPU_OK;
 
-		case I2C_NACK:
+		case I2CRC_NACK:
 			Count++;
 			if (Count < I2C_NACKRetry)
 				goto RetryNACK;
@@ -212,7 +212,7 @@ Retry:	// Wait for RDY signal
 	U.VByte[0]	= Data[13];
 	pData->GZ 	= -U.VInt;
 	//-----------------------------------------------
-	return	I2C_OK;
+	return	MPU_OK;
 	}
 //=============================================================
 

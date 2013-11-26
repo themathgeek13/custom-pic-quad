@@ -1,7 +1,5 @@
 #include "HMCMAG\HMCMAG_Local.h"
 //*******************************************************
-#ifdef __MAG_Use__
-//*******************************************************
 
 //=============================================================
 uint		HMCInit(byte ODR, byte Gain, byte DLPF)
@@ -10,7 +8,7 @@ uint		HMCInit(byte ODR, byte Gain, byte DLPF)
 	// sensor, so we need to make sure that I2C is initialized...
 	byte	IL = I2CGetIL();
 	if (0 == IL)
-		return I2C_NRDY;	// I2C Module is not initialized
+		return I2CRC_NRDY;	// I2C Module is not initialized
 	//---------------------------------------------------------
 	if (_HMC_Init)
 		return	HMC_OK;		// Avoid repeated initialization...
@@ -117,7 +115,6 @@ uint	HMCReset(byte ODR, byte Gain, byte DLPF)
 	}
 
 //***************************************************************
-#endif /* __MAG_Use__ */
 
 
 

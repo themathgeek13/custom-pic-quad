@@ -1,4 +1,5 @@
 #include "I2C\I2C_Local.h"
+#include "TMR\TMR.h"
 
 //************************************************************
 // Synchronous WRITE - I2C API (visible externally) component
@@ -8,7 +9,7 @@ uint	I2CSyncWrite(	byte 	DevAddr,
 						byte* 	Buffer,
 						uint  	BufLen	)
 	{
-	if (!_I2C_Init)		return I2C_NRDY;
+	if (!_I2C_Init)		return I2CRC_NRDY;
 	//=========================================================
 	// Validate run-time conditions
 	//---------------------------------------------------------
@@ -20,15 +21,20 @@ uint	I2CSyncWrite(	byte 	DevAddr,
 	// Enter I2C (and related modules) CRITICAL SECTION
 	//---------------------------------------------------------
 Retry:
-	RC	= I2C_OK;
+	RC	= I2CRC_OK;
 	//------------------------------------
 	SET_AND_SAVE_CPU_IPL(CPU_IPL, _I2C_IL);
 		{
-		if (_I2C_CallBack)		RC = I2C_ABSY;
-		else	if (_I2C_SBSY)	RC = I2C_SBSY;
-				else	if	( _SEN || _PEN || _RCEN || _RSEN || _ACKEN || _TRSTAT )
+		if (_I2C_CallBack)		RC = I2CRC_ABSY;
+		else	if (_I2C_SBSY)	RC = I2CRC_SBSY;
+				else	if	(	I2C_SEN
+							 || I2C_PEN
+							 || I2C_RCEN
+							 || I2C_RSEN
+							 || I2C_ACKEN
+							 || I2C_TRSTAT )
 								// Bus is busy with something...?
-								RC = I2C_BUSY;
+								RC = I2CRC_BUSY;
 						else
 								//---------------------------------------------------------
 								// Set Flag indicating Synchronous operation is in progress
@@ -42,17 +48,16 @@ Retry:
 	//=========================================================
 	switch (RC)	
 		{
-		case	I2C_OK:
+		case	I2CRC_OK:
 			break;		// Run-time conditions are OK
 		//-------------------------------------------
-		case	I2C_ABSY:
-		case	I2C_SBSY:
-		case	I2C_BUSY:
+		case	I2CRC_ABSY:
+		case	I2CRC_SBSY:
+		case	I2CRC_BUSY:
 			// Situation could be helped by delay/retry
-			if (RetryCount < 50)
+			if (RetryCount < I2C_BUSYRetry)
 				{
-				int i;
-				for (i = 0; i < 500; i++);	// Small delay
+				TMRDelayTicks(1);	// Small delay ~150 usec
 				RetryCount++;
 				goto Retry;					// Attempt retry
 				}
@@ -78,19 +83,19 @@ Retry:
 	// Format device address for WRITE operation
 	byte	i2cAddrW	= DevAddr & 0xFE;	
 	//---------------------------------------------------------
-	RC		= I2C_OK;
+	RC		= I2CRC_OK;
 	//---------------------------------------------------------
 	I2CStart();		// Signal START on SDA and SCL pins
 	//---------------------------------------------------------
 	// Send Device WRITE address
 	//---------------------------------------------------------
 	RC = I2CMasterWriteByte(i2cAddrW);
-	if (RC != I2C_OK)	goto Finally;
+	if (RC != I2CRC_OK)	goto Finally;
 	//---------------------------------------------------------
 	// Send Register address (as data))
 	//---------------------------------------------------------
 	RC = I2CMasterWriteByte(Register);
-	if (RC != I2C_OK)	goto Finally;
+	if (RC != I2CRC_OK)	goto Finally;
 	//---------------------------------------------------------
 	// Send data
 	//---------------------------------------------------------
@@ -98,7 +103,7 @@ Retry:
 	for (BufIdx = 0; BufIdx < BufLen; BufIdx++)
 		{
 		RC = I2CMasterWriteByte(*Buffer);
-		if (RC != I2C_OK)
+		if (RC != I2CRC_OK)
 			break;			// Error...
 		Buffer++;
 		}

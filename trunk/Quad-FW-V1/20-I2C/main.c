@@ -5,10 +5,12 @@
 #include "BLI\BLI.h"
 #include "I2C\I2C.h"
 #include "I2C\I2C_Local.h"
+#include "UART\UART_TX.h"
+//---------------------------------
 #include "MPU6050\MPU6050.h"
 #include "HMCMAG\HMCMAG.h"
-
-#include "DBG\DBG.h"
+#include "MPL3115\MPL3115.h"
+//---------------------------------
 
 int main(void)
 	{
@@ -16,151 +18,101 @@ int main(void)
 	Init();
 	TMRInit(2);			// Initialize Timer interface with Priority=2
 	//*******************************************************************
-	_T1IE 	= 0; 		// Temporarily disable Timer1 interrupt
-	//*******************************************************************
 	BLIInit();			// Initialize Signal interface
 	DBGInit();
 	I2CInit(5, 1);		// Initialize I2C1 module with IPL=5 and Fscl=400 KHz
+	//--------------------------
+	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 
+	// BaudRate =   48	=>   115,200 bps	- ZigBEE
+	//--------------------------------------
+	// BaudRate =  100	=>   250,000 bps
+	// BaudRate =  200	=>   500,000 bps
+	// BaudRate =  250	=>   625,000 bps
+	// BaudRate =  350	=>   833,333 bps	- SD Logger, FTDI cable
+	// BaudRate =  500	=> 1,250,000 bps
+	// BaudRate = 1000	=> 2,500,000 bps
+	//*******************************************************************
+	if ( MPUInit(0, 3) )	// Initialize motion Sensor
+							// 1 kHz/(0+1) = 1000 Hz (1ms)
+							// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
+		BLIDeadStop("EG", 2);
+	//--------------------------
+	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
+							// ODR  = 6 (max, 75 Hz),
+							// Gain = 1 (1.3 Gs)
+							// DLPF = 0 (no averaging)
+		BLIDeadStop("EM", 2);
+	//--------------------------
+	if ( MPLInit(5) )		// Average over 32 samples providing
+							// update rate about 10 Hz
+		BLIDeadStop("EA", 2);
 	//*******************************************************************
 	uint			RC			= 0;
-	int				i;
-	//--------------------------
-	MPUSample		AGSample;
-	HMCSample		MSample;
+	ulong			Alarm		= 0;
+	ulong			TS			= 0;
+	//-------------------------------
+	struct
+		{
+		ulong			TS;
+		MPUSample		IMUData;
+		HMCSample		MagData;
+		MPLSample		AltData;	
+		}	UData;
 	//*******************************************************************
-	RC = MPUInit(2, 1);		// Initialize Sensor - 1 kHz / 3 (3 msec)
-		while(RC);
-	//--------------------------
-	RC = HMCInit(6, 2, 0);		// Initialize Sensor:
-								// ODR  = 6 (max, 75 Hz),
-								// Gain = 2 (1.3 Gs)
-								// DLPF = 0 (no averaging)
-		while(RC);
-	//*******************************************************************
-	BLISignalOFF();
-
+	BLIAsyncStart(100, 50);
+	RC = MPLSetGround();
+	if (RC) BLIDeadStop("SOS", 3);	// Failure...
+	BLIAsyncStop();
 	//====================================================
-	// Testing MPU and HMC together in real-life scenario
+	
+	BLISignalOFF();
+	//====================================================
+	// Testing MPU, HMC, and MPL together in a real-life
+	// scenario
 	//====================================================
 	RC = MPUAsyncStart();
 	if(RC)
-		BLIDeadStop("S", 1);
+		BLIDeadStop("SG", 2);
 	//------------------------
 	RC = HMCAsyncStart();
 	if(RC)
-		BLIDeadStop("S", 1);
-	//------------------------------------
-	DBG_2_ON();
-	RC 	= HMCAsyncReadWhenReady(&MSample);
-	DBG_2_OFF();
-	if (RC)
-		BLIDeadStop("M", 1);
+		BLIDeadStop("SM", 2);
 	//------------------------
-	DBG_1_ON();
-	RC 	= MPUAsyncReadWhenReady(&AGSample);
-	DBG_1_OFF();
-	if (RC)
-		BLIDeadStop("A", 1);
+	RC = MPLAsyncStart();
+	if(RC)
+		BLIDeadStop("SA", 2);
+	RC = MPLAsyncReadWhenReady(&UData.AltData);
+	if (RC) BLIDeadStop("SAS", 3);	// Failure...
 	//====================================================
-	// Alternate 1
-	//====================================================
-	while (1)
+	while (TRUE)
 		{
+		Alarm = TMRSetAlarm(500);
+		//------------------------------------
+		RC 	= MPUAsyncReadIfReady(&UData.IMUData);
+		if (MPU_OK != RC && MPU_NRDY != RC)
+			BLIDeadStop("G", 1);
+		//------------------------
+		RC 	= HMCAsyncReadIfReady(&UData.MagData);
+		if (HMC_OK != RC && HMC_NRDY != RC)
+			BLIDeadStop("M", 1);
+		//------------------------
+		RC = MPLAsyncReadIfReady(&UData.AltData);
+		if (MPL_OK != RC && MPL_NRDY != RC)
+			BLIDeadStop("A", 3);	// Failure...
+		//-------------------------
+		UData.TS	= TMRGetTS();
+		//-------------------------
+		if (0 == TS)	TS = UData.TS;
+		UData.TS -= TS;
 		BLISignalFlip();
-		// Work cycle - about 20 msec
-		//------------------------------------
-		TMRDelay(17);
-		//------------------------------------
-		DBG_1_ON();
-		RC 	= MPUAsyncReadWhenReady(&AGSample);
-		DBG_1_OFF();
-		if (RC)
-			BLIDeadStop("A", 1);
-		//------------------------------------
-		DBG_2_ON();
-		RC 	= HMCAsyncRead(&MSample);
-		DBG_2_OFF();
+		//-------------------------
+		UARTPostIfReady((byte*)&UData, sizeof(UData));
+		//-------------------------
+		TMRWaitAlarm(Alarm);
 		}
-
-
 	//====================================================
-	// Alternate 2
-	//====================================================
-	while (1)
-		{
-		BLISignalFlip();
-		// Work cycle - about 20 msec
-		for (i = 0; i < 6; i++)
-			{
-			//------------------------------------
-			DBG_1_ON();
-			RC 	= MPUAsyncReadWhenReady(&AGSample);
-			DBG_1_OFF();
-			if (RC)
-				BLIDeadStop("A", 1);
-			//------------------------------------
-			DBG_2_ON();
-			RC 	= HMCAsyncRead(&MSample);
-			DBG_2_OFF();
-			}
-		}
-
-
-	//====================================================
-	// Testing HMC alone
-	//====================================================
-	while (1)
-		{
-		DBG_1_ON();
-		RC = HMCAsyncStart();
-		if(RC)
-			BLIDeadStop("S", 1);
-		for (i=0; i<3; i++)
-			{
-			TMRDelay(15);
-			DBG_2_ON();
-			RC 	= HMCAsyncReadWhenReady(&MSample);
-			DBG_2_OFF();
-			if (RC)
-				BLIDeadStop("M", 1);
-			BLISignalFlip();
-			}
-		DBG_1_OFF();
-		//---------------------------
-		RC = HMCAsyncStop();
-		if(RC)
-			BLIDeadStop("T", 1);
-		TMRDelay(30);
-		}
-
-
-	//====================================================
-	// Testing MPU alone
-	//====================================================
-	while (1)
-		{
-		DBG_1_ON();
-		RC = MPUAsyncStart();
-		if(RC)
-			BLIDeadStop("S", 1);
-		for (i=0; i<3; i++)
-			{
-//			TMRDelay(5);
-			DBG_2_ON();
-			RC 	= MPUAsyncReadWhenReady(&AGSample);
-			DBG_2_OFF();
-			if (RC)
-				BLIDeadStop("A", 1);
-			BLISignalFlip();
-			}
-		DBG_1_OFF();
-		//---------------------------
-		RC = MPUAsyncStop();
-		if(RC)
-			BLIDeadStop("T", 1);
-		TMRDelay(6);
-		}
-
+	
+	
 
 	return 1;
 	}

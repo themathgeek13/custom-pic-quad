@@ -1,7 +1,5 @@
 #include "System.h"
 //*****************************************************
-#ifdef __MAG_Use__
-//*****************************************************
 #include "I2C\I2C.h"
 #include "Vector\Vector.h"
 
@@ -9,12 +7,12 @@
 #ifndef __HMCMAG_H
 #define __HMCMAG_H
 //=====================================================
-#define	HMC_OK		 0
-#define HMC_ABSY	 I2C_RC_MAX + 1
-#define HMC_NRDY	 I2C_RC_MAX + 2
-#define HMC_NACT	 I2C_RC_MAX + 3
-#define HMC_NOTINIT	 I2C_RC_MAX + 4
-#define HMC_OWFL	 I2C_RC_MAX + 5
+#define	HMC_OK		 I2CRC_OK
+#define HMC_ABSY	 I2CRC_MAX + 1
+#define HMC_NRDY	 I2CRC_MAX + 2
+#define HMC_NACT	 I2CRC_MAX + 3
+#define HMC_NOTINIT	 I2CRC_MAX + 4
+#define HMC_OWFL	 I2CRC_MAX + 5
 
 //-----------------------------------------------------
 // Custom HMC Data Sample
@@ -97,5 +95,3 @@ uint	HMCAsyncReadWhenReady(HMCSample* pSample);
 //=====================================================
 #endif
 
-//*****************************************************
-#endif /* __MAG_Use__ */

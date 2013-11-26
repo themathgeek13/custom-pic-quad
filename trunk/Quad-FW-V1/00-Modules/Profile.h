@@ -7,9 +7,6 @@
 // General configuration settings for the project controlling use of
 // optional HW Components
 //--------------------------------------------------------------------------
-// If magnetometer is available please uncomment the following line
-#define __MAG_Use__
-//--------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------
 // If MaxBotix Ultrasound range finder is available please uncomment
