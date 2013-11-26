@@ -1,6 +1,5 @@
+#include "I2C\I2C_Profile.h"
 #include "HMCMAG\HMCMAG_Local.h"
-//*******************************************************
-#ifdef __MAG_Use__
 //*******************************************************
 
 //=============================================================
@@ -55,17 +54,17 @@ uint	_HMCRead(	byte 	Register,
 	if (!_HMC_Init)
 		return HMC_NOTINIT;		// Not initialized...
 	//---------------------------------------------------------
-	uint	RC		= I2C_OK;
+	uint	RC		= HMC_OK;
 	uint	Count	= 0;
 	//---------------------------------------------------------
 RetryNACK:
 	RC = I2CSyncRead(_HMC_Addr, Register, Buffer, BufLen);
 	switch (RC)
 		{
-		case I2C_OK:
-			return I2C_OK;
+		case I2CRC_OK:
+			return I2CRC_OK;
 
-		case I2C_NACK:
+		case I2CRC_NACK:
 			Count++;
 			if (Count < I2C_NACKRetry)
 				goto RetryNACK;
@@ -86,17 +85,17 @@ uint	_HMCWrite(	byte	 Register,
 	if (!_HMC_Init)
 		return HMC_NOTINIT;		// Not initialized...
 	//---------------------------------------------------------
-	uint	RC		= I2C_OK;
+	uint	RC		= HMC_OK;
 	uint	Count	= 0;
 	//---------------------------------------------------------
 RetryNACK:
 	RC = I2CSyncWrite(_HMC_Addr, Register, Buffer, BufLen);
 	switch (RC)
 		{
-		case I2C_OK:
-			return I2C_OK;
+		case I2CRC_OK:
+			return HMC_OK;
 
-		case I2C_NACK:
+		case I2CRC_NACK:
 			Count++;
 			if (Count < I2C_NACKRetry)
 				goto RetryNACK;
@@ -176,8 +175,5 @@ Retry:	// Wait for RDY signal
 	}
 //=============================================================
 
-
-//***************************************************************
-#endif /* __MAG_Use__ */
 
 

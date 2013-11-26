@@ -23,7 +23,7 @@ uint		MPUAsyncStart()
 	// Enable INT1 interrupts
 	//---------------------------------------------------------							
 	_INT1IF = 0;			// Clear the INT1 interrupt flag
-	I2CRegisterInt(1, 1);	// Enable INT1 interrupt and re-
+	I2CRegisterSubscr(1);	// Enable INT1 interrupt and re-
 							// gister with I2C module- when 
 							// MPU6050 has sample, the 
 							// interrupt will be triggered
@@ -44,7 +44,7 @@ uint	MPUAsyncStop()
 	//=====================================================
 	// Disable ASYNC driver - INT1
 	//=====================================================
-	I2CRegisterInt(1, 0);	// Disable and deregister
+	I2CDeRegisterSubscr(1);	// Disable and deregister
 							// INT1 interrupt
 	_INT1IF = 0;			// Clear the INT1 interrupt flag
 	//=========================================================

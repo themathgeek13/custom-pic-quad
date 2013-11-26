@@ -5,36 +5,45 @@
 //============================================================
 uint	I2CAsyncStart(I2CCallBack callBack)
 	{
-	if (!_I2C_Init)		return I2C_NRDY;
 	//=========================================================
 	// Validate run-time conditions
 	//---------------------------------------------------------
-	uint	RC	= I2C_OK;
-	int		CPU_IPL;
+	if (!_I2C_Init)		return I2CRC_NRDY;
+	//=========================================================
+	uint	RC		= I2CRC_OK;
+	BYTE	CPU_IPL;
 	//---------------------------------------------------------
 	// Enter I2C (and related modules) CRITICAL SECTION
 	//---------------------------------------------------------
 	SET_AND_SAVE_CPU_IPL(CPU_IPL, _I2C_IL);
 		{
-		if (_I2C_CallBack)		RC = I2C_ABSY;
-		else	if (_I2C_SBSY)	RC = I2C_SBSY;
-				else	if	( _SEN || _PEN || _RCEN || _RSEN || _ACKEN || _TRSTAT )
+		if (_I2C_CallBack)		RC = I2CRC_ABSY;
+		else	if (_I2C_SBSY)	RC = I2CRC_SBSY;
+				else	if	(	I2C_SEN
+							 || I2C_PEN
+							 || I2C_RCEN
+							 || I2C_RSEN
+							 || I2C_ACKEN
+							 || I2C_TRSTAT )
 								// Bus is busy with something...?
-								RC = I2C_BUSY;
+								RC = I2CRC_BUSY;
 						else
 							// We can subscribe for I2C Async notification(s)
 							{
-							_MI2C1IF		= 0; 	// Clear   I2C(1) Master interrupt flag
+							I2C_IF		= 0; 	// Clear  I2C Master interrupt flag
 							//---------------------------------------------------------
 							// Set Flag indicating Asynchronous operation is in progress
 							//---------------------------------------------------------
 							_I2C_CallBack	= callBack;
 							//////////////////////////////////////////////////////////
 							//--------------------------------------------------------
-							_MI2C1IE		= 1;	// Enable I2C(1) Master interrupt	
+							I2C_IE		= 1;	// Enable I2C Master interrupt
 							//--------------------------------------------------------
-							_INT1IE	= 0;	// Disable INT1 interrupt
-							_INT2IE	= 0;	// Disable INT2 interrupt
+							// Disable subscribers' interrupts
+							I2C_Sub1IE	= 0;
+							I2C_Sub2IE	= 0;
+							I2C_Sub3IE	= 0;
+							I2C_Sub4IE	= 0;
 							}
 		}  
 	//---------------------------------------------------------
@@ -51,8 +60,8 @@ void	I2CAsyncStop()
 	// NOTE: Should be called only from I2C interrupt routine
 	//       or its extension procedure
 	//--------------------------------------------------------
-	I2CSTAT			= 0;	// clear STATUS bits
-	_PEN 			= 1;	// Initiate Stop on SDA and SCL pins
+	I2C_STAT		= 0;	// clear STATUS bits
+	I2C_PEN 		= 1;	// Initiate Stop on SDA and SCL pins
 	//--------------------------------------------------------
 	// NOTE: callback reference will be cleared in Interrupt
 	//		 routine after "STOP" processed
@@ -62,18 +71,48 @@ void	I2CAsyncStop()
 //============================================================
 
 //============================================================
-void	I2CRegisterInt(uint IntNum, uint IntEnFlag)
+void	I2CRegisterSubscr(uint SubNum)
 	{
 	//--------------------------------------------------------
-	switch (IntNum)
+	switch (SubNum)
 		{
 		case 1:
-			_I2C_Int1 	= IntEnFlag;
-			_INT1IE		= _I2C_Int1;
+			_I2C_Sub1 = I2C_Sub1IE = 1;
 			break;
 		case 2:
-			_I2C_Int2 	= IntEnFlag;
-			_INT2IE		= _I2C_Int2;
+			_I2C_Sub2 = I2C_Sub2IE = 1;
+			break;
+		case 3:
+			_I2C_Sub3 = I2C_Sub3IE = 1;
+			break;
+		case 4:
+			_I2C_Sub4 = I2C_Sub4IE = 1;
+			break;
+		default:
+			;
+		}
+	//--------------------------------------------------------
+	return;
+	}
+//============================================================
+
+//============================================================
+void	I2CDeRegisterSubscr(uint SubNum)
+	{
+	//--------------------------------------------------------
+	switch (SubNum)
+		{
+		case 1:
+			_I2C_Sub1 = I2C_Sub1IE = 0;
+			break;
+		case 2:
+			_I2C_Sub2 = I2C_Sub2IE = 0;
+			break;
+		case 3:
+			_I2C_Sub3 = I2C_Sub3IE = 0;
+			break;
+		case 4:
+			_I2C_Sub4 = I2C_Sub4IE = 0;
 			break;
 		default:
 			;

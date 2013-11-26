@@ -8,7 +8,7 @@ uint	MPUInit(byte RateDiv, byte DLPF)
 	// sensor, so we need to make sure that I2C is initialized...
 	byte	IL = I2CGetIL();
 	if (0 == IL)
-		return I2C_NRDY;	// I2C Module is not initialized
+		return I2CRC_NRDY;	// I2C Module is not initialized
 	//---------------------------------------------------------
 	if (_MPU_Init)
 		return	MPU_OK;		// Avoid repeated initialization...

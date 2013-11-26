@@ -6,12 +6,12 @@
 #ifndef __MPU6050_H
 #define __MPU6050_H
 //=====================================================
-#define	MPU_OK		 I2C_OK
+#define	MPU_OK		 I2CRC_OK
 //---------------------------------
-#define MPU_ABSY	 I2C_RC_MAX + 1
-#define MPU_NRDY	 I2C_RC_MAX + 2
-#define MPU_NACT	 I2C_RC_MAX + 3
-#define MPU_NOTINIT	 I2C_RC_MAX + 4
+#define MPU_ABSY	 I2CRC_MAX + 1
+#define MPU_NRDY	 I2CRC_MAX + 2
+#define MPU_NACT	 I2CRC_MAX + 3
+#define MPU_NOTINIT	 I2CRC_MAX + 4
 
 //-----------------------------------------------------
 // Custom MPU Data Sample

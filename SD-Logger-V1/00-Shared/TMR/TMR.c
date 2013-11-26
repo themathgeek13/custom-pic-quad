@@ -57,6 +57,21 @@ void	TMRDelay(ulong Delay)
 //************************************************************
 
 //************************************************************
+// Blocks for "Delay" ticks
+//************************************************************
+void	TMRDelayTicks(ulong Delay)
+	{
+	//----------------------------------------------------
+	// Implements "delay" by combining setting Alarm and
+	// waiting for the Alarm in one function
+	//----------------------------------------------------
+	TMRWaitAlarm(TMRSetAlarmTicks(Delay));
+	//---------------------------------------------------
+	return;
+	}
+//************************************************************
+
+//************************************************************
 // Sets "alarm" time "AlarmDelay" milliseconds in the future
 //************************************************************
 ulong	TMRSetAlarm(ulong AlarmDelay)
@@ -67,6 +82,20 @@ ulong	TMRSetAlarm(ulong AlarmDelay)
 	//------------------------------------------------------
 	// Return alarm timestamp
 	return	(TMRGetRTCTicks() + (AlarmDelay << 3));
+	}
+//************************************************************
+
+//************************************************************
+// Sets "alarm" time "AlarmTicks" ticks in the future
+//************************************************************
+ulong	TMRSetAlarmTicks(ulong AlarmTicks)
+	{
+	//======================================================
+	// Read Elapsed Time value (in timer ticks - 125 usec)
+	// and combine with AlarmTicks converted to ticks
+	//------------------------------------------------------
+	// Return alarm timestamp
+	return	(TMRGetRTCTicks() + AlarmTicks);
 	}
 //************************************************************
 

@@ -14,7 +14,7 @@ void __attribute__((interrupt, no_auto_psv)) _INT1Interrupt(void)
 	//------------------------------------------------------------
     // Try to subscribe to I2C ASYNC processing
 	//------------------------------------------------------------
-	if (I2C_OK == I2CAsyncStart(&_MPUCallBack))
+	if (I2CRC_OK == I2CAsyncStart(&_MPUCallBack))
 		{
 		//////////////////////////////////////////////////////////////
 		// Subscription successful

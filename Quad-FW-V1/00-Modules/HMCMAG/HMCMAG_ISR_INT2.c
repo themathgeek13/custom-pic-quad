@@ -1,7 +1,5 @@
 #include "HMCMAG\HMCMAG_Local.h"
 //*******************************************************
-#ifdef __MAG_Use__
-//*******************************************************
 
 //================================================================
 void __attribute__((interrupt, no_auto_psv)) _INT2Interrupt(void)
@@ -16,7 +14,7 @@ void __attribute__((interrupt, no_auto_psv)) _INT2Interrupt(void)
 	//------------------------------------------------------------
     // Try to subscribe to I2C ASYNC processing
 	//------------------------------------------------------------
-	if (I2C_OK == I2CAsyncStart(&_HMCCallBack))
+	if (I2CRC_OK == I2CAsyncStart(&_HMCCallBack))
 		{
 		//////////////////////////////////////////////////////////////
 		// Subscription successful
@@ -207,5 +205,3 @@ void	_HMCCallBack()
 //================================================================
 
 
-//***************************************************************
-#endif /* __MAG_Use__ */

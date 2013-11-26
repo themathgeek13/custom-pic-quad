@@ -1,4 +1,6 @@
 #include "TMR\TMR.h"
+#include "I2C\I2C_Profile.h"
+
 #include "MPU6050\MPU6050.h"
 
 //==================================================================

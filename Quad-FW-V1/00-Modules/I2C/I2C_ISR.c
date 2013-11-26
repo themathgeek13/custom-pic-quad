@@ -3,28 +3,34 @@
 
 
 //*******************************************************************
-void __attribute__((__interrupt__,__no_auto_psv__)) _MI2C1Interrupt(void)
+void __attribute__((__interrupt__,__no_auto_psv__)) I2C1Interrupt(void)
 	{
 	//---------------------------------------------------------------
-	_MI2C1IF	= 0; 		// Clear   I2C(1) Master interrupt flag
+	I2C_IF	= 0; 		// Clear   I2C Master interrupt flag
 	//---------------------------------------------------------------
-	if (1 == _P)
+	if (1 == I2C_P)
 		// STOP was issued by I2CAsyncStop()
 		{
-		//----------------------------------------
-		_MI2C1IE= 0;			// Disable I2C(1)
-								// Master interrupt
+		//-----------------------------------------------------------
+		I2C_IE			= 0;	// Disable I2C Master interrupt
 		_I2C_CallBack	= 0;	// clear callback
-		//----------------------------------------
-		_INT1IE	= _I2C_Int1;	// Re-set INT1 interrupt
-		_INT2IE	= _I2C_Int2;	// Re-set INT2 interrupt
-		//----------------------------------------
+		//-----------------------------------------------------------
+		// Rest Subscriber's Interrup Enable flags to requested values
+		//-----------------------------------------------------------
+		I2C_Sub1IE	= _I2C_Sub1;	// Re-set SUB1 interrupt
+		I2C_Sub2IE	= _I2C_Sub2;	// Re-set SUB2 interrupt
+		I2C_Sub3IE	= _I2C_Sub3;	// Re-set SUB3 interrupt
+		I2C_Sub4IE	= _I2C_Sub4;	// Re-set SUB4 interrupt
+		//-----------------------------------------------------------
 		return;
 		}
-	//----------------------------------------------
-	// Store callback pointer value locally to avoid
-	// "race condition" with the following test
-	//----------------------------------------------
+	//---------------------------------------------------------------
+	// Check for subscribers - if CallBack is active, pass interrupt
+	// to respective subscriber.
+	//---------------------------------------------------------------
+	// Store callback pointer value locally to avoid "race condition"
+	// with the following test
+	//---------------------------------------------------------------
 	I2CCallBack	 _callback	=	_I2C_CallBack;	
 	if (_callback)
 		{
@@ -38,10 +44,12 @@ void __attribute__((__interrupt__,__no_auto_psv__)) _MI2C1Interrupt(void)
 
 
 //*******************************************************************
+// We should never get here as we operate I2C in MASTER mode, but...
+//*******************************************************************
 void __attribute__((__interrupt__,__no_auto_psv__)) _SI2C1Interrupt (void)
 	{
 	//---------------------------------------------------------------
-	_SI2C1IF	= 0; 		// Clear   I2C(1) Slave interrupt flag
+	I2C_SlaveIF	= 0; 		// Clear   I2C(1) Slave interrupt flag
 	//---------------------------------------------------------------
 	return;
 	}

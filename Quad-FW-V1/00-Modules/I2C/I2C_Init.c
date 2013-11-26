@@ -19,22 +19,25 @@ void	I2CInit(uint IL, uint Speed)
 	//---------------------------------------------------------
 
 	//=========================================================
-	//	On PIC24HJ128GP204 ASDA1 -> RB5 and ASCL1 -> RB6
+	//	On PIC24HJ128GP2xx ASDA1 -> RB5 and ASCL1 -> RB6
 	//	Prior to using I2C1 these ports need to be configured
 	//	for Open-Drain operation...
+	//---------------------------------------------------------
+	// NOTE: Selection of Primary or Alternative I2C pins
+	//		 implemented in Init() routine through _FPOR
 	//---------------------------------------------------------
 	_ODCB5	= 1;
 	_ODCB6	= 1;
 
 	//=========================================================
-	//	I2C1CON: I2Cx Status Register
+	//	I2CCON: I2C Status Register
 	//---------------------------------------------------------
-	I2CCON			= 0;		// Disable I2C1 for configuration
+	I2C_CON			= 0;		// Disable I2C for configuration
 	// NOTE: In the Global INIT routine all peripherals were disabled
 	// 		 using PMD (Prepheral Module Disable) control register(s)
 	//		 Prior to continuing initialization the module need to
 	//		 be enabled
-	_I2C1MD			= 0;	// I2C1 enabled in PMD
+	I2C_PMD			= 0;	// I2C enabled in PMD
 	//
 	// Default configuration sets I2C into the:
 	//
@@ -130,20 +133,20 @@ void	I2CInit(uint IL, uint Speed)
 				1 = Transmit in progress; I2CxTRN register is full
 				0 = Transmit complete; I2CxTRN register is empty
 	*/	
-	I2CSTAT		= 0;		// Reset all STATUS bits
+	I2C_STAT		= 0;		// Reset all STATUS bits
 	//---------------------------------------------------------
 
 
 	//---------------------------------------------------------
 	//	I2CxMSK: I2Cx Slave Mode Address Mask Register
 	//---------------------------------------------------------
-	I2C1MSK		= 0;	// All address bits are unmasked 
+	I2C_MSK		= 0;	// All address bits are unmasked
 						// (full match required)
 
 	//---------------------------------------------------------
 	//	I2CxADD: I2Cx Slave Mode Address 
 	//---------------------------------------------------------
-	I2CADD		= 0;	
+	I2C_ADD		= 0;
 
 	//---------------------------------------------------------
 	//	I2CxBRG: I2Cx Baud Rate Register
@@ -152,15 +155,15 @@ void	I2CInit(uint IL, uint Speed)
 	// is operating at 40 MHz (Fcy = 40,000,000)
 	//---------------------------------------------------------
 	if (0 == Speed)
-		I2C1BRG	= 395;		// 100 kHz
+		I2C_BRG	= 395;		// 100 kHz
 	else
-		I2C1BRG	= 95;		// 400 kHz	
+		I2C_BRG	= 95;		// 400 kHz
 	//---------------------------------------------------------
 
 
 	//=========================================================
-	_MI2C1IE	= 0;		// Disable I2C(1) Master interrupt	
-	_MI2C1IF	= 0; 		// Clear   I2C(1) Master interrupt flag
+	I2C_IE	= 0;		// Disable I2C Master interrupt
+	I2C_IF	= 0; 		// Clear   I2C Master interrupt flag
 		// The MI2CxIF interrupt is generated on completion of the
 		// following master message events:
 		//	• Start condition
@@ -170,20 +173,20 @@ void	I2CInit(uint IL, uint Speed)
 		//	• Repeated Start
 		//	• Detection of a bus collision event
 	//---------------------------------------------------------
-	_SI2C1IE	= 0;		// Disable I2C(1) Slave interrupt	
-	_SI2C1IF	= 0; 		// Clear   I2C(1) Slave interrupt flag
+	I2C_SlaveIE	= 0;		// Disable I2C Slave interrupt
+	I2C_SlaveIF	= 0; 		// Clear   I2C Slave interrupt flag
 		// The SI2CxIF interrupt is generated on detection of a message
 		// directed to the slave, including the	following events:
 		// • Detection of a valid device address (including general call)
 		// • Request to transmit data (ACK) or to stop data transmission (NACK)
 		// • Reception of data	
 	//=========================================================
-	_MI2C1IP	= _I2C_IL; 	// Set I2C(1) Master interrupt priority
-	_SI2C1IP	= _I2C_IL; 	// Set I2C(1) Slave  interrupt priority
+	I2C_IP		= _I2C_IL; 	// Set I2C Master interrupt priority
+	I2C_SlaveIP	= 0;		// Set I2C Slave  interrupt priority
 	//=========================================================
 	// After configuration complete enable I2C(1) module	
 	//---------------------------------------------------------
-	_I2CEN		= 1;		// Enables the I2Cx module and configures 
+	I2C_I2CEN	= 1;		// Enables the I2Cx module and configures
 							// the SDAx and SCLx pins as serial port pins
 	//=========================================================
 	}
