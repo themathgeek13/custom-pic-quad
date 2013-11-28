@@ -48,11 +48,12 @@
           <itemPath>../00-Modules/HMCMAG/HMCMAG.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Async.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Init.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Mgmt.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Sync.c</itemPath>
+          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR.c</itemPath>
+          <itemPath>../00-Modules/HMCMAG/HMCMAG_Profile.h</itemPath>
         </logicalFolder>
         <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
           <itemPath>../00-Modules/I2C/I2C.h</itemPath>
@@ -64,6 +65,7 @@
           <itemPath>../00-Modules/I2C/I2C_Sync.c</itemPath>
           <itemPath>../00-Modules/I2C/I2C_SyncRead.c</itemPath>
           <itemPath>../00-Modules/I2C/I2C_SyncWrite.c</itemPath>
+          <itemPath>../00-Modules/I2C/I2C_Profile.h</itemPath>
         </logicalFolder>
         <logicalFolder name="IMU" displayName="IMU" projectFiles="true">
           <itemPath>../00-Modules/IMU/IMU.c</itemPath>
@@ -85,6 +87,17 @@
           <itemPath>../00-Modules/MCM/MCMLocal.c</itemPath>
           <itemPath>../00-Modules/MCM/MCMLocal.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="f2" displayName="MPL3115" projectFiles="true">
+          <itemPath>../00-Modules/MPL3115/MPL3115.h</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Async.c</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_ISR.c</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Init.c</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Local.c</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Local.h</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Mgmt.c</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Profile.h</itemPath>
+          <itemPath>../00-Modules/MPL3115/MPL3115_Sync.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="MPU6050" displayName="MPU6050" projectFiles="true">
           <itemPath>../00-Modules/MPU6050/MPU6050.h</itemPath>
           <itemPath>../00-Modules/MPU6050/MPU6050_Async.c</itemPath>
@@ -95,15 +108,6 @@
           <itemPath>../00-Modules/MPU6050/MPU6050_Mgmt.c</itemPath>
           <itemPath>../00-Modules/MPU6050/MPU6050_Reset.c</itemPath>
           <itemPath>../00-Modules/MPU6050/MPU6050_Sync.c</itemPath>
-        </logicalFolder>
-        <logicalFolder name="MXB" displayName="MXB" projectFiles="true">
-          <itemPath>../00-Modules/MXB/MXB.c</itemPath>
-          <itemPath>../00-Modules/MXB/MXBInit.c</itemPath>
-          <itemPath>../00-Modules/MXB/MXBLocal.c</itemPath>
-          <itemPath>../00-Modules/MXB/MXB_ISR.c</itemPath>
-          <itemPath>../00-Modules/MXB/MXB.h</itemPath>
-          <itemPath>../00-Modules/MXB/MXBLocal.h</itemPath>
-          <itemPath>../00-Modules/MXB/MXBProfile.h</itemPath>
         </logicalFolder>
         <logicalFolder name="QCM" displayName="QCM" projectFiles="true">
           <itemPath>../00-Modules/QCM/QCM.h</itemPath>
@@ -223,6 +227,7 @@
         <property key="preprocessor-macros" value=""/>
         <property key="scalar-model" value="default"/>
         <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
       </C30>
       <C30-AS>
         <property key="assembler-symbols" value=""/>
@@ -330,7 +335,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x157ff"/>
         <property key="memories.programmemory.start" value="0x0"/>
-        <property key="poweroptions.powerenable" value="true"/>
+        <property key="poweroptions.powerenable" value="false"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmspeed" value="2"/>
@@ -342,7 +347,7 @@
         <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="3.25"/>
+        <property key="voltagevalue" value="3.375"/>
       </PICkit3PlatformTool>
     </conf>
   </confs>

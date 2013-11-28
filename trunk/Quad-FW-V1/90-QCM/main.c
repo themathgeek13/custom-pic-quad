@@ -8,6 +8,7 @@
 #include "ADC\ADC.h"
 #include "I2C\I2C.h"
 #include "MPU6050\MPU6050.h"
+#include "HMCMAG\HMCMAG.h"
 #include "UART\UART_TX.h"
 #include "DCM\DCM.h"
 #include "IMU\IMU.h"
@@ -18,11 +19,8 @@
 //---------------------------------
 // Header for optional HW components
 //---------------------------------
-#ifdef __MAG_Use__
-	#include "HMCMAG\HMCMAG.h"
-#endif
-#ifdef __MXB_Use__
-	#include "MXB\MXB.h"
+#ifdef __MPL_Use__
+	#include "MPL3115\MPL3115.h"
 #endif
 //=======================================================================
 
@@ -67,7 +65,7 @@
 // Uncomment the following define if you would like
 // to report native RC values
 //---------------------------------------------------
-#define _TMReport_RCFeed_
+//#define _TMReport_RCFeed_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Reporting RCSmthd">
@@ -75,7 +73,7 @@
 // Uncomment the following define if you would like
 // to report smothed RC values
 //---------------------------------------------------
-#define _TMReport_RCSmthd_
+//#define _TMReport_RCSmthd_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="PID Reporting">
@@ -166,11 +164,11 @@ struct
 	float	RCN_Yaw;
 	#endif
 	//-----------------------------------------------
-	#ifdef __MXB_Use__
+	#ifdef __MPL_Use__
 	//-----------------------------------------------
 	// Altitude
 	//-----------------------------------------------
-	MXBData	MXB;
+	MPLSample	MPLData;
 	#endif
 	//-----------------------------------------------
 
@@ -275,12 +273,10 @@ int main(void)
 	// BaudRate =  100	=>   250,000 bps
 	// BaudRate =  200	=>   500,000 bps
 	// BaudRate =  250	=>   625,000 bps
-	// BaudRate =  350	=>   833,333 bps	- SD Logger
+	// BaudRate =  350	=>   833,333 bps	- SD Logger, FTDI
 	// BaudRate =  500	=> 1,250,000 bps
 	// BaudRate = 1000	=> 2,500,000 bps
 	//*******************************************************************
-	#ifdef __MAG_Use__
-	//--------------------------------------------------------------
 	// Initialize Magnetometer
 	//--------------------------------------------------------------
 	if (HMCInit(6, 1, 0))	// Initialize magnetic Sensor
@@ -288,6 +284,14 @@ int main(void)
 							// Gain = 1 (1.3 Gs)
 							// DLPF = 0 (no averaging)
 		BLIDeadStop("EM", 2);
+	//==================================================================
+	#ifdef __MPL_Use__
+	//--------------------------------------------------------------
+	// Initialize MPL3115 Altimeter
+	//--------------------------------------------------------------
+	if ( MPLInit(5) )	// Average over 2^5=32 samples providing
+						// update rate about 10 Hz
+		BLIDeadStop("EB", 2);
 	#endif
 	//==================================================================
 	BLISignalON();
@@ -360,14 +364,6 @@ int main(void)
 	//------------------------------------------------------------------
 	BLIAsyncMorse(	"I", 1);	// dit - dit
 	//==================================================================
-	#ifdef __MXB_Use__
-	//--------------------------------------------------------------
-	// Initialize MaxBotix range finder
-	//--------------------------------------------------------------
-	if ( 0 == MXBInit(3, &TM.MXB) )
-		BLIDeadStop("ES", 2);
-	#endif
-	//==================================================================
 	// Initialize motion sensor - rotation rate baseline established at
 	// this time - QUAD should be motionless!!!
 	//------------------------------------------------------------------
@@ -409,12 +405,28 @@ Re_Start:
 	//------------------------------------------------------------------
 	RCDataReset(&RCSmthd);
 	//==================================================================
-	BLIAsyncMorse ("T", 1);			// doh
+	// Stop asynchronous sensors
+	//------------------------------------------------------------------
 	MPUAsyncStop ();
+	#ifdef __MPL_Use__
+	MPLAsyncStop();
+	#endif
+	//==================================================================
+	// Calibrate sensors
+	//------------------------------------------------------------------
+	BLIAsyncMorse ("T", 1);			// doh
 	if (MPUCalibrate () != MPU_OK)
 	  // Gyro Calibration filed
-	  BLIDeadStop ("EA", 2);
+	  BLIDeadStop ("CA", 2);
 	BLIAsyncStop ();
+	//------------------------------------------------------------------
+	#ifdef __MPL_Use__
+	BLIAsyncStart(100, 50);
+	if (MPLSetGround() != MPL_OK) 
+		// Altimeter calibration failed
+		BLIDeadStop("CB", 2);	// Failure...
+	BLIAsyncStop();
+	#endif
 	//==================================================================
 	// Start IMU and wait until orientation estimate stabilizes
 	//------------------------------------------------------------------
@@ -427,7 +439,14 @@ Re_Start:
 	  BLIDeadStop ("A", 1);
 	//------------------------------------------------------------------
 	QCMReset ();			// Initialize (reset) QCM variables
+	#ifdef __MPL_Use__
 	//------------------------------------------------------------------
+	// Start Altimeter
+	//------------------------------------------------------------------
+	MPLAsyncStart();
+	MPLAsyncReadWhenReady(&TM.MPLData);
+	#endif
+	//==================================================================
 	BLIAsyncStop ();
 	// </editor-fold>
 	//==================================================================
@@ -677,8 +696,8 @@ Re_Start:
 		TM.RCN_Yaw		= RCFeed.Yaw;
 		#endif
 		//----------------------
-		#ifdef __MXB_Use__
-		MXBRead(&TM.MXB);
+		#ifdef __MPL_Use__
+		MPLAsyncReadIfReady(&TM.MPLData);
 		#endif
 		//----------------------
 		#ifdef _TMReport_PID_

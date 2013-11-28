@@ -1,7 +1,5 @@
 #include "DCM\DCM.h"
-#ifdef __MAG_Use__
-	#include "HMCMAG\HMCMAG.h"
-#endif
+#include "HMCMAG\HMCMAG.h"
 
 //=====================================================
 #ifndef __DCMLocal_H

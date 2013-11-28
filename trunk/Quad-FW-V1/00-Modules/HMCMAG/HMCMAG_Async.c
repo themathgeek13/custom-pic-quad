@@ -24,11 +24,12 @@ uint		HMCAsyncStart()
 	//=========================================================
 	// Enable INT2 interrupts
 	//---------------------------------------------------------							
-	_INT2IF = 0;			// Clear the INT2 interrupt flag
-	I2CRegisterSubscr(2);	// Enable INT2 interrupt and re-
-							// gister with I2C module- when 
-							// HMC magnetometer has sample,
-							// the interrupt will be triggered
+	HMC_IF = 0;			// Clear the ICx interrupt flag
+	// Enable ICx interrupt and register with I2C module -
+	// when HMC magnetometer has sample, the interrupt will be
+	// triggered
+	I2CRegisterSubscr(HMC_I2C_SubID);
+
 	//=========================================================
 	return HMC_OK;
 	}
@@ -44,11 +45,11 @@ uint	HMCAsyncStop()
 	if (0 == _HMC_Async)
 		return HMC_OK;			// Async is not active...
 	//=====================================================
-	// Disable ASYNC driver - INT2
+	// Disable ASYNC driver
 	//=====================================================
-	I2CDeRegisterSubscr(2);	// Disable and deregister
-							// INT2 interrupt
-	_INT2IF = 0;			// Clear the INT2 interrupt flag
+	// Disable and deregister HMC interrupt
+	I2CDeRegisterSubscr(HMC_I2C_SubID);
+	HMC_IF = 0;			// Clear the ICx interrupt flag
 	//=========================================================
 	// Clear ASYNC flag
 	//=========================================================

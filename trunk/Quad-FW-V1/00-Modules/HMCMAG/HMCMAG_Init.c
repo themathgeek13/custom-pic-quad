@@ -15,16 +15,52 @@ uint		HMCInit(byte ODR, byte Gain, byte DLPF)
 	_HMC_Init	= 1;
 	//---------------------------------------------------------
 	_HMC_IL	= IL;
+	//************************************************
+
 	//---------------------------------------------------------
-	// For INT2 we will use RP20/RC4 pin
+	// MPL Module uses Input Capture facility to generate
+	// interrupt on READY state for asynchronous data aquisition
 	//---------------------------------------------------------
-	_INT2IE	= 0;		// Disable INT2 Interrupt for configuration
-	_INT2IF	= 0;		// Clear INT2 interrupt flag (if any)
-	_INT2EP	= 0;		// Trigger INT2 on "raising edge"
-	_INT2IP	= _HMC_IL;	// Set INT2 Interrupt Priority
-	// Now we may configure RB4 as Input and map RP4 to INT2
-	_TRISC4 = 1;		// Set RC4 as Input;
-	_INT2R	= 20;		// Map INT2 input to RP20;
+	HMC_ICCON	= 0;	// Disable ICx for configuration
+	//---------------------------------------------------------
+	// Please NOTE that the Init program disables all PERIPHERAL
+	// MODULES using PMDx registers. To continue configuring and
+	// later enabling Input Capture module we need to enable
+	// module in PMDx
+	//---------------------------------------------------------
+	HMC_PMD		= 0;	// Enable ICx module in PMD
+	//---------------------------------------------------------
+
+	//---------------------------------------------------------
+	// Map MCU pins used by Input Capture module through
+	// REMAPPABLE PIN SELECT feature.
+	//---------------------------------------------------------
+	_HMCInitPinMap();
+
+	//---------------------------------------------------------
+	// Configure Interrupts
+	//---------------------------------------------------------
+	HMC_IE		= 0;			// Disable ICx interrupt
+	HMC_IF		= 0; 			// Clear ICx interrupt flag
+	HMC_IP		= _HMC_IL;		// Set ICx interrupt priority
+	//---------------------------------------------------------
+	// ICx interrupt enabled in MPLAsyncStart() routine
+	//---------------------------------------------------------
+
+	//---------------------------------------------------------
+	// After configuration complete enable ICx module
+	//---------------------------------------------------------
+	// NOTE: For this application we do not capture the
+	//		 actual timer value associated with the module,
+	//		 so we do not care configuring timer associated
+	//		 with ICx.
+	//---------------------------------------------------------
+	// NOTE: By setting HMC_ICCON = 0 we implicitly set ICI=0,
+	//		 which implies that the ICx FIFO buffer overflow
+	//		 will not stop generation of interrupts.
+	//---------------------------------------------------------
+	HMC_ICM	= 3; // Capture mode, interrupt on every rising edge
+	//---------------------------------------------------------
 	//*********************************************************
 	// Now we should initialize the sensor...
 	//*********************************************************

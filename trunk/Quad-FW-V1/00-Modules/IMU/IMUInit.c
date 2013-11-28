@@ -18,14 +18,12 @@ ulong	IMUInit()
 	MPUSample	MPUReading;
 	DCMData		IMUResult;
 	//-------------------------------------------------------
-	#ifdef __MAG_Use__
 	HMCSample	HMCReading;
 	if (HMCAsyncStart())
 		BLIDeadStop("M", 1);
 	// Clear accumulated sensor readings
 	if (HMCAsyncReadWhenReady(&HMCReading))
 		BLIDeadStop("M", 1);
-	#endif
 	//-------------------------------------------------------
 	if (MPUAsyncStart())
 		BLIDeadStop("A", 1);
@@ -52,14 +50,12 @@ ulong	IMUInit()
 		StCount++;
 		}
 	//*******************************************************
-	#ifdef __MAG_Use__
 	if (HMC_OK == HMCAsyncReadWhenReady(&HMCReading))
 		DCMSetAzimuth(&HMCReading.M);
 	//----------------------------------------------
 	// Stop magnetometer as it is not used in flight
 	//----------------------------------------------
 	HMCAsyncStop();
-	#endif
 	//*******************************************************
 	_IMUInit = 1;
 	//*******************************************************

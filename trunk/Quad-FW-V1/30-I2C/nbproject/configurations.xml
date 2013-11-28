@@ -31,11 +31,12 @@
           <itemPath>../00-Modules/HMCMAG/HMCMAG.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Async.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Init.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Mgmt.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Sync.c</itemPath>
+          <itemPath>../00-Modules/HMCMAG/HMCMAG_Profile.h</itemPath>
+          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR.c</itemPath>
         </logicalFolder>
         <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
           <itemPath>../00-Modules/I2C/I2C.h</itemPath>
@@ -173,6 +174,7 @@
         <property key="preprocessor-macros" value=""/>
         <property key="scalar-model" value="default"/>
         <property key="use-cci" value="false"/>
+        <property key="use-iar" value="false"/>
       </C30>
       <C30-AS>
         <property key="assembler-symbols" value=""/>
@@ -291,7 +293,7 @@
         <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="3.25"/>
+        <property key="voltagevalue" value="3.375"/>
       </PICkit3PlatformTool>
     </conf>
   </confs>
