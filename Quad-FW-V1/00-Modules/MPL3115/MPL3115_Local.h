@@ -1,5 +1,5 @@
 #include "TMR\TMR.h"
-#include "I2C\I2C_Profile.h"
+#include "I2C\I2C.h"
 //--------------------------------------
 #include "MPL3115\MPL3115.h"
 #include "MPL3115\MPL3115_Profile.h"

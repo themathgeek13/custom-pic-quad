@@ -9,9 +9,9 @@
 //--------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------
-// If MaxBotix Ultrasound range finder is available please uncomment
+// If MPL3115A2 Barometric Altimeter is available please uncomment
 // the following line
-#define __MXB_Use__
+#define __MPL_Use__
 //--------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------

@@ -119,7 +119,11 @@ uint	_HMCReadRawData(_pHMCRawData pData)
 	union
 		{
 		int		VInt;
-		byte	VByte[2];
+		struct
+			{
+			byte	LSB;
+			byte	MSB;
+			};
 		}	U;
 	//-----------------------------------
 
@@ -128,8 +132,7 @@ Retry:	// Wait for RDY signal
 		return RC;							// Error...
 	if ( (Status & 0x01) != 0x01 )	
 		{
-		uint	i;
-		for (i = 0; i < 1250; i++);  // ~250 us Short delay...
+		TMRDelayTicks(2);	  // ~250 us Short delay...
 		goto Retry;
 		}
 
@@ -153,20 +156,20 @@ Retry:	// Wait for RDY signal
 	//-----------------------------------------------
 	// Magnetometer
 	//-----------------------------------------------
-	U.VByte[1]	= Data[0];
-	U.VByte[0]	= Data[1];
+	U.MSB	= Data[0];
+	U.LSB	= Data[1];
 	if (U.VInt < -2048)
 		return HMC_OWFL;
 	pData->MX = -U.VInt;		//	Xres = -X;
 	//-----------------------------------------------
-	U.VByte[1]	= Data[2];
-	U.VByte[0]	= Data[3];
+	U.MSB	= Data[2];
+	U.LSB	= Data[3];
 	if (U.VInt < -2048)
 		return HMC_OWFL;
 	pData->MZ = -U.VInt;		//	Zres = -Z;
 	//-----------------------------------------------
-	U.VByte[1]	= Data[4];
-	U.VByte[0]	= Data[5];
+	U.MSB	= Data[4];
+	U.LSB	= Data[5];
 	if (U.VInt < -2048)
 		return HMC_OWFL;
 	pData->MY = U.VInt;			//	Yres =  Y;

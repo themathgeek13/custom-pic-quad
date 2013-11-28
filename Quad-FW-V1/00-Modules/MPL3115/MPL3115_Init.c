@@ -22,7 +22,7 @@ uint	MPLInit(byte OSR)
 	//************************************************
 
 	//************************************************
-	// MXB group of functions depend on timer providing
+	// MPL group of functions depend on timer providing
 	// timestamps for interval measurement, thus we
 	// make sure that timer is intitialized.
 	//************************************************

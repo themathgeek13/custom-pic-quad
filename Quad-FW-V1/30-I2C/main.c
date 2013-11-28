@@ -17,9 +17,8 @@ int main(void)
 	//*******************************************************************
 	Init();
 	TMRInit(2);			// Initialize Timer interface with Priority=2
-	//*******************************************************************
+	//--------------------------
 	BLIInit();			// Initialize Signal interface
-	DBGInit();
 	I2CInit(5, 1);		// Initialize I2C1 module with IPL=5 and Fscl=400 KHz
 	//--------------------------
 	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 
@@ -70,17 +69,11 @@ int main(void)
 	// Testing MPU, HMC, and MPL together in a real-life
 	// scenario
 	//====================================================
-	RC = MPUAsyncStart();
-	if(RC)
-		BLIDeadStop("SG", 2);
+	if(MPUAsyncStart()) 	BLIDeadStop("SG", 2);
 	//------------------------
-	RC = HMCAsyncStart();
-	if(RC)
-		BLIDeadStop("SM", 2);
+	if(HMCAsyncStart())		BLIDeadStop("SM", 2);
 	//------------------------
-	RC = MPLAsyncStart();
-	if(RC)
-		BLIDeadStop("SA", 2);
+	if(MPLAsyncStart())		BLIDeadStop("SA", 2);
 	RC = MPLAsyncReadWhenReady(&UData.AltData);
 	if (RC) BLIDeadStop("SAS", 3);	// Failure...
 	//====================================================

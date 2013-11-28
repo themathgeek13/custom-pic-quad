@@ -38,8 +38,6 @@ void	_MPLCallBack()
 	// NOTE: This I2C interrupt call-back routine is geared specifi-
 	//		 cally to supporting asynchronous data read operation for 
 	//		 MPL3115 Altitude/Pressure sensor
-	//---------------------------------------------------------------
-	_MI2C1IF	= 0; 		// Clear   I2C(1) Master interrupt flag
 	//===============================================================
 	// General status checks - valid under all conditions
 	//===============================================================
@@ -104,8 +102,9 @@ void	_MPLCallBack()
 		// Read and process data sample
 		//=============================================================
 		case	5:		// Interrupt after READing Data byte
-			// Slave completed sending byte... 
-			_MPL_Buffer[_MPL_BufPos] = I2C_RCV_Reg;	// Retrieve and store data byte
+			// Slave completed sending byte...
+			// Retrieve and store data byte
+			_MPL_Buffer[_MPL_BufPos] = I2C_RCV_Reg;	
 			_MPL_BufPos++;				// Move buffer address pointer
 			//---------------------------------------
 			if (_MPL_BufPos < 5)
