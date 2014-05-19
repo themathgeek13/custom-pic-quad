@@ -3,7 +3,7 @@
 //=============================================================
 // Synchronous READ SAMPLE API (visible externally)
 //-------------------------------------------------------------
-uint		MPLReadSample(MPLSample* pSample)
+uint		MPLReadSample(MPLData* pSample)
 	{
 	if (!_MPL_Init)
 		return MPL_NOTINIT;		// Not initialized...

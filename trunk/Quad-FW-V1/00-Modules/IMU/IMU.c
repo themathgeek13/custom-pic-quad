@@ -5,10 +5,10 @@
 uint	IMUGetUpdateWhenReady(DCMData* IMUResult)
 	{
 	//---------------------------
-	MPUSample	MPUReading;
+	MPUData	MPUReading;
 	//=======================================================
-	if (0 == _IMUInit)
-		IMUInit();
+	if (0 == _IMUReady)
+		return IMU_NOTRDY;
 	//=======================================================
 	// Take MPU (Gyro/Acc) sample
 	//=======================================================
@@ -27,10 +27,10 @@ uint	IMUGetUpdateWhenReady(DCMData* IMUResult)
 uint	IMUGetUpdate(DCMData* IMUResult)
 	{
 	//---------------------------
-	MPUSample	MPUReading;
+	MPUData	MPUReading;
 	//=======================================================
-	if (0 == _IMUInit)
-		IMUInit();
+	if (0 == _IMUReady)
+		return IMU_NOTRDY;
 	//=======================================================
 	// Take MPU (Gyro/Acc) sample
 	//=======================================================

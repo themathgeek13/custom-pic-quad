@@ -63,6 +63,10 @@ ulong	TMRSetAlarm(ulong AlarmDelay);
 //************************************************************
 ulong	TMRSetAlarmTicks(ulong AlarmTicks);
 //************************************************************
+// Checks "alarm" time and return TRUE if alarm expires
+//************************************************************
+BOOL	TMRTestAlarm(ulong AlarmTime);
+//************************************************************
 // Blocks execution until the previously set "alarm" time expires
 //************************************************************
 void	TMRWaitAlarm(ulong AlarmTime);

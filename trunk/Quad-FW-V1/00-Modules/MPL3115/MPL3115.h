@@ -1,4 +1,5 @@
 #include "System.h"
+#include "I2C\I2C.h"
 #include "Vector\Vector.h"
 
 //=====================================================
@@ -23,7 +24,7 @@ typedef	struct
 	// Relative (to Ground) altitude (in meters)
 	//-----------------------------------------------
 	float	Alt;
-	}	MPLSample;
+	}	MPLData;
 
 //=====================================================
 // MPL functions
@@ -31,6 +32,7 @@ typedef	struct
 uint	MPLInit(byte OSR);
 uint	MPLReset(byte OSR);
 uint	MPLSetGround();
+uint	MPLAdjustGround(float Altitude, float Target);
 //-----------------------------------------------------
 // Management information functions
 //-----------------------------------------------------
@@ -46,7 +48,7 @@ uint	MPLGetCTRL5(byte*	 mplCTRL);
 //-----------------------------------------------------
 // Synchronous interface
 //-----------------------------------------------------
-uint	MPLReadSample(MPLSample* pSample);
+uint	MPLReadSample(MPLData* pSample);
 
 //-----------------------------------------------------
 // Asynchronous interface
@@ -54,11 +56,13 @@ uint	MPLReadSample(MPLSample* pSample);
 uint	MPLAsyncStart();
 uint	MPLAsyncStop();
 
-uint	MPLAsyncReadIfReady(MPLSample* pSample);
-uint	MPLAsyncReadWhenReady(MPLSample* pSample);
+uint	MPLAsyncReadIfReady(MPLData* pSample);
+uint	MPLAsyncReadWhenReady(MPLData* pSample);
 
-static inline uint	MPLAsyncRead(MPLSample* pSample)
+static inline uint	MPLAsyncRead(MPLData* pSample)
 	{ return MPLAsyncReadIfReady(pSample); }
+
+float	MPLGetBase();
 
 //=====================================================
 #endif

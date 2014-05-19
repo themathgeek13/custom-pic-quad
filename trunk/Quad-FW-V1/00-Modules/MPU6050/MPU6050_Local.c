@@ -50,7 +50,7 @@ const  	float		_MPU_Accl_XSlope		=   -6.54;
 const 	float		_MPU_Accl_YOffset		=  -72.00; 
 const  	float		_MPU_Accl_YSlope		=    9.47; 
 //------------------------------------------------------------------
-const 	float		_MPU_Accl_ZOffset		=  2131.00;	
+	 	float		_MPU_Accl_ZOffset		=  2131.00;
 const  	float		_MPU_Accl_ZSlope		=   126.42; 
 //------------------------------------------------------------------
 

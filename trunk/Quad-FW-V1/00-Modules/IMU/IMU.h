@@ -11,12 +11,11 @@
 #define IMU_STLMPU	 1
 #define IMU_STLHMC	 2
 #define IMU_STLBOTH	 3
+#define IMU_NOTRDY	 4
 //=====================================================
-ulong	IMUInit();
+uint	IMUReset();
 uint	IMUGetUpdate(DCMData* IMUResult);
 uint	IMUGetUpdateWhenReady(DCMData* IMUResult);
-uint	IMUGetUpdateWithSamples(MPUSample*	MPUReading,
-								DCMData* 	IMUResult	);
 //=====================================================
 #endif
 

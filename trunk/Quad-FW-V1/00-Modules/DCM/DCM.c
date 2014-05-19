@@ -107,8 +107,7 @@ uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
 	Vector			AccAdj;			// Current step total Acc-based adjustment
 	//--------------------------------------------------------------------------
 	// Calculating Accelerometer-based correction
-	//--------------------------------------------------------------------------
-	{	
+	//--------------------------------------------------------------------------	
 	// Normalize Accelerometer measurement
 	VectorNormalize(pAccRaw, &AccNorm);
 	// Extract Z-axis in the Earth frame as seen from the Body frame
@@ -145,7 +144,6 @@ uint	DCMPerformStep(	ulong		TS,			// Timestamp of the cycle
 	// Total Accelerometer-based correction
 	//---------------------------------------------------------
 	VectorAdd(&AccPterm, &_DCMAccIterm, &AccAdj);
-	}
 	//--------------------------------------------------------------------------
 
 

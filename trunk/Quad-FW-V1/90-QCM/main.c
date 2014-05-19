@@ -12,16 +12,11 @@
 #include "UART\UART_TX.h"
 #include "DCM\DCM.h"
 #include "IMU\IMU.h"
-#include "QCM\QCM.h"
+#include "Altimeter\Altimeter.h"
 
+#include "QCM\QCM.h"
 #include "QCM\QCMStepData.h"		// Needed for Telemetry data
 
-//---------------------------------
-// Header for optional HW components
-//---------------------------------
-#ifdef __MPL_Use__
-	#include "MPL3115\MPL3115.h"
-#endif
 //=======================================================================
 
 //***************************************************
@@ -57,7 +52,7 @@
 // Uncomment the following define if you would like
 // to report ACC values
 //---------------------------------------------------
-//#define _TMReport_ACC_
+#define _TMReport_ACC_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Reporting RCFeed">
@@ -74,6 +69,14 @@
 // to report smothed RC values
 //---------------------------------------------------
 //#define _TMReport_RCSmthd_
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="Reporting Altimetry">
+//==================================================
+// Uncomment the following define if you would like
+// to report detailed Altimetry
+//---------------------------------------------------
+#define _TMReport_Altimetry_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="PID Reporting">
@@ -164,11 +167,10 @@ struct
 	float	RCN_Yaw;
 	#endif
 	//-----------------------------------------------
-	#ifdef __MPL_Use__
+
 	//-----------------------------------------------
-	// Altitude
-	//-----------------------------------------------
-	MPLSample	MPLData;
+	#ifdef _TMReport_Altimetry_
+	AltmData	AltResult;
 	#endif
 	//-----------------------------------------------
 
@@ -235,12 +237,24 @@ static inline void NormalizeRCFeed(RCData* F)
 	{
 	//------------------------------------------------------------
 	// Normalize Roll and Pitch control input from RC Receiver to
-	// +/- 0.35 rad (~20 degrees) and Yaw control input to
-	// +/- 3.00 rad (~172 degrees)
+	// +/- 0.35 rad (~20 degrees) 
 	//------------------------------------------------------------
 	F->Roll 	*= 0.35;
 	F->Pitch	*= 0.35;
-	F->Yaw		*= 3.00;
+	if (MODE_Course_Lock)
+		{
+		// In the Course-Lock mode Yaw is interpreted as "yaw rate"
+		// in radians/sec. To avoid rotation due to 0-offset very
+		// small rotation rates are ignored.
+		if (fabsf(F->Yaw) < 0.1)
+			F->Yaw = 0.0;	// Dumpen small jitter
+		}
+	else
+		{
+		// Without Course-Lock Yaw is treated as "direct input" brought
+		// to the range of +/- 3.00 rad (~172 degrees)
+		F->Yaw		*= 3.00;
+		}
 	}
 // </editor-fold>
 
@@ -254,12 +268,12 @@ int main(void)
 	Init();
 	TMRInit(2);			// Initialize Timer interface with Priority=2
 	BLIInit();			// Initialize Signal interface
-	//--------------------------
-	BLIAsyncMorse("S", 1);	// dot-dot-dot
+	//===================================================================
+	BLIAsyncStart(50, 50);	// Fast blinking - initialization
+	//===================================================================
 	MCMInitT(2.5, 2500);	// Initialize Motor Control for PPM with setting
-	// Throttle to HIGH for delay interval to let ESC
-	// capture Throttle range
-	BLIAsyncStop();
+							// Throttle to HIGH for delay interval to let ESC
+							// capture Throttle range
 	//--------------------------
 	ADCInit(3);			// Initialize ADC to control battery
 	//--------------------------
@@ -285,20 +299,23 @@ int main(void)
 							// DLPF = 0 (no averaging)
 		BLIDeadStop("EM", 2);
 	//==================================================================
-	#ifdef __MPL_Use__
-	//--------------------------------------------------------------
-	// Initialize MPL3115 Altimeter
-	//--------------------------------------------------------------
-	if ( MPLInit(5) )	// Average over 2^5=32 samples providing
-						// update rate about 10 Hz
-		BLIDeadStop("EB", 2);
-	#endif
+	// Initialize motion sensor - No calibration at this time!!!
+	//------------------------------------------------------------------
+	if ( MPUInit(0, 3) )	// Initialize motion Sensor
+		// 1 kHz/(0+1) = 1000 Hz (1ms)
+		// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
+		BLIDeadStop("EA", 2);
+	//------------------------------------------------------------------
 	//==================================================================
-	BLISignalON();
-	TMRDelay(2000); 	// Wait for extra 2 sec - to let ESC arm...
-	// (finish the song :) )
-	BLISignalOFF(); // </editor-fold>
+	AltimeterInit(4);	// Initialize Altimeter with IPL=4 (if needed)
+	// NOTE: All sensors areinitialized, so no more synchronous I2C
+	//		 operations are needed. Thus we may start Altimeter to give
+	//		 it more time to "warm-up"
+	AltimeterReset();	// NOTE: will be reset again later
+	//==================================================================
+	BLIAsyncStop();		// Initialization complete
 	//===================================================================
+	// </editor-fold>
 
 	//*******************************************************************
 	// Quadrocopter control variables
@@ -349,29 +366,14 @@ int main(void)
 	DCMData		IMU;				// Orientation data from DCM
 	MCMData		MC;					// Motor control Variables
 	//-------------------------------------------------------------------
-	
 
 
 	// <editor-fold defaultstate="collapsed" desc="ARMing RC and initializing IMU">
 	//==================================================================
 	// Wait for the Receiver ARMing: Throttle should go up and then down
 	//------------------------------------------------------------------
-	BLIAsyncMorse(	"O", 1);	// doh - doh - doh
+	BLIAsyncStart(200, 200);		// Really slow
 	RCArm();
-	//==================================================================
-	// Initialize sensors... Performed after ARMing to ensure that model
-	// is stable
-	//------------------------------------------------------------------
-	BLIAsyncMorse(	"I", 1);	// dit - dit
-	//==================================================================
-	// Initialize motion sensor - rotation rate baseline established at
-	// this time - QUAD should be motionless!!!
-	//------------------------------------------------------------------
-	if ( MPUInit(0, 3) )	// Initialize motion Sensor
-		// 1 kHz/(0+1) = 1000 Hz (1ms)
-		// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
-		BLIDeadStop("EA", 2);
-	//------------------------------------------------------------------
 	BLIAsyncStop();
 	//==================================================================
 	// </editor-fold>
@@ -382,7 +384,7 @@ Re_Start:
 	//------------------------------------------------------------------
 	StartTS		= 0;					// Reset timing of control Loop
 	//------------------------------------------------------------------
-	BLIAsyncMorse ("O", 1);				// doh - doh - doh
+	BLIAsyncMorse(	"I", 1);			// dit - dit
 	RCReadWhenReady (&RCFeed);			// Get reading from receiver
 	//------------------------------------------------------------------
 	// Safety check:  CONTROL should be UP and THROTTLE - LOW
@@ -396,6 +398,10 @@ Re_Start:
 		RCReadWhenReady (&RCFeed);		// Get next reading from receiver
 		}
 	//------------------------------------------------------------------
+	BLIAsyncStop ();
+	//==================================================================
+
+	//==================================================================
 	// Normalize last read RC values as they will represent the first
 	// input into the control algorithm, so should be adjusted accordingly
 	//------------------------------------------------------------------
@@ -405,49 +411,32 @@ Re_Start:
 	//------------------------------------------------------------------
 	RCDataReset(&RCSmthd);
 	//==================================================================
-	// Stop asynchronous sensors
-	//------------------------------------------------------------------
-	MPUAsyncStop ();
-	#ifdef __MPL_Use__
-	MPLAsyncStop();
-	#endif
-	//==================================================================
-	// Calibrate sensors
-	//------------------------------------------------------------------
-	BLIAsyncMorse ("T", 1);			// doh
-	if (MPUCalibrate () != MPU_OK)
-	  // Gyro Calibration filed
-	  BLIDeadStop ("CA", 2);
-	BLIAsyncStop ();
-	//------------------------------------------------------------------
-	#ifdef __MPL_Use__
+	// Initialize sensors... Performed after ARMing to ensure that model
+	// is stable
+	//--------------------------------------------------------------
 	BLIAsyncStart(100, 50);
-	if (MPLSetGround() != MPL_OK) 
-		// Altimeter calibration failed
-		BLIDeadStop("CB", 2);	// Failure...
-	BLIAsyncStop();
-	#endif
-	//==================================================================
+	//------------------------------------------------------------------
 	// Start IMU and wait until orientation estimate stabilizes
 	//------------------------------------------------------------------
-	BLIAsyncMorse (	"E", 1);		// dit
-	IMUInit ();
-	// Force update of DCMData as inside the control Loop this
-	// call is non-blocking!
-	if (IMU_OK != IMUGetUpdateWhenReady (&IMU))
-	  // Failure...
-	  BLIDeadStop ("A", 1);
+	IMUReset();
+	//--------------------------------------------------------------
+	BLIAsyncStart(50, 100);
+	//------------------------------------------------------------------
+	// Reset Altimeter
+	//------------------------------------------------------------------
+	AltimeterReset();
 	//------------------------------------------------------------------
 	QCMReset ();			// Initialize (reset) QCM variables
-	#ifdef __MPL_Use__
 	//------------------------------------------------------------------
-	// Start Altimeter
+	// Force update of DCMData as inside the control Loop this
+	// call is non-blocking!
 	//------------------------------------------------------------------
-	MPLAsyncStart();
-	MPLAsyncReadWhenReady(&TM.MPLData);
-	#endif
-	//==================================================================
-	BLIAsyncStop ();
+	if (IMU_OK != IMUGetUpdateWhenReady (&IMU))
+		// Failure...
+		BLIDeadStop ("A", 1);
+	//--------------------------------------------------------------
+	BLIAsyncStop();
+	//--------------------------------------------------------------
 	// </editor-fold>
 	//==================================================================
 
@@ -495,17 +484,28 @@ Re_Start:
 				MatrixTimesVector(&Mtr_CB_To_MF, &RCInput, &RCRotated);
 				RCFeed.Roll		= RCRotated.X;
 				RCFeed.Pitch	= RCRotated.Y;
-				RCFeed.Yaw		= RCRotated.Z;
+				RCFeed.Yaw		= RCRotated.Z;	// NOTE: Yaw is not affected!
 				}
 			}
 		//============================================================
 		// Smooth RC data 
 		//------------------------------------------------------------
-		// Roll, Pitch, and Yaw are smoothed with the IIR(8)
+		// Roll, Pitch, and Yaw are smoothed with the IIR(4)
 		//------------------------------------------------------------
-		RCSmthd.Roll	= (RCSmthd.Roll	* 7.0	+ RCFeed.Roll ) * 0.125;	// 1/8 = 0.125
-		RCSmthd.Pitch	= (RCSmthd.Pitch* 7.0 	+ RCFeed.Pitch) * 0.125;
-		RCSmthd.Yaw		= (RCSmthd.Yaw	* 7.0	+ RCFeed.Yaw  ) * 0.125;
+		RCSmthd.Roll	= (RCSmthd.Roll	* 3.0	+ RCFeed.Roll ) * 0.25;	// 1/4 = 0.25
+		RCSmthd.Pitch	= (RCSmthd.Pitch* 3.0 	+ RCFeed.Pitch) * 0.25;
+		if (MODE_Course_Lock)
+			{
+			// In this mode Yaw is integrated over the Control Loop
+			// duration (0.01 sec) and normalized to +/-Pi range
+			RCSmthd.Yaw = QCMRangeToPi(RCSmthd.Yaw + RCFeed.Yaw * 0.01);
+			}
+		else
+			{
+			// Without Course-Lock Yaw is treated as "direct input" and
+			// just smothed similar to other control variables.
+			RCSmthd.Yaw		= (RCSmthd.Yaw	* 3.0	+ RCFeed.Yaw  ) * 0.25;
+			}
 		//------------------------------------------------------------
 		// Throttle is smoothed with the IIR(4) and adjusted to
 		// account for actual battery voltage. This is done to
@@ -517,7 +517,7 @@ Re_Start:
 		if (BatV > 2.0)		// Sanity check :)
 			BatAdjTh	= BatAdjTh	* BatNomV / BatV;
 		//-----------------------------------------
-		RCSmthd.Throttle	= (RCSmthd.Throttle * 3	+ BatAdjTh) * 0.25;		// 1/4 = 0.25
+		RCSmthd.Throttle	= (RCSmthd.Throttle*3.0	+ BatAdjTh) * 0.25;	// 1/4 = 0.25
 		//-----------------------------------------
 		RCSmthd.Control		= RCFeed.Control;
 		// </editor-fold>
@@ -696,8 +696,11 @@ Re_Start:
 		TM.RCN_Yaw		= RCFeed.Yaw;
 		#endif
 		//----------------------
-		#ifdef __MPL_Use__
-		MPLAsyncReadIfReady(&TM.MPLData);
+		#ifdef _TMReport_Altimetry_
+		if ( 0 == AltimeterGetAltData(	IMU.TS,
+								&IMU.Gravity,
+								&TM.AltResult) )
+			goto EndOfCycle;	// Skip reporting on this step
 		#endif
 		//----------------------
 		#ifdef _TMReport_PID_
@@ -732,6 +735,7 @@ Re_Start:
 		//===========================================================
 		// Insert controlled "delay" to slow down the Control Loop
 		// to pre-set frequency
+	EndOfCycle:
 		TMRWaitAlarm(Alarm);
 		//===========================================================
 		}

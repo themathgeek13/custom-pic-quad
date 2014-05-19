@@ -80,18 +80,6 @@ uint	MPLInit(byte OSR)
 	//---------------------------------------------------------
 	if (MPL_OK != (RC = MPLReset(OSR)))
 	  return RC;
-
-	//*********************************************************
-	// "Warm up" sensor for 3 seconds
-	//---------------------------------------------------------
-//	MPLSample	SampleData;
-//	ulong		EndTime = TMRGetRTC() + 3000;	// In msec.
-//	while (TMRGetRTC() < EndTime)
-//		{
-//		if ( (RC = MPLReadSample(&SampleData)) )
-//			return RC;							// Error...
-//		}
-
 	//---------------------------------------------------------
 	return RC;
 	}
@@ -205,7 +193,7 @@ uint	MPLReset(byte OSR)
 	// To conclude RESET we need to implement single READ
 	// operation
 	//*********************************************************
-	MPLSample	Sample;
+	MPLData	Sample;
 	return MPLReadSample(&Sample);
 	}
 //=============================================================
@@ -213,16 +201,12 @@ uint	MPLReset(byte OSR)
 //=============================================================
 uint	MPLSetGround()
 	{
-	if (!_MPL_Init)
+	if (0 == _MPL_Init)
 		return MPL_NOTINIT;		// Not initialized...
-	//-----------------------
-	if (_MPL_Async)
-		return MPL_ABSY;		// Asynchronous operation in progress...
-
 	//=========================================================
 	// Local Variables
 	//---------------------------------------------------------
-	MPLSample	SampleData;
+	MPLData	SampleData;
 	float		Ground		= 0.0;
 	//---------------------------------------------------------
 	uint			RC		= MPL_OK;	// Pre-set to Success
@@ -231,33 +215,73 @@ uint	MPLSetGround()
 	//=========================================================
 	// Reset  Ground offset...
 	//---------------------------------------------------------
+	// Clear accumulated pipeline
+	if (_MPL_Async)
+		{
+		// Asynchronous operation in progress...
+		if ( MPL_OK != (RC = MPLAsyncReadWhenReady(&SampleData)) )
+			return RC;				// Error...
+		}
+	// Reset Base offset
 	_MPL_BaseAlt	= 0.0;
 	//---------------------------------------------------------
 	// To collect average for Ground altitudewe would like to
 	// sample MPL for 5 seconds
 	//---------------------------------------------------------
-	ulong		EndTime = TMRGetRTC() + 5000;	// In msec.
-	int		k	= 0;			// Number of samples collected
+	ulong	Alarm = TMRSetAlarm(1000);	// Set Alarm time 1 sec
+										// into the future
+	long	SampleCount	= 0;			// Number of samples collected
 	//---------------------------------------------------------
-	while (TMRGetRTC() < EndTime)
+	do
 		{
-		if ( (RC = MPLReadSample(&SampleData)) )
+		if (_MPL_Async)
+			// Asynchronous operation in progress...
+			RC = MPLAsyncReadWhenReady(&SampleData);
+		else
+			// Use Synchronous access
+			RC = MPLReadSample(&SampleData);
+		//-----------------------------------------
+		// Check for error
+		//-----------------------------------------
+		if ( MPL_OK != RC )
 			return RC;				// Error...
 		//--------------------------------------
 		// Sample obtained successfully
 		//--------------------------------------
 		Ground += SampleData.Alt;	// Accumulate Alt value
-		k++;						// Increase count
+		SampleCount++;				// Increase count
 		}
+	while ( FALSE == TMRTestAlarm(Alarm) );
 	//---------------------------------------------------------
-	// Let's set the Ground level as the average of K samples
+	// Let's set the Ground level as the average of SampleCount
+	// samples with rounding to sensor precision + 1
 	//---------------------------------------------------------
-	if (k > 0)
-		// Calculate AVG with rounding to sensor precision + 1
-		_MPL_BaseAlt	=  floorf((Ground / ((float)k)) * 32.0 + 0.5)/32.0;
+	_MPL_BaseAlt	=  floorf((Ground / ((float)SampleCount)) * 32.0 + 0.5)/32.0;
 	//*********************************************************
 	return MPL_OK;
 	}
 
+//=============================================================
+uint	MPLAdjustGround(float Altitude, float Target)
+	{
+	if (0 == _MPL_Init)
+		return MPL_NOTINIT;		// Not initialized...
+	//=========================================================
+	// Gradually adjust Ground offset...
+	//---------------------------------------------------------
+	// "Weigt" should be some prime number different from
+	// parameter "smooting" weight in Altimeter module
+	//---------------------------------------------------------
+	// 131 - expect slow changes
+	// 179 - even slower (for OSR = 3)
+	// 257 - even slower (for OSR = 3)
+	_MPL_BaseAlt = _MPL_BaseAlt + (Altitude - Target) / 257.0;
+	//---------------------------------------------------------
+	// Let's round the Ground level offset to sensor precision + 1
+	//---------------------------------------------------------
+//	_MPL_BaseAlt	=  floorf(_MPL_BaseAlt * 32.0 + 0.5)/32.0;
+	//*********************************************************
+	return MPL_OK;
+	}
 
 

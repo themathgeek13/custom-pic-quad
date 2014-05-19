@@ -1,32 +1,8 @@
-#include "I2C\I2C_Profile.h"
-//==================================================================
-#ifndef MPL3115_PROFILE_H
-#define	MPL3115_PROFILE_H
 
-//==================================================================
-// For interrupt processing MPL3115 relies on the Input Capture
-// module of the PIC MCU.
-//------------------------------------------------------------------
-// As MPL3115 uses I2C for communication, it has to be defined as a
-// "Subscriber" in the I2C_Profile.h and reserve Subscriber ID (1-4)
-//------------------------------------------------------------------
-#define MPL_I2C_SubID	3
-//------------------------------------------------------------------
-// Input Capture interrupt bits
-// (should match subscriber definition in I2C_Profile.h)
-//------------------------------------------------------------------
-// Input Capture interrupt control bit
-#define	MPL_IE			_IC1IE
-// Input Capture interrupt flag
-#define	MPL_IF			_IC1IF
-// Input Capture Interrupt priority
-#define	MPL_IP			_IC1IP
-//------------------------------------------------------------------
-// Peripheral Module Disable (PMD) register for selected
-// Input Capture Module
-//------------------------------------------------------------------
-#define	MPL_PMD			_IC1MD
-//------------------------------------------------------------------
+#ifndef SR04PROFILE_H
+#define	SR04PROFILE_H
+
+#include "System.h"
 
 //==================================================================
 // IC Module definitions - please update depending on the module
@@ -35,18 +11,18 @@
 // Definition for the pin that will be used by Input Capture module
 // NOTE: Changes to this definition should be coordinated with the
 //		 respective changes to the helper function responsible for
-//		 mapping pin(s) to Input Capture module _MPLInitPinMap()
+//		 mapping pin(s) to Input Capture module _SR04InitPinMap()
 //------------------------------------------------------------------
-#define MPL_INT_PORT	_RB2
+#define ICPORT			_RB3
 //------------------------------------------------------------------
 // Input Capture Interrupt routines
 //------------------------------------------------------------------
-#define MPL_Interrupt	_IC1Interrupt
+#define ICInterrupt		_IC7Interrupt
 //------------------------------------------------------------------
 // Input Capture Registers
 //------------------------------------------------------------------
 // Input Capture Control register
-#define	MPL_ICCON		IC1CON
+#define	ICCON			IC7CON
 //------------------------------------------------------------------
 // Input Capture Control bits/flags
 //------------------------------------------------------------------
@@ -55,20 +31,37 @@
 // ICM = 1 - Capture mode, every edge (rising and falling)
 // (ICI bits do not control interrupt generation for this mode)
 //------------------------------------------------------------------
-#define MPL_ICM			IC1CONbits.ICM
-//==================================================================
+#define ICM				IC7CONbits.ICM
+
+//------------------------------------------------------------------
+// Input Capture interrupt bits
+//------------------------------------------------------------------
+// Input Capture interrupt control bit
+#define	ICIE			_IC7IE
+// Input Capture interrupt flag
+#define	ICIF			_IC7IF
+// Input Capture Interrupt priority
+#define	ICIP			_IC7IP
+//------------------------------------------------------------------
+
+//------------------------------------------------------------------
+// Peripheral Module Disable (PMD) register for selected
+// Input Capture Module
+//------------------------------------------------------------------
+#define	ICMD			_IC7MD
 
 
-//==================================================================
-// Helper function _MPLInitPinMap(void) implements mapping
+
+//************************************************************
+// Helper function _SR04InitPinMap(void) implements mapping
 // of Input Capture module pins using Peripheral Pin Select
-//==================================================================
-static inline void _MPLInitPinMap(void)
+//************************************************************
+static inline void _SR04InitPinMap(void)
 	{
 	//--------------------------------------------------------
 	// PIC24HJ128GPxxx Input Capture pin map for this application
 	//--------------------------------------------------------
-	//	ICx Sense Pin 	= RP2/RB2
+	//	ICx Sense Pin 	= RP3/RB3
 	//=========================================================
 	// Writing to RP control registers is protected by IOLOCK
 	// bit in the OSCCON register. Please note that as part of
@@ -78,17 +71,17 @@ static inline void _MPLInitPinMap(void)
 	//---------------------------------------------------------
 	// Configure Sense pin
 	//---------------------------------------------------------
-	// NOTE: Selected pin (RP2/RB2) is shared with ADC as AN4;
+	// NOTE: Selected pin (RP3/RB3) is shared with ADC as AN5;
 	//		 To use it for Input Capture module it should be
 	//		 released from ADC for Digital IO
 	//---------------------------------------------------------
-	_PCFG4	= 1;	// Release AN4 (RP2/RB2) to Digital IO
-	_TRISB2	= 1;	// Configure RB2 port for INPUT
-	_IC1R	= 2; 	// (IN)  IC1 mapped to pin RP2/RB2
+	_PCFG5	= 1;	// Release AN5 (RP3/RB3) to Digital IO
+	_TRISB3	= 1;	// Configure RB3 port for INPUT
+	_IC7R	= 3; 	// (IN)  IC7 mapped to pin RP3/RB3
 	//---------------------------------------------------------
 	return;
 	}
-//==================================================================
 
-#endif	/* MPL3115_PROFILE_H */
+
+#endif	/* SR04PROFILE_H */
 

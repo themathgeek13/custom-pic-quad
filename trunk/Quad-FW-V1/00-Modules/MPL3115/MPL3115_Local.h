@@ -1,5 +1,4 @@
 #include "TMR\TMR.h"
-#include "I2C\I2C.h"
 //--------------------------------------
 #include "MPL3115\MPL3115.h"
 #include "MPL3115\MPL3115_Profile.h"
@@ -33,7 +32,7 @@ extern volatile float	_MPL_BaseAlt;
 
 
 //==================================================================
-// Asynchronous read support
+// Asynchronous Operation variables' definitions
 //==================================================================
 extern volatile	uint	_MPL_Async;	// Asynchronous read in progress
 									// flag
@@ -62,11 +61,18 @@ extern volatile byte	_MPL_Buffer[5];
 extern volatile byte	_MPL_CtrlR1;
 //------------------------------------------------------------------
 
-
 //==================================================================
 // Callback function for I2C subscription
 //------------------------------------------------------------------
 void	_MPLCallBack();
+//==================================================================
+
+//==================================================================
+// Asynchronous helper functions used by other asynchronous APIs
+//==================================================================
+// Asynchronous Read function (internal)
+//------------------------------------------------------------------
+uint	_MPLAsyncRead(MPLData* pSample);
 //==================================================================
 
 //==================================================================

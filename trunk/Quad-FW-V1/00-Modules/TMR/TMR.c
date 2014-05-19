@@ -100,6 +100,18 @@ ulong	TMRSetAlarmTicks(ulong AlarmTicks)
 //************************************************************
 
 //************************************************************
+// Checks "alarm" time and return TRUE if alarm expires
+//************************************************************
+BOOL	TMRTestAlarm(ulong AlarmTime)
+	{
+	if (AlarmTime > TMRGetRTCTicks())
+		return TRUE;
+	else
+		return FALSE;
+	}
+//************************************************************
+
+//************************************************************
 // Waits until the previously set "alarm" time expires
 //************************************************************
 void	TMRWaitAlarm(ulong AlarmTime)

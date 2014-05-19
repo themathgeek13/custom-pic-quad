@@ -6,9 +6,6 @@
 // in the definition of some internal data structures.
 //-------------------------------------------------------
 
-// Forward declaration...
-uint	_MPLAsyncRead(MPLSample* pSample);
-
 //*************************************************************
 uint		MPLAsyncStart()
 	{
@@ -72,7 +69,7 @@ uint	MPLAsyncStop()
 
 
 //*************************************************************
-uint	MPLAsyncReadIfReady(MPLSample* pSample)
+uint	MPLAsyncReadIfReady(MPLData* pSample)
 	{
 	if (0 == _MPL_Async)
 		return MPL_NACT;			// Asynchronous read not active...
@@ -93,7 +90,7 @@ uint	MPLAsyncReadIfReady(MPLSample* pSample)
 //*************************************************************
 
 //*************************************************************
-uint	MPLAsyncReadWhenReady(MPLSample* pSample)
+uint	MPLAsyncReadWhenReady(MPLData* pSample)
 	{
 	if (0 == _MPL_Async)
 		return MPL_NACT;			// Asynchronous read not active...
@@ -118,7 +115,7 @@ uint	MPLAsyncReadWhenReady(MPLSample* pSample)
 //*************************************************************
 
 //*************************************************************
-uint	_MPLAsyncRead(MPLSample* pSample)
+uint	_MPLAsyncRead(MPLData* pSample)
 	{
 	//----------------------------------------------
 	int 		current_cpu_ipl;
@@ -158,7 +155,7 @@ uint	_MPLAsyncRead(MPLSample* pSample)
 	// Adjust normalized (averaged) Altitude to
 	// account for Ground level
 	//-----------------------------------------------
-	pSample->Alt =pSample->Alt - _MPL_BaseAlt;
+	pSample->Alt = pSample->Alt - _MPL_BaseAlt;
 	//-----------------------------------------------
 	return MPL_OK; 			// The return code was OK	
 	}

@@ -60,10 +60,10 @@ static inline float	DEFFilterApply(	float X, long TS, DEF*	Filter)
 		// First invocation of the Filter
 		{
 		Filter->TSL		= TS;
-		Filter->St		= X;
+		Filter->St		= 0.0;			// Alternatively may start with X;
 		Filter->Bt		= 0.0;
 		//--------------------------
-		return X;
+		return Filter->St;
 		}
 	//------------------------------------------------------------------
 	// Subsequent invocations of the Filter - now we can actually

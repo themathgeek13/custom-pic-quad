@@ -23,6 +23,11 @@
           <itemPath>../00-Modules/ADC/ADCLocal.c</itemPath>
           <itemPath>../00-Modules/ADC/ADCLocal.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="f4" displayName="Altimeter" projectFiles="true">
+          <itemPath>../00-Modules/Altimeter/Altimeter.h</itemPath>
+          <itemPath>../00-Modules/Altimeter/AltimeterLocal.h</itemPath>
+          <itemPath>../00-Modules/Altimeter/Altimeter.c</itemPath>
+        </logicalFolder>
         <logicalFolder name="BLI" displayName="BLI" projectFiles="true">
           <itemPath>../00-Modules/BLI/BLI.c</itemPath>
           <itemPath>../00-Modules/BLI/BLI.h</itemPath>
@@ -70,8 +75,8 @@
         <logicalFolder name="IMU" displayName="IMU" projectFiles="true">
           <itemPath>../00-Modules/IMU/IMU.c</itemPath>
           <itemPath>../00-Modules/IMU/IMU.h</itemPath>
-          <itemPath>../00-Modules/IMU/IMUInit.c</itemPath>
           <itemPath>../00-Modules/IMU/IMULocal.h</itemPath>
+          <itemPath>../00-Modules/IMU/IMUReset.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Init" displayName="Init" projectFiles="true">
           <itemPath>../00-Modules/Init/Init.c</itemPath>
@@ -126,6 +131,15 @@
           <itemPath>../00-Modules/RC/RCLocal.h</itemPath>
           <itemPath>../00-Modules/RC/RC_ISR.c</itemPath>
         </logicalFolder>
+        <logicalFolder name="f3" displayName="SR04" projectFiles="true">
+          <itemPath>../00-Modules/SR04/SR04.c</itemPath>
+          <itemPath>../00-Modules/SR04/SR04.h</itemPath>
+          <itemPath>../00-Modules/SR04/SR04_ISR.c</itemPath>
+          <itemPath>../00-Modules/SR04/SR04_Init.c</itemPath>
+          <itemPath>../00-Modules/SR04/SR04_Local.c</itemPath>
+          <itemPath>../00-Modules/SR04/SR04_Local.h</itemPath>
+          <itemPath>../00-Modules/SR04/SR04_Profile.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="TMR" displayName="TMR" projectFiles="true">
           <itemPath>../00-Modules/TMR/TMR.c</itemPath>
           <itemPath>../00-Modules/TMR/TMR.h</itemPath>
@@ -168,7 +182,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.11</languageToolchainVersion>
+        <languageToolchainVersion>1.21</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -260,11 +274,19 @@
         <property key="enable-handles" value="true"/>
         <property key="enable-pack-data" value="true"/>
         <property key="extra-lib-directories" value=""/>
+        <property key="fill-flash-options-addr" value=""/>
+        <property key="fill-flash-options-const" value=""/>
+        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-inc-const" value="1"/>
+        <property key="fill-flash-options-increment" value=""/>
+        <property key="fill-flash-options-seq" value=""/>
+        <property key="fill-flash-options-what" value="0"/>
         <property key="general-code-protect" value="no_code_protect"/>
         <property key="general-write-protect" value="no_write_protect"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="heap-size" value=""/>
         <property key="input-libraries" value=""/>
+        <property key="linker-stack" value="true"/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map"/>
         <property key="oXC16ld-extra-opts" value=""/>
@@ -291,6 +313,7 @@
         <property key="legacy-libc" value="false"/>
         <property key="oXC16glb-macros" value=""/>
         <property key="output-file-format" value="elf"/>
+        <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <appendMe value="-finline -finline-functions -Winline"/>
       </C30Global>
@@ -324,7 +347,6 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART 1" value="true"/>
         <property key="UART 2" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
@@ -335,7 +357,7 @@
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x157ff"/>
         <property key="memories.programmemory.start" value="0x0"/>
-        <property key="poweroptions.powerenable" value="false"/>
+        <property key="poweroptions.powerenable" value="true"/>
         <property key="programmertogo.imagename" value=""/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmspeed" value="2"/>

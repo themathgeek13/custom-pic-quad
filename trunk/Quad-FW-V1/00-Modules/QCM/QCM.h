@@ -46,6 +46,33 @@ void	QCMPerformStep(RCData* RC, DCMData* IMU, MCMData* MC);
 // clockwise (positive rotation around Z axis).
 //************************************************************
 
+//*****************************************************
+// QCM helper routine to normalize Value to +/- Pi
+//*****************************************************
+float inline static QCMRangeToPi(float Value)
+	{
+	if (Value < -3.14159265)
+		return (Value + 6.2831853);
+	if (Value >  3.14159265)
+		return (Value - 6.2831853);
+	return Value;
+	}
+//*****************************************************
+
+//*****************************************************
+// QCM helper routine to normalize Value to +/- Pi/2
+//*****************************************************
+float inline static QCMRangeToHalfPi(float Value)
+	{
+	if (Value < -1.57079632)
+		return (Value + 3.14159264);
+	if (Value >  1.57079632)
+		return (Value - 3.14159264);
+	return Value;
+	}
+//*****************************************************
+
+
 //=====================================================
 #endif
 

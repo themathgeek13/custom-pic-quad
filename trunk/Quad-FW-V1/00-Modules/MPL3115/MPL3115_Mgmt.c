@@ -32,7 +32,9 @@ uint	MPLGetCTRL4(byte*	 mplCTRL)
 uint	MPLGetCTRL5(byte*	 mplCTRL)
 	{ return _MPLRead(0x2A, mplCTRL, 1); }
 //-----------------------------------------------------
-
+float	MPLGetBase()
+	{ return _MPL_BaseAlt; }
+//-----------------------------------------------------
 
 
 
