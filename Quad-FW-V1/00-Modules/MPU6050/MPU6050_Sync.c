@@ -3,7 +3,7 @@
 //=============================================================
 // Synchronous READ SAMPLE API (visible externally)
 //-------------------------------------------------------------
-uint		MPUReadSample(MPUSample* pSample)
+uint		MPUReadSample(MPUData* pSample)
 	{
 	if (!_MPU_Init)
 		return MPU_NOTINIT;		// Not initialized...
@@ -215,5 +215,72 @@ Retry:	// Wait for RDY signal
 	return	MPU_OK;
 	}
 //=============================================================
+
+//=============================================================
+uint	_MPUCalibrateSync()
+	{
+	if (!_MPU_Init)
+		return MPU_NOTINIT;		// Not initialized...
+	//-----------------------
+	if (_MPU_Async)
+		return MPU_ABSY;		// Asynchronous operation in progress...
+
+	//=========================================================
+	// Local Variables
+	//---------------------------------------------------------
+	ulong Alarm	= TMRSetAlarm(2000);	// Set Alarm time 2 sec
+										// into the future.
+	//---------------------------------------------------------
+	_MPURawData		RawData;
+	//------------------------
+	long			GX			= 0;
+	long			GY			= 0;
+	long			GZ			= 0;
+	long			T			= 0;
+	//------------------------
+	long			SampleCount	= 0;
+	//------------------------
+	uint			RC			= MPU_OK;	// Pre-set to Success
+	//=========================================================
+
+	//=========================================================
+	// Reset  Gyro offsets...
+	//---------------------------------------------------------
+	_MPU_Gyro_XOffset		= 0;
+	_MPU_Gyro_YOffset		= 0;
+	_MPU_Gyro_ZOffset		= 0;
+	//---------------------------------------------------------
+	// To collect averages we would like to "watch" MPU for at
+	// least 2 seconds; number of samples will be variable
+	// depending on the value of RateDiv
+	//---------------------------------------------------------
+	do
+		{
+		if ( (RC = _MPUReadRawData(&RawData)) )
+			return RC;							// Error...
+		//------------------
+		GX += RawData.GX;
+		GY += RawData.GY;
+		GZ += RawData.GZ;
+		T  += RawData.Temp;
+		//------------------
+		SampleCount++;
+		}
+	while ( FALSE == TMRTestAlarm(Alarm) );
+	//---------------------------------------
+	// Gyro offset is calculated in LSB units
+	//---------------------------------------
+	_MPU_Gyro_XOffset	= (float)GX/(float)SampleCount;
+	_MPU_Gyro_YOffset	= (float)GY/(float)SampleCount;
+	_MPU_Gyro_ZOffset	= (float)GZ/(float)SampleCount;
+	//---------------------------------------
+	// Base temperature converted to degrees C
+	//---------------------------------------
+	_MPU_Gyro_BaseTemp	= ((float)T/(float)SampleCount - _MPU_Temp_OffsetTo0)
+						  * _MPU_Temp_Sensitivity;
+	//*********************************************************
+	return MPU_OK;
+	}
+
 
 

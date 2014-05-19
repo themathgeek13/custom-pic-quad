@@ -51,7 +51,7 @@ extern const  	float		_MPU_Accl_XSlope;
 extern const 	float		_MPU_Accl_YOffset;
 extern const  	float		_MPU_Accl_YSlope;
 //------------------------------------------------------------------
-extern const 	float		_MPU_Accl_ZOffset;
+extern		 	float		_MPU_Accl_ZOffset;	// Adjusted by IMU
 extern const  	float		_MPU_Accl_ZSlope;
 //------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ typedef	struct
 	}	_MPURawData, *_pMPURawData;
 
 //==================================================================
-// Asynchronous read support
+// Asynchronous read control variables
 //==================================================================
 extern volatile	uint	_MPU_Async;	// Asynchronous read in progress
 									// flag
@@ -127,5 +127,22 @@ uint	_MPUWrite(	byte	 Register,
 // Synchronous Read Raw Sample (internal)
 //------------------------------------------------------------------
 uint	_MPUReadRawData(_pMPURawData pRawData);
+//------------------------------------------------------------------
+// Synchronous Gyro Calibration routine (internal)
+//------------------------------------------------------------------
+uint	_MPUCalibrateSync();
 //==================================================================
-#endif
+
+//==================================================================
+// Asynchronous helper functions used by other asynchronous APIs
+//==================================================================
+// Asynchronous Gyro Calibration routine (internal)
+//------------------------------------------------------------------
+uint	_MPUCalibrateAsync();
+//------------------------------------------------------------------
+// Asynchronous Z-axis Calibration routine (internal)
+//------------------------------------------------------------------
+uint	MPUAsyncAdjustAccZBase(float AccZBase);
+//==================================================================
+
+#endif		// __MPU6050_Local_H

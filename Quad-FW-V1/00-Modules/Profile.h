@@ -15,6 +15,12 @@
 //--------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------
+// If SR04 (or similar US-020) Ultrasonic Altimeter is available please
+// uncomment the following line
+#define __SR04_Use__
+//--------------------------------------------------------------------------
+
+//--------------------------------------------------------------------------
 // Angle (in radians) that the orientation of the Control Board need to be
 // adjusted with regards to the front of the Model.
 #define __CB_To_MF_Angle__		-0.785398163

@@ -34,7 +34,7 @@ typedef	struct
 	//-----------------------------------------------
 	Vector	G;
 	//-----------------------------------------------
-	}	MPUSample;
+	}	MPUData;
 
 
 //-----------------------------------------------------
@@ -71,7 +71,7 @@ uint	MPUGetPWRM1(byte*	 mpuPWRM1);
 //-----------------------------------------------------
 // Synchronous interface
 //-----------------------------------------------------
-uint	MPUReadSample(MPUSample* pSample);
+uint	MPUReadSample(MPUData* pSample);
 
 //-----------------------------------------------------
 // Asynchronous interface
@@ -79,9 +79,9 @@ uint	MPUReadSample(MPUSample* pSample);
 uint	MPUAsyncStart();
 uint	MPUAsyncStop();
 
-uint	MPUAsyncRead(MPUSample* pSample);
-uint	MPUAsyncReadIfReady(MPUSample* pSample);
-uint	MPUAsyncReadWhenReady(MPUSample* pSample);
+uint	MPUAsyncRead(MPUData* pSample);
+uint	MPUAsyncReadIfReady(MPUData* pSample);
+uint	MPUAsyncReadWhenReady(MPUData* pSample);
 
 //=====================================================
 #endif

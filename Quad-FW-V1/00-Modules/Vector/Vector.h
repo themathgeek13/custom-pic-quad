@@ -80,7 +80,7 @@ inline static float		VectorSize(Vector* pV1)
 inline static Vector*	VectorNormalize(Vector* pV1, Vector* pRes)
 	{
 	float 	Size = VectorSize(pV1);
-	if (Size < 1.0e-14)
+	if (Size < 1.0e-6)
 		return VectorSet(0.0, 0.0, 0.0, pRes);
 	//----------------------------------------------------------
 	float	Norm = 1.0 / Size;
