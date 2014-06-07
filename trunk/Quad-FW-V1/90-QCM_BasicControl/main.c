@@ -12,7 +12,6 @@
 #include "UART\UART_TX.h"
 #include "DCM\DCM.h"
 #include "IMU\IMU.h"
-#include "Altimeter\Altimeter.h"
 
 #include "QCM\QCM.h"
 #include "QCM\QCMStepData.h"		// Needed for Telemetry data
@@ -47,12 +46,20 @@
 #endif
 // </editor-fold>
 
-// <editor-fold defaultstate="collapsed" desc="Acc Reporting">
+// <editor-fold defaultstate="collapsed" desc="Acceleration Reporting">
 //==================================================
 // Uncomment the following define if you would like
 // to report ACC values
 //---------------------------------------------------
-#define _TMReport_ACC_
+//#define _TMReport_ACC_
+// </editor-fold>
+
+// <editor-fold defaultstate="collapsed" desc="Derivatives Reporting">
+//==================================================
+// Uncomment the following define if you would like
+// to report ACC values
+//---------------------------------------------------
+//#define _TMReport_DER_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="Reporting RCFeed">
@@ -69,14 +76,6 @@
 // to report smothed RC values
 //---------------------------------------------------
 //#define _TMReport_RCSmthd_
-// </editor-fold>
-
-// <editor-fold defaultstate="collapsed" desc="Reporting Altimetry">
-//==================================================
-// Uncomment the following define if you would like
-// to report detailed Altimetry
-//---------------------------------------------------
-#define _TMReport_Altimetry_
 // </editor-fold>
 
 // <editor-fold defaultstate="collapsed" desc="PID Reporting">
@@ -134,11 +133,14 @@ struct
 	Vector	Acc;
 	#endif
 	//-----------------------------------------------
+	#ifdef _TMReport_DER_
+	//-----------------------------------------------
 	// Orientation Data change rate (true derivative)
 	//-----------------------------------------------
 	float	RollDer;
 	float	PitchDer;
 	float	YawDer;
+	#endif
 	//-----------------------------------------------
 	// Control Data
 	//-----------------------------------------------
@@ -165,12 +167,6 @@ struct
 	float	RCN_Roll;
 	float	RCN_Pitch;
 	float	RCN_Yaw;
-	#endif
-	//-----------------------------------------------
-
-	//-----------------------------------------------
-	#ifdef _TMReport_Altimetry_
-	AltmData	AltResult;
 	#endif
 	//-----------------------------------------------
 
@@ -305,13 +301,6 @@ int main(void)
 		// 1 kHz/(0+1) = 1000 Hz (1ms)
 		// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
 		BLIDeadStop("EA", 2);
-	//------------------------------------------------------------------
-	//==================================================================
-	AltimeterInit(4);	// Initialize Altimeter with IPL=4 (if needed)
-	// NOTE: All sensors areinitialized, so no more synchronous I2C
-	//		 operations are needed. Thus we may start Altimeter to give
-	//		 it more time to "warm-up"
-	AltimeterReset();	// NOTE: will be reset again later
 	//==================================================================
 	BLIAsyncStop();		// Initialization complete
 	//===================================================================
@@ -421,10 +410,6 @@ Re_Start:
 	IMUReset();
 	//--------------------------------------------------------------
 	BLIAsyncStart(50, 100);
-	//------------------------------------------------------------------
-	// Reset Altimeter
-	//------------------------------------------------------------------
-	AltimeterReset();
 	//------------------------------------------------------------------
 	QCMReset ();			// Initialize (reset) QCM variables
 	//------------------------------------------------------------------
@@ -594,8 +579,8 @@ Re_Start:
 				RCFinal.Pitch		= RCRotated.Y;
 				RCFinal.Yaw			= RCRotated.Z;
 				}
-			// Calculate motor control based
-			// upon IMU data
+			// Calculate motor control based on the (rotated) RC Input
+			// and current attitude data from the IMU
 			QCMPerformStep(&RCFinal, &IMU, &MC);
 			}
 		else
@@ -669,13 +654,16 @@ Re_Start:
 		#endif
 		//----------------------
 		#ifdef  _TMReport_ACC_
-		// Just report native Gyro data
+		// Report Aceleration data
 		VectorCopy(&IMU.Gravity, &TM.Acc);
 		#endif
 		//----------------------
+		#ifdef _TMReport_DER_
+		// Report orientation change rate (true derivative)
 		TM.RollDer		= QSD.RollDer;
 		TM.PitchDer		= QSD.PitchDer;
 		TM.YawDer		= QSD.YawDer;
+		#endif
 		//----------------------
 		TM.RC_Throttle	= RCFinal.Throttle;
 		TM.RC_Roll		= RCFinal.Roll;
@@ -694,13 +682,6 @@ Re_Start:
 		TM.RCN_Roll		= RCFeed.Roll;
 		TM.RCN_Pitch	= RCFeed.Pitch;
 		TM.RCN_Yaw		= RCFeed.Yaw;
-		#endif
-		//----------------------
-		#ifdef _TMReport_Altimetry_
-		if ( 0 == AltimeterGetAltData(	IMU.TS,
-								&IMU.Gravity,
-								&TM.AltResult) )
-			goto EndOfCycle;	// Skip reporting on this step
 		#endif
 		//----------------------
 		#ifdef _TMReport_PID_
@@ -731,11 +712,10 @@ Re_Start:
 		TM.Voltage 		= ADCGetBatteryVoltage();
 		// </editor-fold>
 		//===========================================================
-		UARTPostIfReady( (unsigned char *) &TM, sizeof(TM)	);
+		UARTPostIfReady( (byte *) &TM, sizeof(TM)	);
 		//===========================================================
 		// Insert controlled "delay" to slow down the Control Loop
 		// to pre-set frequency
-	EndOfCycle:
 		TMRWaitAlarm(Alarm);
 		//===========================================================
 		}
