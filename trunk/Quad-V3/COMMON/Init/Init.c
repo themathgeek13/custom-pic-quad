@@ -3,21 +3,11 @@
 //**********************************************************************
 // Configuration fuses:
 //----------------------------------------------------------------------
-// Register FICD (0xf8000e) 
+// Register FOSCSEL (0xf80006)
 //----------------------------------------------------------------------
-_FICD		( ICS_PGD3 & JTAGEN_OFF);
-								// Communicate on PGEC1 and PGED1
-								// JTAG Port: Disabled
-//----------------------------------------------------------------------
-// Register FPOR (0xf8000c)
-//----------------------------------------------------------------------
-_FPOR		( ALTI2C1_OFF & ALTI2C2_OFF );
-								// I2C1 mapped to SDA1/SCL1 pins
-								// I2C2 mapped to SDA2/SCL2 pins
-//----------------------------------------------------------------------
-// Register FWDT (0xf8000a)
-//----------------------------------------------------------------------
-_FWDT		( FWDTEN_OFF );		//  Watchdog Timer: Disabled
+_FOSCSEL	( FNOSC_FRC & IESO_OFF)		
+								// Initial Oscillator: Fast RC oscillator
+								// Two-speed Oscillator Startup: Disabled
 //----------------------------------------------------------------------
 // Register FOSC (0xf80008)
 //----------------------------------------------------------------------
@@ -27,11 +17,20 @@ _FOSC		( FCKSM_CSECMD & POSCMD_HS & IOL1WAY_OFF)
 								// Force single configuration for re-
 								// mappable IO: Disabled
 //----------------------------------------------------------------------
-// Register FOSCSEL (0xf80006)
+// Register FWDT (0xf8000a)
 //----------------------------------------------------------------------
-_FOSCSEL	( FNOSC_FRC & IESO_OFF)		
-								// Initial Oscillator: Fast RC oscillator
-								// Two-speed Oscillator Startup: Disabled
+_FWDT		( FWDTEN_OFF );		//  Watchdog Timer: Disabled
+//----------------------------------------------------------------------
+// Register FPOR (0xf8000c)
+//----------------------------------------------------------------------
+_FPOR		( ALTI2C1_OFF );
+								// I2C1 mapped to SDA1/SCL1 pins
+//----------------------------------------------------------------------
+// Register FICD (0xf8000e) 
+//----------------------------------------------------------------------
+_FICD		( ICS_PGD3 & JTAGEN_OFF);
+								// Communicate on PGEC1 and PGED1
+								// JTAG Port: Disabled
 //**********************************************************************
 
 
@@ -74,12 +73,19 @@ void	Init()
 	PMD1 = 0xFFFF;
 	PMD2 = 0xFFFF;
 	PMD3 = 0xFFFF;	
+	PMD4 = 0xFFFF;
+	PMD5 = 0xFFFF;
+	PMD6 = 0xFFFF;	
+	PMD7 = 0xFFFF;
 
 	//***********************************************
 	// Put ALL Analog pins into Digital mode
 	//***********************************************
-	ANSELA = 0x0000;
 	ANSELB = 0x0000;
+	ANSELC = 0x0000;
+	ANSELD = 0x0000;
+	ANSELE = 0x0000;
+	ANSELG = 0x0000;
 
 	//***********************************************
 	// Configure Global Interrupt Control
@@ -96,8 +102,10 @@ void	Init()
 	IEC2	= 0;
 	IEC3	= 0;
 	IEC4	= 0;
+	IEC5	= 0;
+	IEC6	= 0;
+	IEC7	= 0;
 	IEC8	= 0;
-	IEC9	= 0;
 	//***********************************************
 	// Clear ALL Interrupt Flags
 	//***********************************************
@@ -106,8 +114,10 @@ void	Init()
 	IFS2	= 0;
 	IFS3	= 0;
 	IFS4	= 0;
+	IFS5	= 0;
+	IFS6	= 0;
+	IFS7	= 0;
 	IFS8	= 0;
-	IFS9	= 0;
 	//***********************************************
 	// Now that ALL Interrupts are individually
 	// disabled, we may enable interrup processing
