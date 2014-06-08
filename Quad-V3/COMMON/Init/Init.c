@@ -33,6 +33,14 @@ _FICD		( ICS_PGD3 & JTAGEN_OFF);
 								// JTAG Port: Disabled
 //**********************************************************************
 
+//----------------------------------------------------------------------
+// This board contains four DIP switches; their values are read and
+// stored for subsequent use in this Initialization routine
+//----------------------------------------------------------------------
+uint	_SW1		= 0;
+uint	_SW2		= 0;
+uint	_SW3		= 0;
+uint	_SW4		= 0;
 
 void	Init()
 	{
@@ -124,6 +132,53 @@ void	Init()
 	// globally
 	//***********************************************
 	_GIE	= 0b1;
+
+	//------------------------------------------------------
+	// Configure ports RD8 (SW1), RD9 (SW2), RD10 (SW3) and
+	// RD11 (SW4) connected to the 4-position DIP Switch.
+	//------------------------------------------------------
+	// NOTE: In the "ON" position switch connects respective
+	//		 port to ground, so we need to reverse read
+	//		 value.
+	//------------------------------------------------------
+	// Configure ports for Input
+	_TRISD8		= 1;
+	_TRISD9		= 1;
+	_TRISD10	= 1;
+	_TRISD11	= 1;
+	// Enable weak pull-up on these ports
+	_CNPUD8		= 1;
+	_CNPUD9		= 1;
+	_CNPUD10	= 1;
+	_CNPUD11	= 1;
+	// Give ports some time to stabilize after enabling weak pull-up
+	Nop();
+	Nop();
+	Nop();
+	Nop();
+	//--------------------------------------------
+	// Check port values associated with switches
+	//--------------------------------------------
+	if (_RD8)
+	  _SW1 = 0;
+	else
+	  _SW1 = 1;
+	//----------
+	if (_RD9)
+	  _SW2 = 0;
+	else
+	  _SW2 = 1;
+	//----------
+	if (_RD10)
+	  _SW3 = 0;
+	else
+	  _SW3 = 1;
+	//----------
+	if (_RD11)
+	  _SW4 = 0;
+	else
+	  _SW4 = 1;
+	//--------------------------------------------
 	}
 
 
