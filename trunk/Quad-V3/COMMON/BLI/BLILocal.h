@@ -6,8 +6,8 @@
 #define __BLILocal_H
 //=====================================================
 #define _BLIAsynchMax	128
-#define	_BLILAT			_LATA4
-#define	_BLITRIS		_TRISA4
+#define	_BLILAT			_LATB15
+#define	_BLITRIS		_TRISB15
 //=====================================================
 extern uint				_BLIInit;	// BLI initializtion flag
 extern uchar			_BLIIL;		// BLI default interrupt level
