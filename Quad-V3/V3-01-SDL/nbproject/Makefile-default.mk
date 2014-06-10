@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 # Object Directory
@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../COMMON/BLI/BLI.c ../COMMON/BLI/BLIInit.c ../COMMON/BLI/BLILocal.c ../COMMON/BLI/BLIMorse.c ../COMMON/Init/Init.c ../COMMON/TMR/TMR.c ../COMMON/TMR/TMRInit.c ../COMMON/TMR/TMRLocal.c ../COMMON/TMR/TMR_ISR.c main.c
+SOURCEFILES_QUOTED_IF_SPACED=../COMMON/BLI/BLI.c ../COMMON/BLI/BLIInit.c ../COMMON/BLI/BLILocal.c ../COMMON/BLI/BLIMorse.c ../COMMON/Init/Init.c ../COMMON/SDL/SDL_API.c ../COMMON/SDL/SDL_Init.c ../COMMON/SDL/SDL_ISR.c ../COMMON/SDL/SDL_Local.c ../COMMON/TMR/TMR.c ../COMMON/TMR/TMRInit.c ../COMMON/TMR/TMRLocal.c ../COMMON/TMR/TMR_ISR.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/151698742/BLI.o ${OBJECTDIR}/_ext/151698742/BLIInit.o ${OBJECTDIR}/_ext/151698742/BLILocal.o ${OBJECTDIR}/_ext/151698742/BLIMorse.o ${OBJECTDIR}/_ext/407451387/Init.o ${OBJECTDIR}/_ext/151681404/TMR.o ${OBJECTDIR}/_ext/151681404/TMRInit.o ${OBJECTDIR}/_ext/151681404/TMRLocal.o ${OBJECTDIR}/_ext/151681404/TMR_ISR.o ${OBJECTDIR}/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/151698742/BLI.o.d ${OBJECTDIR}/_ext/151698742/BLIInit.o.d ${OBJECTDIR}/_ext/151698742/BLILocal.o.d ${OBJECTDIR}/_ext/151698742/BLIMorse.o.d ${OBJECTDIR}/_ext/407451387/Init.o.d ${OBJECTDIR}/_ext/151681404/TMR.o.d ${OBJECTDIR}/_ext/151681404/TMRInit.o.d ${OBJECTDIR}/_ext/151681404/TMRLocal.o.d ${OBJECTDIR}/_ext/151681404/TMR_ISR.o.d ${OBJECTDIR}/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/151698742/BLI.o ${OBJECTDIR}/_ext/151698742/BLIInit.o ${OBJECTDIR}/_ext/151698742/BLILocal.o ${OBJECTDIR}/_ext/151698742/BLIMorse.o ${OBJECTDIR}/_ext/407451387/Init.o ${OBJECTDIR}/_ext/151682650/SDL_API.o ${OBJECTDIR}/_ext/151682650/SDL_Init.o ${OBJECTDIR}/_ext/151682650/SDL_ISR.o ${OBJECTDIR}/_ext/151682650/SDL_Local.o ${OBJECTDIR}/_ext/151681404/TMR.o ${OBJECTDIR}/_ext/151681404/TMRInit.o ${OBJECTDIR}/_ext/151681404/TMRLocal.o ${OBJECTDIR}/_ext/151681404/TMR_ISR.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/151698742/BLI.o.d ${OBJECTDIR}/_ext/151698742/BLIInit.o.d ${OBJECTDIR}/_ext/151698742/BLILocal.o.d ${OBJECTDIR}/_ext/151698742/BLIMorse.o.d ${OBJECTDIR}/_ext/407451387/Init.o.d ${OBJECTDIR}/_ext/151682650/SDL_API.o.d ${OBJECTDIR}/_ext/151682650/SDL_Init.o.d ${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d ${OBJECTDIR}/_ext/151682650/SDL_Local.o.d ${OBJECTDIR}/_ext/151681404/TMR.o.d ${OBJECTDIR}/_ext/151681404/TMRInit.o.d ${OBJECTDIR}/_ext/151681404/TMRLocal.o.d ${OBJECTDIR}/_ext/151681404/TMR_ISR.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/151698742/BLI.o ${OBJECTDIR}/_ext/151698742/BLIInit.o ${OBJECTDIR}/_ext/151698742/BLILocal.o ${OBJECTDIR}/_ext/151698742/BLIMorse.o ${OBJECTDIR}/_ext/407451387/Init.o ${OBJECTDIR}/_ext/151681404/TMR.o ${OBJECTDIR}/_ext/151681404/TMRInit.o ${OBJECTDIR}/_ext/151681404/TMRLocal.o ${OBJECTDIR}/_ext/151681404/TMR_ISR.o ${OBJECTDIR}/main.o
+OBJECTFILES=${OBJECTDIR}/_ext/151698742/BLI.o ${OBJECTDIR}/_ext/151698742/BLIInit.o ${OBJECTDIR}/_ext/151698742/BLILocal.o ${OBJECTDIR}/_ext/151698742/BLIMorse.o ${OBJECTDIR}/_ext/407451387/Init.o ${OBJECTDIR}/_ext/151682650/SDL_API.o ${OBJECTDIR}/_ext/151682650/SDL_Init.o ${OBJECTDIR}/_ext/151682650/SDL_ISR.o ${OBJECTDIR}/_ext/151682650/SDL_Local.o ${OBJECTDIR}/_ext/151681404/TMR.o ${OBJECTDIR}/_ext/151681404/TMRInit.o ${OBJECTDIR}/_ext/151681404/TMRLocal.o ${OBJECTDIR}/_ext/151681404/TMR_ISR.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=../COMMON/BLI/BLI.c ../COMMON/BLI/BLIInit.c ../COMMON/BLI/BLILocal.c ../COMMON/BLI/BLIMorse.c ../COMMON/Init/Init.c ../COMMON/TMR/TMR.c ../COMMON/TMR/TMRInit.c ../COMMON/TMR/TMRLocal.c ../COMMON/TMR/TMR_ISR.c main.c
+SOURCEFILES=../COMMON/BLI/BLI.c ../COMMON/BLI/BLIInit.c ../COMMON/BLI/BLILocal.c ../COMMON/BLI/BLIMorse.c ../COMMON/Init/Init.c ../COMMON/SDL/SDL_API.c ../COMMON/SDL/SDL_Init.c ../COMMON/SDL/SDL_ISR.c ../COMMON/SDL/SDL_Local.c ../COMMON/TMR/TMR.c ../COMMON/TMR/TMRInit.c ../COMMON/TMR/TMRLocal.c ../COMMON/TMR/TMR_ISR.c main.c
 
 
 CFLAGS=
@@ -72,7 +72,7 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=24EP512GP806
 MP_LINKER_FILE_OPTION=,--script=p24EP512GP806.gld
@@ -113,6 +113,34 @@ ${OBJECTDIR}/_ext/407451387/Init.o: ../COMMON/Init/Init.c  nbproject/Makefile-${
 	@${RM} ${OBJECTDIR}/_ext/407451387/Init.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/Init/Init.c  -o ${OBJECTDIR}/_ext/407451387/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/407451387/Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/407451387/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_API.o: ../COMMON/SDL/SDL_API.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_API.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_API.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_API.c  -o ${OBJECTDIR}/_ext/151682650/SDL_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_API.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_API.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_Init.o: ../COMMON/SDL/SDL_Init.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Init.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_Init.c  -o ${OBJECTDIR}/_ext/151682650/SDL_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_Init.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_ISR.o: ../COMMON/SDL/SDL_ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_ISR.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_ISR.c  -o ${OBJECTDIR}/_ext/151682650/SDL_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_Local.o: ../COMMON/SDL/SDL_Local.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Local.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Local.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_Local.c  -o ${OBJECTDIR}/_ext/151682650/SDL_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_Local.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/_ext/151681404/TMR.o: ../COMMON/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/151681404 
@@ -185,6 +213,34 @@ ${OBJECTDIR}/_ext/407451387/Init.o: ../COMMON/Init/Init.c  nbproject/Makefile-${
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/Init/Init.c  -o ${OBJECTDIR}/_ext/407451387/Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/407451387/Init.o.d"      -mno-eds-warn  -g -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/407451387/Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/_ext/151682650/SDL_API.o: ../COMMON/SDL/SDL_API.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_API.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_API.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_API.c  -o ${OBJECTDIR}/_ext/151682650/SDL_API.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_API.o.d"      -mno-eds-warn  -g -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_API.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_Init.o: ../COMMON/SDL/SDL_Init.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Init.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Init.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_Init.c  -o ${OBJECTDIR}/_ext/151682650/SDL_Init.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_Init.o.d"      -mno-eds-warn  -g -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_Init.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_ISR.o: ../COMMON/SDL/SDL_ISR.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_ISR.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_ISR.c  -o ${OBJECTDIR}/_ext/151682650/SDL_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d"      -mno-eds-warn  -g -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/151682650/SDL_Local.o: ../COMMON/SDL/SDL_Local.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/151682650 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Local.o.d 
+	@${RM} ${OBJECTDIR}/_ext/151682650/SDL_Local.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  ../COMMON/SDL/SDL_Local.c  -o ${OBJECTDIR}/_ext/151682650/SDL_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/151682650/SDL_Local.o.d"      -mno-eds-warn  -g -omf=elf -O0 -I"../Common" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/151682650/SDL_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/_ext/151681404/TMR.o: ../COMMON/TMR/TMR.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/151681404 
 	@${RM} ${OBJECTDIR}/_ext/151681404/TMR.o.d 
@@ -237,15 +293,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
-	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}      -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,--local-stack,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf 
 	
 endif
 
