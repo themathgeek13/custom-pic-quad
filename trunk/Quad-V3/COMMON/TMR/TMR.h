@@ -18,8 +18,10 @@
 // time counter", which can be converted into milli-
 // second counter that is accessible through
 // TMRGetRealTime() function.
+// "Tick counter" wraps around in about 6 days.
 //----------------------------------------------------
-// Timers 4 and 5 will be combined into a one
+// Timers B and C (specific timers are defined in the
+// "TMRProfile.h") will be combined into a one
 // free-running (no interrupts) 32-bit interval timer,
 // which provides high-resolution ( 1 usec) time
 // stamps accessible through TMRGetTS() function.
@@ -70,15 +72,19 @@ void	TMRWaitAlarm(ulong AlarmTime);
 
 
 //----------------------------------------------------
-// The following 2 routines allow to request raising
-// of CTMU ("software") interrupt some time in the fu-
-// re or discarding an outstanding request.
+// The following 2 routines allow to request a callback
+// some time in the future or to discard an outstanding
+// callback request.
+//----------------------------------------------------
+// Callback function is executed asynchronously at the
+// lowest interrupt routine priority of 1.
+//----------------------------------------------------
 // Only one request may be active at any time; any 
 // subsequent request overrides any existing request.
 //----------------------------------------------------
-
+// Callback function prototype.
 typedef	void (*TMRCallBack)(void);
-
+//----------------------------------------------------
 // Execute callback "OffsetMS" milliseconds from now:
 void	TMRCallBackAfter(ulong OffsetMS, TMRCallBack callBack);
 // Discard existing callback request:

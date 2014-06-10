@@ -15,11 +15,11 @@ ulong	TMRGetTS(void)
 			};
 		}	TmrData;
 	//---------------------------------------------------
-	// Read and return Timer4:5 current value
+	// Read and return Timer B:C current value
 	//---------------------------------------------------
-	TmrData.lsw 	= TMR4; 	// Read lsw from the Type B
+	TmrData.lsw 	= TB_Cnt; 	// Read lsw from the Type B
 								// timer register
-	TmrData.msw 	= TMR5HLD; 	// Read msw from the Type C
+	TmrData.msw 	= TC_Hold;	// Read msw from the Type C
 								// timer holding register
 	//---------------------------------------------------
 	return	TmrData.TS;

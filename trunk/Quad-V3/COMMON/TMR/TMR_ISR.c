@@ -24,10 +24,9 @@ void __attribute__((__interrupt__, __no_auto_psv__)) _T1Interrupt(void)
 
 //*************************************************************
 // Callback "thread"
-
-//*************************************************************
-// Running at the lowest interrupt priority of 1
 //-------------------------------------------------------------
+// Running at the lowest interrupt priority of 1
+//*************************************************************
 void __attribute__((__interrupt__, __no_auto_psv__)) _CRCInterrupt (void)
 	{
 	_CRCIF 		= 0 ; 		// Clear CRC interrupt flag

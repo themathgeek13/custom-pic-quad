@@ -4,6 +4,8 @@
 #include "Init\Switches.h"
 #include "TMR\TMR.h"
 #include "BLI\BLI.h"
+//---------------------------------
+#include "SDL\SDL.h"
 
 
 int main(void)
@@ -14,51 +16,36 @@ int main(void)
 	TMRInit(2);		// Initialize Timer interface with Priority=2
 	BLIInit();		// Initialize Signal interface
 	//*******************************************************************
-
-//	BLIAsyncStart(30, 30);
-//	while(1)
-//		{TMRDelay(30);}
+	// Switch 1 controls the Serial Data Logger (SDL) communication speed
+	//-------------------------------------------------------------------
+	if (_SW1)
+		// Switch 1 is ON - Configuring SDL for PIC-to-PIC
+		// high-speed communication at 1 MBaud
+		SDLInit(3, BAUD_1M);
+	else
+		// Switch 1 is OFF - Configuring SDL for ZigBEE
+		// wireless communication at 115.2 KBaud
+		SDLInit(3, BAUD_115200);
+	//*******************************************************************
+	struct
+		{
+		ulong	Alarm;
+		ulong	TS;
+		}	Data;
 
 	BLISignalON();
-//	while (1)
-//		{
-//		TMRDelay(50);
-////		for (i=0; i < 1000001; i++);
-////		_LATA10 ^=1;
-//		BLISignalFlip();
-//		}
-
-//	ulong	i;
-////	ulong	j	= 153720;		// 50 msec
-//	ulong	j	= 307400;			// 1 msec, 500 Hz
-//	while(1)
-//		{
-//		for (i=0; i < j; i++);
-//		BLISignalFlip();
-//		}
-
-//	BLIAsyncStart(500, 500);
-//	while(1);
-
-	byte Mult	= ((_SW1* 2 + _SW2)*2 + _SW3)* 2 + _SW4 + 1;
-	uint Freq	= 50 * Mult;
-	BLIAsyncStart(Freq, Freq);
-	while(1);
-
-
-//	BLIAsyncMorse("SOS", 3);
-//	while(1);
-
-	while(1)
+	while(TRUE)
 		{
-		BLIAsyncStart(500, 1000);
-		TMRDelay(5000);		// Delay 5 sec
-		//--------------------------------
-		BLIAsyncMorse("SOS", 3);
-		TMRDelay(5000);		// Delay 5 sec
+		Data.Alarm = TMRSetAlarm(100);
+		//-----------------------
+		Data.TS = TMRGetTS();
+		SDLPostIfReady((byte*)&Data, sizeof(Data));
+		//-----------------------
+		TMRWaitAlarm(Data.Alarm);
+		BLISignalFlip();
 		}
-	//*******************************************************************
 
-	return 1;
+	//*******************************************************************
+	return 0;
 	}
 

@@ -27,6 +27,15 @@
           <itemPath>../COMMON/Init/Init.h</itemPath>
           <itemPath>../COMMON/Init/Switches.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="SDL" displayName="SDL" projectFiles="true">
+          <itemPath>../COMMON/SDL/SDL_API.c</itemPath>
+          <itemPath>../COMMON/SDL/SDL_Init.c</itemPath>
+          <itemPath>../COMMON/SDL/SDL_ISR.c</itemPath>
+          <itemPath>../COMMON/SDL/SDL_Local.c</itemPath>
+          <itemPath>../COMMON/SDL/SDL.h</itemPath>
+          <itemPath>../COMMON/SDL/SDL_Local.h</itemPath>
+          <itemPath>../COMMON/SDL/SDL_Profile.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="TMR" displayName="TMR" projectFiles="true">
           <itemPath>../COMMON/TMR/TMR.c</itemPath>
           <itemPath>../COMMON/TMR/TMRInit.c</itemPath>
@@ -34,6 +43,7 @@
           <itemPath>../COMMON/TMR/TMRLocal.h</itemPath>
           <itemPath>../COMMON/TMR/TMR_ISR.c</itemPath>
           <itemPath>../COMMON/TMR/TMR.h</itemPath>
+          <itemPath>../COMMON/TMR/TMRProfile.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
@@ -284,7 +294,7 @@
         <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>
-        <property key="voltagevalue" value="3.375"/>
+        <property key="voltagevalue" value="3.5"/>
       </PICkit3PlatformTool>
     </conf>
   </confs>

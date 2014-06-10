@@ -24,40 +24,40 @@ void	TMRInit(uint IL)
 	//----------------------------------------------------
 	
 	//****************************************************
-	// Configure TMR4:5 - timestamp generator
+	// Configure 32-bit Timer B:C - timestamp generator
 	//----------------------------------------------------
-	// For a 32-bit timer, Timer4 control registers control
-	// parameters, while Timer5 control registers control
-	// interrupts.
+	// For a 32-bit timer, Timer B control registers
+	// control timer parameters, while Timer C control
+	// registers control interrupts.
 	//****************************************************
 	// Stop both timers:
-	T4CON				= 0;
-	T5CON				= 0;
+	TB_CON		= 0;
+	TC_CON		= 0;
 	//****************************************************
-	// Enable Timer4:5 modules, if disabled through PMD
+	// Enable in PMD Timer Even:Odd  modules
 	//****************************************************
-	_T4MD	= 0;	// Timer4 module enabled
-	_T5MD	= 0;	// Timer5 module enabled
+	TB_MD		= 0;	// TimerEven module enabled
+	TC_MD		= 0;	// TimerOdd module enabled
 	
 	// Re-set both timers:
-	TMR4				= 0;
-	TMR5				= 0;
+	TB_Cnt		= 0;
+	TC_Cnt		= 0;
 	// Reset timer "threshold":
-	PR4					= 0xffff;
-	PR5					= 0xffff;
+	TB_PR		= 0xffff;
+	TC_PR		= 0xffff;
 	//----------------------------------------------------------
-	T4CONbits.T32		= 0b1;	// Create 32-bit timer
-	T4CONbits.TCKPS		= 0b10;	// 1:64 prescaler, timer resolu-
+	TB_CONbits.T32		= 0b1;	// Create 32-bit timer
+	TB_CONbits.TCKPS	= 0b10;	// 1:64 prescaler, timer resolu-
 								// tion: 1 usec, total timer
 								// rotation ~ 70 min
 	//=========================================================
-	// Configure Timer4:5 interrupts
+	// Configure Timer Even:Odd  interrupts
 	//---------------------------------------------------------							
-	_T5IF 			= 0 ; 		// Clear TMR5 interrupt flag
-	_T5IE 			= 0 ;   	// Disable TMR5 CPU interrupt
+	TC_IF 			= 0 ; 		// Clear TC interrupt flag
+	TC_IE 			= 0 ;   	// Disable TC CPU interrupt
 
 	//=========================================================
-	T4CONbits.TON	= 1;		// Start 32-bit interval timer...
+	TB_CONbits.TON	= 1;		// Start 32-bit interval timer...
 	//---------------------------------------------------------
 
 
