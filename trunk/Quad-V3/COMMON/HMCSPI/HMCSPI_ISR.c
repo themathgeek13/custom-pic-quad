@@ -76,8 +76,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) SPIInterrupt(void)
 	//---------------------------------------------------------
 	int		X, Y, Z;
 	// Obtain measurement values from captured HMC data stream
-	HMC_RC	RC = _HMC_ConvertStream(FIFO.Data, &X, &Y, &Z);
-	if (HMC_OK != RC)
+	if (HMC_OK != _HMC_ConvertStream(FIFO.Data, &X, &Y, &Z))
 		return;		// Measurement verflow... Maybe next time :)
 	//---------------------------------------------------------
 	// Accumulate measurements for subsequent averaging

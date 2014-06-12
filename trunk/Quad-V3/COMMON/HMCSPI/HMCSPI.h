@@ -17,7 +17,7 @@ typedef enum _HMC_RC
 //=====================================================
 typedef struct
 	{
-	uint	TS;		// Measurement time stamp
+	ulong	TS;		// Measurement time stamp
 	//---------------------------------------
 	Vector	M;
 	}	HMCData;

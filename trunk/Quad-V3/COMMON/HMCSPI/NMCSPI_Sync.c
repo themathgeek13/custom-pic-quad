@@ -209,6 +209,10 @@ HMC_RC	HMC_ReSet(byte ODR, byte Gain, byte DLPF)
 	// After configuration has changed we need to read a few
 	// measurements to let the device reconfigure its parameters
 	//---------------------------------------------------------
+
+//	return HMC_OK;
+
+
 	HMCData		Sample;
 	if (HMC_OK != (RC =  HMC_ReadSample(&Sample)))
 		return RC;

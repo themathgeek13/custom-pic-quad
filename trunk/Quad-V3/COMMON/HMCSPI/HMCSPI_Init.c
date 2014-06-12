@@ -25,7 +25,7 @@ HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
 	//---------------------------------------------------------
 	// Prepare SPI and ICx Modules for configuration
 	//---------------------------------------------------------
-	SPISTAT		= 0;	// Disable ICx for configuration
+	SPISTAT		= 0;	// Disable SPI for configuration
 	ICCON1		= 0;	// Disable ICx for configuration
 	//---------------------------------------------------------
 	// Please NOTE that the Init program disables all PERIPHERAL
@@ -63,9 +63,10 @@ void	_HMC_SPIInit()
 	CKP		= 1;		// Clock - Idle High
 	MSTEN	= 1;		// MCU is the master
 	SPRE	= 0b111;	// Secondary PRE = 1:1
+//	PPRE	= 0b00;		// Primary	 PRE = 64:1 for SPI clock
 	PPRE	= 0b01;		// Primary	 PRE = 16:1 for SPI clock
-	// speed of 4 MHz assuming MCU runs at
-	// 64 MHz
+						// speed of 4 MHz assuming MCU runs at
+						// 64 MHz
 	SPIBEN	= 0b1;		// Enable "enhanced" mode (FIFO)
 	//---------------------------------------------------------
 	// Configure SPI interrupts
