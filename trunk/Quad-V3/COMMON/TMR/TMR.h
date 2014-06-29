@@ -46,7 +46,7 @@ ulong	TMRGetTS();
 //----------------------------------------------------
 //  Return Elapsed Time value in milliseconds
 //----------------------------------------------------
-ulong	TMRGetCRC(void);
+ulong	TMRGetRTC(void);
 
 
 //************************************************************
@@ -65,6 +65,10 @@ ulong	TMRSetAlarm(ulong AlarmDelay);
 // Sets "alarm" time "AlarmTicks" ticks in the future
 //************************************************************
 ulong	TMRSetAlarmTicks(ulong AlarmTicks);
+//************************************************************
+// Checks "alarm" time and return TRUE if alarm still active
+//************************************************************
+BOOL	TMRCheckAlarm(ulong AlarmTime);
 //************************************************************
 // Blocks execution until the previously set "alarm" time expires
 //************************************************************
