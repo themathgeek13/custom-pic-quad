@@ -7,24 +7,33 @@
 //-------------------------------------------------------
 
 // Forward declaration...
-uint	_MPUAsyncRead(MPUData* pSample);
+uint	_MPUAsyncRead(MPU_CB* pCB, MPUData* pSample);
 
 //*************************************************************
-uint		MPUAsyncStart()
+uint		MPUAsyncStart(uint MPUx)
 	{
 	if (!_MPU_Init)
 		return MPU_NOTINIT;		// Not initialized...
 	//---------------------------------------------------------
-	if (_MPU_Async)
+	MPU_CB*		pCB = MPUpCB(MPUx);
+	if (NULL == pCB)	return MPU_NOTA;	// Should never happened!
+	//------------------------------------------------------------------
+	if (pCB->_MPU_Async)
 		return MPU_OK;			// Already started...
 	//=========================================================
 	// Register with I2C (results in enabling interrupt)
 	//---------------------------------------------------------
-	MPU_IF = 0;					// Clear the interrupt flag
+	MPUSetIF(MPUx, 0);			// Clear the interrupt flag
+	//------------------------------------------------------------------
+	// I2C Asynchronous READ subscription data
+	//------------------------------------------------------------------
+	I2CSubscr	MPUSubscr = {MPUx, &_MPUCallBack, &_MPUIntCtrl};
+	//------------------------------------------------------------------
 	// Register with I2C module - MPU interrupt will be enabled
 	// as part of subscription, if successful.
 	// When MPL6050 has sample, the  interrupt will be triggered
-	_MPU_Async	= I2CRegisterSubscr(&_MPUSubscr);
+	//------------------------------------------------------------------
+	pCB->_MPU_Async	= I2CRegisterSubscr(pCB->_MPU_IDCx, &MPUSubscr);
 	//=========================================================
 	return MPU_OK;
 	}
@@ -32,25 +41,28 @@ uint		MPUAsyncStart()
 
 
 //*************************************************************
-uint	MPUAsyncStop()
+uint	MPUAsyncStop(uint MPUx)
 	{
 	if (!_MPU_Init)
 		return MPU_NOTINIT;		// Not initialized...
 	//---------------------------------------------------------
-	if (0 == _MPU_Async)
+	MPU_CB*		pCB = MPUpCB(MPUx);
+	if (NULL == pCB)	return MPU_NOTA;	// Should never happened!
+	//------------------------------------------------------------------
+	if (0 == pCB->_MPU_Async)
 		return MPU_OK;			// Async is not active...
 	//=====================================================
 	// Disable ASYNC driver
 	//=====================================================
 	// Disable and deregister MPU interrupt
-	I2CDeRegisterSubscr(_MPU_Async);
-	MPU_IF = 0;				// Clear the INTx interrupt flag
+	I2CDeRegisterSubscr(pCB->_MPU_IDCx, pCB->_MPU_Async);
+	MPUSetIF(MPUx, 0);			// Clear the interrupt flag
 	//=========================================================
 	// Clear ASYNC flag
 	//=========================================================
-	_MPU_Async	= 0;		// Asynchronous read not active...
+	pCB->_MPU_Async	= 0;		// Asynchronous read not active...
 	//---------------------------------------------------------
-	_MPU_Ready	= 0;		// Discard async sample
+	pCB->_MPU_Ready	= 0;		// Discard async sample
 	//---------------------------------------------------------
 	return MPU_OK;			
 	}
@@ -58,42 +70,54 @@ uint	MPUAsyncStop()
 
 
 //*************************************************************
-uint	MPUAsyncRead(MPUData* pSample)
+uint	MPUAsyncRead(uint MPUx, MPUData* pSample)
 	{
-	if (0 == _MPU_Async)
+	//---------------------------------------------------------
+	MPU_CB*		pCB = MPUpCB(MPUx);
+	if (NULL == pCB)	return MPU_NOTA;	// Should never happened!
+	//------------------------------------------------------------------
+	if (0 == pCB->_MPU_Async)
 		return MPU_NACT;			// Asynchronous read not active...
 	//--------------------------------------------------
-	return _MPUAsyncRead(pSample);
+	return _MPUAsyncRead(pCB, pSample);
 	}
 //*************************************************************
 
 //*************************************************************
-uint	MPUAsyncReadIfReady(MPUData* pSample)
+uint	MPUAsyncReadIfReady(uint MPUx, MPUData* pSample)
 	{
-	if (0 == _MPU_Async)
+	//---------------------------------------------------------
+	MPU_CB*		pCB = MPUpCB(MPUx);
+	if (NULL == pCB)	return MPU_NOTA;	// Should never happened!
+	//------------------------------------------------------------------
+	if (0 == pCB->_MPU_Async)
 		return MPU_NACT;			// Asynchronous read not active...
 	//--------------------------------------------------
-	if (0 == _MPU_Ready)
+	if (0 == pCB->_MPU_Ready)
 		return MPU_NRDY;
 	//--------------------------------------------------
-	return _MPUAsyncRead(pSample);
+	return _MPUAsyncRead(pCB, pSample);
 	}
 //*************************************************************
 
 //*************************************************************
-uint	MPUAsyncReadWhenReady(MPUData* pSample)
+uint	MPUAsyncReadWhenReady(uint MPUx, MPUData* pSample)
 	{
-	if (0 == _MPU_Async)
+	//---------------------------------------------------------
+	MPU_CB*		pCB = MPUpCB(MPUx);
+	if (NULL == pCB)	return MPU_NOTA;	// Should never happened!
+	//------------------------------------------------------------------
+	if (0 == pCB->_MPU_Async)
 		return MPU_NACT;			// Asynchronous read not active...
 	//--------------------------------------------------
-	while (0 == _MPU_Ready); 		// Wait until READY
+	while (0 == pCB->_MPU_Ready); 		// Wait until READY
 	//------------------------
-	return _MPUAsyncRead(pSample);
+	return _MPUAsyncRead(pCB, pSample);
 	}
 //*************************************************************
 
 //*************************************************************
-uint	_MPUAsyncRead(MPUData* pSample)
+uint	_MPUAsyncRead(MPU_CB* pCB, MPUData* pSample)
 	{
 	//----------------------------------------------
 	uint		Ready_Cnt;
@@ -106,22 +130,20 @@ uint	_MPUAsyncRead(MPUData* pSample)
 	// Enter MPU/I2C CRITICAL SECTION
 	//----------------------------------------------
   	SET_AND_SAVE_CPU_IPL(current_cpu_ipl, _MPU_IL);  /* disable interrupts */
-	//-----------------------------------------------
-	pSample->Count	= _MPU_Count;
 	//---------------------------------
-	RawData.Temp 	= _MPU_Sample.Temp;
+	RawData.Temp 	= pCB->_MPU_Sample.Temp;
 	//---------------------------------
-	RawData.AX		= _MPU_Sample.AX;
-	RawData.AY		= _MPU_Sample.AY;
-	RawData.AZ		= _MPU_Sample.AZ;
+	RawData.AX		= pCB->_MPU_Sample.AX;
+	RawData.AY		= pCB->_MPU_Sample.AY;
+	RawData.AZ		= pCB->_MPU_Sample.AZ;
 	//---------------------------------
-	RawData.GX		= _MPU_Sample.GX;
-	RawData.GY		= _MPU_Sample.GY;
-	RawData.GZ		= _MPU_Sample.GZ;
+	RawData.GX		= pCB->_MPU_Sample.GX;
+	RawData.GY		= pCB->_MPU_Sample.GY;
+	RawData.GZ		= pCB->_MPU_Sample.GZ;
 	//-----------------------------------------------
-	Ready_Cnt		= _MPU_Ready;
+	Ready_Cnt		= pCB->_MPU_Ready;
 	//-----------------------------------------------
-	_MPU_Ready 		= 0;		// Sample consumed...
+	pCB->_MPU_Ready = 0;		// Sample consumed...
 	//----------------------------------------------
 	// Leave MPU/I2C CRITICAL SECTION
 	//==============================================
@@ -147,27 +169,27 @@ uint	_MPUAsyncRead(MPUData* pSample)
 	// Temperature (C) (will be used in subsequent
 	// temperature compensation calculation)
 	//-----------------------------------------------
-	pSample->Temp = (Weight * RawData.Temp - _MPU_Temp_OffsetTo0) * _MPU_Temp_Sensitivity;
+	pSample->Temp = (Weight * RawData.Temp - pCB->_MPU_Temp_OffsetTo0) * pCB->_MPU_Temp_Sensitivity;
 	//-----------------------------------------------
 	// Acceleration (G)
 	//-----------------------------------------------
-	TDev	= pSample->Temp - _MPU_Accl_BaseTemp;
+	TDev	= pSample->Temp - pCB->_MPU_Accl_BaseTemp;
 	//-----------------------------------------------
 	VectorSet	(
-				(Weight * RawData.AX - (_MPU_Accl_XOffset + _MPU_Accl_XSlope*TDev)) * _MPU_Accl_Sensitivity,
-				(Weight * RawData.AY - (_MPU_Accl_YOffset + _MPU_Accl_YSlope*TDev)) * _MPU_Accl_Sensitivity,
-				(Weight * RawData.AZ - (_MPU_Accl_ZOffset + _MPU_Accl_ZSlope*TDev)) * _MPU_Accl_Sensitivity,
+				(Weight * RawData.AX - (pCB->_MPU_Accl_XOffset + pCB->_MPU_Accl_XSlope*TDev)) * pCB->_MPU_Accl_Sensitivity,
+				(Weight * RawData.AY - (pCB->_MPU_Accl_YOffset + pCB->_MPU_Accl_YSlope*TDev)) * pCB->_MPU_Accl_Sensitivity,
+				(Weight * RawData.AZ - (pCB->_MPU_Accl_ZOffset + pCB->_MPU_Accl_ZSlope*TDev)) * pCB->_MPU_Accl_Sensitivity,
 				&pSample->A
 				);
 	//-----------------------------------------------
 	// Gyroscopes (Rad/sec)
 	//-----------------------------------------------
-	TDev	= pSample->Temp - _MPU_Gyro_BaseTemp;
+	TDev	= pSample->Temp - pCB->_MPU_Gyro_BaseTemp;
 	//-----------------------------------------------
 	VectorSet	(
-				(Weight * RawData.GX - (_MPU_Gyro_XOffset + _MPU_Gyro_XSlope*TDev)) * _MPU_Gyro_Sensitivity,
-				(Weight * RawData.GY - (_MPU_Gyro_YOffset + _MPU_Gyro_YSlope*TDev)) * _MPU_Gyro_Sensitivity,
-				(Weight * RawData.GZ - (_MPU_Gyro_ZOffset + _MPU_Gyro_ZSlope*TDev)) * _MPU_Gyro_Sensitivity,
+				(Weight * RawData.GX - (pCB->_MPU_Gyro_XOffset + pCB->_MPU_Gyro_XSlope*TDev)) * pCB->_MPU_Gyro_Sensitivity,
+				(Weight * RawData.GY - (pCB->_MPU_Gyro_YOffset + pCB->_MPU_Gyro_YSlope*TDev)) * pCB->_MPU_Gyro_Sensitivity,
+				(Weight * RawData.GZ - (pCB->_MPU_Gyro_ZOffset + pCB->_MPU_Gyro_ZSlope*TDev)) * pCB->_MPU_Gyro_Sensitivity,
 				&pSample->G
 				);
 	//-----------------------------------------------
@@ -175,95 +197,20 @@ uint	_MPUAsyncRead(MPUData* pSample)
 	}
 //*************************************************************
 
-//*************************************************************
-uint	MPUAsyncAdjustAccZBase(float Incl)
-	{
-	if (0 == _MPU_Async)
-		return MPU_NACT;	// Asynchronous read not active...
-	//--------------------------------------------------
-	TMRDelay(2000); 		// Wait 2,000 msec (2 second) to
-							// accumulate in the buffer enough
-							// samples for for solid averaging
-	//----------------------------------------------
-	uint		Ready_Cnt;
-	_MPURawData RawData;
-	//----------------------------------------------
-	int 		current_cpu_ipl;
-	//----------------------------------------------
-
-	//==============================================
-	// Enter MPU/I2C CRITICAL SECTION
-	//----------------------------------------------
-  	SET_AND_SAVE_CPU_IPL(current_cpu_ipl, _MPU_IL);  /* disable interrupts */
-	//-----------------------------------------------
-	RawData.Temp 	= _MPU_Sample.Temp;
-	//---------------------------------
-	RawData.AX		= _MPU_Sample.AX;
-	RawData.AY		= _MPU_Sample.AY;
-	RawData.AZ		= _MPU_Sample.AZ;
-	//---------------------------------
-	RawData.GX		= _MPU_Sample.GX;
-	RawData.GY		= _MPU_Sample.GY;
-	RawData.GZ		= _MPU_Sample.GZ;
-	//-----------------------------------------------
-	Ready_Cnt		= _MPU_Ready;
-	//-----------------------------------------------
-	_MPU_Ready 		= 0;		// Sample consumed...
-	//----------------------------------------------
-	// Leave MPU/I2C CRITICAL SECTION
-	//==============================================
-  	RESTORE_CPU_IPL(current_cpu_ipl);
-
-	//==============================================
-	// Adjust Sample Weight to account for multiple samples
-	//----------------------------------------------
-	float 	Weight;
-	if (Ready_Cnt > 1)
-		Weight = 1.0/(float)Ready_Cnt;
-	else
-		Weight = 1.0;
-	//----------------------------------------------
-	// Process collected sample
-	//----------------------------------------------
-	// Temperature (C) (will be used in subsequent
-	// temperature compensation calculation)
-	//-----------------------------------------------
-	float	Temp = (Weight * RawData.Temp - _MPU_Temp_OffsetTo0) * _MPU_Temp_Sensitivity;
-	//-----------------------------------------------
-	// Acceleration (G)
-	//-----------------------------------------------
-	float	TDev	= Temp - _MPU_Accl_BaseTemp;
-	//-----------------------------------------------
-//	AccZBase = (Weight * RawData.AZ - _MPU_Accl_ZOffset - _MPU_Accl_ZSlope*TDev) * _MPU_Accl_Sensitivity;
-
-	// NOTE: Incl is the cosine of the angle between Earth gravity 
-	// ( -1G given given Z-axis orientation to be "down"), thus
-	// Expected AccZ => -Incl; AccZ should appear on the right side
-	// with the "-" sign and as two "-" becomes "+" we can use Incl
-	// directly in the formula below
-	_MPU_Accl_ZOffset  = Incl/_MPU_Accl_Sensitivity + Weight * RawData.AZ - _MPU_Accl_ZSlope*TDev;
-
-	//-----------------------------------------------
-	return MPU_OK; 			// The return code was OK	
-	}
-//*************************************************************
 
 //=============================================================
-uint	_MPUCalibrateAsync()
+uint	_MPUCalibrateAsync(MPU_CB*	pCB)
 	{
 	if (!_MPU_Init)
 		return MPU_NOTINIT;		// Not initialized...
-	//-----------------------
-	if (0 == _MPU_Async)
-		return MPU_NACT;		// Asynchronous read not active...
-
+	//------------------------------------------------------------------
+	if (0 == pCB->_MPU_Async)
+		return MPU_NACT;			// Asynchronous read not active...
 	//=========================================================
 	// Local Variables
 	//---------------------------------------------------------
-	ulong Alarm	= TMRSetAlarm(2000);	// Set Alarm time 2 sec
-										// into the future.
-	//---------------------------------------------------------
 	uint		Ready_Cnt;
+	MPUData		Sample;
 	_MPURawData RawData;
 	//----------------------------------------------
 	int 		current_cpu_ipl;
@@ -272,35 +219,39 @@ uint	_MPUCalibrateAsync()
 	//=========================================================
 	// Reset  Gyro offsets...
 	//---------------------------------------------------------
-	_MPU_Gyro_XOffset		= 0;
-	_MPU_Gyro_YOffset		= 0;
-	_MPU_Gyro_ZOffset		= 0;
+	pCB->_MPU_Gyro_XOffset		= 0;
+	pCB->_MPU_Gyro_YOffset		= 0;
+	pCB->_MPU_Gyro_ZOffset		= 0;
+	//---------------------------------------------------------
+	// Consume current sample to clean the buffer
+	//---------------------------------------------------------
+	_MPUAsyncRead(pCB, &Sample);
 	//---------------------------------------------------------
 	// To collect averages we would like to "watch" MPU for at
 	// least 2 seconds; number of samples will be variable
 	// depending on the value of RateDiv
 	//---------------------------------------------------------
-	TMRWaitAlarm(Alarm);
+	TMRDelay(2000);
 	//---------------------------------------------------------
 
 	//=========================================================
 	// Enter MPU/I2C CRITICAL SECTION
 	//---------------------------------------------------------
-  	SET_AND_SAVE_CPU_IPL(current_cpu_ipl, _MPU_IL);  /* disable interrupts */
+  	SET_AND_SAVE_CPU_IPL(current_cpu_ipl, _MPU_IL);  // disable interrupts
 	//---------------------------------------------------------
-	RawData.Temp 	= _MPU_Sample.Temp;
+	RawData.Temp 	= pCB->_MPU_Sample.Temp;
 	//---------------------------------
-	RawData.AX		= _MPU_Sample.AX;
-	RawData.AY		= _MPU_Sample.AY;
-	RawData.AZ		= _MPU_Sample.AZ;
+	RawData.AX		= pCB->_MPU_Sample.AX;
+	RawData.AY		= pCB->_MPU_Sample.AY;
+	RawData.AZ		= pCB->_MPU_Sample.AZ;
 	//---------------------------------
-	RawData.GX		= _MPU_Sample.GX;
-	RawData.GY		= _MPU_Sample.GY;
-	RawData.GZ		= _MPU_Sample.GZ;
+	RawData.GX		= pCB->_MPU_Sample.GX;
+	RawData.GY		= pCB->_MPU_Sample.GY;
+	RawData.GZ		= pCB->_MPU_Sample.GZ;
 	//---------------------------------------------------------
-	Ready_Cnt		= _MPU_Ready;
+	Ready_Cnt		= pCB->_MPU_Ready;
 	//---------------------------------------------------------
-	_MPU_Ready 		= 0;		// Sample consumed...
+	pCB->_MPU_Ready 		= 0;		// Sample consumed...
 	//---------------------------------------------------------
 	// Leave MPU/I2C CRITICAL SECTION
 	//=========================================================
@@ -322,14 +273,14 @@ uint	_MPUCalibrateAsync()
 	//---------------------------------------------------------
 	// Gyro offset is calculated in LSB units
 	//---------------------------------------
-	_MPU_Gyro_XOffset	= (float)RawData.GX * Weight;
-	_MPU_Gyro_YOffset	= (float)RawData.GY * Weight;
-	_MPU_Gyro_ZOffset	= (float)RawData.GZ * Weight;
+	pCB->_MPU_Gyro_XOffset	= (float)RawData.GX * Weight;
+	pCB->_MPU_Gyro_YOffset	= (float)RawData.GY * Weight;
+	pCB->_MPU_Gyro_ZOffset	= (float)RawData.GZ * Weight;
 	//---------------------------------------
 	// Base temperature converted to degrees C
 	//---------------------------------------
-	_MPU_Gyro_BaseTemp	= ((float)RawData.Temp * Weight - _MPU_Temp_OffsetTo0)
-						  * _MPU_Temp_Sensitivity;
+	pCB->_MPU_Gyro_BaseTemp	= ((float)RawData.Temp * Weight - pCB->_MPU_Temp_OffsetTo0)
+						  * pCB->_MPU_Temp_Sensitivity;
 	//*********************************************************
 	return MPU_OK;
 	}

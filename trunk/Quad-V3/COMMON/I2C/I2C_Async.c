@@ -4,13 +4,20 @@
 // Asynchronous I2C API (visible externally) component
 //============================================================
 // <editor-fold defaultstate="collapsed" desc="uint	I2CAsyncStart(uint SubscrID)">
-uint	I2CAsyncStart(uint SubscrID)
+uint	I2CAsyncStart(uint	I2Cx, uint SubscrID)
 	{
+	if (!_I2C_Init)		return I2CRC_NRDY;
+	//=========================================================
+	// Obtain references to proper Control Blocks and registers
+	//---------------------------------------------------------
+	_I2C_CB*		pCB;
+	if ( NULL == (pCB = I2CpCB(I2Cx)) )		return I2CRC_NOTA;
+	//---------------------------------------------------------
+	I2C_CONBITS*	pCON	= I2CpCON(pCB);
+	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
 	//=========================================================
 	// Validate run-time conditions
 	//---------------------------------------------------------
-	if (!_I2C_Init)		return I2CRC_NRDY;
-	//=========================================================
 	int		i, j;
 	//---------------------------------------------------------
 	uint	RC		= I2CRC_OK;
@@ -19,16 +26,9 @@ uint	I2CAsyncStart(uint SubscrID)
 	// Enter I2C (and related modules) CRITICAL SECTION
 	//---------------------------------------------------------
 	SET_AND_SAVE_CPU_IPL(CPU_IPL, _I2C_IL);
-		if (_I2C_CallBack)		{RC = I2CRC_ABSY; goto Finally;}
-		if (_I2C_SBSY)			{RC = I2CRC_SBSY; goto Finally;}
-		if	(	I2C_SEN
-			 || I2C_PEN
-			 || I2C_RCEN
-			 || I2C_RSEN
-			 || I2C_ACKEN
-			 || I2C_TRSTAT )
-				// Bus is busy with something...?
-								{RC = I2CRC_BUSY; goto Finally;}
+		{
+		if (I2CRC_OK != (RC=I2CGetStatus(pCB, pCON, pSTAT)))
+			goto Finally;
 		//------------------------------------------------------------
 		// We can attempt to subscribe for I2C Async notification(s)
 		//---------------------------------------------------------
@@ -36,38 +36,52 @@ uint	I2CAsyncStart(uint SubscrID)
 		//---------------------------------------------------------
 		for (i = 0; i<I2CSubscMax; i++)
 			{
-			if ((uint)&_I2CSubscr[i] == SubscrID)
+			if ((uint)&(pCB->_I2CSubscr[i]) == SubscrID)
 				{
 				// Subscription ID validated, proceed with activating
 				// Async notification
 				//--------------------------------------------
-				I2C_IF		= 0; 	// Clear  I2C Master interrupt flag
+				I2CSetIF(I2Cx, 0); 	// Clear  I2C Master interrupt flag
 				//---------------------------------------------------------
-				// Set Flag indicating Asynchronous operation is in progress
+				// Store in the I2C Library control block address of the
+				// callback function of the current bus owner and
+				// respective callback parameter.
 				//---------------------------------------------------------
-				_I2C_CallBack	= _I2CSubscr[i].CallBack;
+				pCB->_I2C_CallBack	= pCB->_I2CSubscr[i].CallBack;
+				// NOTE: non-NULL value of pCB->_I2C_CallBack field
+				//		 also serves as a FLAG indicating that bus is
+				//		 busy and tested for in I2CGetStatus(...) routine
+				pCB->_I2C_Param		= pCB->_I2CSubscr[i].ClientParam;
 				//////////////////////////////////////////////////////////
 				//--------------------------------------------------------
 				// Disable subscribers' interrupts
 				for (j = 0; j<I2CSubscMax; j++)
 					{
-					if (_I2CSubscr[j].SubscrIC)
-						(*(_I2CSubscr[j].SubscrIC))(0);
+					if (pCB->_I2CSubscr[j].SubscrIC)
+						(*(pCB->_I2CSubscr[j].SubscrIC))(pCB->_I2CSubscr[j].ClientParam,0);
 					}
 				//--------------------------------------------------------
-				I2C_IE		= 1;	// Enable I2C Master interrupt
+				I2CSetIE(I2Cx, 1);	// Enable I2C Master interrupt
 				//--------------------------------------------------------
+				// Initiate Start on I2C bus
+				pCON->SEN = 1;
+				// NOTE: because I2C bus is being allocated to the client,
+				//		 from now until the asynchronous operation completes
+				//		 I2C interrupts will be routed to client's callback
+				//		 routine.
 				goto Finally;
 				}
 			}
-	//---------------------------------------------------------
-	// SubscrID does not point to valid Subscription!
-	//---------------------------------------------------------
-	RC = I2CRC_ISID;
+		
+		//---------------------------------------------------------
+		// SubscrID does not point to valid Subscription!
+		//---------------------------------------------------------
+		RC = I2CRC_ISID;
+		}
+Finally:
 	//---------------------------------------------------------
 	// Leave I2C CRITICAL SECTION
 	//---------------------------------------------------------
-Finally:
   	RESTORE_CPU_IPL(CPU_IPL);
 	//=========================================================
 	return RC;		
@@ -75,14 +89,22 @@ Finally:
 // </editor-fold>
 //============================================================
 // <editor-fold defaultstate="collapsed" desc="void	I2CAsyncStop()">
-void	I2CAsyncStop()
+void	I2CAsyncStop(uint I2Cx)
 	{
 	//--------------------------------------------------------
 	// NOTE: Should be called only from I2C interrupt routine
 	//       or its extension procedure
 	//--------------------------------------------------------
-	I2C_STAT		= 0;	// clear STATUS bits
-	I2C_PEN 		= 1;	// Initiate Stop on SDA and SCL pins
+	//=========================================================
+	// Obtain references to proper Control Blocks and registers
+	//---------------------------------------------------------
+	_I2C_CB*		pCB;
+	if ( NULL == (pCB = I2CpCB(I2Cx)) )		return;
+	//---------------------------------------------------------
+	I2C_CONBITS*	pCON	= I2CpCON(pCB);
+	//=========================================================
+	*(pCB->pI2C_STAT)	= 0;	// clear STATUS bits
+	pCON->PEN			= 1;	// Initiate Stop on I2C bus
 	//--------------------------------------------------------
 	// NOTE: callback reference will be cleared in Interrupt
 	//		 routine after "STOP" processed
@@ -92,24 +114,29 @@ void	I2CAsyncStop()
 // </editor-fold>
 //============================================================
 // <editor-fold defaultstate="collapsed" desc="uint	I2CRegisterSubscr(I2CSubscr* Subscr, uint* SubscrID)">
-uint	I2CRegisterSubscr(I2CSubscr* Subscr)
+uint	I2CRegisterSubscr(uint I2Cx, I2CSubscr* Subscr)
 	{
 	int i;
+	//=========================================================
+	// Obtain references to proper Control Blocks
+	//---------------------------------------------------------
+	_I2C_CB*		pCB;
+	if ( NULL == (pCB = I2CpCB(I2Cx)) )		return NULL;
 	//--------------------------------------------------------
 	// Check for existing subscription....
 	//--------------------------------------------------------
 	for (i = 0; i < I2CSubscMax; i++)
 		{
-		if (_I2CSubscr[i].CallBack == Subscr->CallBack
+		if (pCB->_I2CSubscr[i].CallBack == Subscr->CallBack
 			&&
-			_I2CSubscr[i].SubscrIC == Subscr->SubscrIC)
+			pCB->_I2CSubscr[i].SubscrIC == Subscr->SubscrIC)
 			{
 			// Enable Client's interrupt line
-			(*(Subscr->SubscrIC))(1);
+			(*(Subscr->SubscrIC))(Subscr->ClientParam, 1);
 			//--------------------------------------------
 			// Already registered - return subscription
 			// address as "black box" SubscrID
-			return (uint) & _I2CSubscr[i];
+			return (uint) &(pCB->_I2CSubscr[i]);
 			}
 		}
 	//--------------------------------------------------------
@@ -117,21 +144,22 @@ uint	I2CRegisterSubscr(I2CSubscr* Subscr)
 	//--------------------------------------------------------
 	for (i = 0; i < I2CSubscMax; i++)
 		{
-		if ( NULL == _I2CSubscr[i].CallBack
+		if ( NULL == pCB->_I2CSubscr[i].CallBack
 			&&
-			NULL == _I2CSubscr[i].SubscrIC)
+			NULL == pCB->_I2CSubscr[i].SubscrIC)
 			{
 			// Found emp-ty slot - "subscribe" and return
 			// subscription address as "black box" SubscrID
-			_I2CSubscr[i].CallBack = Subscr->CallBack;
-			_I2CSubscr[i].SubscrIC = Subscr->SubscrIC;
+			pCB->_I2CSubscr[i].ClientParam	= Subscr->ClientParam;
+			pCB->_I2CSubscr[i].CallBack		= Subscr->CallBack;
+			pCB->_I2CSubscr[i].SubscrIC		= Subscr->SubscrIC;
 			//--------------------------------------------
 			// Enable Client's interrupt line
-			(*(Subscr->SubscrIC))(1);
+			(*(Subscr->SubscrIC))(Subscr->ClientParam, 1);
 			//--------------------------------------------
 			// Return subscription address as "black box"
 			// SubscrID
-			return (uint) & _I2CSubscr[i];
+			return (uint) &(pCB->_I2CSubscr[i]);
 			}
 		}
 	//--------------------------------------------------------
@@ -142,24 +170,30 @@ uint	I2CRegisterSubscr(I2CSubscr* Subscr)
 // </editor-fold>
 //============================================================
 // <editor-fold defaultstate="collapsed" desc="uint	I2CDeRegisterSubscr(uint SubscrID)">
-uint	I2CDeRegisterSubscr(uint SubscrID)
+uint	I2CDeRegisterSubscr(uint I2Cx, uint SubscrID)
 	{
 	int i;
+	//=========================================================
+	// Obtain references to proper Control Blocks
+	//---------------------------------------------------------
+	_I2C_CB*		pCB;
+	if ( NULL == (pCB = I2CpCB(I2Cx)) )		return I2CRC_NOTA;
 	//--------------------------------------------------------
 	// Check for existing subscription....
 	//--------------------------------------------------------
 	for (i = 0; i<I2CSubscMax; i++)
 		{
-		if ((uint)&_I2CSubscr[i] == SubscrID)
+		if ((uint)&(pCB->_I2CSubscr[i]) == SubscrID)
 			{
 			// Subscription ID validated
 			//--------------------------------------------
 			// Disable Client's interrupt line
-			(*(_I2CSubscr[i].SubscrIC))(0);
+			(*(pCB->_I2CSubscr[i].SubscrIC))(pCB->_I2CSubscr[i].ClientParam, 0);
 			// Release respective slot
 			//--------------------------------------------
-			_I2CSubscr[i].CallBack = NULL;
-			_I2CSubscr[i].SubscrIC = NULL;
+			pCB->_I2CSubscr[i].ClientParam	= NULL;
+			pCB->_I2CSubscr[i].CallBack		= NULL;
+			pCB->_I2CSubscr[i].SubscrIC		= NULL;
 			//--------------------------------------------
 			return I2CRC_OK;
 			}

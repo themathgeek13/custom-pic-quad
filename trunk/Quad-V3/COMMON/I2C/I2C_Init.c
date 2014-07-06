@@ -16,141 +16,12 @@ void	I2CInit(uint IL, uint Speed)
 	if (IL < 1) IL = 1;
 	if (IL > 7) IL = 7;
 	_I2C_IL	= IL;
-	//---------------------------------------------------------
-	// Initialize I2C subscribers' structure
-	//---------------------------------------------------------
-	int i;
-	for (i = 0; i<I2CSubscMax; i++)
-		{
-		_I2CSubscr[i].CallBack = NULL;
-		_I2CSubscr[i].SubscrIC = NULL;
-		}
 	//=========================================================
 	//	Configure I2C pins for Open-Drain operation...
 	//---------------------------------------------------------
 	_I2CInitPinMap();
-
 	//=========================================================
-	//	I2CCON: I2C Status Register
-	//---------------------------------------------------------
-	I2C_CON			= 0;		// Disable I2C for configuration
-	// NOTE: In the Global INIT routine all peripherals were disabled
-	// 		 using PMD (Prepheral Module Disable) control register(s)
-	//		 Prior to continuing initialization the module need to
-	//		 be enabled
-	I2C_PMD			= 0;	// I2C enabled in PMD
-	//
-	// Default configuration sets I2C into the:
-	//
-	// A10M		= 0:	I2CxADD register is a 7-bit slave address 
-	// GCEN		= 0: 	General call address disabled
-	// STREN	= 0: 	Disable software or receive clock stretching
-	// ACKDT	= 0: 	Send ACK during Acknowledge
-	//---------------------------------------------------------
-	/*
-	bit 4 ACKEN: Acknowledge Sequence Enable bit (I2C Master mode receive operation)
-			1 = Initiate Acknowledge sequence on SDAx and SCLx pins and transmit ACKDT
-				data bit (hardware clear at end of master Acknowledge sequence)
-			0 = Acknowledge sequence not in progress
-	bit 3 RCEN: Receive Enable bit (I2C Master mode)
-			1 = Enables Receive mode for I2C (hardware clear at end of eighth bit 
-				of master receive data byte)
-			0 = Receive sequence not in progress
-	bit 2 PEN: Stop Condition Enable bit (I2C Master mode)
-			1 = Initiate Stop condition on SDAx and SCLx pins (hardware clear at end 
-				of master Stop sequence)
-			0 = Stop condition not in progress
-	bit 1 RSEN: Repeated Start Condition Enable bit (I2C Master mode)
-			1 = Initiate Repeated Start condition on SDAx and SCLx pins (hardware 
-				clear at end of master Repeated Start sequence)
-			0 = Repeated Start condition not in progress
-	bit 0 SEN: Start Condition Enable bit (I2C Master mode)
-			1 = Initiate Start condition on SDAx and SCLx pins (hardware clear at end 
-				of master Start sequence)
-			0 = Start condition not in progress
-	*/
-	
-	//---------------------------------------------------------
-	/*	I2CxSTAT: I2Cx Status Register
-	-----------------------------------------------------------
-	bit 15	ACKSTAT: Acknowledge Status bit
-				Hardware set or clear at end of Slave or Master Acknowledge.
-				1 = NACK received from slave
-				0 = ACK received from slave
-	bit 14 	TRSTAT: Transmit Status bit (I2C Master mode transmit operation)
-				Hardware set at beginning of master transmission;
-				hardware clear at end of slave Acknowledge.
-				1 = Master transmit is in progress (8 bits + ACK)
-				0 = Master transmit is not in progress
-	bit 10	BCL: Master Bus Collision Detect bit
-				Hardware set at detection of bus collision.
-				1 = A bus collision has been detected during a master operation
-				0 = No collision
-	bit 9 	GCSTAT: General Call Status bit
-				Hardware set when address matches general call address; 
-				hardware clear at Stop detection.
-				1 = General call address was received
-				0 = General call address was not received
-	bit 8 	ADD10: 10-Bit Address Status bit
-				Hardware set at match of 2nd byte of matched 10-bit address; 
-				hardware clear at Stop detection.
-				1 = 10-bit address was matched
-				0 = 10-bit address was not matched
-	bit 7 	IWCOL: Write Collision Detect bit
-				Hardware set at occurrence of write to I2CxTRN register while busy 
-				(cleared by software).
-				1 = An attempt to write the I2CxTRN register failed because the I2C module is busy
-				0 = No collision
-	bit 6	I2COV: Receive Overflow Flag bit
-				Hardware set at attempt to transfer I2CxRSR register to I2CxRCV register 
-				(cleared by software).
-				1 = A byte was received while the I2CxRCV register is still holding the previous byte
-				0 = No overflow
-	bit 5 	D/A: Data/Address bit (I2C Slave mode)
-				Hardware clear at device address match; hardware set by reception of slave 
-				byte or is set after the transmission is complete and the TBF flag is cleared.
-				1 = Indicates that the last byte received was data
-				0 = Indicates that the last byte received was a device address
-	bit 4 	P: Stop bit
-				Hardware set or clear when Start, Repeated Start or Stop detected.
-				1 = Indicates that a Stop bit has been detected last
-				0 = Stop bit was not detected last
-	bit 3 	S: Start bit
-				Hardware set or clear when Start, Repeated Start or Stop detected.
-				1 = Indicates that a Start (or Repeated Start) bit has been detected last
-				0 = Start bit was not detected last
-	bit 2 	R/W: Read/Write Information bit (when operating as I2C slave)
-				Hardware set or clear after reception of I2C device address byte.
-				1 = Read: data transfer is output from slave
-				0 = Write: data transfer is input to slave
-	bit 1 	RBF: Receive Buffer Full Status bit
-				Hardware set when the I2CxRCV register is written with received byte; 
-				hardware clear when software reads the I2CxRCV register.
-				1 = Receive complete; I2CxRCV register is full
-				0 = Receive not complete; I2CxRCV register is empty
-	bit 0 	TBF: Transmit Buffer Full Status bit
-				Hardware set when software writes to I2CxTRN register; 
-				hardware clear at completion of data transmission.
-				1 = Transmit in progress; I2CxTRN register is full
-				0 = Transmit complete; I2CxTRN register is empty
-	*/	
-	I2C_STAT		= 0;		// Reset all STATUS bits
-	//---------------------------------------------------------
-
-
-	//---------------------------------------------------------
-	//	I2CxMSK: I2Cx Slave Mode Address Mask Register
-	//---------------------------------------------------------
-	I2C_MSK		= 0;	// All address bits are unmasked
-						// (full match required)
-
-	//---------------------------------------------------------
-	//	I2CxADD: I2Cx Slave Mode Address 
-	//---------------------------------------------------------
-	I2C_ADD		= 0;
-
-	//---------------------------------------------------------
-	//	I2CxBRG: I2Cx Baud Rate Register
+	//	Calculate common (across modules) Baud rate
 	//---------------------------------------------------------
 	// Baud Rate is calculated under the assumption that MCU
 	// is operating at 64 MHz (Fcy = 64,000,000)
@@ -158,23 +29,130 @@ void	I2CInit(uint IL, uint Speed)
 	switch (Speed)
 		{
 		case 2:
-			I2C_BRG	= 56;		// 1MHz 
+			_I2C_BRG	= 56;		// 1MHz
 			break;
 		case 1:
-			I2C_BRG = 152;		// 400 kHz
+			_I2C_BRG = 152;		// 400 kHz
 			break;
 		case 0:
 		default:
-			I2C_BRG = 511;		// ~123 kHz - lowest I2C speed
+			_I2C_BRG = 511;		// ~123 kHz - lowest I2C speed
 								// achievable with Fcy = 64 MHz
 			break;
 		}
-	//---------------------------------------------------------
-
-
 	//=========================================================
-	I2C_IE	= 0;		// Disable I2C Master interrupt
-	I2C_IF	= 0; 		// Clear   I2C Master interrupt flag
+	// Initialize Control Block for I2C modules
+	//---------------------------------------------------------
+	int i;
+	// <editor-fold defaultstate="collapsed" desc="Initialize _I2C1_CB">
+	#ifdef _I2C_UseI2C1
+	// Control Block for I2C1 Module
+	_I2C1_CB._I2C_SBSY		= 0;		// Naturally, I2C is not busy :)
+	_I2C1_CB._I2C_CallBack	= NULL;		// No active call-back
+	//---------------------------------------------------------
+	// Initialize I2C subscribers' structure
+	//---------------------------------------------------------
+	for (i = 0; i < I2CSubscMax; i++)
+	{
+		_I2C1_CB._I2CSubscr[i].CallBack = NULL;
+		_I2C1_CB._I2CSubscr[i].SubscrIC = NULL;
+	}
+	//---------------------------------------------------------
+	// Initialize references to I2C1 Control Registers
+	//---------------------------------------------------------
+	_I2C1_CB.pI2C_CON		= &I2C1CON;
+	_I2C1_CB.pI2C_STAT		= &I2C1STAT;
+	_I2C1_CB.pI2C_TRN		= &I2C1TRN;
+	_I2C1_CB.pI2C_RCV		= &I2C1RCV;
+	#endif
+	// </editor-fold>
+	//---------------------------------------------------------
+	// <editor-fold defaultstate="collapsed" desc="Initialize _I2C2_CB">
+	#ifdef _I2C_UseI2C2
+	// Control Block for I2C2 Module
+	_I2C2_CB._I2C_SBSY		= 0;		// Naturally, I2C is not busy :)
+	_I2C2_CB._I2C_CallBack	= NULL;		// No active call-back
+	//---------------------------------------------------------
+	// Initialize I2C subscribers' structure
+	//---------------------------------------------------------
+	for (i = 0; i < I2CSubscMax; i++)
+	{
+		_I2C2_CB._I2CSubscr[i].CallBack = NULL;
+		_I2C2_CB._I2CSubscr[i].SubscrIC = NULL;
+	}
+	//---------------------------------------------------------
+	// Initialize references to I2C2 Control Registers
+	//---------------------------------------------------------
+	_I2C2_CB.pI2C_CON		= &I2C2CON;
+	_I2C2_CB.pI2C_STAT		= &I2C2STAT;
+	_I2C2_CB.pI2C_TRN		= &I2C2TRN;
+	_I2C2_CB.pI2C_RCV		= &I2C2RCV;
+	#endif
+	// </editor-fold>
+	//=========================================================
+	// Initialize individual I2C modules
+	//---------------------------------------------------------
+	#ifdef _I2C_UseI2C1
+	I2CInitI2C1();
+	#endif
+	//---------------------------------------------------------
+	#ifdef _I2C_UseI2C2
+	I2CInitI2C2();
+	#endif
+	//=========================================================
+	}
+
+	
+	
+	
+
+//==================================================================
+// Helper function - exposes _I2C_IL for I2C Subscribers
+//------------------------------------------------------------------
+byte	I2CGetIL()
+	{ return _I2C_IL; }
+//==================================================================
+
+
+#ifdef _I2C_UseI2C1
+void	I2CInitI2C1()
+	{
+	//=========================================================
+	//	I2CxCON: I2C Status Register
+	//---------------------------------------------------------
+	I2C1CON			= 0;		// Disable I2C for configuration
+	// NOTE: In the Global INIT routine all peripherals were disabled
+	// 		 using PMD (Prepheral Module Disable) control register(s)
+	//		 Prior to continuing initialization the module need to
+	//		 be enabled
+	_I2C1MD			= 0;	// I2C enabled in PMD
+	//
+	// Default configuration sets I2C into the:
+	//
+	// A10M		= 0:	I2CxADD register is a 7-bit slave address
+	// GCEN		= 0: 	General call address disabled
+	// STREN	= 0: 	Disable software or receive clock stretching
+	// ACKDT	= 0: 	Send ACK during Acknowledge
+	//---------------------------------------------------------
+	//	I2CxSTAT: I2Cx STATUS Register
+	//---------------------------------------------------------
+	I2C1STAT		= 0;		// Reset all STATUS bits
+	//---------------------------------------------------------
+	//	I2CxMSK: I2Cx Slave Mode Address Mask Register
+	//---------------------------------------------------------
+	I2C1MSK		= 0;	// All address bits are unmasked
+						// (full match required)
+	//---------------------------------------------------------
+	//	I2CxADD: I2Cx Slave Mode Address
+	//---------------------------------------------------------
+	I2C1ADD		= 0;
+	//---------------------------------------------------------
+	//	Set pre-calculated Baud rate
+	//---------------------------------------------------------
+	I2C1BRG	= _I2C_BRG;
+	//=========================================================
+	_MI2C1IE	= 0;	// Disable I2C Master interrupt
+	_MI2C1IF	= 0; 	// Clear   I2C Master interrupt flag
 		// The MI2CxIF interrupt is generated on completion of the
 		// following master message events:
 		//	• Start condition
@@ -184,23 +162,93 @@ void	I2CInit(uint IL, uint Speed)
 		//	• Repeated Start
 		//	• Detection of a bus collision event
 	//---------------------------------------------------------
-	I2C_SlaveIE	= 0;		// Disable I2C Slave interrupt
-	I2C_SlaveIF	= 0; 		// Clear   I2C Slave interrupt flag
+	_SI2C1IE	= 0;		// Disable I2C Slave interrupt
+	_SI2C1IF	= 0; 		// Clear   I2C Slave interrupt flag
 		// The SI2CxIF interrupt is generated on detection of a message
 		// directed to the slave, including the	following events:
 		// • Detection of a valid device address (including general call)
 		// • Request to transmit data (ACK) or to stop data transmission (NACK)
-		// • Reception of data	
+		// • Reception of data
 	//=========================================================
-	I2C_IP		= _I2C_IL; 	// Set I2C Master interrupt priority
-	I2C_SlaveIP	= 0;		// Set I2C Slave  interrupt priority
+	_MI2C1IP	= _I2C_IL; 	// Set I2C Master interrupt priority
+	_SI2C1IP	= 0;		// Set I2C Slave  interrupt priority
 	//=========================================================
-	// After configuration complete enable I2C(1) module	
+	// After configuration complete enable I2C(1) module
 	//---------------------------------------------------------
-	I2C_I2CEN	= 1;		// Enables the I2Cx module and configures
-							// the SDAx and SCLx pins as serial port pins
+	I2C1CONbits.I2CEN	= 1;	// Enables the I2Cx module and
+								// configures the SDAx and SCLx
+								// pins as serial port pins
 	//=========================================================
 	}
+#endif
+
+#ifdef _I2C_UseI2C2
+void	I2CInitI2C2()
+	{
+	//=========================================================
+	//	I2CxCON: I2C Status Register
+	//---------------------------------------------------------
+	I2C2CON			= 0;		// Disable I2C for configuration
+	// NOTE: In the Global INIT routine all peripherals were disabled
+	// 		 using PMD (Prepheral Module Disable) control register(s)
+	//		 Prior to continuing initialization the module need to
+	//		 be enabled
+	_I2C2MD			= 0;	// I2C enabled in PMD
+	//
+	// Default configuration sets I2C into the:
+	//
+	// A10M		= 0:	I2CxADD register is a 7-bit slave address
+	// GCEN		= 0: 	General call address disabled
+	// STREN	= 0: 	Disable software or receive clock stretching
+	// ACKDT	= 0: 	Send ACK during Acknowledge
+	//---------------------------------------------------------
+	//	I2CxSTAT: I2Cx STATUS Register
+	//---------------------------------------------------------
+	I2C2STAT		= 0;		// Reset all STATUS bits
+	//---------------------------------------------------------
+	//	I2CxMSK: I2Cx Slave Mode Address Mask Register
+	//---------------------------------------------------------
+	I2C2MSK		= 0;	// All address bits are unmasked
+						// (full match required)
+	//---------------------------------------------------------
+	//	I2CxADD: I2Cx Slave Mode Address
+	//---------------------------------------------------------
+	I2C2ADD		= 0;
+	//---------------------------------------------------------
+	//	Set pre-calculated Baud rate
+	//---------------------------------------------------------
+	I2C2BRG	= _I2C_BRG;
+	//=========================================================
+	_MI2C2IE	= 0;	// Disable I2C Master interrupt
+	_MI2C2IF	= 0; 	// Clear   I2C Master interrupt flag
+		// The MI2CxIF interrupt is generated on completion of the
+		// following master message events:
+		//	• Start condition
+		//	• Stop condition
+		//	• Data transfer byte transmitted/received
+		//	• Acknowledge transmit
+		//	• Repeated Start
+		//	• Detection of a bus collision event
+	//---------------------------------------------------------
+	_SI2C2IE	= 0;		// Disable I2C Slave interrupt
+	_SI2C2IF	= 0; 		// Clear   I2C Slave interrupt flag
+		// The SI2CxIF interrupt is generated on detection of a message
+		// directed to the slave, including the	following events:
+		// • Detection of a valid device address (including general call)
+		// • Request to transmit data (ACK) or to stop data transmission (NACK)
+		// • Reception of data
+	//=========================================================
+	_MI2C2IP	= _I2C_IL; 	// Set I2C Master interrupt priority
+	_SI2C2IP	= 0;		// Set I2C Slave  interrupt priority
+	//=========================================================
+	// After configuration complete enable I2C(1) module
+	//---------------------------------------------------------
+	I2C2CONbits.I2CEN	= 1;	// Enables the I2Cx module and
+								// configures the SDAx and SCLx
+								// pins as serial port pins
+	//=========================================================
+	}
+#endif
 
 //************************************************************
 

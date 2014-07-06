@@ -13,6 +13,9 @@
 #define MPU_NACT	 I2CRC_MAX + 3
 #define MPU_NOTINIT	 I2CRC_MAX + 4
 #define MPU_FAIL	 I2CRC_MAX + 5
+#define MPU_NOTA	 I2CRC_MAX + 6
+#define MPU_TMOUT	 I2CRC_MAX + 7
+//==================================================================
 
 //-----------------------------------------
 // MPU-6050 Gyro sensitivity in degrees/sec
@@ -38,13 +41,11 @@ typedef enum
 
 
 //-----------------------------------------------------
-// Custom MPU Data Sample
+// Processed MPU Data Sample
 //-----------------------------------------------------
 typedef	struct
 	{
 	ulong	TS;		// Timestamp of the cycle
-	//-----------------------------------------------
-	ulong	Count;	// Sequential number of the sample
 	//-----------------------------------------------
 	// Temperature	(in degrees C)
 	//-----------------------------------------------
@@ -64,8 +65,8 @@ typedef	struct
 //-----------------------------------------------------
 // Custom MPU functions
 //-----------------------------------------------------
-uint	MPUInit(byte RateDiv, byte DLPF, MPU_FS_SEL GS,
-			    MPU_AFS_SEL AS);
+uint	MPUInit(byte RateDiv,	byte DLPF,
+				MPU_FS_SEL GS,	MPU_AFS_SEL AS);
 //-----------------------------------------------------
 // Low-pass filter (DLPF) configuration:
 //-----------------------------------------------------
@@ -80,37 +81,40 @@ uint	MPUInit(byte RateDiv, byte DLPF, MPU_FS_SEL GS,
 //	6		  5		19.0				  5		18.6		1
 //	7		RSV		----				RSV		----		8
 //-----------------------------------------------------
-uint	MPUReset(byte RateDiv, byte DLPF, MPU_FS_SEL GS,
+uint	MPUReset(uint MPUx,	// Index (1-based) of the sensor
+				 byte RateDiv, byte DLPF, MPU_FS_SEL GS,
 			     MPU_AFS_SEL AS);
 //-----------------------------------------------------
-uint	MPUCalibrate();
+uint	MPUCalibrate(uint MPUx);
 //-----------------------------------------------------
 
 
 //-----------------------------------------------------
-uint	MPUGetByte(byte Address, byte* Value);
-uint	MPUSetByte(byte Address, byte  Value);
+uint	MPUGetByte(uint MPUx, byte Address, byte* Value);
+uint	MPUSetByte(uint MPUx, byte Address, byte  Value);
 //-----------------------------------------------------
-uint	MPUReadID(	byte*	 mpuID);
-uint	MPUGetDLPF(	byte*	 mpuDLPF);
-uint	MPUGetINT(	byte*	 mpuINT);
-uint	MPUGetPWRM1(byte*	 mpuPWRM1);
+uint	MPUReadID(	uint MPUx, byte*	 mpuID);
+uint	MPUGetDLPF(	uint MPUx, byte*	 mpuDLPF);
+uint	MPUGetINT(	uint MPUx, byte*	 mpuINT);
+uint	MPUGetPWRM1(uint MPUx, byte*	 mpuPWRM1);
 //-----------------------------------------------------
 
 //-----------------------------------------------------
 // Synchronous interface
 //-----------------------------------------------------
-uint	MPUReadSample(MPUData* pSample);
+uint	MPUReadSample(uint MPUx, MPUData* pSample);
+//-------------------------------------------------------------
+uint	MPUReadRawSample(uint MPUx, MPUData* pSample);
 
 //-----------------------------------------------------
 // Asynchronous interface
 //-----------------------------------------------------
-uint	MPUAsyncStart();
-uint	MPUAsyncStop();
+uint	MPUAsyncStart(uint MPUx);
+uint	MPUAsyncStop(uint MPUx);
 
-uint	MPUAsyncRead(MPUData* pSample);
-uint	MPUAsyncReadIfReady(MPUData* pSample);
-uint	MPUAsyncReadWhenReady(MPUData* pSample);
+uint	MPUAsyncRead(uint MPUx, MPUData* pSample);
+uint	MPUAsyncReadIfReady(uint MPUx, MPUData* pSample);
+uint	MPUAsyncReadWhenReady(uint MPUx, MPUData* pSample);
 
 //=====================================================
 #endif		// __MPU_H
