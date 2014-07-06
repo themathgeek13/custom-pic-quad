@@ -38,13 +38,13 @@ int main(void)
 	//==================================================================
 	BLIAsyncStart(50,50);
 	if (_SW2)
-		// Switch 2 is ON - Configuring MPU for Alt. sensitivity
+		// Switch 2 is ON - Configuring MPU fo Alt. sensitivity
 		RC = MPUInit(0, 3, MPU_GYRO_1000ds, MPU_ACC_4g);
 							// Initialize motion Sensor
 							// 1 kHz/(0+1) = 1000 Hz (1ms)
 							// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
 	else
-		// Switch 2 is OFF - Configuring MPU for normal sensitivity
+		// Switch 2 is OFF - Configuring MPU fo normal sensitivity
 		RC = MPUInit(0, 3, MPU_GYRO_2000ds, MPU_ACC_2g);
 							// Initialize motion Sensor
 							// 1 kHz/(0+1) = 1000 Hz (1ms)
