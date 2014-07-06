@@ -2,7 +2,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>V3-04-I2C</name>
+            <name>V3-06-MPUI2C-Sync</name>
             <creation-uuid>2d3ac3b1-fc22-42c3-88ba-7421fd22a428</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
