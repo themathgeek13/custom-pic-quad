@@ -32,11 +32,10 @@ int main(void)
 	uint			RC			= 0;
 	ulong			Alarm		= 0;
 	//==================================================================
-	BLIAsyncStart(100,100);
+	BLIAsyncStart(50,50);
 	TMRDelay(2000);
 	BLIAsyncStop();
 	//==================================================================
-	BLIAsyncStart(50,50);
 	if (_SW2)
 		// Switch 2 is ON - Configuring MPU fo Alt. sensitivity
 		RC = MPUInit(0, 3, MPU_GYRO_1000ds, MPU_ACC_4g);
@@ -49,37 +48,27 @@ int main(void)
 							// Initialize motion Sensor
 							// 1 kHz/(0+1) = 1000 Hz (1ms)
 	if (RC)	BLIDeadStop("EG", 2);
-	BLIAsyncStop();
 	//*******************************************************************
 	BLISignalOFF();
 
-	//====================================================
-//	byte			mpuID;
-//	byte			mpuDLPF;
-//	byte			mpuINT;
-//	byte			mpuPWRM1;
-//	//---------------------------
-//	RC = MPUReadID(2, &mpuID);
-//	RC = MPUGetPWRM1(2, &mpuPWRM1);
-//	RC = MPUGetDLPF(2, &mpuDLPF);
-//	RC = MPUGetINT(2, &mpuINT);
-	//-----------------------------------------------------
 
 	//====================================================
-	// Synchronous interface
+	// Asynchronous interface
 	//-----------------------------------------------------
-	MPUData	RawData;
+	MPUData	Sample;
+	if ( (RC = MPUAsyncStart(2)) )
+		BLIDeadStop("SSS", 3);
 	//-----------------------------------------------------
 	while (TRUE)
 		{
 		Alarm = TMRSetAlarm(100);
 		//------------------------------------
-		if ( (RC = MPUReadSample(2, &RawData)) )
+		if ( (RC = MPUAsyncReadWhenReady(2, &Sample)) )
 			BLIDeadStop("SOS", 3);
 		//------------------------
 		BLISignalFlip();
 		//-------------------------
-		SDLPostIfReady((byte*)&RawData, sizeof(RawData));
+		SDLPostIfReady((byte*)&Sample, sizeof(Sample));
 		//-------------------------
 		TMRWaitAlarm(Alarm);
 		}
