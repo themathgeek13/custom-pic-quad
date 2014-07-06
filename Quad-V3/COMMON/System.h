@@ -43,17 +43,18 @@ typedef signed char           	sbyte;
 
 
 //-----------------------------------------------------
-// 16-bit un-signed integer
+// 16-bit un-signed integer (regular and volatile)
 //-----------------------------------------------------
-typedef unsigned short      	WORD;
-typedef	unsigned short			uint;
+typedef unsigned int      	WORD;
+typedef	unsigned int		uint;
+typedef	volatile uint		vuint;
 
 
 //-----------------------------------------------------
 // 32-bit un-signed integer
 //-----------------------------------------------------
-typedef unsigned long           DWORD;
-typedef unsigned long           ulong;
+typedef unsigned long        DWORD;
+typedef unsigned long        ulong;
 
 //=====================================================
 #endif

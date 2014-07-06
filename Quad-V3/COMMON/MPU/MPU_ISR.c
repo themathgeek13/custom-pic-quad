@@ -2,88 +2,123 @@
 #include "MPU\MPU_Local.h"
 
 //================================================================
-void __attribute__((interrupt, no_auto_psv)) MPU_Interrupt(void)
+#ifdef Use_MPU1
+void __attribute__((interrupt, no_auto_psv)) MPU1_Interrupt(void)
 	{
 	//------------------------------------------------------------
 	// Please note that INTx interrupt is configured to run at
 	// least at or above I2C interrupt priority, so no I2C event
 	// may take place before EXIT from this routine
 	//------------------------------------------------------------
-	MPU_IF = 0;		// Clear the INTx interrupt flag or else
+	MPU1_IF = 0;		// Clear the INTx interrupt flag or else
 					// the CPU will keep vectoring back to the ISR
 	//------------------------------------------------------------
     // Try to innitiate to I2C ASYNC processing for MPU
 	//------------------------------------------------------------
-	if (	_MPU_Async			// I2C subscription is active
-		&&	I2CRC_OK == I2CAsyncStart(_MPU_Async)	)
+	if (	MPU1_CB._MPU_Async	// I2C subscription is active so we
+								// may try to acquire the I2C bus
+		&&	I2CRC_OK == I2CAsyncStart(MPU1_IDCx, MPU1_CB._MPU_Async)	)
 		{
 		//////////////////////////////////////////////////////////////
-		// Subscription successful
+		// Bus acqusition in ASYNC mode is successful!
 		//////////////////////////////////////////////////////////////
-		_MPU_State		= 0;	// Zero out State Machine
-		I2C_SEN			= 1;	// Initiate Start on SDA and SCL pins
-								// NOTE: because of "subscription" I2C in-
-								// terrupt will result in call to 
-								// _MPUCallBack routine
+		MPU1_CB._MPU_State		= 0;	// Zero out State Machine
+		// NOTE: because of successful bus acqusition I2C interrupt 
+		//		 will be routed to _MPUCallBack routine
 		}
 	}
+#endif
 //================================================================
 
 //================================================================
-void	_MPUIntCtrl(uint IE)
+#ifdef Use_MPU2
+void __attribute__((interrupt, no_auto_psv)) MPU2_Interrupt(void)
+	{
+	//------------------------------------------------------------
+	// Please note that INTx interrupt is configured to run at
+	// least at or above I2C interrupt priority, so no I2C event
+	// may take place before EXIT from this routine
+	//------------------------------------------------------------
+	MPU2_IF = 0;		// Clear the INTx interrupt flag or else
+					// the CPU will keep vectoring back to the ISR
+	//------------------------------------------------------------
+    // Try to innitiate to I2C ASYNC processing for MPU
+	//------------------------------------------------------------
+	if (	MPU2_CB._MPU_Async	// I2C subscription is active so we
+								// may try to acquire the I2C bus
+		&&	I2CRC_OK == I2CAsyncStart(MPU2_IDCx, MPU2_CB._MPU_Async)	)
+		{
+		//////////////////////////////////////////////////////////////
+		// Bus acqusition in ASYNC mode is successful!
+		//////////////////////////////////////////////////////////////
+		MPU2_CB._MPU_State		= 0;	// Zero out State Machine
+		// NOTE: because of successful bus acqusition I2C interrupt 
+		//		 will be routed to _MPUCallBack routine
+		}
+	}
+#endif
+//================================================================
+
+//================================================================
+void	_MPUIntCtrl(uint ClientParam, uint IE)
 	{
 	//============================================================
 	// This function will be called by I2C provider to control
 	// MPL Interrupt status
 	//============================================================
-	MPU_IE = IE;
+	switch (ClientParam)
+		{
+		case 1:
+			#ifdef Use_MPU1
+				MPU1_IE = IE;
+			#endif
+			break;
+		case 2:
+			#ifdef Use_MPU2
+				MPU2_IE = IE;
+			#endif
+			break;
+		default:
+			break;
+		}
 	//------------------------------------------------------------
 	return;
 	}
 //================================================================
 
 //================================================================
-void	_MPUCallBack()
+void	_MPUCallBack(uint			ClientParam,
+					 uint			I2Cx,
+					 I2C_CONBITS*	pCON,
+					 I2C_STATBITS*	pSTAT,
+					 vuint*			pTRN,
+					 vuint*			pRCV)
 	{
+	MPU_CB*		pCB = MPUpCB(ClientParam);
+	if (NULL == pCB)	return;		// Should never ever happened!
 	//===============================================================
 	// NOTE: This I2C interrupt call-back routine is geared specifi-
 	//		 cally to supporting asynchronous data read operation for 
 	//		 MPU6050 Acc/Gyro sensor
 	//===============================================================
-	// General status checks - valid under all conditions
-	//===============================================================
-	if 	(
-			I2C_ACKSTAT		// 1 = NACK received from slave
-		||	I2C_BCL			// 1 = Master Bus Collision
-		||	I2C_IWCOL		// 1 = Write Collision
-		||	I2C_I2COV		// 1 = READ Overflow condition
-		)
-		{
-		//-----------------------------------------------------------
-		// Terminate current ASYNC session
-		//-----------------------------------------------------------
-		I2CAsyncStop();		// Release I2C ASYNC processing
-		return;
-		}
-	//===============================================================
 	// Process conditions based upon the state of the State Machine
 	//===============================================================
-	switch (_MPU_State)
+	switch (pCB->_MPU_State)
 		{
 		//=============================================================
 		// Set MPU Register Address to Data (0x3B)
 		//=============================================================
 		case	0:		// Interrupt after initial SEN
 			// Sending device address with WRITE cond.
-			I2C_TRM_Reg	= _MPU_Addr & 0xFE;
-			_MPU_State	= 1;		// Move state
+			*(pTRN)			= pCB->_MPU_Addr & 0xFE;
+			pCB->_MPU_State	= 1;		// Move state
 			break;	
 		//-----------------------------------------------------------
 		case	1:		// Interrupt after device address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with register address	
-			I2C_TRM_Reg	= 0x3B;		// MPU6050 Data register address.
-			_MPU_State	= 2;		// Move state
+			*(pTRN)			= 0x3B;		// MPU6050 Data register address.
+			pCB->_MPU_State	= 2;		// Move state
 			break;
 		//=============================================================
 		// Transition to the Reading Data Mode
@@ -91,56 +126,55 @@ void	_MPUCallBack()
 		case	2:		// Interrupt after register address
 			// Slave send ACK (confirmed in General Checks);
 			// Initiate Repeated Start condition
-			I2C_RSEN	= 1;
-			_MPU_State	= 3;		// Move state
+			pCON->RSEN		= 1;
+			pCB->_MPU_State	= 3;		// Move state
 			break;
 		//-----------------------------------------------------------
 		case	3:		// Interrupt after Repeated Start
 			// Sending device address with READ cond.
-			I2C_TRM_Reg		= _MPU_Addr | 0x01;
-			_MPU_State	= 4;		// Move state
+			*(pTRN)			= pCB->_MPU_Addr | 0x01;
+			pCB->_MPU_State	= 4;		// Move state
 			break;
 		//-----------------------------------------------------------
 		case	4:		// Interrupt after Device Address with READ
 			// Slave send ACK; we switch to READ
-			I2C_I2COV	= 0;		// Clear receive OVERFLOW bit, if any
-			I2C_RCEN	= 1;		// Allow READ.
-			_MPU_BufPos	= 0;		// Reset buffer position
+			pSTAT->I2COV		= 0;		// Clear receive OVERFLOW bit, if any
+			pCON->RCEN			= 1;		// Allow READ.
+			pCB->_MPU_BufPos	= 0;		// Reset buffer position
 			//----------------------------------------
-			_MPU_State	= 5;		// Move state
+			pCB->_MPU_State		= 5;		// Move state
 			break;
 		//=============================================================
 		// Read and process data sample
 		//=============================================================
 		case	5:		// Interrupt after READing Data byte
 			// Slave completed sending byte... 
-			_MPU_Buffer[_MPU_BufPos] = I2C_RCV_Reg;
+			pCB->_MPU_Buffer[pCB->_MPU_BufPos] = *(pRCV);
 										// Retrieve and store data byte
-			_MPU_BufPos++;				// Move buffer address pointer
+			pCB->_MPU_BufPos++;			// Move buffer address pointer
 			//---------------------------------------
-			if (_MPU_BufPos < 14)
+			if (pCB->_MPU_BufPos < 14)
 				{
 				// More bytes to read - generate ACK
-				I2C_ACKDT	= 0;
-				I2C_ACKEN 	= 1;
+				pCON->ACKDT		= 0;
 				//----------------------
-				_MPU_State	= 6;	// Move state
+				pCB->_MPU_State	= 6;	// Move state
 				}
 			else
 				{
 				// All 14 bytes are read - terminate READ with NACK
-				I2C_ACKDT	= 1;
-				I2C_ACKEN	= 1;
+				pCON->ACKDT		= 1;
 				//----------------------
-				_MPU_State	= 7;	// Move state
+				pCB->_MPU_State	= 7;	// Move state
 				}
+			pCON->ACKEN = 1;		// Innitiate acknowledgement
 			break;
 		//-----------------------------------------
 		case	6:		// Interrupt after ACK
-			I2C_I2COV	= 0;	// Clear receive OVERFLOW bit, if any
-			I2C_RCEN	= 1;	// Allow READ.
+			pSTAT->I2COV	= 0;	// Clear receive OVERFLOW bit, if any
+			pCON->RCEN		= 1;	// Allow READ.
 			//----------------------------------------
-			_MPU_State			= 5;	// Move state BACK to read next byte
+			pCB->_MPU_State	= 5;	// Move state BACK to read next byte
 			break;
 		//-----------------------------------------
 		case	7:		// Interrupt after NACK	- terminate cycle
@@ -148,7 +182,7 @@ void	_MPUCallBack()
 			//-----------------------------------------------------------
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
-			I2CAsyncStop();		// Release I2C ASYNC processing
+			I2CAsyncStop(pCB->_MPU_IDCx);	// Release I2C ASYNC processing
 			//-----------------------------------------------------------
 			// Process and output data
 			union
@@ -167,84 +201,82 @@ void	_MPUCallBack()
 			//-----------------------------------------------
 			// 	Yveh	= -Xa
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[0];
-			U.VByte[0]		= _MPU_Buffer[1];
-			_MPU_Sensor.AY 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[0];
+			U.VByte[0]			= pCB->_MPU_Buffer[1];
+			pCB->_MPU_Sensor.AY = -U.VInt;
 			//-----------------------------------------------
 			// 	Xveh	= -Ya
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[2];
-			U.VByte[0]		= _MPU_Buffer[3];
-			_MPU_Sensor.AX 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[2];
+			U.VByte[0]			= pCB->_MPU_Buffer[3];
+			pCB->_MPU_Sensor.AX = -U.VInt;
 			//-----------------------------------------------
 			// 	Zveh = -Za
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[4];
-			U.VByte[0]		= _MPU_Buffer[5];
-			_MPU_Sensor.AZ 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[4];
+			U.VByte[0]			= pCB->_MPU_Buffer[5];
+			pCB->_MPU_Sensor.AZ = -U.VInt;
 			//-----------------------------------------------
 			// Temperature
 			//-----------------------------------------------
-			U.VByte[1]		 = _MPU_Buffer[6];
-			U.VByte[0]		 = _MPU_Buffer[7];
-			_MPU_Sensor.Temp = U.VInt;
+			U.VByte[1]				= pCB->_MPU_Buffer[6];
+			U.VByte[0]				= pCB->_MPU_Buffer[7];
+			pCB->_MPU_Sensor.Temp	= U.VInt;
 			//-----------------------------------------------
 			// Gyroscopes
 			//-----------------------------------------------
 			// 	Yveh	= -Xa
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[8];
-			U.VByte[0]		= _MPU_Buffer[9];
-			_MPU_Sensor.GY 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[8];
+			U.VByte[0]			= pCB->_MPU_Buffer[9];
+			pCB->_MPU_Sensor.GY = -U.VInt;
 			//-----------------------------------------------
 			// 	Xveh	= -Ya
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[10];
-			U.VByte[0]		= _MPU_Buffer[11];
-			_MPU_Sensor.GX 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[10];
+			U.VByte[0]			= pCB->_MPU_Buffer[11];
+			pCB->_MPU_Sensor.GX = -U.VInt;
 			//-----------------------------------------------
 			// 	Zveh = -Za
 			//-----------------------------------------------
-			U.VByte[1]		= _MPU_Buffer[12];
-			U.VByte[0]		= _MPU_Buffer[13];
-			_MPU_Sensor.GZ 	= -U.VInt;
+			U.VByte[1]			= pCB->_MPU_Buffer[12];
+			U.VByte[0]			= pCB->_MPU_Buffer[13];
+			pCB->_MPU_Sensor.GZ = -U.VInt;
 			//-----------------------------------------------
-			++_MPU_Count;	// Account for the new sample...
-			//-----------------------------------------------
-			if (0 == _MPU_Ready)
+			if (0 == pCB->_MPU_Ready)
 				{
 				// First sample in sequence
 				// NOTE:	_MPU_Ready reverts to 0
 				// 			after exhausting "uint"
 				//			range.
 				//---------------------------------
-				_MPU_Sample.AX		= _MPU_Sensor.AX;
-				_MPU_Sample.AY		= _MPU_Sensor.AY;
-				_MPU_Sample.AZ		= _MPU_Sensor.AZ;
+				pCB->_MPU_Sample.AX		= pCB->_MPU_Sensor.AX;
+				pCB->_MPU_Sample.AY		= pCB->_MPU_Sensor.AY;
+				pCB->_MPU_Sample.AZ		= pCB->_MPU_Sensor.AZ;
 				//---------------------------------
-				_MPU_Sample.Temp 	= _MPU_Sensor.Temp;
+				pCB->_MPU_Sample.Temp 	= pCB->_MPU_Sensor.Temp;
 				//---------------------------------
-				_MPU_Sample.GX		= _MPU_Sensor.GX;
-				_MPU_Sample.GY		= _MPU_Sensor.GY;
-				_MPU_Sample.GZ		= _MPU_Sensor.GZ;
+				pCB->_MPU_Sample.GX		= pCB->_MPU_Sensor.GX;
+				pCB->_MPU_Sample.GY		= pCB->_MPU_Sensor.GY;
+				pCB->_MPU_Sample.GZ		= pCB->_MPU_Sensor.GZ;
 				}
 			else
 				{
 				// Subsequent sample in sequence: accumulate data
 				// for subsequent averaging in retrieval routine.
 				//---------------------------------
-				_MPU_Sample.AX		+= _MPU_Sensor.AX;
-				_MPU_Sample.AY		+= _MPU_Sensor.AY;
-				_MPU_Sample.AZ		+= _MPU_Sensor.AZ;
+				pCB->_MPU_Sample.AX		+= pCB->_MPU_Sensor.AX;
+				pCB->_MPU_Sample.AY		+= pCB->_MPU_Sensor.AY;
+				pCB->_MPU_Sample.AZ		+= pCB->_MPU_Sensor.AZ;
 				//---------------------------------
-				_MPU_Sample.Temp 	+= _MPU_Sensor.Temp;
+				pCB->_MPU_Sample.Temp 	+= pCB->_MPU_Sensor.Temp;
 				//---------------------------------
-				_MPU_Sample.GX		+= _MPU_Sensor.GX;
-				_MPU_Sample.GY		+= _MPU_Sensor.GY;
-				_MPU_Sample.GZ		+= _MPU_Sensor.GZ;
+				pCB->_MPU_Sample.GX		+= pCB->_MPU_Sensor.GX;
+				pCB->_MPU_Sample.GY		+= pCB->_MPU_Sensor.GY;
+				pCB->_MPU_Sample.GZ		+= pCB->_MPU_Sensor.GZ;
 				}
 			//-----------------------------------------------
-			_MPU_Ready++;		// _MPU_Ready > 0 -> Sample is ready!
+			pCB->_MPU_Ready++;	// _MPU_Ready > 0 -> Sample is ready!
 			//-----------------------------------------------------------
 			
 			//-----------------------------------------------------------
@@ -257,7 +289,7 @@ void	_MPUCallBack()
 			//-----------------------------------------------------------
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
-			I2CAsyncStop();		// Release I2C ASYNC processing
+			I2CAsyncStop(I2Cx);		// Release I2C ASYNC processing
 		}
 	//===============================================================
 	return;

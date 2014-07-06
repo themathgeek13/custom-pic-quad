@@ -3,80 +3,93 @@
 //==================================================================
 // Internal (local) components of Synchronous I2C interface
 //==================================================================
-void I2CIdle()
+void I2CIdle(_I2C_CB* pCB)
 	{
+	I2C_CONBITS*	pCON	= I2CpCON(pCB);
+	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
     /* Wait until I2C Bus is Inactive */
 	//----------------------------------
     while
 		(
-		I2C_SEN || I2C_PEN || I2C_RCEN || I2C_RSEN || I2C_ACKEN  || I2C_TRSTAT
+		pCON->SEN || pCON->PEN || pCON->RCEN || pCON->RSEN || pCON->ACKEN  || pSTAT->TRSTAT
 		);
 	return;	
 	}
 //==================================================================
-void	I2CStart()
+void	I2CStart(_I2C_CB* pCB)
 	{
-	I2CIdle();
-    I2C_SEN = 1;			// Initiate Start on SDA and SCL pins
+	I2CIdle(pCB);				// Wait for bus to be Idle
+	//-----------------------------------------------------
+	I2CpCON(pCB)->SEN = 1;		// Initiate Start on SDA and SCL pins
 	}
 //==================================================================
-void	I2CReStart()
+void	I2CReStart(_I2C_CB* pCB)
 	{
-	I2CIdle();
-    I2C_RSEN = 1;	// Initiate Repeated Start on SDA and SCL pins
+	I2CIdle(pCB);				// Wait for bus to be Idle
+	//-----------------------------------------------------
+	I2CpCON(pCB)->RSEN = 1;		// Initiate Repeated Start on SDA
+								// and SCL pins
 	}
 //==================================================================
-void	I2CStop()
+void	I2CStop(_I2C_CB* pCB)
 	{
-	I2CIdle();
-	I2C_PEN = 1;			// Initiate Stop on SDA and SCL pins
+	I2CIdle(pCB);				// Wait for bus to be Idle
+	//-----------------------------------------------------
+	I2CpCON(pCB)->PEN = 1;		// Initiate Stop on SDA and SCL pins
 	}
 //==================================================================
-uint	I2CMasterWriteByte(byte data)
+uint	I2CMasterWriteByte(_I2C_CB* pCB, byte data)
 	{
-	I2CIdle();					// Wait for bus to be idle
-	while(I2C_TBF);				// Wait till transmit register is empty
-	I2C_TRM_Reg = data;			// Put data byte into transmit register
-	if(I2C_IWCOL)    			// Check for write collision
+	I2CIdle(pCB);				// Wait for bus to be Idle
+	//-----------------------------------------------------
+	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
+	//-----------------------------------------------------
+	while(pSTAT->TBF);			// Wait till transmit register is empty
+	*(pCB->pI2C_TRN) = data;	// Put data byte into transmit register
+	if(pSTAT->IWCOL)    		// Check for write collision
         return I2CRC_WCOL;		// Return error...
-	while(I2C_TRSTAT);			// Wait until write cycle is complete
-	I2CIdle();					// Ensure module is idle
-	if ( I2C_ACKSTAT ) 			// Test for ACK condition received
+	while(pSTAT->TRSTAT);		// Wait until write cycle is complete
+	//-----------------------------------------------------
+	I2CIdle(pCB);				// Ensure module is idle
+	//-----------------------------------------------------
+	if ( pSTAT->ACKSTAT ) 		// Test for ACK condition received
 		return I2CRC_NACK;		// NACK...
 	//------------------------------------------------------------------
 	return	I2CRC_OK;			// Byte successfully transferred
 	}
 //==================================================================
-uint	I2CMasterReadByte(byte* data, uint Flag)
+uint	I2CMasterReadByte(_I2C_CB* pCB, byte* data, uint Flag)
 	{
-	I2CIdle();					// Wait for bus to be idle
-    I2C_RCEN = 1;				// Put module into READ mode
-    while(I2C_RCEN);			// Wait until byte is received
-	if (I2C_I2COV)				// Overflow?
+	I2CIdle(pCB);				// Wait for bus to be Idle
+	//-----------------------------------------------------
+	I2C_CONBITS*	pCON	= I2CpCON(pCB);
+	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
+	//-----------------------------------------------------
+    pCON->RCEN = 1;				// Put module into READ mode
+    while(pCON->RCEN);			// Wait until byte is received
+	if (pSTAT->I2COV)			// Overflow?
 		{
-		I2C_I2COV = 0;			// Reset overflow condition
+		pSTAT->I2COV = 0;		// Reset overflow condition
 		return I2CRC_OVFL;		// return error...
 		}
-	while(!I2C_RBF);			// Wait for byte to be ready in receive
+	while(!pSTAT->RBF);			// Wait for byte to be ready in receive
 								// register - Excessive check, but...
-	(*data) = I2C_RCV_Reg;		// return byte to caller
+	(*data) = *(pCB->pI2C_RCV);	// return byte to caller
+	//--------------------------------
+	// Set Acknowledge (ACK or NACK) code
 	//--------------------------------
 	if(Flag == 0)              
-		{
 		// If last char, generate NACK sequence
-		I2C_ACKDT = 1;
-		I2C_ACKEN = 1;
-		}
+		pCON->ACKDT = 1;
 	else                         
-		{
 		// For other chars,generate ACK sequence
-		I2C_ACKDT = 0;
-		I2C_ACKEN = 1;
-		}
+		pCON->ACKDT = 0;
 	//--------------------------------
-	I2CIdle();						// Ensure module is idle
-									// ACK/NACK transmitted
+	pCON->ACKEN = 1;			// Innitiate Acknowledge Sequence
+	//--------------------------------
+	I2CIdle(pCB);				// Ensure module is idle
+								// ACK/NACK transmitted
 	//------------------------------------------------------------------
-	return	I2CRC_OK;				// Byte successfully transferred
+	return	I2CRC_OK;			// Byte successfully transferred
 	}
 //==================================================================

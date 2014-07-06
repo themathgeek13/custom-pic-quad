@@ -1,5 +1,5 @@
 #include "TMR\TMR.h"
-#include "I2C\I2C_Profile.h"
+#include "I2C\I2C.h"
 //--------------------------------------
 #include "MPU\MPU.h"
 #include "MPU\MPU_Profile.h"
@@ -9,6 +9,10 @@
 #ifndef __MPU_Local_H
 #define __MPU_Local_H
 //==================================================================
+
+//==================================================================
+// <editor-fold defaultstate="collapsed" desc="MPU-6050 internal registers">
+//------------------------------------------------------------------
 // MPU-6050 internal registers' addresses
 //==================================================================
 // <editor-fold defaultstate="collapsed" desc="Self-Test registers">
@@ -51,6 +55,7 @@
 #define MPU6050_INT_STATUS         0x3A   // R
 //------------------------------------------------------------------
 // <editor-fold defaultstate="collapsed" desc="Sensor Data registers">
+#define MPU6050_DATA_START		   0x3B   // R
 #define MPU6050_ACCEL_XOUT_H       0x3B   // R
 #define MPU6050_ACCEL_XOUT_L       0x3C   // R
 #define MPU6050_ACCEL_YOUT_H       0x3D   // R
@@ -128,64 +133,23 @@
 #define MPU6050_MOT_DETECT_CTRL    0x69   // R/W
 // </editor-fold>
 //------------------------------------------------------------------
+// </editor-fold>
+//==================================================================
 
+//==================================================================
+// Variables shared (across MPU modules) - set in MPUInit
+//==================================================================
+extern byte	_MPU_IL	;		// MPU default interrupt level
+extern uint	_MPU_Init;		// Init flag
+//==================================================================
 
 //==================================================================
-extern volatile byte	_MPU_IL	; 	// MPU default interrupt level
-extern volatile uint	_MPU_Init;	// Init flag
-//==================================================================
-extern const 	byte	_MPU_Addr;	// Sensor address on I2C bus
-//==================================================================
-extern volatile ulong	_MPU_Count;	// Sample count
-//==================================================================
-// Sensor data normalization values
-//==================================================================
-// Temperature offset to bring the sample in reference to 0C
-extern const 	int			_MPU_Temp_OffsetTo0;
-// Temp Sensitivity: Units per degree C
-extern const 	float		_MPU_Temp_Sensitivity;
-//==================================================================
-// Gyro Sensitivity: Calculated based upon GS parameter of RESET
-// function (converted to rad/sec)
-extern		 	float		_MPU_Gyro_Sensitivity;
+// <editor-fold defaultstate="collapsed" desc="Raw MPU Data Sample">
 //------------------------------------------------------------------
-// Gyro temperature/offset compensation to bring the sample in reference
-// to 0 deg/sec (per axis)
-//------------------------------------------------------------------
-extern 	 		float		_MPU_Gyro_BaseTemp;	// Measured
-//------------------------------------------------------------------
-extern 	  		float		_MPU_Gyro_XOffset;	// Calculated
-extern const  	float		_MPU_Gyro_XSlope;
-//------------------------------------------------------------------
-extern 	  		float		_MPU_Gyro_YOffset;	// Calculated
-extern const  	float		_MPU_Gyro_YSlope;
-//------------------------------------------------------------------
-extern 	  		float		_MPU_Gyro_ZOffset;	// Calculated
-extern const  	float		_MPU_Gyro_ZSlope;
-//==================================================================
-// Accl Sensitivity: Calculated based upon AS parameter of RESET
-extern		 	float		_MPU_Accl_Sensitivity;
-// Accl temperature/offset compensation to bring the sample in reference
-// to 0 G (per axis)
-//------------------------------------------------------------------
-extern const 	float		_MPU_Accl_BaseTemp; 
-//------------------------------------------------------------------
-extern const 	float		_MPU_Accl_XOffset;
-extern const  	float		_MPU_Accl_XSlope;
-//------------------------------------------------------------------
-extern const 	float		_MPU_Accl_YOffset;
-extern const  	float		_MPU_Accl_YSlope;
-//------------------------------------------------------------------
-extern		 	float		_MPU_Accl_ZOffset;	// Adjusted by IMU
-extern const  	float		_MPU_Accl_ZSlope;
-//------------------------------------------------------------------
-
-
-//-----------------------------------------------------
 // Raw MPU Data Sample - data length increased from int
 // (native to sensor) to long to accommodate accumulation
 // in the ISR routine
-//-----------------------------------------------------
+//------------------------------------------------------------------
 typedef	struct
 	{
 	//-----------------------------------------------
@@ -205,39 +169,153 @@ typedef	struct
 	long		GY;
 	long		GZ;
 	//-----------------------------------------------
-	}	_MPURawData, *_pMPURawData;
+	}	_MPURawData;
+//------------------------------------------------------------------
+// </editor-fold>
+//==================================================================
 
 //==================================================================
-// Asynchronous read control variables
+// <editor-fold defaultstate="collapsed" desc="MPU_CB - MPU Library control block">
 //==================================================================
-extern volatile	uint	_MPU_Async;	// Asynchronous operation flag
-									// Also, I2C subscription ID
-extern volatile	uint	_MPU_State;	// Step number in the asynchronous
-									// read finite automata controller
-//------------------------------------------------------------------
-extern volatile	uint	_MPU_Ready;	// Flag indicating whether asynch-
-									// ronous read data is ready
-//------------------------------------------------------------------
-// I2C Asynchronous READ subscription data
-//------------------------------------------------------------------
-extern 		I2CSubscr	_MPUSubscr;
+// Prototype for MPU Library control block
+//==================================================================
+typedef struct
+	{
+	//==============================================================
+	byte		_MPU_IDCx;			// 1-based index of associated 
+									// I2C bus
+	byte		_MPU_Addr;			// Sensor address on I2C bus
 
+	//==============================================================
+	// <editor-fold defaultstate="collapsed" desc="Sensor data normalization values">
+	//--------------------------------------------------------------
+	// Sensor data normalization values
+	//==============================================================
+	// Temperature offset to bring the sample in reference to 0C
+	int			_MPU_Temp_OffsetTo0;
+	//--------------------------------------------------------------
+	// Temp Sensitivity: Units per degree C
+	//--------------------------------------------------------------
+	float		_MPU_Temp_Sensitivity;
+	//--------------------------------------------------------------
+	// Gyro Sensitivity: Calculated based upon GS parameter of RESET
+	// function (converted to rad/sec)
+	//--------------------------------------------------------------
+	float		_MPU_Gyro_Sensitivity;
+	//--------------------------------------------------------------
+	// Accl Sensitivity: Calculated based upon AS parameter of RESET
+	//--------------------------------------------------------------
+	float		_MPU_Accl_Sensitivity;
+	//--------------------------------------------------------------
+	// </editor-fold>
+	//==============================================================
+
+	//==============================================================
+	// <editor-fold defaultstate="collapsed" desc="Temperature compensation parameters">
+	//==============================================================
+	// Gyro temperature/offset compensation to bring the sample in
+	// reference to 0 deg/sec (per axis)
+	//--------------------------------------------------------------
+	float		_MPU_Gyro_BaseTemp;			// Measured
+	//--------------------------------------------------------------
+	float		_MPU_Gyro_XOffset;			// Calculated
+	float		_MPU_Gyro_XSlope;			// Pre-defined
+	//--------------------------------------------------------------
+	float		_MPU_Gyro_YOffset;			// Calculated
+	float		_MPU_Gyro_YSlope;			// Pre-defined
+	//--------------------------------------------------------------
+	float		_MPU_Gyro_ZOffset;			// Calculated
+	float		_MPU_Gyro_ZSlope;			// Pre-defined
+	//==============================================================
+	// Accl temperature/offset compensation to bring the sample in
+	// reference to 0 G (per axis)
+	//==============================================================
+	float		_MPU_Accl_BaseTemp;
+	//--------------------------------------------------------------
+	float		_MPU_Accl_XOffset;
+	float		_MPU_Accl_XSlope;
+	//--------------------------------------------------------------
+	float		_MPU_Accl_YOffset;
+	float		_MPU_Accl_YSlope;
+	//--------------------------------------------------------------
+	float		_MPU_Accl_ZOffset;	// Adjusted by IMU
+	float		_MPU_Accl_ZSlope;
+	//==============================================================
+	// </editor-fold>
+	//==============================================================
+
+	//==============================================================
+	// <editor-fold defaultstate="collapsed" desc="Asynchronous read control variables">
+	//==============================================================
+	// Asynchronous read control variables
+	//==============================================================
+	volatile	uint	_MPU_Async;	// Asynchronous operation flag
+										// Also, I2C subscription ID
+	volatile	uint	_MPU_State;	// Step number in the asynchronous
+										// read finite automata controller
+	//--------------------------------------------------------------
+	volatile	uint	_MPU_Ready;	// Flag indicating whether asynch-
+										// ronous read data is ready
+	//--------------------------------------------------------------
+	// Asynchronous READ buffer control
+	//--------------------------------------------------------------
+	volatile uint	_MPU_BufPos;		// Position in MPU read buffer
+	volatile byte	_MPU_Buffer[14];	// MPU read buffer
+	//--------------------------------------------------------------
+	// Asynchronous READ intermediate data storage
+	//--------------------------------------------------------------
+	_MPURawData		_MPU_Sensor;
+	//--------------------------------------------------------------
+	// Asynchronous READ accumulated data storage
+	//--------------------------------------------------------------
+	_MPURawData		_MPU_Sample;// Asynchronous sample...
+	//==============================================================
+	// </editor-fold>
+	//==============================================================
+	} MPU_CB;
 //------------------------------------------------------------------
-// Asynchronous READ buffer control
+#ifdef Use_MPU1
+	extern	MPU_CB		MPU1_CB;
+#endif
+#ifdef Use_MPU2
+	extern	MPU_CB		MPU2_CB;
+#endif
 //------------------------------------------------------------------
-extern volatile uint	_MPU_BufPos;	// Position in MPU read buffer
-extern 			byte	_MPU_Buffer[14];// MPU read buffer		
+// Control Block Helper Functions
+//==================================================================
+static inline MPU_CB* MPUpCB(uint CB_ID)
+	{
+	switch (CB_ID)
+		{
+		case 1:
+			#ifdef Use_MPU1
+			return &MPU1_CB;
+			#else
+			return NULL;
+			#endif
+		case 2:
+			#ifdef Use_MPU2
+			return &MPU2_CB;
+			#else
+			return NULL;
+			#endif
+		default:
+			return NULL;
+		}
+	}
 //------------------------------------------------------------------
-// Asynchronous READ intermediate data storage
-//------------------------------------------------------------------
-extern  _MPURawData		_MPU_Sensor;
-//------------------------------------------------------------------
-// Asynchronous READ accumulated data storage
-//------------------------------------------------------------------
-extern  _MPURawData		_MPU_Sample;// Asynchronous sample...
-//------------------------------------------------------------------
-void	_MPUCallBack();
-void	_MPUIntCtrl(uint IE);
+// </editor-fold>
+//==================================================================
+
+void	_MPUCallBack(uint			ClientParam,
+					 uint			I2Cx,
+					 I2C_CONBITS*	pCON,
+					 I2C_STATBITS*	pSTAT,
+					 vuint*			pTRN,
+					 vuint*			pRCV);
+
+void	_MPUIntCtrl(uint ClientParam, uint IE);
+
 //==================================================================
 
 //==================================================================
@@ -245,23 +323,26 @@ void	_MPUIntCtrl(uint IE);
 //==================================================================
 // Synchronous READ (internal)
 //------------------------------------------------------------------
-uint	_MPURead(	byte 	Register, 
+uint	_MPURead(	MPU_CB*	pCB,
+					byte 	Register,
 					byte*	Buffer,
 					uint  	BufLen	);
 //------------------------------------------------------------------
 // Synchronous WRITE (internal)
 //------------------------------------------------------------------
-uint	_MPUWrite(	byte	 Register, 
+uint	_MPUWrite(	MPU_CB*	pCB,
+					byte	 Register,
 					byte*	 Buffer,
 					uint	 BufLen );
 //------------------------------------------------------------------
 // Synchronous Read Raw Sample (internal)
 //------------------------------------------------------------------
-uint	_MPUReadRawData(_pMPURawData pRawData);
+uint	_MPUReadRawData(MPU_CB*	pCB,
+						_MPURawData* pRawData);
 //------------------------------------------------------------------
 // Synchronous Gyro Calibration routine (internal)
 //------------------------------------------------------------------
-uint	_MPUCalibrateSync();
+uint	_MPUCalibrateSync(MPU_CB*	pCB);
 //==================================================================
 
 //==================================================================
@@ -269,11 +350,7 @@ uint	_MPUCalibrateSync();
 //==================================================================
 // Asynchronous Gyro Calibration routine (internal)
 //------------------------------------------------------------------
-uint	_MPUCalibrateAsync();
-//------------------------------------------------------------------
-// Asynchronous Z-axis Calibration routine (internal)
-//------------------------------------------------------------------
-uint	MPUAsyncAdjustAccZBase(float AccZBase);
+uint	_MPUCalibrateAsync(MPU_CB*	pCB);
 //==================================================================
 
 #endif		// __MPU_Local_H
