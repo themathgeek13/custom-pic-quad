@@ -5,15 +5,6 @@ volatile byte		_MPL_IL		= 3; 	// MPL (IC1) interrupt level
 volatile uint		_MPL_Init	= 0;	// Init flag
 //==================================================================
 
-//==================================================================
-// MPL3115 device address
-//------------------------------------------------------------------
-// NOTE: The address above is the "write" address - LSB is set to 0;
-//		 The LSB will be set to "1" (changing address to 0xC1) in
-//		 the I2C write routine.
-//------------------------------------------------------------------
-const	 byte		_MPL_Addr		= 0xC0; 	// 1100000-R/W
-//==================================================================
 
 //==================================================================
 // Absolute altitude at the flight location (in meters)
@@ -28,10 +19,6 @@ volatile uint		_MPL_Async	= 0;	// Asynchronous operation flag
 										// Also, I2C subscription ID
 volatile uint		_MPL_State	= 0;	// Step number in the asynchronous
 										// read finite automata controller
-//------------------------------------------------------------------
-// I2C Asynchronous READ subscription data
-//------------------------------------------------------------------
-		I2CSubscr	_MPLSubscr = {&_MPLCallBack, &_MPLIntCtrl};
 
 //------------------------------------------------------------------
 // Asynchronous READ intermediate data storage

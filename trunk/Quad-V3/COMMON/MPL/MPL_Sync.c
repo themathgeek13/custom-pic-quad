@@ -47,7 +47,7 @@ uint	_MPLRead(	byte 	Register,
 	if (_MPL_Async)
 	  return MPL_ABSY;		// Asynchronous operation in progress...
 	//*********************************************************
-	return	I2CSyncRead (_MPL_Addr, Register, Buffer, BufLen);
+	return	I2CSyncRead (MPL_I2Cx, MPL_Addr, Register, Buffer, BufLen);
 	}
 // </editor-fold>
 //=============================================================
@@ -66,7 +66,7 @@ uint	_MPLWrite(	byte	 Register,
 	if (_MPL_Async)
 		return MPL_ABSY;		// Asynchronous operation in progress...
 	//*********************************************************
-	return I2CSyncWrite(_MPL_Addr, Register, Buffer, BufLen);
+	return I2CSyncWrite(MPL_I2Cx, MPL_Addr, Register, Buffer, BufLen);
 	}
 // </editor-fold>
 //=============================================================

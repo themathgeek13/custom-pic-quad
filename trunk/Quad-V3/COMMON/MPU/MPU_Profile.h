@@ -6,7 +6,7 @@
 // that will be used in this application; if a particular module is
 // not used, please comment out respective #define statement
 //==================================================================
-//#define	Use_MPU1
+#define	Use_MPU1
 #define	Use_MPU2
 //==================================================================
 
@@ -88,18 +88,18 @@
 //==================================================================
 // Interrupt Control Helper Functions
 //==================================================================
-static inline void MPUSetIF(uint CB_ID, uint Value)
+static inline void MPUSetIF(uint CB_ID, uint IF)
 	{
 	switch (CB_ID)
 		{
 		case 1:
 			#ifdef Use_MPU1
-			MPU1_IF = Value;
+			MPU1_IF = IF;
 			#endif
 			break;
 		case 2:
 			#ifdef Use_MPU2
-			MPU2_IF = Value;
+			MPU2_IF = IF;
 			#endif
 			break;
 		default:
@@ -108,6 +108,25 @@ static inline void MPUSetIF(uint CB_ID, uint Value)
 	return;
 	}
 //------------------------------------------------------------------
+static inline void MPUSetIE(uint CB_ID, uint IE)
+	{
+	switch (CB_ID)
+		{
+		case 1:
+			#ifdef Use_MPU1
+			MPU1_IE = IE;
+			#endif
+			break;
+		case 2:
+			#ifdef Use_MPU2
+			MPU2_IE = IE;
+			#endif
+			break;
+		default:
+			break;
+		}
+	return;
+	}
 //==================================================================
 // </editor-fold>
 //==================================================================
@@ -142,7 +161,7 @@ static inline void _MPUInitPinMap(void)
 	//---------------------------------------------------------
 	#ifdef Use_MPU1
 		_TRISC14 = 1;	// Configure RC14 port for INPUT
-		_INT3R	 = 62; 	// (IN)  INTx mapped to pin RP(I)62/RC14
+		_INT2R	 = 62; 	// (IN)  INTx mapped to pin RP(I)62/RC14
 	#endif
 	//---------------------------------------------------------
 	// MPU2

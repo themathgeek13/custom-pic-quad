@@ -111,7 +111,7 @@ uint	_MPUReadRawData(MPU_CB*	pCB, _MPURawData* pData)
 	if ( (RC = _MPURead(pCB, MPU6050_INT_STATUS, &Status, 1)) )
 		return RC;							// Error...
 	//-----------------------------------
-	Alarm = TMRSetAlarm(50);	// Expecting to get samplewithin 50 msec
+	Alarm = TMRSetAlarm(50);	// Expecting to get sample within 50 msec
 	//-----------------------------------
 	while ( (Status & 0x01) != 0x01 )
 		{
@@ -138,17 +138,17 @@ uint	_MPUReadRawData(MPU_CB*	pCB, _MPURawData* pData)
 	//===============================================
 	// Accelerometer:
 	//-----------------------------------------------
-	// 	Yveh	= -Xa
+	// 	Yveh	= Xa
 	//-----------------------------------------------
 	U.VByte[1]	= Data[0];
 	U.VByte[0]	= Data[1];
-	pData->AY 	= -U.VInt;
+	pData->AY 	=  U.VInt;
 	//-----------------------------------------------
-	// 	Xveh	= -Ya
+	// 	Xveh	= Ya
 	//-----------------------------------------------
 	U.VByte[1]	= Data[2];
 	U.VByte[0]	= Data[3];
-	pData->AX 	= -U.VInt;
+	pData->AX 	=  U.VInt;
 	//-----------------------------------------------
 	// 	Zveh = -Za
 	//-----------------------------------------------
@@ -164,17 +164,17 @@ uint	_MPUReadRawData(MPU_CB*	pCB, _MPURawData* pData)
 	//-----------------------------------------------
 	// Gyroscopes
 	//-----------------------------------------------
-	// 	Yveh	= -Xa
+	// 	Yveh	= Xa
 	//-----------------------------------------------
 	U.VByte[1]	= Data[8];
 	U.VByte[0]	= Data[9];
-	pData->GY 	= -U.VInt;
+	pData->GY 	=  U.VInt;
 	//-----------------------------------------------
-	// 	Xveh	= -Ya
+	// 	Xveh	=  Ya
 	//-----------------------------------------------
 	U.VByte[1]	= Data[10];
 	U.VByte[0]	= Data[11];
-	pData->GX 	= -U.VInt;
+	pData->GX 	=  U.VInt;
 	//-----------------------------------------------
 	//	Zveh	= -Za
 	//-----------------------------------------------

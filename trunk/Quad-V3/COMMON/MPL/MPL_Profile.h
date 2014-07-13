@@ -3,6 +3,20 @@
 #define	__MPL_PROFILE_H
 
 //==================================================================
+// Associate MPL-3115A sensor with the respective I2C module
+//------------------------------------------------------------------
+#define MPL_I2Cx		2
+//==================================================================
+// MPL-3115A device address
+//------------------------------------------------------------------
+// NOTE: The address above is the "write" address - LSB is set to 0;
+//		 The LSB will be set to "1" (changing address to 0xC1) in
+//		 the I2C write routine.
+//------------------------------------------------------------------
+#define		MPL_Addr	0xC0 	// 1100000-R/W
+//==================================================================
+
+//==================================================================
 // INTx Module definitions - please update depending on the module
 // used in the current application.
 //------------------------------------------------------------------

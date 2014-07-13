@@ -15,29 +15,24 @@ uint		MPLAsyncStart()
 	if (_MPL_Async)
 		return MPL_OK;			// Already started...
 	//=========================================================
-	// Register with I2C (results in enabling interrupt)
-	//---------------------------------------------------------							
-	MPL_IF = 0;					// Clear the interrupt flag
-	// Register with I2C module - MPL interrupt will be enabled
-	// as part of subscription, if successful.
-	// When MPL3115 has sample, the  interrupt will be triggered
-	_MPL_Async	= I2CRegisterSubscr(&_MPLSubscr);
+	// Set flag indicating that Asyn mode enabled
 	//---------------------------------------------------------
-	if (_MPL_Async)	//  Subscription successful, ASYNC flag set
+	_MPL_Async	= 1;
+	//---------------------------------------------------------
+	MPL_IF		= 0;			// Clear the interrupt flag
+	MPL_IE		= 1;			// Enable MPL interrupr
+	//---------------------------------------------------------
+	// Due to the idiosyncrasy of the MPL3115, if the interrupt
+	// line is asserted it stays asserted until the data is
+	// read, thus "robbing" us from the rising edge trigger...
+	//---------------------------------------------------------
+	if ( MPL_INT_PORT )
+		// Data Ready line ASSERTed
 		{
-		//---------------------------------------------------------
-		// Due to the idiosyncrasy of the MPL3115, if the interrupt
-		// line is asserted it stays asserted until the data is
-		// read, thus "robbing" us from the rising edge trigger...
-		//---------------------------------------------------------
-		if ( MPL_INT_PORT )
-			// Data Ready line ASSERTed
-			{
-			MPL_IF		= 1;	// Trigger interrupt manually -
-								// emulate rising edge
-			//-----------------------------------------------------
-			_MPL_DataTS	= TMRGetTS();
-			}
+		MPL_IF		= 1;	// Trigger interrupt manually -
+							// emulate rising edge
+		//-----------------------------------------------------
+		_MPL_DataTS	= TMRGetTS();
 		}
 	//=========================================================
 	return MPL_OK;
@@ -49,16 +44,15 @@ uint		MPLAsyncStart()
 uint	MPLAsyncStop()
 	{
 	if (!_MPL_Init)
-		return MPL_NOTINIT;		// Not initialized...
+		return MPL_NOTINIT;	// Not initialized...
 	//---------------------------------------------------------
 	if (0 == _MPL_Async)
-		return MPL_OK;			// Async is not active...
+		return MPL_OK;		// Async is not active...
 	//=====================================================
 	// Disable ASYNC driver
 	//=====================================================
-	// Disable and deregister MPL interrupt
-	I2CDeRegisterSubscr(_MPL_Async);
-	MPL_IF = 0;				// Clear the interrupt flag
+	MPL_IE		= 0;		// Disable MPL interrupt line
+	MPL_IF		= 0;		// Clear the interrupt flag
 	//=========================================================
 	// Clear ASYNC flag
 	//=========================================================

@@ -88,13 +88,12 @@ uint	MPUInit(byte RateDiv, byte DLPF,
 		//=====================================================
 		// Asynchronous read support
 		//=====================================================
-		MPU1_CB._MPU_Async;			// Asynchronous operation flag
-									// Also, I2C subscription ID
-		MPU1_CB._MPU_State	= 0;	// Step number in the asynchronous
-									// read finite automata controller
-		//-----------------------------------------------------
+		MPU1_CB._MPU_Async	= 0;	// Asynchronous operation flag
 		MPU1_CB._MPU_Ready	= 0;	// Flag indicating whether asynch-
 									// ronous read data is ready
+		//-----------------------------------------------------
+		MPU1_CB._MPU_State	= 0;	// Step number in the asynchronous
+									// read finite automata controller
 		//-----------------------------------------------------
 		// Asynchronous READ buffer control
 		//-----------------------------------------------------
@@ -143,13 +142,12 @@ uint	MPUInit(byte RateDiv, byte DLPF,
 		//=====================================================
 		// Asynchronous read support
 		//=====================================================
-		MPU2_CB._MPU_Async;			// Asynchronous operation flag
-									// Also, I2C subscription ID
-		MPU2_CB._MPU_State	= 0;	// Step number in the asynchronous
-									// read finite automata controller
-		//-----------------------------------------------------
+		MPU2_CB._MPU_Async	= 0;	// Asynchronous operation flag
 		MPU2_CB._MPU_Ready	= 0;	// Flag indicating whether asynch-
 									// ronous read data is ready
+		//-----------------------------------------------------
+		MPU2_CB._MPU_State	= 0;	// Step number in the asynchronous
+									// read finite automata controller
 		//-----------------------------------------------------
 		// Asynchronous READ buffer control
 		//-----------------------------------------------------

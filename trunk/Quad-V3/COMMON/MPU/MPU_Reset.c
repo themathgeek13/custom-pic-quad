@@ -39,14 +39,14 @@ uint	MPUReset(uint MPUx, byte RateDiv, byte DLPF,
 	while (0x40 != RegValue);
 	//---------------------------------------------------------
 	// Second, we have to take MPU out of "sleep" and configure
-	// to use PLL with X axis gyroscope reference
+	// to use PLL with Z axis (fastest!) gyroscope reference
 	//---------------------------------------------------------
-	RC	= MPUSetByte(MPUx, MPU6050_PWR_MGMT_1, 0x01);
+	RC	= MPUSetByte(MPUx, MPU6050_PWR_MGMT_1, 0x03);
 	if (RC) return RC;	// Failure...
 	// Verify PWR_MGMT_1
 	RC = MPUGetByte(MPUx, MPU6050_PWR_MGMT_1, &RegValue);
 	if (RC) return RC;	// Failure...
-	if (0x01 != RegValue) return MPU_FAIL; // Initialization failed
+	if (0x03 != RegValue) return MPU_FAIL; // Initialization failed
 	//---------------------------------------------------------
 	// Third, we have to take ALL sensors out of STANDBY
 	// Should be by-default after RESET, but...

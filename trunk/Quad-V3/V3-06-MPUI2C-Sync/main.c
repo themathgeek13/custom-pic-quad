@@ -27,7 +27,12 @@ int main(void)
 		// wireless communication at 115.2 KBaud
 		SDLInit(3, BAUD_115200);
 	//*******************************************************************
-	I2CInit(5, 1);
+	I2CInit(5, 1);	// First param: IL = 5 (interrupt request priority
+					// Second param: I2C speed
+					// 0 - lowest (123 kHz at Fcy = 64MHz)
+					// 1 - 200 kHz - MPU-6050 stable
+					// 2 - 400 kHz
+					// 3 - 1 MHz
 	//-------------------------------------------------------------------
 	uint			RC			= 0;
 	ulong			Alarm		= 0;
@@ -68,18 +73,25 @@ int main(void)
 	//====================================================
 	// Synchronous interface
 	//-----------------------------------------------------
-	MPUData	RawData;
+	struct
+		{
+		MPUData	Sample1;
+		MPUData	Sample2;
+		} MPU;
 	//-----------------------------------------------------
 	while (TRUE)
 		{
-		Alarm = TMRSetAlarm(100);
+		Alarm = TMRSetAlarm(500);
 		//------------------------------------
-		if ( (RC = MPUReadSample(2, &RawData)) )
+		if ( (RC = MPUReadSample(1, &MPU.Sample1)) )
 			BLIDeadStop("SOS", 3);
 		//------------------------
+		if ( (RC = MPUReadSample(2, &MPU.Sample2)) )
+			BLIDeadStop("SOS", 3);
+		//------------------------------------
 		BLISignalFlip();
 		//-------------------------
-		SDLPostIfReady((byte*)&RawData, sizeof(RawData));
+		SDLPostIfReady((byte*)&MPU, sizeof(MPU));
 		//-------------------------
 		TMRWaitAlarm(Alarm);
 		}

@@ -27,48 +27,76 @@ int main(void)
 		// wireless communication at 115.2 KBaud
 		SDLInit(3, BAUD_115200);
 	//*******************************************************************
-	I2CInit(5, 1);
+	I2CInit(5, 2);	// First param: IL = 5 (interrupt request priority
+					// Second param: I2C speed
+					// 0 - lowest (123 kHz at Fcy = 64MHz)
+					// 1 - 200 kHz - MPU-6050 stable
+					// 2 - 400 kHz
+					// 3 - 1 MHz
 	//-------------------------------------------------------------------
 	uint			RC			= 0;
 	ulong			Alarm		= 0;
 	//==================================================================
 	BLIAsyncStart(50,50);
-	TMRDelay(2000);
+	TMRDelay(5000);
 	BLIAsyncStop();
 	//==================================================================
 	if (_SW2)
 		// Switch 2 is ON - Configuring MPU fo Alt. sensitivity
-		RC = MPUInit(0, 3, MPU_GYRO_1000ds, MPU_ACC_4g);
+		RC = MPUInit(0, 1, MPU_GYRO_1000ds, MPU_ACC_4g);
 							// Initialize motion Sensor
 							// 1 kHz/(0+1) = 1000 Hz (1ms)
-							// DLPF=3 => Bandwidth 44 Hz (delay: 4.9 msec)
+							// DLPF = 3 => Bandwidth 44 Hz (delay: 4.9 msec)
 	else
 		// Switch 2 is OFF - Configuring MPU fo normal sensitivity
-		RC = MPUInit(0, 3, MPU_GYRO_2000ds, MPU_ACC_2g);
+		RC = MPUInit(0, 1, MPU_GYRO_2000ds, MPU_ACC_2g);
 							// Initialize motion Sensor
 							// 1 kHz/(0+1) = 1000 Hz (1ms)
+							// DLPF = 1 => Bandwidth 184 Hz (delay: 2.0 msec)
 	if (RC)	BLIDeadStop("EG", 2);
 	//*******************************************************************
-	BLISignalOFF();
-
-
-	//====================================================
-	// Asynchronous interface
+	struct
+		{
+		MPUData	Sample1;
+		MPUData	Sample2;
+		} MPU;
+	//=====================================================
+	// Initialize Asynchronous mode
 	//-----------------------------------------------------
-	MPUData	Sample;
 	if ( (RC = MPUAsyncStart(2)) )
-		BLIDeadStop("SSS", 3);
+		BLIDeadStop("S2", 2);
+	//------------------------------
+	if ( (RC = MPUAsyncStart(1)) )
+		BLIDeadStop("S1", 2);
+	//=====================================================
+	// Calibrate Gyros
 	//-----------------------------------------------------
+//	BLIAsyncStart(100,100);
+//	//------------------------------
+//	if ( (RC = MPUCalibrate(1)) )
+//		BLIDeadStop("C1", 2);
+//	//------------------------------
+//	if ( (RC = MPUCalibrate(2)) )
+//		BLIDeadStop("C2", 2);
+//	//------------------------------
+//	BLIAsyncStop();
+	//=====================================================
+	// Main Loop
+	//-----------------------------------------------------
+	BLISignalOFF();
 	while (TRUE)
 		{
-		Alarm = TMRSetAlarm(100);
+		Alarm = TMRSetAlarm(1000);
 		//------------------------------------
-		if ( (RC = MPUAsyncReadWhenReady(2, &Sample)) )
+		if ( (RC = MPUAsyncReadWhenReady(1, &MPU.Sample1)) )
+			BLIDeadStop("SOS", 3);
+		//--------------------------
+		if ( (RC = MPUAsyncReadWhenReady(2, &MPU.Sample2)) )
 			BLIDeadStop("SOS", 3);
 		//------------------------
 		BLISignalFlip();
 		//-------------------------
-		SDLPostIfReady((byte*)&Sample, sizeof(Sample));
+		SDLPostIfReady((byte*)&MPU, sizeof(MPU));
 		//-------------------------
 		TMRWaitAlarm(Alarm);
 		}
