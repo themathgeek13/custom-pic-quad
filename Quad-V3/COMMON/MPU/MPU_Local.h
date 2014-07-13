@@ -249,13 +249,12 @@ typedef struct
 	//==============================================================
 	// Asynchronous read control variables
 	//==============================================================
-	volatile	uint	_MPU_Async;	// Asynchronous operation flag
-										// Also, I2C subscription ID
-	volatile	uint	_MPU_State;	// Step number in the asynchronous
-										// read finite automata controller
-	//--------------------------------------------------------------
-	volatile	uint	_MPU_Ready;	// Flag indicating whether asynch-
+	volatile	uint	_MPU_Async;		// Asynchronous operation flag
+	volatile	uint	_MPU_Ready;		// Flag indicating whether asynch-
 										// ronous read data is ready
+	//--------------------------------------------------------------
+	volatile	uint	_MPU_State;		// Step number in the asynchronous
+										// read finite automata controller
 	//--------------------------------------------------------------
 	// Asynchronous READ buffer control
 	//--------------------------------------------------------------
@@ -308,13 +307,10 @@ static inline MPU_CB* MPUpCB(uint CB_ID)
 //==================================================================
 
 void	_MPUCallBack(uint			ClientParam,
-					 uint			I2Cx,
 					 I2C_CONBITS*	pCON,
 					 I2C_STATBITS*	pSTAT,
 					 vuint*			pTRN,
 					 vuint*			pRCV);
-
-void	_MPUIntCtrl(uint ClientParam, uint IE);
 
 //==================================================================
 

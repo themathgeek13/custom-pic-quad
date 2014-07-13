@@ -237,9 +237,9 @@
         <property key="COMPARATOR" value="false"/>
         <property key="CRC" value="false"/>
         <property key="DCI" value="false"/>
-        <property key="Freeze All Other Peripherals" value="false"/>
-        <property key="I2C1" value="false"/>
-        <property key="I2C2" value="false"/>
+        <property key="Freeze All Other Peripherals" value="true"/>
+        <property key="I2C1" value="true"/>
+        <property key="I2C2" value="true"/>
         <property key="INPUT CAPTURE 1" value="false"/>
         <property key="INPUT CAPTURE 10" value="false"/>
         <property key="INPUT CAPTURE 11" value="false"/>
@@ -279,15 +279,15 @@
         <property key="SPI 3" value="false"/>
         <property key="SPI 4" value="false"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
-        <property key="TIMER1" value="false"/>
+        <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="false"/>
         <property key="TIMER3" value="false"/>
         <property key="TIMER4" value="false"/>
         <property key="TIMER5" value="false"/>
         <property key="TIMER6" value="false"/>
         <property key="TIMER7" value="false"/>
-        <property key="TIMER8" value="false"/>
-        <property key="TIMER9" value="false"/>
+        <property key="TIMER8" value="true"/>
+        <property key="TIMER9" value="true"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>

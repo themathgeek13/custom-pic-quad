@@ -27,11 +27,11 @@ typedef volatile struct
 	// (corresponds to one of the active subscribers)
 	I2CCallBack		_I2C_CallBack;
 	// "Black-box" parameter for the callback function
-	uint			_I2C_Param;
+	uint			_I2C_CallBackArg;
 	//------------------------------------------------------------------
 	// Array of I2C Asynchronous Access Subscribers to the Module
 	//------------------------------------------------------------------
-	I2CSubscr		_I2CSubscr[I2CSubscMax];
+	I2CAsyncRqst		_I2CRqstQueue[I2CMaxAsyncRqst];
 	//------------------------------------------------------------------
 	// Addresses of I2C Control Registers for the Module
 	//------------------------------------------------------------------
@@ -121,13 +121,13 @@ static inline void I2CSetIE(uint CB_ID, uint Value)
 		case 1:
 			#ifdef _I2C_UseI2C1
 				_MI2C1IE = Value;
-				break;
 			#endif
+			break;
 		case 2:
 			#ifdef _I2C_UseI2C2
 				_MI2C2IE = Value;
-				break;
 			#endif
+			break;
 		default:
 			break;
 		}
@@ -140,13 +140,13 @@ static inline void I2CSetIF(uint CB_ID, uint Value)
 		case 1:
 			#ifdef _I2C_UseI2C1
 				_MI2C1IF = Value;
-				break;
 			#endif
+			break;
 		case 2:
 			#ifdef _I2C_UseI2C2
 				_MI2C2IF = Value;
-				break;
 			#endif
+			break;
 		default:
 			break;
 		}

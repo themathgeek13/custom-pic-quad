@@ -44,7 +44,11 @@ uint	I2CMasterWriteByte(_I2C_CB* pCB, byte data)
 	//-----------------------------------------------------
 	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
 	//-----------------------------------------------------
-	while(pSTAT->TBF);			// Wait till transmit register is empty
+	while(pSTAT->TBF);			// Wait till transmit register
+								// is empty (available)
+	//-----------------------------------------------------
+	*(pCB->pI2C_STAT)	= 0;	// Reset Status byte
+	//-----------------------------------------------------
 	*(pCB->pI2C_TRN) = data;	// Put data byte into transmit register
 	if(pSTAT->IWCOL)    		// Check for write collision
         return I2CRC_WCOL;		// Return error...
@@ -65,12 +69,19 @@ uint	I2CMasterReadByte(_I2C_CB* pCB, byte* data, uint Flag)
 	I2C_CONBITS*	pCON	= I2CpCON(pCB);
 	I2C_STATBITS*	pSTAT	= I2CpSTAT(pCB);
 	//-----------------------------------------------------
+	*(pCB->pI2C_STAT)	= 0;	// Reset Status byte
+	//-----------------------------------------------------
     pCON->RCEN = 1;				// Put module into READ mode
     while(pCON->RCEN);			// Wait until byte is received
 	if (pSTAT->I2COV)			// Overflow?
 		{
 		pSTAT->I2COV = 0;		// Reset overflow condition
 		return I2CRC_OVFL;		// return error...
+		}
+	if (pSTAT->BCL)				// Bus collision?
+		{
+		pSTAT->BCL = 0;			// Reset bus collision condition
+		return I2CRC_BCOL;		// return error...
 		}
 	while(!pSTAT->RBF);			// Wait for byte to be ready in receive
 								// register - Excessive check, but...

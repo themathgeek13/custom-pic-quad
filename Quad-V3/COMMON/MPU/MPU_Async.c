@@ -20,20 +20,15 @@ uint		MPUAsyncStart(uint MPUx)
 	//------------------------------------------------------------------
 	if (pCB->_MPU_Async)
 		return MPU_OK;			// Already started...
+	//------------------------------------------------------------------
+	pCB->_MPU_Async	= 1;		// Set indicator that MPU6050 
+								// is in Asynchronous mode
+	pCB->_MPU_Ready	= 0;		// Discard async sample, if any
 	//=========================================================
-	// Register with I2C (results in enabling interrupt)
-	//---------------------------------------------------------
 	MPUSetIF(MPUx, 0);			// Clear the interrupt flag
-	//------------------------------------------------------------------
-	// I2C Asynchronous READ subscription data
-	//------------------------------------------------------------------
-	I2CSubscr	MPUSubscr = {MPUx, &_MPUCallBack, &_MPUIntCtrl};
-	//------------------------------------------------------------------
-	// Register with I2C module - MPU interrupt will be enabled
-	// as part of subscription, if successful.
-	// When MPL6050 has sample, the  interrupt will be triggered
-	//------------------------------------------------------------------
-	pCB->_MPU_Async	= I2CRegisterSubscr(pCB->_MPU_IDCx, &MPUSubscr);
+	MPUSetIE(MPUx, 1);			// Enable interrupt processing
+								// When MPL6050 has sample, the
+								// interrupt will be triggered
 	//=========================================================
 	return MPU_OK;
 	}
@@ -51,18 +46,13 @@ uint	MPUAsyncStop(uint MPUx)
 	//------------------------------------------------------------------
 	if (0 == pCB->_MPU_Async)
 		return MPU_OK;			// Async is not active...
-	//=====================================================
-	// Disable ASYNC driver
-	//=====================================================
-	// Disable and deregister MPU interrupt
-	I2CDeRegisterSubscr(pCB->_MPU_IDCx, pCB->_MPU_Async);
-	MPUSetIF(MPUx, 0);			// Clear the interrupt flag
 	//=========================================================
-	// Clear ASYNC flag
-	//=========================================================
-	pCB->_MPU_Async	= 0;		// Asynchronous read not active...
+	pCB->_MPU_Async	= 0;		// Clear MPU-6050 Asynchronous
+								// mode indicator
+	pCB->_MPU_Ready	= 0;		// Discard async sample, if any
 	//---------------------------------------------------------
-	pCB->_MPU_Ready	= 0;		// Discard async sample
+	MPUSetIE(MPUx, 1);			// Disable interrupt processing
+	MPUSetIF(MPUx, 0);			// Clear the interrupt flag
 	//---------------------------------------------------------
 	return MPU_OK;			
 	}

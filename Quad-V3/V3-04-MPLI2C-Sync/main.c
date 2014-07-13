@@ -27,7 +27,16 @@ int main(void)
 		// wireless communication at 115.2 KBaud
 		SDLInit(3, BAUD_115200);
 	//*******************************************************************
-	I2CInit(5, 0);
+	I2CInit(5, 2);	// First param: IL = 5 (interrupt request priority
+					// Second param: I2C speed
+					// 0 - lowest (123 kHz at Fcy = 64MHz)
+					// 1 - 200 kHz - MPU-6050 stable
+					// 2 - 400 kHz
+					// 3 - 1 MHz
+	//-------------------------------------------------------------------
+	BLIAsyncStart(50,50);
+	TMRDelay(3000);
+	BLIAsyncStop();
 	//-------------------------------------------------------------------
 	// Initialize MPL3115 Altimeter
 	//------------------------------------------------------------------
@@ -79,36 +88,13 @@ int main(void)
 	//==================================================================
 	MPLData		MPLSample;
 	//-----------------------------------------------
-//	while (TRUE)
-//		{
-//		MPLReadSample(&MPLSample);
-//		SDLPostIfReady(	(byte*) &MPLSample, sizeof(MPLSample));
-//		BLISignalFlip();
-//		}
-
-
-	//==================================================================
-	// Start MPL3115 Altimeter in Asynchronous mode
-	//--------------------------------------------------------------
-	MPLAsyncStart();	// Start as soon as possible for warm-up
-	//==================================================================
-	// Calibrate ground level for MPL3115 Altimeter
-	//--------------------------------------------------------------
-	if (MPLSetGround() != MPL_OK) 
-		// Altimeter calibration failed
-		BLIDeadStop("CB", 2);	// Failure...
-	//==================================================================
-	// Altitude from Barometric sensor
-	//-----------------------------------------------
 	while (TRUE)
 		{
-		if (MPL_OK != MPLAsyncReadWhenReady(&MPLSample))
-			BLIDeadStop("SOS", 3);
-		//-----------------------------------------------------
+		MPLReadSample(&MPLSample);
 		SDLPostIfReady(	(byte*) &MPLSample, sizeof(MPLSample));
-		//-----------------------------------------------------
 		BLISignalFlip();
 		}
+
 	//*******************************************************************
 	return 0;
 	}

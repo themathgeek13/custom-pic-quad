@@ -1,5 +1,5 @@
 #include "TMR\TMR.h"
-#include "I2C\I2C_Profile.h"
+#include "I2C\I2C.h"
 //--------------------------------------
 #include "MPL\MPL.h"
 #include "MPL\MPL_Profile.h"
@@ -11,8 +11,6 @@
 //==================================================================
 extern volatile byte	_MPL_IL	; 	// MPL default interrupt level
 extern volatile uint	_MPL_Init;	// Init flag
-//==================================================================
-extern const 	byte	_MPL_Addr;		// Sensor address on I2C bus
 //==================================================================
 
 //==================================================================
@@ -39,10 +37,6 @@ extern volatile	uint	_MPL_Async;	// Asynchronous operation flag
 									// Also, I2C subscription ID
 extern volatile	uint	_MPL_State;	// Step number in the asynchronous
 									// read finite automata controller
-//------------------------------------------------------------------
-// I2C Asynchronous READ subscription data
-//------------------------------------------------------------------
-extern 		I2CSubscr	_MPLSubscr;
 
 //------------------------------------------------------------------
 // Asynchronous READ intermediate data storage

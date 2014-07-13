@@ -4,21 +4,24 @@
 #ifndef __I2C_H
 #define __I2C_H
 //=====================================================
-#define	I2CRC_OK	0
-#define I2CRC_WCOL	1
-#define I2CRC_NACK	2
-#define	I2CRC_TOUT	3
-#define	I2CRC_OVFL	4
+#define	I2CRC_OK		0
+#define I2CRC_WCOL		1
+#define I2CRC_BCOL		2
+#define I2CRC_NACK		3
+#define	I2CRC_TOUT		4
+#define	I2CRC_OVFL		5
 //--------------------
-#define	I2CRC_NRDY	6		// I2C not initialized
-#define	I2CRC_SBSY	8		// I2C is busy with SYNC
-#define	I2CRC_ABSY	9		// I2C is busy with ASYNC
-#define	I2CRC_BUSY 10		// I2C bus is busy?
+#define	I2CRC_NRDY		6		// I2C not initialized
+#define	I2CRC_SBSY		7		// I2C is busy with SYNC
+#define	I2CRC_ABSY		8		// I2C is busy with ASYNC
+#define	I2CRC_BUSY	    9		// I2C bus is busy?
 //--------------------
-#define	I2CRC_ISID 11		// Invalid Subscription ID provided
-#define I2CRC_NOTA 12		// Module not available
+#define	I2CRC_RQSTA	   10		// Request from this subscriber already active
+#define	I2CRC_QFULL	   11		// Request from this subscriber already active
 //--------------------
-#define I2CRC_MAX  12		// Highest error code from I2C
+#define I2CRC_NOTA	   12		// Module not available
+//--------------------
+#define I2CRC_MAX	   12		// Highest error code from I2C
 //==================================================================
 #define	I2C_NACKRetry	50	// Retry count for NACK code
 #define	I2C_BUSYRetry	50	// Retry count for BUSY code
@@ -172,14 +175,13 @@ typedef volatile struct
 //==================================================================
 
 //============================================================
-// <editor-fold defaultstate="collapsed" desc="I2C Subscriber interface">
+// <editor-fold defaultstate="collapsed" desc="I2C Async Subscriber interface">
 //============================================================
 // I2C Subscriber interface
 //============================================================
 // Function pointer to I2C Interrupt callback routine
 //------------------------------------------------------------
-typedef	void (*I2CCallBack)(uint			ClientParam,
-							uint			I2Cx,
+typedef	void (*I2CCallBack)(uint			CallBackArg,
 							I2C_CONBITS*	pCON,
 							I2C_STATBITS*	pSTAT,
 							vuint*			pTRN,
@@ -191,19 +193,13 @@ typedef	void (*I2CCallBack)(uint			ClientParam,
 // and pCON, pSTAT, pTRN, and pRCV are the pointers to CONTROL,
 // STATUS, Transmit, and Receive registers of this I2C module.
 //------------------------------------------------------------
-// Function pointer to I2C Subscriber interrupt control routine
-//------------------------------------------------------------
-typedef	void (*I2CSubscrIC)(uint	ClientParam,
-							uint	IE);
-//------------------------------------------------------------
 // I2C Subscription data structure
 //------------------------------------------------------------
 typedef	struct
 	{
-	uint			ClientParam;
 	I2CCallBack		CallBack;
-	I2CSubscrIC		SubscrIC;
-	} I2CSubscr;
+	uint			CallBackArg;
+	} I2CAsyncRqst;
 //============================================================
 // </editor-fold>
 //============================================================
@@ -241,15 +237,30 @@ uint	I2CSyncWrite(	uint	I2Cx,
 //============================================================
 // Asynchronous I2C API (visible externally) component
 //============================================================
-uint	I2CAsyncStart(	uint I2Cx, uint SubscrID);
-//-----------------------------------------------------
-void	I2CAsyncStop(	uint I2Cx);
-//-----------------------------------------------------
-uint	I2CRegisterSubscr(	uint I2Cx, I2CSubscr* Subscr);
-// Upon successful registration return SubscrID,
-// otherwise - NULL
-//-----------------------------------------------------
-uint	I2CDeRegisterSubscr(uint I2Cx, uint SubscrID);
+uint	I2CAsyncStart(	uint I2Cx, I2CAsyncRqst* Rqst);
+//------------------------------------------------------------
+// NOTE: I2CAsyncStop(...) should be called only from I2C 
+// interrupt routine or its extension (Callback) procedure
+//------------------------------------------------------------
+static inline void	I2CAsyncStop(I2C_CONBITS*	pCON,
+								 I2C_STATBITS*	pSTAT)
+	{
+	//=========================================================
+	if ( pCON->ACKEN || pCON->RCEN || pCON->PEN || pCON->RSEN || pCON->SEN	)
+		// A bus operation is active, which will result in an interrupt
+		// shortly, which will be processed in the I2CxISR routine.
+		// We cannot initiate STOP on the bus...
+		return;
+	//--------------------------------------------------------
+	// We may initiate STOP...
+	//--------------------------------------------------------
+	*((vuint*)pSTAT)	= 0;	// clear STATUS bits
+	pCON->PEN			= 1;	// Initiate Stop on I2C bus
+	//--------------------------------------------------------
+	// NOTE: callback reference will be cleared in Interrupt
+	//		 routine after "STOP" processed
+	//--------------------------------------------------------
+	}
 //============================================================
 
 #endif

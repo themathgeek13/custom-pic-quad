@@ -10,14 +10,16 @@ void __attribute__((interrupt, no_auto_psv)) MPU1_Interrupt(void)
 	// least at or above I2C interrupt priority, so no I2C event
 	// may take place before EXIT from this routine
 	//------------------------------------------------------------
-	MPU1_IF = 0;		// Clear the INTx interrupt flag or else
+	MPU1_IF = 0;	// Clear the INTx interrupt flag or else
 					// the CPU will keep vectoring back to the ISR
+	//------------------------------------------------------------------
+	// I2C Asynchronous READ subscription data
+	//------------------------------------------------------------------
+	I2CAsyncRqst	MPURqst = {&_MPUCallBack, 1};
 	//------------------------------------------------------------
     // Try to innitiate to I2C ASYNC processing for MPU
 	//------------------------------------------------------------
-	if (	MPU1_CB._MPU_Async	// I2C subscription is active so we
-								// may try to acquire the I2C bus
-		&&	I2CRC_OK == I2CAsyncStart(MPU1_IDCx, MPU1_CB._MPU_Async)	)
+	if (	I2CRC_OK == I2CAsyncStart(MPU1_IDCx, &MPURqst)	)
 		{
 		//////////////////////////////////////////////////////////////
 		// Bus acqusition in ASYNC mode is successful!
@@ -39,14 +41,16 @@ void __attribute__((interrupt, no_auto_psv)) MPU2_Interrupt(void)
 	// least at or above I2C interrupt priority, so no I2C event
 	// may take place before EXIT from this routine
 	//------------------------------------------------------------
-	MPU2_IF = 0;		// Clear the INTx interrupt flag or else
-					// the CPU will keep vectoring back to the ISR
+	MPU2_IF = 0;	// Clear the INTx interrupt flag or else the
+					// CPU will keep vectoring back to the ISR
+	//------------------------------------------------------------------
+	// I2C Asynchronous READ subscription data
+	//------------------------------------------------------------------
+	I2CAsyncRqst	MPURqst = {&_MPUCallBack, 2};
 	//------------------------------------------------------------
     // Try to innitiate to I2C ASYNC processing for MPU
 	//------------------------------------------------------------
-	if (	MPU2_CB._MPU_Async	// I2C subscription is active so we
-								// may try to acquire the I2C bus
-		&&	I2CRC_OK == I2CAsyncStart(MPU2_IDCx, MPU2_CB._MPU_Async)	)
+	if (	I2CRC_OK == I2CAsyncStart(MPU2_IDCx, &MPURqst)	)
 		{
 		//////////////////////////////////////////////////////////////
 		// Bus acqusition in ASYNC mode is successful!
@@ -60,42 +64,19 @@ void __attribute__((interrupt, no_auto_psv)) MPU2_Interrupt(void)
 //================================================================
 
 //================================================================
-void	_MPUIntCtrl(uint ClientParam, uint IE)
-	{
-	//============================================================
-	// This function will be called by I2C provider to control
-	// MPL Interrupt status
-	//============================================================
-	switch (ClientParam)
-		{
-		case 1:
-			#ifdef Use_MPU1
-				MPU1_IE = IE;
-			#endif
-			break;
-		case 2:
-			#ifdef Use_MPU2
-				MPU2_IE = IE;
-			#endif
-			break;
-		default:
-			break;
-		}
-	//------------------------------------------------------------
-	return;
-	}
-//================================================================
-
-//================================================================
 void	_MPUCallBack(uint			ClientParam,
-					 uint			I2Cx,
 					 I2C_CONBITS*	pCON,
 					 I2C_STATBITS*	pSTAT,
 					 vuint*			pTRN,
 					 vuint*			pRCV)
 	{
 	MPU_CB*		pCB = MPUpCB(ClientParam);
-	if (NULL == pCB)	return;		// Should never ever happened!
+	if (NULL == pCB)
+		// Should never ever happen, but...
+		{
+		I2CAsyncStop( pCON, pSTAT);
+		return;
+		}
 	//===============================================================
 	// NOTE: This I2C interrupt call-back routine is geared specifi-
 	//		 cally to supporting asynchronous data read operation for 
@@ -182,7 +163,7 @@ void	_MPUCallBack(uint			ClientParam,
 			//-----------------------------------------------------------
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
-			I2CAsyncStop(pCB->_MPU_IDCx);	// Release I2C ASYNC processing
+			I2CAsyncStop( pCON, pSTAT);	// Stop I2C ASYNC processing
 			//-----------------------------------------------------------
 			// Process and output data
 			union
@@ -199,17 +180,17 @@ void	_MPUCallBack(uint			ClientParam,
 			//===============================================
 			// Accelerometer:
 			//-----------------------------------------------
-			// 	Yveh	= -Xa
+			// 	Yveh	= Xa
 			//-----------------------------------------------
 			U.VByte[1]			= pCB->_MPU_Buffer[0];
 			U.VByte[0]			= pCB->_MPU_Buffer[1];
-			pCB->_MPU_Sensor.AY = -U.VInt;
+			pCB->_MPU_Sensor.AY =  U.VInt;
 			//-----------------------------------------------
-			// 	Xveh	= -Ya
+			// 	Xveh	=  Ya
 			//-----------------------------------------------
 			U.VByte[1]			= pCB->_MPU_Buffer[2];
 			U.VByte[0]			= pCB->_MPU_Buffer[3];
-			pCB->_MPU_Sensor.AX = -U.VInt;
+			pCB->_MPU_Sensor.AX =  U.VInt;
 			//-----------------------------------------------
 			// 	Zveh = -Za
 			//-----------------------------------------------
@@ -225,17 +206,17 @@ void	_MPUCallBack(uint			ClientParam,
 			//-----------------------------------------------
 			// Gyroscopes
 			//-----------------------------------------------
-			// 	Yveh	= -Xa
+			// 	Yveh	=  Xa
 			//-----------------------------------------------
 			U.VByte[1]			= pCB->_MPU_Buffer[8];
 			U.VByte[0]			= pCB->_MPU_Buffer[9];
-			pCB->_MPU_Sensor.GY = -U.VInt;
+			pCB->_MPU_Sensor.GY =  U.VInt;
 			//-----------------------------------------------
-			// 	Xveh	= -Ya
+			// 	Xveh	=  Ya
 			//-----------------------------------------------
 			U.VByte[1]			= pCB->_MPU_Buffer[10];
 			U.VByte[0]			= pCB->_MPU_Buffer[11];
-			pCB->_MPU_Sensor.GX = -U.VInt;
+			pCB->_MPU_Sensor.GX =  U.VInt;
 			//-----------------------------------------------
 			// 	Zveh = -Za
 			//-----------------------------------------------
@@ -289,7 +270,7 @@ void	_MPUCallBack(uint			ClientParam,
 			//-----------------------------------------------------------
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
-			I2CAsyncStop(I2Cx);		// Release I2C ASYNC processing
+			I2CAsyncStop( pCON, pSTAT);	// Stop I2C ASYNC processing
 		}
 	//===============================================================
 	return;

@@ -5,7 +5,7 @@
 // will be used in this application; if a particular module is not
 // used, please comment out respective #define statement
 //==================================================================
-//#define	_I2C_UseI2C1
+#define	_I2C_UseI2C1
 #define	_I2C_UseI2C2
 //==================================================================
 
@@ -14,7 +14,7 @@
 //------------------------------------------------------------------
 // I2C Asynchronous Access Subscribers max count
 //------------------------------------------------------------------
-#define I2CSubscMax		4
+#define I2CMaxAsyncRqst		1
 //==================================================================
 
 //==================================================================

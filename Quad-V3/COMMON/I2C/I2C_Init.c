@@ -28,11 +28,14 @@ void	I2CInit(uint IL, uint Speed)
 	//---------------------------------------------------------
 	switch (Speed)
 		{
+		case 3:
+			_I2C_BRG = 56;		// 1MHz
+			break;
 		case 2:
-			_I2C_BRG	= 56;		// 1MHz
+			_I2C_BRG = 158;		// 400 kHz
 			break;
 		case 1:
-			_I2C_BRG = 152;		// 400 kHz
+			_I2C_BRG = 300;		// 200 kHz
 			break;
 		case 0:
 		default:
@@ -52,10 +55,10 @@ void	I2CInit(uint IL, uint Speed)
 	//---------------------------------------------------------
 	// Initialize I2C subscribers' structure
 	//---------------------------------------------------------
-	for (i = 0; i < I2CSubscMax; i++)
+	for (i = 0; i < I2CMaxAsyncRqst; i++)
 	{
-		_I2C1_CB._I2CSubscr[i].CallBack = NULL;
-		_I2C1_CB._I2CSubscr[i].SubscrIC = NULL;
+		_I2C1_CB._I2CRqstQueue[i].CallBack		= NULL;
+		_I2C1_CB._I2CRqstQueue[i].CallBackArg	= 0;
 	}
 	//---------------------------------------------------------
 	// Initialize references to I2C1 Control Registers
@@ -75,10 +78,10 @@ void	I2CInit(uint IL, uint Speed)
 	//---------------------------------------------------------
 	// Initialize I2C subscribers' structure
 	//---------------------------------------------------------
-	for (i = 0; i < I2CSubscMax; i++)
+	for (i = 0; i < I2CMaxAsyncRqst; i++)
 	{
-		_I2C2_CB._I2CSubscr[i].CallBack = NULL;
-		_I2C2_CB._I2CSubscr[i].SubscrIC = NULL;
+		_I2C2_CB._I2CRqstQueue[i].CallBack		= NULL;
+		_I2C2_CB._I2CRqstQueue[i].CallBackArg	= 0;
 	}
 	//---------------------------------------------------------
 	// Initialize references to I2C2 Control Registers
