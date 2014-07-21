@@ -57,14 +57,14 @@ void	_MPLCallBack(uint			ClientParam,
 			// Sending device address with WRITE cond.
 			*(pTRN)	= MPL_Addr & 0xFE;
 			_MPL_State	= 1;		// Move state
-			break;	
+			return;
 		//-----------------------------------------------------------
 		case	1:		// Interrupt after device address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with register address	
 			*(pTRN)		= 0x01;		// MPL3115 Data register address.
 			_MPL_State	= 2;		// Move state
-			break;
+			return;
 		//=============================================================
 		// Transition to the Reading Data Mode
 		//=============================================================
@@ -73,13 +73,13 @@ void	_MPLCallBack(uint			ClientParam,
 			// Initiate Repeated Start condition
 			pCON->RSEN	= 1;
 			_MPL_State	= 3;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	3:		// Interrupt after Repeated Start
 			// Sending device address with READ cond.
 			*(pTRN)		= MPL_Addr | 0x01;
 			_MPL_State	= 4;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	4:		// Interrupt after Device Address with READ
 			// Slave send ACK; we switch to READ
@@ -88,7 +88,7 @@ void	_MPLCallBack(uint			ClientParam,
 			_MPL_BufPos		= 0;		// Reset buffer position
 			//----------------------------------------
 			_MPL_State	= 5;		// Move state
-			break;
+			return;
 		//=============================================================
 		// Read and process data sample
 		//=============================================================
@@ -98,7 +98,9 @@ void	_MPLCallBack(uint			ClientParam,
 			_MPL_Buffer[_MPL_BufPos] = *(pRCV);
 			_MPL_BufPos++;				// Move buffer address pointer
 			//---------------------------------------
-			if (_MPL_BufPos < 5)
+			if (_MPL_BufPos < 5)		// While we do not use Temp
+										// from the sensor, we still
+										// have to read it... (last 2 bytes)
 				// More bytes to read
 				{
 				// Generate ACK for the byte read
@@ -115,14 +117,14 @@ void	_MPLCallBack(uint			ClientParam,
 				_MPL_State	= 7;	// Move state
 				}
 			pCON->ACKEN = 1;		// Innitiate acknowledgement
-			break;
+			return;
 		//-----------------------------------------
 		case	6:		// Interrupt after ACK
 			pSTAT->I2COV 	= 0;	// Clear receive OVERFLOW bit, if any
 			pCON->RCEN		= 1;	// Allow READ.
 			//----------------------------------------
 			_MPL_State	= 5;	// Move state BACK to read next byte
-			break;
+			return;
 		//=============================================================
 		// After we consumed the Sample, we need to innitiate the new
 		// OST cycle by reading the CtrlR1 and then writing it back
@@ -133,20 +135,20 @@ void	_MPLCallBack(uint			ClientParam,
 			// Initiate Repeated Start condition
 			pCON->RSEN	= 1;
 			_MPL_State	= 8;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	8:		// Interrupt after RSEN
 			// Sending device address with WRITE cond.
 			*(pTRN)		= MPL_Addr & 0xFE;
 			_MPL_State	= 9;		// Move state
-			break;	
+			return;
 		//-----------------------------------------------------------
 		case	9:		// Interrupt after device address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with register address	
 			*(pTRN)		= CtrlR1Addr;	// MPL3115 CtrlR1 address.
 			_MPL_State	= 10;			// Move state
-			break;
+			return;
 		//=============================================================
 		// Transition to the Reading Data Mode
 		//=============================================================
@@ -155,13 +157,13 @@ void	_MPLCallBack(uint			ClientParam,
 			// Initiate Repeated Start condition
 			pCON->RSEN	= 1;
 			_MPL_State	= 11;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	11:		// Interrupt after Repeated Start
 			// Sending device address with READ cond.
 			*(pTRN)		= MPL_Addr | 0x01;
 			_MPL_State	= 12;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	12:		// Interrupt after Device Address with READ
 			// Slave send ACK; we switch to READ
@@ -169,7 +171,7 @@ void	_MPLCallBack(uint			ClientParam,
 			pCON->RCEN			= 1;		// Allow READ.
 			//----------------------------------------
 			_MPL_State	= 13;		// Move state
-			break;
+			return;
 		//=============================================================
 		// Read CtrlR1
 		//=============================================================
@@ -182,7 +184,7 @@ void	_MPLCallBack(uint			ClientParam,
 			pCON->ACKEN 	= 1;
 			//---------------------------------------
 			_MPL_State	= 14;	// Move state
-			break;
+			return;
 		//=============================================================
 		// Write CtrlR1 with OST bit set
 		//=============================================================
@@ -191,27 +193,27 @@ void	_MPLCallBack(uint			ClientParam,
 			// Initiate Repeated Start condition
 			pCON->RSEN	= 1;
 			_MPL_State	= 15;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	15:		// Interrupt after RSEN
 			// Sending device address with WRITE cond.
 			*(pTRN)		= MPL_Addr & 0xFE;
 			_MPL_State	= 16;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	16:		// Interrupt after device address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with register address
 			*(pTRN)		= CtrlR1Addr;	// MPL3115 CtrlR1 address.
 			_MPL_State	= 17;			// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	17:		// Interrupt after CtrlR1 address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with new value for CtrlR1
 			*(pTRN)		= _MPL_CtrlR1 | CtrlR1SetOST;
 			_MPL_State	= 18;		// Move state
-			break;	
+			return;
 		//-----------------------------------------------------------
 		case	18:		// Interrupt after CtrlR1 write
 			// Slave send ACK (confirmed in General Checks);
@@ -249,7 +251,7 @@ void	_MPLCallBack(uint			ClientParam,
 				}
 			_MPL_DataTS = TMRGetTS();
 			//-----------------------------------------------------------
-			break;	
+			return;
 
 		//=============================================================
 		// Oops! something is terribly wrong with the State Machine...
@@ -259,9 +261,9 @@ void	_MPLCallBack(uint			ClientParam,
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
 			I2CAsyncStop( pCON, pSTAT);	// Stop I2C ASYNC processing
+			return;
 		}
 	//===============================================================
-	return;
 	}
 //================================================================
 

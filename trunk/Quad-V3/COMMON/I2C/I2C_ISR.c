@@ -16,7 +16,6 @@ void __attribute__((__interrupt__,__no_auto_psv__)) _MI2C1Interrupt(void)
 		// There is no active Asynchronous subscribers - spurious interrupt
 		{
 		_MI2C1IE		= 0;	// Disable I2C Master interrupt
-		pCON->PEN;
 		return;
 		}
 	//===============================================================
@@ -64,44 +63,19 @@ void __attribute__((__interrupt__,__no_auto_psv__)) _MI2C1Interrupt(void)
 	//===============================================================
 	// Check for any ERROR condition on the bus
 	//===============================================================
-	// Simple errors...
-	//---------------------------------------------------------------
-	if 	(	pSTAT->ACKSTAT		// 1 = NACK received from slave
-		||	pSTAT->I2COV		// 1 = READ Overflow condition
+	if 	(
+			pSTAT->ACKSTAT		// 1 = NACK received from slave
+		||	pSTAT->BCL			// 1 = Master Bus Collision
 		||	pSTAT->IWCOL		// 1 = Write Collision
-//		||	pSTAT->BCL			// 1 = Master Bus Collision
-		 )
+		||	pSTAT->I2COV		// 1 = READ Overflow condition
+		)
 		{
 		//-----------------------------------------------------------
-		// First, let's try to reset the bus...
+		// Error: Terminate current ASYNC session
+		// emulate I2CAsynStop(...)
 		//-----------------------------------------------------------
-		*(_I2C1_CB.pI2C_CON)	= 0;	// Disable I2C module..
-		*(_I2C1_CB.pI2C_STAT)	= 0;	// Clear STATUS bits
-		pCON->I2CEN				= 1;	// Re-enable I2C
-		// Attempt to terminate current operation by initiating STOP
-		I2CAsyncStop(pCON,	pSTAT);
-		//-----------------------------------------------------------
-		return;
-		}
-	//---------------------------------------------------------------
-	// Bus collision...
-	//---------------------------------------------------------------
-	if 	(	pSTAT->BCL		)	// 1 = Master Bus Collision
-		{
-		//-----------------------------------------------------------
-		// First, let's try to reset the bus...
-		//-----------------------------------------------------------
-		*(_I2C1_CB.pI2C_CON)	= 0;	// Disable I2C module..
-		*(_I2C1_CB.pI2C_STAT)	= 0;	// Clear STATUS bits
-		pCON->I2CEN				= 1;	// Re-enable I2C
-		//-----------------------------------------------------------
-		// Let's give it some time to recuperate...
-		//-----------------------------------------------------------
-		_MI2C1IE		= 0;			// Disable I2C Master interrupt
-		_I2C1_CB._I2C_CallBack		= NULL;		// clear Callback
-		_I2C1_CB._I2C_CallBackArg	= 0;		// clear Callback Arg
-		//-----------------------------------------------------------
-		pCON->SEN;
+		*(_I2C1_CB.pI2C_STAT)	= 0;	// clear STATUS bits
+		pCON->PEN				= 1;	// Initiate Stop on I2C bus
 		//-----------------------------------------------------------
 		return;
 		}
@@ -130,15 +104,15 @@ void __attribute__((__interrupt__,__no_auto_psv__)) _MI2C2Interrupt(void)
 	//---------------------------------------------------------------
 	_MI2C2IF	= 0; 	// Clear   I2C Master interrupt flag
 	//---------------------------------------------------------------
+	I2C_CONBITS*	pCON	= (I2C_CONBITS*) (_I2C2_CB.pI2C_CON);
+	I2C_STATBITS*	pSTAT	= (I2C_STATBITS*)(_I2C2_CB.pI2C_STAT);
+	//---------------------------------------------------------------
 	if (NULL == _I2C2_CB._I2C_CallBack)
 		// There is no active Asynchronous subscribers - spurious interrupt
 		{
 		_MI2C2IE		= 0;	// Disable I2C Master interrupt
 		return;
 		}
-	//---------------------------------------------------------------
-	I2C_CONBITS*	pCON	= (I2C_CONBITS*) (_I2C2_CB.pI2C_CON);
-	I2C_STATBITS*	pSTAT	= (I2C_STATBITS*)(_I2C2_CB.pI2C_STAT);
 	//===============================================================
 	// Check for STOP condition on the bus
 	//===============================================================
