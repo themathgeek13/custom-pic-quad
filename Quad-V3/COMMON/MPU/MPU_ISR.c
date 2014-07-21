@@ -93,14 +93,14 @@ void	_MPUCallBack(uint			ClientParam,
 			// Sending device address with WRITE cond.
 			*(pTRN)			= pCB->_MPU_Addr & 0xFE;
 			pCB->_MPU_State	= 1;		// Move state
-			break;	
+			return;
 		//-----------------------------------------------------------
 		case	1:		// Interrupt after device address
 			// Slave send ACK (confirmed in General Checks);
 			// We proceed with register address	
 			*(pTRN)			= 0x3B;		// MPU6050 Data register address.
 			pCB->_MPU_State	= 2;		// Move state
-			break;
+			return;
 		//=============================================================
 		// Transition to the Reading Data Mode
 		//=============================================================
@@ -109,13 +109,13 @@ void	_MPUCallBack(uint			ClientParam,
 			// Initiate Repeated Start condition
 			pCON->RSEN		= 1;
 			pCB->_MPU_State	= 3;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	3:		// Interrupt after Repeated Start
 			// Sending device address with READ cond.
 			*(pTRN)			= pCB->_MPU_Addr | 0x01;
 			pCB->_MPU_State	= 4;		// Move state
-			break;
+			return;
 		//-----------------------------------------------------------
 		case	4:		// Interrupt after Device Address with READ
 			// Slave send ACK; we switch to READ
@@ -124,7 +124,7 @@ void	_MPUCallBack(uint			ClientParam,
 			pCB->_MPU_BufPos	= 0;		// Reset buffer position
 			//----------------------------------------
 			pCB->_MPU_State		= 5;		// Move state
-			break;
+			return;
 		//=============================================================
 		// Read and process data sample
 		//=============================================================
@@ -149,14 +149,14 @@ void	_MPUCallBack(uint			ClientParam,
 				pCB->_MPU_State	= 7;	// Move state
 				}
 			pCON->ACKEN = 1;		// Innitiate acknowledgement
-			break;
+			return;
 		//-----------------------------------------
 		case	6:		// Interrupt after ACK
 			pSTAT->I2COV	= 0;	// Clear receive OVERFLOW bit, if any
 			pCON->RCEN		= 1;	// Allow READ.
 			//----------------------------------------
 			pCB->_MPU_State	= 5;	// Move state BACK to read next byte
-			break;
+			return;
 		//-----------------------------------------
 		case	7:		// Interrupt after NACK	- terminate cycle
 						// and process retrieved sample
@@ -259,9 +259,7 @@ void	_MPUCallBack(uint			ClientParam,
 			//-----------------------------------------------
 			pCB->_MPU_Ready++;	// _MPU_Ready > 0 -> Sample is ready!
 			//-----------------------------------------------------------
-			
-			//-----------------------------------------------------------
-			break;	
+			return;
 
 		//=============================================================
 		// Oops! something is terribly wrong with the State Machine...
@@ -271,9 +269,9 @@ void	_MPUCallBack(uint			ClientParam,
 			// Terminate current ASYNC session
 			//-----------------------------------------------------------
 			I2CAsyncStop( pCON, pSTAT);	// Stop I2C ASYNC processing
+			return;
 		}
 	//===============================================================
-	return;
 	}
-//================================================================
+//===================================================================
 
