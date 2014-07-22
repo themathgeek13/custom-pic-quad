@@ -13,27 +13,28 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <logicalFolder name="COMMON" displayName="COMMON" projectFiles="true">
+      <logicalFolder name="COMMON" displayName="00-COMMON" projectFiles="true">
         <logicalFolder name="BLI" displayName="BLI" projectFiles="true">
-          <itemPath>../COMMON/BLI/BLI.c</itemPath>
-          <itemPath>../COMMON/BLI/BLIInit.c</itemPath>
-          <itemPath>../COMMON/BLI/BLILocal.c</itemPath>
-          <itemPath>../COMMON/BLI/BLILocal.h</itemPath>
-          <itemPath>../COMMON/BLI/BLIMorse.c</itemPath>
-          <itemPath>../COMMON/BLI/BLI.h</itemPath>
+          <itemPath>../00-COMMON/BLI/BLI.c</itemPath>
+          <itemPath>../00-COMMON/BLI/BLI.h</itemPath>
+          <itemPath>../00-COMMON/BLI/BLIInit.c</itemPath>
+          <itemPath>../00-COMMON/BLI/BLILocal.c</itemPath>
+          <itemPath>../00-COMMON/BLI/BLILocal.h</itemPath>
+          <itemPath>../00-COMMON/BLI/BLIMorse.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Init" displayName="Init" projectFiles="true">
-          <itemPath>../COMMON/Init/Init.c</itemPath>
-          <itemPath>../COMMON/Init/Init.h</itemPath>
-          <itemPath>../COMMON/Init/Switches.h</itemPath>
+          <itemPath>../00-COMMON/Init/Init.c</itemPath>
+          <itemPath>../00-COMMON/Init/Init.h</itemPath>
+          <itemPath>../00-COMMON/Init/Switches.h</itemPath>
         </logicalFolder>
         <logicalFolder name="TMR" displayName="TMR" projectFiles="true">
-          <itemPath>../COMMON/TMR/TMR.c</itemPath>
-          <itemPath>../COMMON/TMR/TMRInit.c</itemPath>
-          <itemPath>../COMMON/TMR/TMRLocal.c</itemPath>
-          <itemPath>../COMMON/TMR/TMRLocal.h</itemPath>
-          <itemPath>../COMMON/TMR/TMR_ISR.c</itemPath>
-          <itemPath>../COMMON/TMR/TMR.h</itemPath>
+          <itemPath>../00-COMMON/TMR/TMR.c</itemPath>
+          <itemPath>../00-COMMON/TMR/TMR.h</itemPath>
+          <itemPath>../00-COMMON/TMR/TMRInit.c</itemPath>
+          <itemPath>../00-COMMON/TMR/TMRLocal.c</itemPath>
+          <itemPath>../00-COMMON/TMR/TMRLocal.h</itemPath>
+          <itemPath>../00-COMMON/TMR/TMRProfile.h</itemPath>
+          <itemPath>../00-COMMON/TMR/TMR_ISR.c</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
@@ -45,7 +46,7 @@
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>../COMMON</Elem>
+    <Elem>../00-COMMON</Elem>
     <Elem>C:/Program Files (x86)/Microchip/xc16/v1.11/support/PIC24H/h</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
@@ -95,7 +96,7 @@
         <property key="enable-short-double" value="false"/>
         <property key="enable-symbols" value="true"/>
         <property key="enable-unroll-loops" value="false"/>
-        <property key="extra-include-directories" value="..\Common"/>
+        <property key="extra-include-directories" value="..\00-Common"/>
         <property key="isolate-each-function" value="false"/>
         <property key="keep-inline" value="false"/>
         <property key="oXC16gcc-align-arr" value="false"/>

@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/V3-02-HMCSPI-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=V3-02-HMCSPI-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=v3-02-hmcspi-sync/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/12-HMCSPI-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=12-HMCSPI-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=12-hmcspi-sync/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/v3-02-hmcspi-sync/bin
+makeDirectory ${TMPDIR}/12-hmcspi-sync/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/v3-02-hmcspi-sync.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/12-hmcspi-sync.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/v3-02-hmcspi-sync.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/12-hmcspi-sync.tar *
 checkReturnCode
 
 # Cleanup

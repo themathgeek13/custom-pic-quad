@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/V3-03-HMCSPI-Async.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=V3-03-HMCSPI-Async.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=v3-03-hmcspi-async/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/13-HMCSPI-Async.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=13-HMCSPI-Async.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=13-hmcspi-async/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/v3-03-hmcspi-async/bin
+makeDirectory ${TMPDIR}/13-hmcspi-async/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/v3-03-hmcspi-async.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/13-hmcspi-async.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/v3-03-hmcspi-async.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/13-hmcspi-async.tar *
 checkReturnCode
 
 # Cleanup
