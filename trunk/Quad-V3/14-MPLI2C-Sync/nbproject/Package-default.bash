@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/V3-04-MPLI2C-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=V3-04-MPLI2C-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=v3-04-mpli2c-sync/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/14-MPLI2C-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=14-MPLI2C-Sync.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=14-mpli2c-sync/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/v3-04-mpli2c-sync/bin
+makeDirectory ${TMPDIR}/14-mpli2c-sync/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/v3-04-mpli2c-sync.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/14-mpli2c-sync.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/v3-04-mpli2c-sync.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/14-mpli2c-sync.tar *
 checkReturnCode
 
 # Cleanup

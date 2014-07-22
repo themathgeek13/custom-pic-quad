@@ -15,21 +15,9 @@ int main(void)
 	BLIInit();		// Initialize Signal interface
 	//*******************************************************************
 
-//	BLIAsyncStart(30, 30);
-//	while(1)
-//		{TMRDelay(30);}
-
 	BLISignalON();
-//	while (1)
-//		{
-//		TMRDelay(50);
-////		for (i=0; i < 1000001; i++);
-////		_LATA10 ^=1;
-//		BLISignalFlip();
-//		}
 
 //	ulong	i;
-////	ulong	j	= 153720;		// 50 msec
 //	ulong	j	= 307400;			// 1 msec, 500 Hz
 //	while(1)
 //		{
@@ -37,21 +25,18 @@ int main(void)
 //		BLISignalFlip();
 //		}
 
-//	BLIAsyncStart(500, 500);
-//	while(1);
+//	while (1)
+//		{
+//		TMRDelay(100);
+//		BLISignalFlip();
+//		}
 
 	byte Mult	= ((_SW1* 2 + _SW2)*2 + _SW3)* 2 + _SW4 + 1;
 	uint Freq	= 50 * Mult;
-	BLIAsyncStart(Freq, Freq);
-	while(1);
-
-
-//	BLIAsyncMorse("SOS", 3);
-//	while(1);
 
 	while(1)
 		{
-		BLIAsyncStart(500, 1000);
+		BLIAsyncStart(Freq, 2 * Freq);
 		TMRDelay(5000);		// Delay 5 sec
 		//--------------------------------
 		BLIAsyncMorse("SOS", 3);

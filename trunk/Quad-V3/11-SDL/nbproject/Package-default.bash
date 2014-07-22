@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=V3-01-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=v3-01-sdl/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/11-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=11-SDL.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=11-sdl/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/v3-01-sdl/bin
+makeDirectory ${TMPDIR}/11-sdl/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/v3-01-sdl.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/11-sdl.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/v3-01-sdl.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/11-sdl.tar *
 checkReturnCode
 
 # Cleanup

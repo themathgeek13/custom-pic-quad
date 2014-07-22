@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=V3-00-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=v3-00-basic/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/10-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=10-Basic.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=10-basic/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/v3-00-basic/bin
+makeDirectory ${TMPDIR}/10-basic/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/v3-00-basic.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/10-basic.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/v3-00-basic.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/10-basic.tar *
 checkReturnCode
 
 # Cleanup
