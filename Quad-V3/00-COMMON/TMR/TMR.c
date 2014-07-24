@@ -28,20 +28,6 @@ ulong	TMRGetTS(void)
 
 
 //************************************************************
-// Return Elapsed Time value (in milliseconds)
-//************************************************************
-ulong	TMRGetRTC(void)
-	{
-	//======================================================
-	// Important NOTE: Timer counter updated every 125 usec!
-	//------------------------------------------------------
-	// Convert to milliseconds and Return Elapsed Time
-	//------------------------------------------------------
-	return	((TMRGetRTCTicks() + 4) >> 3); // Round and convert to msec
-	}
-//************************************************************
-
-//************************************************************
 // Blocks for "Delay" milliseconds
 //************************************************************
 void	TMRDelay(ulong Delay)
