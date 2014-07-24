@@ -43,10 +43,6 @@ void			TMRInit(uint IL);
 // Get current time stamp with 1 usec resolution
 //----------------------------------------------------
 ulong	TMRGetTS();
-//----------------------------------------------------
-//  Return Elapsed Time value in milliseconds
-//----------------------------------------------------
-ulong	TMRGetRTC(void);
 
 
 //************************************************************
