@@ -156,7 +156,7 @@ void	SDLInit(uint IL, SDL_BAUD_RATE BaudRate)
 	//---------------------------------------------------------
 	USTA				= 0;	// Set all to defaults 
 	// UTXISEL = 10	Interrupt when a character is transferred to the 
-	//				Transmit Shift register and as result, the transmit 
+	//				Transmit Shift register and as result the transmit 
 	//				buffer becomes empty
 	UTXISEL1	= 0b1;	// Generate interrupt when 
 	UTXISEL0	= 0b0;	// buffer is EMPTY
