@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LogFormat xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Description>MPU-6050 2-Sensor Data from the Control board</Description>
+	<Items>
+		<LogFormatItem FieldName="TS"  	FieldType="UInt32" 	FieldFormat="10:F3" FieldWeight="0.000001" />
+		<LogFormatItem FieldName="Temp" FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ax"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ay"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Az"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Rx"  	FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Ry"  	FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Rz"  	FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="TS"  	FieldType="UInt32" 	FieldFormat="10:F3" FieldWeight="0.000001" />
+		<LogFormatItem FieldName="Temp" FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ax"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ay"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Az"  	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Rx"  	FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Ry"  	FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Rz"  	FieldType="Single"  FieldFormat="10:F6" />
+	</Items>
+</LogFormat>

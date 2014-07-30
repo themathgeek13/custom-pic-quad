@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LogFormat xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Description>All I2C Sensors Data from the Control board</Description>
+	<Items>
+		<!-- Data from MPU-6050-1	-->
+		<LogFormatItem FieldName="TS"  		FieldType="UInt32" 	FieldFormat="10:F3" FieldWeight="0.000001" />
+		<LogFormatItem FieldName="TMPU1" 	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ax"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Ay"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Az"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Rx"  		FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Ry"  		FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Rz"  		FieldType="Single"  FieldFormat="10:F6" />
+		<!-- Data from MPU-6050-2	-->
+		<LogFormatItem FieldName="TS"  		FieldType="UInt32" 	FieldFormat="10:F3" FieldWeight="0.000001" />
+		<LogFormatItem FieldName="TMPU2" 	FieldType="Single"  FieldFormat="10:F3" />
+		<LogFormatItem FieldName="Ax"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Ay"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Az"  		FieldType="Single"  FieldFormat="10:F5" />
+		<LogFormatItem FieldName="Rx"  		FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Ry"  		FieldType="Single"  FieldFormat="10:F6" />
+		<LogFormatItem FieldName="Rz"  		FieldType="Single"  FieldFormat="10:F6" />
+		<!-- Data from MPL-3115A2	-->
+		<LogFormatItem FieldName="TS" 		FieldType="UInt32" 	FieldFormat="10:F3" FieldWeight="0.000001" />
+		<LogFormatItem FieldName="Alt"  	FieldType="Single"  FieldFormat="10:F3" />
+	</Items>
+</LogFormat>
