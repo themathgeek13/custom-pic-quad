@@ -31,7 +31,12 @@
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Local.c</itemPath>
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Local.h</itemPath>
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Profile.h</itemPath>
-          <itemPath>../00-COMMON/HMCSPI/NMCSPI_Sync.c</itemPath>
+          <itemPath>../00-COMMON/HMCSPI/HMCSPI_Sync.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="Init" displayName="Init" projectFiles="true">
+          <itemPath>../00-COMMON/Init/Init.c</itemPath>
+          <itemPath>../00-COMMON/Init/Init.h</itemPath>
+          <itemPath>../00-COMMON/Init/Switches.h</itemPath>
         </logicalFolder>
         <logicalFolder name="SDL" displayName="SDL" projectFiles="true">
           <itemPath>../00-COMMON/SDL/SDL.h</itemPath>
