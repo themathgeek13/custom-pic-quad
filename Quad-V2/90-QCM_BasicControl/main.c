@@ -233,10 +233,10 @@ static inline void NormalizeRCFeed(RCData* F)
 	{
 	//------------------------------------------------------------
 	// Normalize Roll and Pitch control input from RC Receiver to
-	// +/- 0.35 rad (~20 degrees) 
+	// +/- 0.6 rad (~35 degrees)
 	//------------------------------------------------------------
-	F->Roll 	*= 0.35;
-	F->Pitch	*= 0.35;
+	F->Roll 	*= 0.6;
+	F->Pitch	*= 0.6;
 	if (MODE_Course_Lock)
 		{
 		// In the Course-Lock mode Yaw is interpreted as "yaw rate"
@@ -475,10 +475,10 @@ Re_Start:
 		//============================================================
 		// Smooth RC data 
 		//------------------------------------------------------------
-		// Roll, Pitch, and Yaw are smoothed with the IIR(4)
+		// Roll, Pitch, and Yaw are smoothed with the IIR(2)
 		//------------------------------------------------------------
-		RCSmthd.Roll	= (RCSmthd.Roll	* 3.0	+ RCFeed.Roll ) * 0.25;	// 1/4 = 0.25
-		RCSmthd.Pitch	= (RCSmthd.Pitch* 3.0 	+ RCFeed.Pitch) * 0.25;
+		RCSmthd.Roll	= (RCSmthd.Roll		+ RCFeed.Roll ) * 0.5;	// 1/2 = 0.5
+		RCSmthd.Pitch	= (RCSmthd.Pitch 	+ RCFeed.Pitch) * 0.5;
 		if (MODE_Course_Lock)
 			{
 			// In this mode Yaw is integrated over the Control Loop
@@ -489,10 +489,10 @@ Re_Start:
 			{
 			// Without Course-Lock Yaw is treated as "direct input" and
 			// just smothed similar to other control variables.
-			RCSmthd.Yaw		= (RCSmthd.Yaw	* 3.0	+ RCFeed.Yaw  ) * 0.25;
+			RCSmthd.Yaw		= (RCSmthd.Yaw	+ RCFeed.Yaw  ) * 0.5;
 			}
 		//------------------------------------------------------------
-		// Throttle is smoothed with the IIR(4) and adjusted to
+		// Throttle is smoothed with the IIR(2) and adjusted to
 		// account for actual battery voltage. This is done to
 		// improve "hovering" when throttle stick is not moving.
 		//------------------------------------------------------------
@@ -502,7 +502,7 @@ Re_Start:
 		if (BatV > 2.0)		// Sanity check :)
 			BatAdjTh	= BatAdjTh	* BatNomV / BatV;
 		//-----------------------------------------
-		RCSmthd.Throttle	= (RCSmthd.Throttle*3.0	+ BatAdjTh) * 0.25;	// 1/4 = 0.25
+		RCSmthd.Throttle	= (RCSmthd.Throttle + BatAdjTh) * 0.5;	// 1/2 = 0.5
 		//-----------------------------------------
 		RCSmthd.Control		= RCFeed.Control;
 		// </editor-fold>
