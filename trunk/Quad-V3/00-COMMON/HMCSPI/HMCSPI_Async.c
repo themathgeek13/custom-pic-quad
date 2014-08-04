@@ -20,15 +20,12 @@ HMC_RC	HMC_AsyncStart()
 	_HMC_Ready	= 0;		// Discard async sample (if any)
 	_HMC_Async	= 1;		// Set Asynchronous READ flag
 	//=========================================================
-	// Start ICx module and enable ICx interrupts
+	// Start INTx module and enable INTx interrupts
 	//---------------------------------------------------------
-	IC_IF	= 0;		// Clear the ICx interrupt flag
-	IC_IE	= 1;		// Enable ICx interrupt
-	ICM		= 0b011;	// Enable ICx module and set Capture
-						// mode to generate interrupt on every
-						// rising edge (Simple Capture mode)
+	HMC_IF	= 0;		// Clear the INTx interrupt flag
+	HMC_IE	= 1;		// Enable INTx interrupt
 	//---------------------------------------------------------
-	// Next time HMC5983 raises DRDY line ICx will trigger
+	// Next time HMC5983 raises DRDY line INTx will trigger
 	// interrupt an initiate reading of the data.
 	//=========================================================
 	return HMC_OK;
@@ -48,11 +45,10 @@ HMC_RC	HMC_AsyncStop()
 	//=====================================================
 	// Disable ASYNC driver
 	//=====================================================
-	// Start ICx module and enable ICx interrupts
+	// Stopt INTx module and disable INTx interrupts
 	//---------------------------------------------------------
-	ICM		= 0;		// Disable ICx module
-	IC_IF	= 0;		// Clear the ICx interrupt flag
-	IC_IE	= 0;		// Disable ICx interrupt
+	HMC_IF	= 0;		// Clear the INTx interrupt flag
+	HMC_IE	= 0;		// Disable INTx interrupt
 	//=========================================================
 	// Clear ASYNC flag
 	//=========================================================

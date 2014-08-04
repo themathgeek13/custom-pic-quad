@@ -1,18 +1,15 @@
 #include "HMCSPI\HMCSPI_Local.h"
 
 //************************************************************
-// ICx Interrupt Routines (Data Ready trigger from HMC)
+// INTx Interrupt Routines (Data Ready trigger from HMC)
 //************************************************************
-void __attribute__((__interrupt__, __no_auto_psv__)) ICInterrupt(void)
+void __attribute__((__interrupt__, __no_auto_psv__)) HMC_Interrupt(void)
 	{
 	//---------------------------------------------------
 	_HMC_Buffer_Template		FIFO;
 	uint						i;
 	//---------------------------------------------------------
-	IC_IF 	= 0; 	// Reset ICx interrupt request
-	// Clear capture buffer (and ignore its contents)
-	while (ICBNE)
-	    i = ICBUF;
+	HMC_IF 	= 0; 	// Reset INTx interrupt request
 	//=========================================================
 	// We have captured RISING edge - HMC has measurement!
 	//---------------------------------------------------------
@@ -45,7 +42,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) ICInterrupt(void)
 	}
 
 //************************************************************
-// ICx Interrupt Routines (Data Ready trigger from HMC)
+// INTx Interrupt Routines (Data Ready trigger from HMC)
 //************************************************************
 void __attribute__((__interrupt__, __no_auto_psv__)) SPIInterrupt(void)
 	{

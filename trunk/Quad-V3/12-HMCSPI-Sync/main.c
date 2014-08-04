@@ -15,6 +15,11 @@ int main(void)
 	Init();
 	TMRInit(2);		// Initialize Timer interface with Priority=2
 	BLIInit();		// Initialize Signal interface
+	//-------------------------------------------------------------------
+	BLIAsyncStart(100, 100);
+	TMRDelay(5000);			// To avoid false-start at Reset
+	BLIAsyncStop();
+	BLISignalOFF();
 	//*******************************************************************
 	// Switch 1 controls the Serial Data Logger (SDL) communication speed
 	//-------------------------------------------------------------------
@@ -27,25 +32,64 @@ int main(void)
 		// wireless communication at 115.2 KBaud
 		SDLInit(3, BAUD_115200);
 	//*******************************************************************
-	
+	// HMC5983 Magnetometer initialization
+	//-------------------------------------------------------------------
 	byte IL		= 5;	// Interrupt level
-
-	byte ODR	= 7;	// Fastest rate: 220 Hz
-	byte DLPF	= 3;	// 0 => 1-average	4.21/0.24 msec	| 224 Hz
-						// 1 => 2-average	4.17/0.28 msec	| 224 Hz
-						// 2 => 4-average
-						// 3 => 8-average	8.38/0.53 msec	| 112 Hz
-
-	byte Gain	= 1;	// +/- 1.3 Ga
-
+	//------------------------------------------------------
+	// <editor-fold defaultstate="collapsed" desc="Output Data Rate (ODR">
+	//------------------------------------------------------
+	// Typical Data Output Rate (Hz) for various ODR values
+	//------------------------------------------------------
+	//		ODR =	0:		  0.75
+	//		ODR =	2:		  1.5
+	//		ODR =	2:		  3
+	//		ODR =	3:		  7.5
+	//		ODR =	4:		 15		(Default)
+	//		ODR =	5:		 30
+	//		ODR =	6:		 75
+	//		ODR =	7:		220		(fastest)
+	// </editor-fold>
+ 	byte ODR	= 7;	// Rate (fastest):	220 Hz
+	// <editor-fold defaultstate="collapsed" desc="Low-pass filtering (DLPF)">
+	//------------------------------------------------------
+	// Low-pass filtering achieved through sample averaging.
+	// Averaging does not affect effective ODR, so I assume
+	// that wit averaging enabled each successive reported
+	// sample is an average of the new measurement with "n"
+	// previous measurements - something like a FIR filter.
+	//------------------------------------------------------
+	// DLPF = 0 => 1-average	
+	// DLPF = 1 => 2-average
+	// DLPF = 2 => 4-average
+	// DLPF = 3 => 8-average
+	//------------------------------------------------------
+	// </editor-fold>
+ 	byte DLPF	= 0;
+	// <editor-fold defaultstate="collapsed" desc="Sensor Field Range (Gain)">
+	//------------------------------------------------------
+	// Recommended sensor field range (Ga) for various Gains
+	//------------------------------------------------------
+	//		Gain =	0:		0.9
+	//		Gain =	1:		1.3
+	//		Gain =	2:		1.9
+	//		Gain =	3:		2.5
+	//		Gain =	4:		4.0
+	//		Gain =	5:		4.7
+	//		Gain =	6:		5.6
+	//		Gain =	7:		8.1
+	//------------------------------------------------------
+	// The magnitude of Earth magnetic field varies over the
+	// surface of the Earth in the range 0.3 to 0.6 Gauss.
+	//------------------------------------------------------
+	// </editor-fold>
+ 	byte Gain	= 1;	// +/- 1.3 Ga
+	//------------------------------------------------------
 	HMC_Init(IL, ODR, Gain, DLPF);
 	//*******************************************************************
 	HMC_RC		RC;
 	//----------------------
 	ulong		i = 0;
 	//-----------------------------------------
-	BLISignalOFF();
-	//----------------------
 	byte		RegA;
 	byte		RegB;
 	//-------------------------------
@@ -58,23 +102,25 @@ int main(void)
 
 
 	//----------------------
-	HMCData		Sample;
-	float		Pwr;
-	//----------------------
+	struct
+		{
+		HMCData		Sample;
+		ulong		Count;
+		} SDLData;
+		SDLData.Count	= 0;
+    //----------------------
 	while (1)
 		{
 		//-------------------------------
-		RC = HMC_ReadSample(&Sample);
-		Pwr = VectorSize(&Sample.M);
+		if ( HMC_OK != (RC = HMC_ReadSample(&SDLData.Sample)) )
+			BLIDeadStop("SOS", 3);
+		SDLData.Count++;
+		//-------------------------------
 		BLISignalFlip();
 		//-------------------------------
-		i++;
+		SDLPostIfReady((byte*)&SDLData, sizeof(SDLData));
+		//-------------------------------
 		}
-
-//	Gain = 1
-//	-243.11922
-//	-719.2659
-//	 146.78896
 
 	//*******************************************************************
 	return 0;
