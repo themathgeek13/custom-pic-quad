@@ -114,7 +114,7 @@ static inline HMC_RC	_HMC_ConvertStream(	byte* Data,
 //==================================================================
 // <editor-fold defaultstate="collapsed" desc="static inline void _HMC_NormHMCData(...)">
 //------------------------------------------------------------------
-// HMC Data stream conversion
+// HMC Data stream normalization for Hard and Soft Iron
 //==================================================================
 static inline void	_HMC_NormHMCData(Vector* MData)
 	{
