@@ -4,7 +4,6 @@
 // Forward declaration of initialization helper functions
 //-------------------------------------------------------------
 void	_HMC_SPIInit();	
-void	_HMC_ICxInit();	
 						
 //*************************************************************
 HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
@@ -23,10 +22,9 @@ HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
 	if (IL > 7) IL = 7;
 	_HMC_IL	= IL;
 	//---------------------------------------------------------
-	// Prepare SPI and ICx Modules for configuration
+	// Prepare SPI Module for configuration
 	//---------------------------------------------------------
 	SPISTAT		= 0;	// Disable SPI for configuration
-	ICCON1		= 0;	// Disable ICx for configuration
 	//---------------------------------------------------------
 	// Please NOTE that the Init program disables all PERIPHERAL
 	// MODULES using PMDx registers. To continue configuring and
@@ -34,8 +32,14 @@ HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
 	// module in PMDx
 	//---------------------------------------------------------
 	SPI_MD		= 0;	// Enable SPI module
-	IC_MD		= 0;	// Enable ICx module
 	Nop();				// Skip one cycle to let modules enable
+	//---------------------------------------------------------
+	// Configure INTx Module
+	//---------------------------------------------------------
+	HMC_IE		= 0;			// Disable INTx interrupt
+	HMC_IF		= 0; 			// Clear INTx interrupt flag
+	HMC_EP		= 0;			// Interrupt on POSITIVE edge
+	HMC_IP		= _HMC_IL;		// Set INTx interrupt priority
 	//---------------------------------------------------------
 	// Configure relevant pins of the MCU
 	//---------------------------------------------------------
@@ -44,10 +48,6 @@ HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
 	// Configure SPI Module
 	//---------------------------------------------------------
 	_HMC_SPIInit();
-	//---------------------------------------------------------
-	// Configure ICx Module
-	//---------------------------------------------------------
-	_HMC_ICxInit();
 	//---------------------------------------------------------
 	return HMC_ReSet(ODR, Gain, DLPF);
 	}
@@ -63,7 +63,6 @@ void	_HMC_SPIInit()
 	CKP		= 1;		// Clock - Idle High
 	MSTEN	= 1;		// MCU is the master
 	SPRE	= 0b111;	// Secondary PRE = 1:1
-//	PPRE	= 0b00;		// Primary	 PRE = 64:1 for SPI clock
 	PPRE	= 0b01;		// Primary	 PRE = 16:1 for SPI clock
 						// speed of 4 MHz assuming MCU runs at
 						// 64 MHz
@@ -84,42 +83,10 @@ void	_HMC_SPIInit()
 	SPIEN	= 1;
 	//---------------------------------------------------------
 	// NOTE: Interrupts for SPI module are still disabled; they
-	//		 will be enabled in ICx interrupt routine before
+	//		 will be enabled in INTx interrupt routine before
 	//		 innitiation of I/O operation
 	//---------------------------------------------------------
 	return;
 	}
 // </editor-fold>
 //*************************************************************
-
-//*************************************************************
-// <editor-fold defaultstate="collapsed" desc="void	_HMC_ICxInit()">
-void	_HMC_ICxInit()
-	{
-	//---------------------------------------------------------
-	// NOTE: In this module ICx serves as just interrupt trigger,
-	//		 without actually capturing interrupt time. As
-	//		 such we should configure it to use some timer -
-	//		 the only restriction is that this timer should not
-	//		 be part of a 32-bit timer to avoid blocking the
-	//		 timer. ICCON = 0 also configures ICx to use
-	//		 Timer3, which is free in this application.
-	//---------------------------------------------------------
-	// Put ICx into the trigger mode
-	//---------------------------------------------------------
-	ICCON2 = 0;
-	//---------------------------------------------------------
-	// Configure ICx interrupts
-	//---------------------------------------------------------
-	IC_IE		= 0;			// Disable ICx interrupt
-	IC_IF		= 0; 			// Clear ICx interrupt flag
-	IC_IP		= _HMC_IL;		// Set ICx interrupt priority
-	//---------------------------------------------------------
-	// NOTE: We are leaving ICx Module in DISABLED state;
-	//		 It will be enabled when we start HMC Async read.
-	//---------------------------------------------------------
-	return;
-	}
-// </editor-fold>
-//*************************************************************
-

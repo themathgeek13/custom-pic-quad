@@ -6,14 +6,14 @@
 //=====================================================
 typedef enum _HMC_RC
 	{
-    HMC_OK		= 0,		// No error
+        HMC_OK		= 0,		// No error
 	HMC_InvArg,				// Invalid call arguments
 	HMC_NotInit,			// Module is not initialized
 	HMC_OWFL,				// Range exceeded - reduce gain!
 	//-----------------------------
-    HMC_NoAsync,			// Async mode not started
+        HMC_NoAsync,			// Async mode not started
 	HMC_AsyncNotRdy			// Async data is not ready yet
-	}		HMC_RC;
+	}	HMC_RC;
 //=====================================================
 typedef struct
 	{

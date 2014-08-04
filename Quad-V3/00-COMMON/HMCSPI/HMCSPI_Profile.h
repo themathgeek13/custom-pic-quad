@@ -74,7 +74,6 @@
 //------------------------------------------------------------------
 #define SPIBUF			SPI2BUF
 
-
 //------------------------------------------------------------------
 // SPI interrupt bits
 //------------------------------------------------------------------
@@ -92,56 +91,6 @@
 //==================================================================
 
 //==================================================================
-// IC Module definitions - please update depending on the module
-// 						   used in the current application.
-//------------------------------------------------------------------
-// Definition for the pin that will be used by Input Capture module
-// NOTE: Changes to this definition should be coordinated with the
-//		 respective changes to the helper function responsible for
-//		 mapping pin(s) to Input Capture module _SR04InitPinMap()
-//------------------------------------------------------------------
-// Input Capture Interrupt routines
-//------------------------------------------------------------------
-#define ICInterrupt		_IC5Interrupt
-//------------------------------------------------------------------
-// Input Capture Registers
-//------------------------------------------------------------------
-// Input Capture Control register
-#define	ICCON1			IC5CON1
-#define ICCON2			IC5CON2
-#define ICBUF			IC5BUF;
-//------------------------------------------------------------------
-// Input Capture Control bits/flags
-//------------------------------------------------------------------
-// Input Capture Mode Select bits
-// ICM = 0 disables Input Capture module
-// ICM = 1 - Capture mode, every edge (rising and falling)
-// (ICI bits do not control interrupt generation for this mode)
-//------------------------------------------------------------------
-#define ICM				IC5CON1bits.ICM
-#define ICBNE			IC5CON1bits.ICBNE
-
-//------------------------------------------------------------------
-// Input Capture interrupt bits
-//------------------------------------------------------------------
-// Input Capture interrupt control bit
-#define	IC_IE			_IC5IE
-// Input Capture interrupt flag
-#define	IC_IF			_IC5IF
-// Input Capture Interrupt priority
-#define	IC_IP			_IC5IP
-//------------------------------------------------------------------
-
-//------------------------------------------------------------------
-// Peripheral Module Disable (PMD) register for selected
-// Input Capture Module
-//------------------------------------------------------------------
-#define	IC_MD			_IC5MD
-//==================================================================
-
-
-
-//==================================================================
 // Slave Select (SS) port definition
 //------------------------------------------------------------------
 #define CS_TRIS			_TRISE5
@@ -150,12 +99,38 @@
 // Slave Select control macros (Active Low)
 #define	CS_Start()		CS_LAT = 0
 #define	CS_Stop()		CS_LAT = 1
+//==================================================================
 
+//==================================================================
+// HMC5983 needs to be associated with one of the INTx Modules -
+// please update definitions below depending on the allocation of
+// external interrup modules INTx to respective HMC5983 interrupt
+// line.
+//------------------------------------------------------------------
+// INT1 module of the PIC MCU allocated to HMC5983 interrupt line
+//------------------------------------------------------------------
+// INTx interrupt bits
+//--------------------------------------------------------------
+// INTx interrupt control bit
+#define	HMC_IE			_INT1IE
+// INTx interrupt flag
+#define	HMC_IF			_INT1IF
+// INTx Interrupt priority
+#define	HMC_IP			_INT1IP
+// INTx Edge Detect Polarity Select bit
+#define HMC_EP			_INT1EP
+//--------------------------------------------------------------
+// INTx Interrupt routines
+//--------------------------------------------------------------
+#define HMC_Interrupt           _INT1Interrupt
 //------------------------------------------------------------------
 // Data Ready (DRDY) port definition
-// This is the port linked with the ICx module to capture transitions
+// This is the port linked with the INTx module to capture Data
+// Ready notification from the sensor.
 //------------------------------------------------------------------
 #define	DRDY			_RE6
+//==================================================================
+
 
 //==================================================================
 // Helper function _HMCInitPinMap(void) implements configuration
@@ -165,7 +140,6 @@ static inline void _HMCInitPinMap(void)
 	{
 	//=========================================================
 	//	Slave Select Pin 	= RP85/RE5
-	//  DRDY Interrupt pin	= RPI86/RE6
 	//=========================================================
 	// Writing to RP control registers is protected by IOLOCK
 	// bit in the OSCCON register. Please note that as part of
@@ -176,9 +150,9 @@ static inline void _HMCInitPinMap(void)
 	// Configure Slave Select pin
 	//---------------------------------------------------------
 	CS_TRIS		= 0;	// Pin configured as otput
-	CS_Stop();			// Set to inactive state
+	CS_Stop();		// Set to inactive state
 	//=========================================================
-	//	ICx Sense Pin 	= RP6/RB6
+	//	INTx (DRDY)Trigger Pin 	= RPI86/RE6
 	//=========================================================
 	// Writing to RP control registers is protected by IOLOCK
 	// bit in the OSCCON register. Please note that as part of
@@ -186,10 +160,10 @@ static inline void _HMCInitPinMap(void)
 	// cleared, which enables writing to these register at any
 	// time.
 	//---------------------------------------------------------
-	// Configure DRDY Interrupt pin and link it to ICx
+	// Configure DRDY Interrupt pin and link it to INTx
 	//---------------------------------------------------------
 	_TRISE6	= 1;	// RE6 Pin configured as Input
-	_IC5R	= 86; 	// (IN) IC1 mapped to pin RPI86/RE6
+	_INT1R	= 86; 	// (IN) INT1 mapped to pin RPI86/RE6
 	//---------------------------------------------------------
 	return;
 	}

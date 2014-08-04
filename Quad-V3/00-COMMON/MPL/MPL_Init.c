@@ -44,10 +44,10 @@ uint	MPLInit(byte OSR)
 	//---------------------------------------------------------
 	// Configure Interrupts
 	//---------------------------------------------------------
-	MPL_IE		= 0;			// Disable ICx interrupt
-	MPL_IF		= 0; 			// Clear ICx interrupt flag
+	MPL_IE		= 0;			// Disable INTx interrupt
+	MPL_IF		= 0; 			// Clear INTx interrupt flag
 	MPL_EP		= 0;			// Interrupt on POSITIVE edge
-	MPL_IP		= _MPL_IL;		// Set ICx interrupt priority
+	MPL_IP		= _MPL_IL;		// Set INTx interrupt priority
 	//---------------------------------------------------------
 	// Map MCU pins used by INTx module through
 	// REMAPPABLE PIN SELECT feature.
