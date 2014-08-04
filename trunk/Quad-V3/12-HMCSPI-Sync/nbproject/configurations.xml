@@ -32,6 +32,7 @@
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Local.h</itemPath>
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Profile.h</itemPath>
           <itemPath>../00-COMMON/HMCSPI/HMCSPI_Sync.c</itemPath>
+          <itemPath>../00-COMMON/HMCSPI/HMCSPI_Reset.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Init" displayName="Init" projectFiles="true">
           <itemPath>../00-COMMON/Init/Init.c</itemPath>

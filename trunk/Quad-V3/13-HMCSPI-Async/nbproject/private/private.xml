@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/00-COMMON/HMCSPI/HMCSPI_Local.h</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/13-HMCSPI-Async/main.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/00-COMMON/HMCSPI/HMCSPI_Init.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/00-COMMON/HMCSPI/HMCSPI_Reset.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/00-COMMON/HMCSPI/HMCSPI_Sync.c</file>
+        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V3/00-COMMON/HMCSPI/HMCSPI.h</file>
+    </open-files>
 </project-private>

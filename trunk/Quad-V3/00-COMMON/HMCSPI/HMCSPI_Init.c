@@ -1,12 +1,11 @@
 #include "HMCSPI\HMCSPI_Local.h"
 
-//*************************************************************
-// Forward declaration of initialization helper functions
-//-------------------------------------------------------------
-void	_HMC_SPIInit();	
-						
-//*************************************************************
+//==================================================================
 HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
+	//--------------------------------------------------------------
+	// Parameters ODR, Gain, and DLPF are passed through to
+	// HMCSPI_Reset(...) function and explained there.
+	//--------------------------------------------------------------
 	{
 	if (_HMC_Init)
 	  return HMC_OK;		// Avoid duplicate initialization
@@ -45,19 +44,6 @@ HMC_RC	HMC_Init(byte IL, byte ODR, byte Gain, byte DLPF)
 	//---------------------------------------------------------
 	_HMCInitPinMap ();
 	//---------------------------------------------------------
-	// Configure SPI Module
-	//---------------------------------------------------------
-	_HMC_SPIInit();
-	//---------------------------------------------------------
-	return HMC_ReSet(ODR, Gain, DLPF);
-	}
-//*************************************************************
-
-//*************************************************************
-// <editor-fold defaultstate="collapsed" desc="void	_HMC_SPIInit()">
-void	_HMC_SPIInit()
-	{
-	//---------------------------------------------------------
 	// Configure SPI Module parameters
 	//---------------------------------------------------------
 	CKP		= 1;		// Clock - Idle High
@@ -84,9 +70,8 @@ void	_HMC_SPIInit()
 	//---------------------------------------------------------
 	// NOTE: Interrupts for SPI module are still disabled; they
 	//		 will be enabled in INTx interrupt routine before
-	//		 innitiation of I/O operation
+	//		 initiation of I/O operation
 	//---------------------------------------------------------
-	return;
+	return HMC_ReSet(ODR, Gain, DLPF);
 	}
-// </editor-fold>
-//*************************************************************
+//==================================================================

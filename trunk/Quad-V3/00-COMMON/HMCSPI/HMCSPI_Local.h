@@ -65,6 +65,19 @@ typedef	struct
 	long		MZ;
 	}	_HMCRawData;
 //==================================================================
+
+//==================================================================
+// Synchronous read support
+//==================================================================
+// HMC SPI Register(s) Read routine for HMC 5983 Magnetometer
+HMC_RC	_HMC_RegRead(byte RAddr, byte* DataBuf, uint DataLen);
+// HMC SPI Register(s) Write routine for HMC 5983 Magnetometer
+HMC_RC	_HMC_RegWrite(byte RAddr, byte* DataBuf, uint DataLen);
+// SPI Read/Write routines
+void	_HMC_IO(byte* Buffer, uint BufLen);
+//==================================================================
+
+//==================================================================
 // Asynchronous read support
 //==================================================================
 extern volatile uint	_HMC_Async;	// Asynchronous read mode flag
@@ -72,7 +85,7 @@ extern volatile uint	_HMC_Async;	// Asynchronous read mode flag
 extern volatile	uint	_HMC_Ready;	// Flag indicating whether asynch-
 									// ronous read data is ready
 //------------------------------------------------------------------
-extern  _HMCRawData		_HMC_Sample;// Asynchronous sample...
+extern  _HMCRawData	_HMC_Sample;// Asynchronous sample...
 //==================================================================
 #endif	/* HMCSPI_LOCAL_H */
 
