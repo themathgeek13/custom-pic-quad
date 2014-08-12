@@ -31,7 +31,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) HMC_Interrupt(void)
 	//---------------------------------------------------------
 	SPI_IF	= 0;	// Reset SPI interrupt request (if any)
 	SPI_IE	= 1;	// Enable interrupts (to capture end of
-					// transission)
+					// transmission)
 	// Load FIFO buffer
 	for (i = 0; i < 7; i++)			// Address + 6 data bytes
 		SPIBUF = FIFO.SPIBuf[i];	// Load SPI FIFO from Buffer
@@ -74,7 +74,7 @@ void __attribute__((__interrupt__, __no_auto_psv__)) SPIInterrupt(void)
 	int		X, Y, Z;
 	// Obtain measurement values from captured HMC data stream
 	if (HMC_OK != _HMC_ConvertStream(FIFO.Data, &X, &Y, &Z))
-		return;		// Measurement verflow... Maybe next time :)
+		return;		// Measurement overflow... Maybe next time :)
 	//---------------------------------------------------------
 	// Accumulate measurements for subsequent averaging
 	//---------------------------------------------------------
