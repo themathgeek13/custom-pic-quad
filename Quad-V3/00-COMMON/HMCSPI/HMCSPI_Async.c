@@ -120,7 +120,7 @@ HMC_RC	_HMCAsyncRead(HMCData* Sample)
 
 	//==============================================
 	// Adjust Sample Weight to account for multiple
-	// samples (data averaging
+	// samples (data averaging)
 	//----------------------------------------------
 	if (Ready_Cnt > 1)
 		{

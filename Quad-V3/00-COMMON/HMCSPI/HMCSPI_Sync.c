@@ -1,14 +1,6 @@
 #include "HMCSPI\HMCSPI_Local.h"
 
 //==================================================================
-// SPI Synchronous Read/Write helper routines (forward declarations)
-//------------------------------------------------------------------
-HMC_RC		_HMC_RegRead(byte RAddr, byte* DataBuf, uint DataLen);
-HMC_RC		_HMC_RegWrite(byte RAddr, byte* DataBuf, uint DataLen);
-void		_HMC_IO(byte* Buffer, uint BufLen);
-//==================================================================
-
-//==================================================================
 // <editor-fold defaultstate="collapsed" desc="Single byte operations">
 //-----------------------------------------------------
 HMC_RC	HMC_ReadA(byte* A)
@@ -147,7 +139,7 @@ HMC_RC		_HMC_RegRead(byte RAddr, byte* DataBuf, uint DataLen)
 		FIFO.SPIBuf[i] = 0;
 	// Format Command byte
 	FIFO.RegAddr	= RAddr;// Set initial register address
-	FIFO.MS			= 1;	// Autoincrement register address
+	FIFO.MS			= 1;	// Auto-increment register address
 	FIFO.RW			= 1;	// Read value from register
 	//---------------------------------------------------
 	// Wait for bus to be free and acquire it
