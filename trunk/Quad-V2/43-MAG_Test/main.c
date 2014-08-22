@@ -6,7 +6,7 @@
 #include "I2C\I2C.h"
 #include "HMCMAG\HMCMAG.h"
 #include "HMCMAG\HMCMAG_Local.h"
-#include "UART\UART.h"
+#include "UART\UART_TX.h"
 
 int main(void)
 	{

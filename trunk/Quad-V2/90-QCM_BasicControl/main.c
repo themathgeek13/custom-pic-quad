@@ -488,7 +488,7 @@ Re_Start:
 		else
 			{
 			// Without Course-Lock Yaw is treated as "direct input" and
-			// just smothed similar to other control variables.
+			// just smoothed similar to other control variables.
 			RCSmthd.Yaw		= (RCSmthd.Yaw	+ RCFeed.Yaw  ) * 0.5;
 			}
 		//------------------------------------------------------------

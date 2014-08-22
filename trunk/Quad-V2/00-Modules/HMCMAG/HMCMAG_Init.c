@@ -18,7 +18,7 @@ uint		HMCInit(byte ODR, byte Gain, byte DLPF)
 	//************************************************
 
 	//---------------------------------------------------------
-	// MPL Module uses Input Capture facility to generate
+	// HMCMAG Module uses Input Capture facility to generate
 	// interrupt on READY state for asynchronous data aquisition
 	//---------------------------------------------------------
 	HMC_ICCON	= 0;	// Disable ICx for configuration
