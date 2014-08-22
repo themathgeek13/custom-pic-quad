@@ -1,6 +1,6 @@
 #include "System.h"
-#include "I2C\I2C.h"
-#include "Vector\Vector.h"
+#include "I2C/I2C.h"
+#include "Vector/Vector.h"
 
 //=====================================================
 #ifndef __MPL3115_H

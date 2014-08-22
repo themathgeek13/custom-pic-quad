@@ -1,9 +1,9 @@
-#include "MXB\MXB.h"
+#include "MXB/MXB.h"
 //=====================================================
 #ifdef __MAG_Use__
 //*****************************************************
-#include "MXB\MXBProfile.h"
-#include "TMR\TMR.h"
+#include "MXB/MXBProfile.h"
+#include "TMR/TMR.h"
 //=====================================================
 
 #ifndef MXBLOCAL_H

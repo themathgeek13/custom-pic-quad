@@ -1,4 +1,4 @@
-#include "DBG\DBG.h"
+#include "DBG/DBG.h"
 
 //************************************************************
 void	DBGInit()

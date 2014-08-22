@@ -1,4 +1,4 @@
-#include "TMR\TMRLocal.h"
+#include "TMR/TMRLocal.h"
 
 //************************************************************
 uint		_TMRInit = 0;	// Timer initializtion flag

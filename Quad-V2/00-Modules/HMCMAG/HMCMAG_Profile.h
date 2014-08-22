@@ -1,6 +1,6 @@
 #include "System.h"
 //*****************************************************
-#include "I2C\I2C_Profile.h"
+#include "I2C/I2C_Profile.h"
 //==================================================================
 #ifndef HMCMAG_PROFILE_H
 #define	HMCMAG_PROFILE_H

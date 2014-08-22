@@ -1,12 +1,12 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
-#include "HMCMAG\HMCMAG.h"
-#include "UART\UART.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
+#include "HMCMAG/HMCMAG.h"
+#include "UART/UART_TX.h"
 
 int main(void)
 	{
@@ -18,6 +18,7 @@ int main(void)
 	//--------------------------
 	TMRDelay(1000);		// Wait for 1 sec so that the shake from turning on
 						// power switch dissipates...
+        //BLIDeadStop("SOS",3);
 	//--------------------------
 	if (MPUInit(3, 1))	// Initialize motion Sensor - 1 kHz/4 (250 Hz)
 		BLIDeadStop("EA", 2);
@@ -49,7 +50,8 @@ int main(void)
 	//*******************************************************************
 	uint			RC			= 0;
 	//--------------------------
-	MPUSample		AGSample;
+	//MPUSample		AGSample;
+        MPUData 		AGSample;
 	#ifdef __MAG_Use__
 	HMCSample		MSample;
 	#endif

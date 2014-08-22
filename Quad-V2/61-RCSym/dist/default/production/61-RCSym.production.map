@@ -1,0 +1,2132 @@
+Microchip Technology Inc, v
+
+Tool Name:
+  /Applications/microchip/xc16/v1.21/bin/bin/../bin/elf-ld
+
+Command:
+  -p24HJ128GP204 \
+  -o \
+  dist/default/production/61-RCSym.production.elf \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/.. \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/PIC24E \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/PIC24E/gld \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/PIC24F \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/PIC24F/gld \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/PIC24H \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/PIC24H/gld \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC30F \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/dsPIC30F/gld \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33E \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/dsPIC33E/gld \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../lib/dsPIC33F \
+  -L/Applications/microchip/xc16/v1.21/bin/bin/../../support/dsPIC33F/gld \
+  build/default/production/_ext/261189241/BLI.o \
+  build/default/production/_ext/261189241/BLIInit.o \
+  build/default/production/_ext/261189241/BLILocal.o \
+  build/default/production/_ext/261189241/BLIMorse.o \
+  build/default/production/_ext/492825802/Init.o \
+  build/default/production/_ext/261199537/MCM.o \
+  build/default/production/_ext/261199537/MCMInit.o \
+  build/default/production/_ext/261199537/MCMLocal.o \
+  build/default/production/_ext/1099952713/RC.o \
+  build/default/production/_ext/1099952713/RCInit.o \
+  build/default/production/_ext/1099952713/RCLocal.o \
+  build/default/production/_ext/1099952713/RC_ISR.o \
+  build/default/production/_ext/1099952713/RCSym.o \
+  build/default/production/_ext/261206579/TMR.o \
+  build/default/production/_ext/261206579/TMRInit.o \
+  build/default/production/_ext/261206579/TMRLocal.o \
+  build/default/production/_ext/261206579/TMR_ISR.o \
+  build/default/production/_ext/492512300/UART_TX_API.o \
+  build/default/production/_ext/492512300/UART_TX_Init.o \
+  build/default/production/_ext/492512300/UART_TX_ISR.o \
+  build/default/production/_ext/1566098207/UART_TX_Local.o \
+  build/default/production/main.o \
+  --defsym=__MPLAB_BUILD=1 \
+  -Tp24HJ128GP204.gld.00 \
+  --stack=16 \
+  --check-sections \
+  --data-init \
+  --pack-data \
+  --handles \
+  --isr \
+  --no-gc-sections \
+  --fill-upper=0 \
+  --stackguard=16 \
+  --no-force-link \
+  --smart-io \
+  -Map=dist/default/production/61-RCSym.production.map \
+  --report-mem \
+  -start-group \
+  --library=fx-elf \
+  --library=pic30-elf \
+  --library=fastm-elf \
+  --library=c-elf \
+  -end-group \
+
+Archive member included because of file (symbol)
+
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(crt0_standard.o)
+                              (__resetPRI)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(data_init_standard.o)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(crt0_standard.o) (__data_init_standard)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(feqltle.eo)
+                              build/default/production/_ext/261199537/MCM.o (___ltsf2)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fgtge.eo)
+                              build/default/production/_ext/261199537/MCM.o (___gtsf2)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fixunssfsi.eo)
+                              build/default/production/_ext/261199537/MCM.o (___fixunssfsi)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatsisf.eo)
+                              build/default/production/_ext/1099952713/RC.o (___floatsisf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatunsisf.eo)
+                              build/default/production/_ext/261199537/MCMInit.o (___floatunsisf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floorf.eo)
+                              build/default/production/_ext/261199537/MCMInit.o (_floorf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fixunssfsi.eo) (__funpack)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(addsf3x.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floorf.eo) (___subsf3)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(mulsf3x.eo)
+                              build/default/production/_ext/261199537/MCM.o (___mulsf3)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(udivsi3x.eo)
+                              build/default/production/_ext/1099952713/RCSym.o (___udivsi3)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(unpackdnrmfx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(mulsf3x.eo) (__unpackdnrmf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(divsf3x.eo)
+                              build/default/production/_ext/261199537/MCMInit.o (___divsf3)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(propnanfx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(addsf3x.eo) (__propnanf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(unpackfx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(divsf3x.eo) (__unpackf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(dnrmpackfx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(addsf3x.eo) (__dnrmpackf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(spackfx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(divsf3x.eo) (__spackf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(errno.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(divsf3x.eo) (_errno)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fchop.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floorf.eo) (__fchop)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fcompare.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(feqltle.eo) (__fcompare)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatdisf.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatsisf.eo) (___floatdisf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatundisf.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatunsisf.eo) (___floatundisf)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fpack.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fchop.eo) (__fpack)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack2.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fcompare.eo) (__funpack2)
+/Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(typefx.eo)
+                              /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(addsf3x.eo) (__typef)
+
+
+Program Memory  [Origin = 0x200, Length = 0x155fe]
+
+section                    address   length (PC units)   length (bytes) (dec)
+-------                    -------   -----------------   --------------------
+.text                        0x200               0xe6c          0x15a2  (5538)
+.const                      0x106c              0x2350          0x34f8  (13560)
+.text                       0x33bc               0xc16          0x1221  (4641)
+.dinit                      0x3fd2               0x112           0x19b  (411)
+.text                       0x40e4               0x3c2           0x5a3  (1443)
+
+                     Total program memory used (bytes):         0x63f9  (25593) 19%
+
+
+Data Memory  [Origin = 0x800, Length = 0x2000]
+
+section                    address      alignment gaps    total length  (dec)
+-------                    -------      --------------    -------------------
+.nbss                        0x800                   0           0x200  (512)
+.ndata                       0xa00                   0           0x12a  (298)
+.nbss                        0xb2a                   0             0x2  (2)
+
+                        Total data memory used (bytes):          0x32c  (812) 9%
+
+
+Dynamic Memory Usage
+
+region                     address                      maximum length  (dec)
+------                     -------                      ---------------------
+heap                             0                                   0  (0)
+stack                        0xb2c                              0x1cd4  (7380)
+
+                        Maximum dynamic memory (bytes):         0x1cd4  (7380)
+
+
+External Symbols in Data Memory (by address):
+
+                    0x0800                  __BLIAsyncTimes
+                    0x0900                  __UART_TX_Buf
+                    0x0a00                  _BLIMorseA
+                    0x0a04                  _BLIMorseB
+                    0x0a0a                  _BLIMorseC
+                    0x0a10                  _BLIMorseD
+                    0x0a16                  _BLIMorseE
+                    0x0a1a                  _BLIMorseF
+                    0x0a20                  _BLIMorseG
+                    0x0a26                  _BLIMorseH
+                    0x0a2c                  _BLIMorseI
+                    0x0a30                  _BLIMorseJ
+                    0x0a36                  _BLIMorseK
+                    0x0a3c                  _BLIMorseL
+                    0x0a42                  _BLIMorseM
+                    0x0a46                  _BLIMorseN
+                    0x0a4a                  _BLIMorseO
+                    0x0a50                  _BLIMorseP
+                    0x0a56                  _BLIMorseQ
+                    0x0a5c                  _BLIMorseR
+                    0x0a62                  _BLIMorseS
+                    0x0a68                  _BLIMorseT
+                    0x0a6c                  _BLIMorseU
+                    0x0a72                  _BLIMorseV
+                    0x0a78                  _BLIMorseW
+                    0x0a7e                  _BLIMorseX
+                    0x0a84                  _BLIMorseY
+                    0x0a8a                  _BLIMorseZ
+                    0x0a90                  _BLIMorseAlphabet
+                    0x0ac4                  __RCIL
+                    0x0ac6                  __RCInit
+                    0x0ac8                  __RCState
+                    0x0aca                  __RCTimes
+                    0x0ae2                  __RCConnActive
+                    0x0ae4                  __RCSampleReady
+                    0x0ae6                  __RCSampleTimed
+                    0x0ae8                  __RCRawSample
+                    0x0afc                  __TMRInit
+                    0x0afe                  __TMRIL
+                    0x0b00                  __TMR_RT_ElapsedTime
+                    0x0b04                  __TMR_CallBack_TriggerTime
+                    0x0b08                  __TMR_CallBack
+                    0x0b0a                  __MC_Init
+                    0x0b0c                  __MC_Tmr_Count
+                    0x0b0e                  __MC_Base_Value
+                    0x0b10                  __MC_OCMax
+                    0x0b14                  __BLIInit
+                    0x0b16                  __BLIIL
+                    0x0b18                  __BLIAsync
+                    0x0b1a                  __BLIAsyncPos
+                    0x0b1c                  __UART_IL_TX
+                    0x0b1e                  __UART_TX_Ready
+                    0x0b20                  __UART_TX_Buf_Len
+                    0x0b22                  __UART_TX_Buf_Index
+                    0x0b24                  __RCSymStart
+                    0x0b28                  __RCControlCount
+
+External Symbols in Data Memory (by name):
+
+                    0x0a00                  _BLIMorseA
+                    0x0a90                  _BLIMorseAlphabet
+                    0x0a04                  _BLIMorseB
+                    0x0a0a                  _BLIMorseC
+                    0x0a10                  _BLIMorseD
+                    0x0a16                  _BLIMorseE
+                    0x0a1a                  _BLIMorseF
+                    0x0a20                  _BLIMorseG
+                    0x0a26                  _BLIMorseH
+                    0x0a2c                  _BLIMorseI
+                    0x0a30                  _BLIMorseJ
+                    0x0a36                  _BLIMorseK
+                    0x0a3c                  _BLIMorseL
+                    0x0a42                  _BLIMorseM
+                    0x0a46                  _BLIMorseN
+                    0x0a4a                  _BLIMorseO
+                    0x0a50                  _BLIMorseP
+                    0x0a56                  _BLIMorseQ
+                    0x0a5c                  _BLIMorseR
+                    0x0a62                  _BLIMorseS
+                    0x0a68                  _BLIMorseT
+                    0x0a6c                  _BLIMorseU
+                    0x0a72                  _BLIMorseV
+                    0x0a78                  _BLIMorseW
+                    0x0a7e                  _BLIMorseX
+                    0x0a84                  _BLIMorseY
+                    0x0a8a                  _BLIMorseZ
+                    0x0b18                  __BLIAsync
+                    0x0b1a                  __BLIAsyncPos
+                    0x0800                  __BLIAsyncTimes
+                    0x0b16                  __BLIIL
+                    0x0b14                  __BLIInit
+                    0x0b0e                  __MC_Base_Value
+                    0x0b0a                  __MC_Init
+                    0x0b10                  __MC_OCMax
+                    0x0b0c                  __MC_Tmr_Count
+                    0x0ae2                  __RCConnActive
+                    0x0b28                  __RCControlCount
+                    0x0ac4                  __RCIL
+                    0x0ac6                  __RCInit
+                    0x0ae8                  __RCRawSample
+                    0x0ae4                  __RCSampleReady
+                    0x0ae6                  __RCSampleTimed
+                    0x0ac8                  __RCState
+                    0x0b24                  __RCSymStart
+                    0x0aca                  __RCTimes
+                    0x0afe                  __TMRIL
+                    0x0afc                  __TMRInit
+                    0x0b08                  __TMR_CallBack
+                    0x0b04                  __TMR_CallBack_TriggerTime
+                    0x0b00                  __TMR_RT_ElapsedTime
+                    0x0b1c                  __UART_IL_TX
+                    0x0900                  __UART_TX_Buf
+                    0x0b22                  __UART_TX_Buf_Index
+                    0x0b20                  __UART_TX_Buf_Len
+                    0x0b1e                  __UART_TX_Ready
+
+External Symbols in Program Memory (by address):
+
+                  0x000200                  __resetPRI
+                  0x000226                  __psv_init
+                  0x000236                  __data_init
+                  0x000236                  __data_init_standard
+                  0x000298                  __T3Interrupt
+                  0x0002c8                  __CNInterrupt
+                  0x00064a                  __T1Interrupt
+                  0x000684                  __RTCCInterrupt
+                  0x0006ae                  __U1TXInterrupt
+                  0x000704                  __DefaultInterrupt
+                  0x000708                  ___lesf2
+                  0x000708                  ___eqsf2
+                  0x000708                  ___ltsf2
+                  0x00070c                  ___gesf2
+                  0x00070c                  ___gtsf2
+                  0x000710                  ___fixunssfsi
+                  0x000746                  ___floatsisf
+                  0x00074c                  ___floatunsisf
+                  0x000750                  _floorf
+                  0x000760                  __funpack
+                  0x00078a                  ___subsf3x
+                  0x00078a                  ___subsf3
+                  0x00079c                  ___addsf3x
+                  0x00079c                  ___addsf3
+                  0x000966                  ___mulsf3
+                  0x000966                  ___mulsf3x
+                  0x000a72                  ___udivsi3x
+                  0x000a72                  ___udivsi3
+                  0x000b4c                  __unpackdnrmf
+                  0x000baa                  ___divsf3x
+                  0x000baa                  ___divsf3
+                  0x000d3c                  __sdivf
+                  0x000d68                  __propnanf
+                  0x000d7a                  __unpackf
+                  0x000de0                  __dnrmpackf
+                  0x000e34                  __spackf
+                  0x000eda                  __fchop
+                  0x000f28                  __fcompare
+                  0x000f5e                  ___floatdisf
+                  0x000f7e                  ___floatundisf
+                  0x000fdc                  __fpack
+                  0x001028                  __funpack2
+                  0x001038                  __typef
+                  0x00106c                  __RCSymCount
+                  0x00106e                  __RCSymStream
+                  0x003396                  __RC_Tmr_Count
+                  0x003398                  __RCTimeCountMinMin
+                  0x00339c                  __RCTimeCountMin
+                  0x0033a0                  __RCTimeCountMidPoint
+                  0x0033a4                  __RCTimeCountMax
+                  0x0033a8                  __RCTimeCountMaxMax
+                  0x0033ac                  __RCPlusRange
+                  0x0033b0                  __RCPlusMinusRange
+                  0x0033b4                  __RCControlMin
+                  0x0033ba                  __UART_Start
+                  0x0033bb                  __UART_Stop
+                  0x0033bc                  _RCArm
+                  0x003412                  _RCIsLinked
+                  0x00341c                  _RCReadWhenReady
+                  0x003434                  _RCRead
+                  0x003638                  _MCMInitF
+                  0x003676                  _MCMInitT
+                  0x0036ce                  _MCMInitLocal
+                  0x0038ba                  _TMRGetTS
+                  0x0038cc                  _TMRGetRTC
+                  0x0038e4                  _TMRDelay
+                  0x0038f6                  _TMRDelayTicks
+                  0x003908                  _TMRSetAlarm
+                  0x003924                  _TMRSetAlarmTicks
+                  0x003938                  _TMRTestAlarm
+                  0x003952                  _TMRWaitAlarm
+                  0x003966                  _TMRCallBackAfter
+                  0x0039dc                  _TMRCallBackDiscard
+                  0x003a3c                  _MCMSet
+                  0x003be0                  _RCSymArm
+                  0x003c1c                  _RCSymReadWhenReady
+                  0x003c34                  _RCSymRead
+                  0x003d8c                  _UARTInitTX
+                  0x003eae                  _BLIAsyncMorse
+                  0x0040e4                  _TMRInitDefault
+                  0x0040f4                  _TMRInit
+                  0x004198                  _BLISignalON
+                  0x0041a6                  _BLISignalOFF
+                  0x0041b4                  _BLISignalFlip
+                  0x0041da                  _BLIAsyncStart
+                  0x00420c                  _BLIAsyncStop
+                  0x004224                  _BLIDeadStop
+                  0x004234                  _Init
+                  0x0042ce                  _RCInit
+                  0x004362                  _UARTPostWhenReady
+                  0x00437a                  _UARTPostIfReady
+                  0x0043de                  _main
+                  0x004438                  __BLICallBack
+                  0x00448a                  _BLIInit
+
+External Symbols in Program Memory (by name):
+
+                  0x003eae                  _BLIAsyncMorse
+                  0x0041da                  _BLIAsyncStart
+                  0x00420c                  _BLIAsyncStop
+                  0x004224                  _BLIDeadStop
+                  0x00448a                  _BLIInit
+                  0x0041b4                  _BLISignalFlip
+                  0x0041a6                  _BLISignalOFF
+                  0x004198                  _BLISignalON
+                  0x004234                  _Init
+                  0x003638                  _MCMInitF
+                  0x0036ce                  _MCMInitLocal
+                  0x003676                  _MCMInitT
+                  0x003a3c                  _MCMSet
+                  0x0033bc                  _RCArm
+                  0x0042ce                  _RCInit
+                  0x003412                  _RCIsLinked
+                  0x003434                  _RCRead
+                  0x00341c                  _RCReadWhenReady
+                  0x003be0                  _RCSymArm
+                  0x003c34                  _RCSymRead
+                  0x003c1c                  _RCSymReadWhenReady
+                  0x003966                  _TMRCallBackAfter
+                  0x0039dc                  _TMRCallBackDiscard
+                  0x0038e4                  _TMRDelay
+                  0x0038f6                  _TMRDelayTicks
+                  0x0038cc                  _TMRGetRTC
+                  0x0038ba                  _TMRGetTS
+                  0x0040f4                  _TMRInit
+                  0x0040e4                  _TMRInitDefault
+                  0x003908                  _TMRSetAlarm
+                  0x003924                  _TMRSetAlarmTicks
+                  0x003938                  _TMRTestAlarm
+                  0x003952                  _TMRWaitAlarm
+                  0x003d8c                  _UARTInitTX
+                  0x00437a                  _UARTPostIfReady
+                  0x004362                  _UARTPostWhenReady
+                  0x004438                  __BLICallBack
+                  0x0002c8                  __CNInterrupt
+                  0x000704                  __DefaultInterrupt
+                  0x0033b4                  __RCControlMin
+                  0x0033b0                  __RCPlusMinusRange
+                  0x0033ac                  __RCPlusRange
+                  0x00106c                  __RCSymCount
+                  0x00106e                  __RCSymStream
+                  0x0033a4                  __RCTimeCountMax
+                  0x0033a8                  __RCTimeCountMaxMax
+                  0x0033a0                  __RCTimeCountMidPoint
+                  0x00339c                  __RCTimeCountMin
+                  0x003398                  __RCTimeCountMinMin
+                  0x003396                  __RC_Tmr_Count
+                  0x000684                  __RTCCInterrupt
+                  0x00064a                  __T1Interrupt
+                  0x000298                  __T3Interrupt
+                  0x0006ae                  __U1TXInterrupt
+                  0x0033ba                  __UART_Start
+                  0x0033bb                  __UART_Stop
+                  0x00079c                  ___addsf3
+                  0x00079c                  ___addsf3x
+                  0x000baa                  ___divsf3
+                  0x000baa                  ___divsf3x
+                  0x000708                  ___eqsf2
+                  0x000710                  ___fixunssfsi
+                  0x000f5e                  ___floatdisf
+                  0x000746                  ___floatsisf
+                  0x000f7e                  ___floatundisf
+                  0x00074c                  ___floatunsisf
+                  0x00070c                  ___gesf2
+                  0x00070c                  ___gtsf2
+                  0x000708                  ___lesf2
+                  0x000708                  ___ltsf2
+                  0x000966                  ___mulsf3
+                  0x000966                  ___mulsf3x
+                  0x00078a                  ___subsf3
+                  0x00078a                  ___subsf3x
+                  0x000a72                  ___udivsi3
+                  0x000a72                  ___udivsi3x
+                  0x000236                  __data_init
+                  0x000236                  __data_init_standard
+                  0x000de0                  __dnrmpackf
+                  0x000eda                  __fchop
+                  0x000f28                  __fcompare
+                  0x000fdc                  __fpack
+                  0x000760                  __funpack
+                  0x001028                  __funpack2
+                  0x000d68                  __propnanf
+                  0x000226                  __psv_init
+                  0x000200                  __resetPRI
+                  0x000d3c                  __sdivf
+                  0x000e34                  __spackf
+                  0x001038                  __typef
+                  0x000b4c                  __unpackdnrmf
+                  0x000d7a                  __unpackf
+                  0x000750                  _floorf
+                  0x0043de                  _main
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+data             0x000800           0x002000           a !xr
+reset            0x000000           0x000004  
+ivt              0x000004           0x0000fc  
+_reserved        0x000100           0x000004  
+aivt             0x000104           0x0000fc  
+program          0x000200           0x0155fe           xr
+FBS              0xf80000           0x000002  
+FSS              0xf80002           0x000002  
+FGS              0xf80004           0x000002  
+FOSCSEL          0xf80006           0x000002  
+FOSC             0xf80008           0x000002  
+FWDT             0xf8000a           0x000002  
+FPOR             0xf8000c           0x000002  
+FICD             0xf8000e           0x000002  
+FUID0            0xf80010           0x000002  
+FUID1            0xf80012           0x000002  
+FUID2            0xf80014           0x000002  
+FUID3            0xf80016           0x000002  
+*default*        0x000000           0xffffffff  
+
+Linker script and memory map
+
+LOAD build/default/production/_ext/261189241/BLI.o
+LOAD build/default/production/_ext/261189241/BLIInit.o
+LOAD build/default/production/_ext/261189241/BLILocal.o
+LOAD build/default/production/_ext/261189241/BLIMorse.o
+LOAD build/default/production/_ext/492825802/Init.o
+LOAD build/default/production/_ext/261199537/MCM.o
+LOAD build/default/production/_ext/261199537/MCMInit.o
+LOAD build/default/production/_ext/261199537/MCMLocal.o
+LOAD build/default/production/_ext/1099952713/RC.o
+LOAD build/default/production/_ext/1099952713/RCInit.o
+LOAD build/default/production/_ext/1099952713/RCLocal.o
+LOAD build/default/production/_ext/1099952713/RC_ISR.o
+LOAD build/default/production/_ext/1099952713/RCSym.o
+LOAD build/default/production/_ext/261206579/TMR.o
+LOAD build/default/production/_ext/261206579/TMRInit.o
+LOAD build/default/production/_ext/261206579/TMRLocal.o
+LOAD build/default/production/_ext/261206579/TMR_ISR.o
+LOAD build/default/production/_ext/492512300/UART_TX_API.o
+LOAD build/default/production/_ext/492512300/UART_TX_Init.o
+LOAD build/default/production/_ext/492512300/UART_TX_ISR.o
+LOAD build/default/production/_ext/1566098207/UART_TX_Local.o
+LOAD build/default/production/main.o
+                    0x0001                  __MPLAB_BUILD = 0x1
+LOAD /Applications/microchip/xc16/v1.21/bin/bin/../../lib/PIC24H/libp24HJ128GP204-elf.a
+                    0xf80000                  __FBS = 0xf80000
+                    0xf80002                  __FSS = 0xf80002
+                    0xf80004                  __FGS = 0xf80004
+                    0xf80006                  __FOSCSEL = 0xf80006
+                    0xf80008                  __FOSC = 0xf80008
+                    0xf8000a                  __FWDT = 0xf8000a
+                    0xf8000c                  __FPOR = 0xf8000c
+                    0xf8000e                  __FICD = 0xf8000e
+                    0xf80010                  __FUID0 = 0xf80010
+                    0xf80012                  __FUID1 = 0xf80012
+                    0xf80014                  __FUID2 = 0xf80014
+                    0xf80016                  __FUID3 = 0xf80016
+                    0x0004                  __IVT_BASE = 0x4
+                    0x0104                  __AIVT_BASE = 0x104
+                    0x0800                  __DATA_BASE = 0x800
+                    0x2000                  __DATA_LENGTH = 0x2000
+                    0x2000                  __DMA_BASE = 0x2000
+                    0x27ff                  __DMA_END = 0x27ff
+                    0x0200                  __CODE_BASE = 0x200
+                    0x15600                  __CODE_LENGTH = 0x15600
+
+.reset            0x000000          0x4
+                  0x000000          0x2 SHORT 0x200 ABSOLUTE (__reset)
+                  0x000001          0x2 SHORT 0x4
+                  0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
+                  0x000003          0x2 SHORT 0x0
+
+.text             0x000200        0xe6c
+ *(.init)
+ .init            0x000200         0x36 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(crt0_standard.o)
+                  0x000200                  __reset
+                  0x000200                  __resetPRI
+                  0x000226                  __psv_init
+ .init            0x000236         0x5e /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(data_init_standard.o)
+                  0x000236                  __data_init
+                  0x000236                  __data_init_standard
+ *(.user_init)
+ *(.handle)
+ .handle          0x000294          0x4 jump_table
+ *(.isr*)
+ .isr.text        0x000298        0x3b2 build/default/production/_ext/1099952713/RC_ISR.o
+                  0x000298                  __T3Interrupt
+                  0x0002c8                  __CNInterrupt
+ .isr.text        0x00064a         0x64 build/default/production/_ext/261206579/TMR_ISR.o
+                  0x00064a                  __T1Interrupt
+                  0x000684                  __RTCCInterrupt
+ .isr.text        0x0006ae         0x56 build/default/production/_ext/492512300/UART_TX_ISR.o
+                  0x0006ae                  __U1TXInterrupt
+ .isr             0x000704          0x4 default_isr
+                  0x000704                  __DefaultInterrupt
+ *(.libc)
+ *(.libm)
+ *(.libdsp)
+ *(.lib*)
+ .libm.eqsf2      0x000708          0x4 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(feqltle.eo)
+                  0x000708                  ___lesf2
+                  0x000708                  ___eqsf2
+                  0x000708                  ___ltsf2
+ .libm.gtsf2      0x00070c          0x4 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fgtge.eo)
+                  0x00070c                  ___gtsf2
+                  0x00070c                  ___gesf2
+ .libm.fixunssfsi
+                  0x000710         0x36 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fixunssfsi.eo)
+                  0x000710                  ___fixunssfsi
+ .libm.floatsisf
+                  0x000746          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatsisf.eo)
+                  0x000746                  ___floatsisf
+ .libm.floatunsisf
+                  0x00074c          0x4 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatunsisf.eo)
+                  0x00074c                  ___floatunsisf
+ .libm.floorf     0x000750         0x10 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floorf.eo)
+                  0x000750                  _floorf
+ .libm.funpack    0x000760         0x2a /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack.eo)
+                  0x000760                  __funpack
+ .libmx           0x00078a        0x1dc /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(addsf3x.eo)
+                  0x00078a                  ___subsf3
+                  0x00078a                  ___subsf3x
+                  0x00079c                  ___addsf3
+                  0x00079c                  ___addsf3x
+ .libmx           0x000966        0x10c /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(mulsf3x.eo)
+                  0x000966                  ___mulsf3
+                  0x000966                  ___mulsf3x
+ .libmx           0x000a72         0xda /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(udivsi3x.eo)
+                  0x000a72                  ___udivsi3x
+                  0x000a72                  ___udivsi3
+ .libmx           0x000b4c         0x5e /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(unpackdnrmfx.eo)
+                  0x000b4c                  __unpackdnrmf
+ .libmx           0x000baa        0x1be /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(divsf3x.eo)
+                  0x000baa                  ___divsf3x
+                  0x000baa                  ___divsf3
+                  0x000d3c                  __sdivf
+ .libmx           0x000d68         0x12 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(propnanfx.eo)
+                  0x000d68                  __propnanf
+ .libmx           0x000d7a         0x66 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(unpackfx.eo)
+                  0x000d7a                  __unpackf
+ .libmx           0x000de0         0x54 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(dnrmpackfx.eo)
+                  0x000de0                  __dnrmpackf
+ .libmx           0x000e34         0xa6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(spackfx.eo)
+                  0x000e34                  __spackf
+ .libm.fchop      0x000eda         0x4e /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fchop.eo)
+                  0x000eda                  __fchop
+ .libm.fcompare
+                  0x000f28         0x36 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fcompare.eo)
+                  0x000f28                  __fcompare
+ .libm.floatdisf
+                  0x000f5e         0x20 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatdisf.eo)
+                  0x000f5e                  ___floatdisf
+ .libm.floatundisf
+                  0x000f7e         0x5e /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatundisf.eo)
+                  0x000f7e                  ___floatundisf
+ .libm.fpack      0x000fdc         0x4c /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fpack.eo)
+                  0x000fdc                  __fpack
+ .libm.funpack2
+                  0x001028         0x10 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack2.eo)
+                  0x001028                  __funpack2
+ .libmx           0x001038         0x34 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(typefx.eo)
+                  0x001038                  __typef
+
+usercode
+ *(usercode)
+
+__FBS
+ *(__FBS.sec*)
+
+__FSS
+ *(__FSS.sec*)
+
+__FGS
+ *(__FGS.sec*)
+
+__FOSCSEL         0xf80006          0x2
+ *(__FOSCSEL.sec*)
+ __FOSCSEL.sec    0xf80006          0x2 build/default/production/_ext/492825802/Init.o
+
+__FOSC            0xf80008          0x2
+ *(__FOSC.sec*)
+ __FOSC.sec       0xf80008          0x2 build/default/production/_ext/492825802/Init.o
+
+__FWDT            0xf8000a          0x2
+ *(__FWDT.sec*)
+ __FWDT.sec       0xf8000a          0x2 build/default/production/_ext/492825802/Init.o
+
+__FPOR            0xf8000c          0x2
+ *(__FPOR.sec*)
+ __FPOR.sec       0xf8000c          0x2 build/default/production/_ext/492825802/Init.o
+
+__FICD            0xf8000e          0x2
+ *(__FICD.sec*)
+ __FICD.sec       0xf8000e          0x2 build/default/production/_ext/492825802/Init.o
+
+__FUID0
+ *(__FUID0.sec*)
+
+__FUID1
+ *(__FUID1.sec*)
+
+__FUID2
+ *(__FUID2.sec*)
+
+__FUID3
+ *(__FUID3.sec*)
+
+.comment
+ *(.comment)
+
+.debug_info       0x000000       0xc546
+ *(.debug_info)
+ .debug_info      0x000000        0x530 build/default/production/_ext/261189241/BLI.o
+ .debug_info      0x000530        0x4e2 build/default/production/_ext/261189241/BLIInit.o
+ .debug_info      0x000a12        0x46f build/default/production/_ext/261189241/BLILocal.o
+ .debug_info      0x000e81        0x785 build/default/production/_ext/261189241/BLIMorse.o
+ .debug_info      0x001606        0x871 build/default/production/_ext/492825802/Init.o
+ .debug_info      0x001e77        0x283 build/default/production/_ext/261199537/MCM.o
+ .debug_info      0x0020fa       0x17d3 build/default/production/_ext/261199537/MCMInit.o
+ .debug_info      0x0038cd        0x189 build/default/production/_ext/261199537/MCMLocal.o
+ .debug_info      0x003a56        0x5e5 build/default/production/_ext/1099952713/RC.o
+ .debug_info      0x00403b       0x172d build/default/production/_ext/1099952713/RCInit.o
+ .debug_info      0x005768        0x5e9 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_info      0x005d51        0xf5d build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_info      0x006cae        0x52b build/default/production/_ext/1099952713/RCSym.o
+ .debug_info      0x0071d9        0x782 build/default/production/_ext/261206579/TMR.o
+ .debug_info      0x00795b       0x1234 build/default/production/_ext/261206579/TMRInit.o
+ .debug_info      0x008b8f        0x333 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_info      0x008ec2        0x51f build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_info      0x0093e1        0x974 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_info      0x009d55       0x1237 build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_info      0x00af8c        0xc16 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_info      0x00bba2        0x79d build/default/production/_ext/1566098207/UART_TX_Local.o
+ .debug_info      0x00c33f        0x207 build/default/production/main.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev     0x000000       0x17ff
+ *(.debug_abbrev)
+ .debug_abbrev    0x000000        0x13b build/default/production/_ext/261189241/BLI.o
+ .debug_abbrev    0x00013b         0xf8 build/default/production/_ext/261189241/BLIInit.o
+ .debug_abbrev    0x000233        0x12e build/default/production/_ext/261189241/BLILocal.o
+ .debug_abbrev    0x000361        0x123 build/default/production/_ext/261189241/BLIMorse.o
+ .debug_abbrev    0x000484         0xda build/default/production/_ext/492825802/Init.o
+ .debug_abbrev    0x00055e         0xaf build/default/production/_ext/261199537/MCM.o
+ .debug_abbrev    0x00060d        0x156 build/default/production/_ext/261199537/MCMInit.o
+ .debug_abbrev    0x000763         0x3d build/default/production/_ext/261199537/MCMLocal.o
+ .debug_abbrev    0x0007a0        0x164 build/default/production/_ext/1099952713/RC.o
+ .debug_abbrev    0x000904        0x13d build/default/production/_ext/1099952713/RCInit.o
+ .debug_abbrev    0x000a41         0xe9 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_abbrev    0x000b2a        0x19a build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_abbrev    0x000cc4        0x167 build/default/production/_ext/1099952713/RCSym.o
+ .debug_abbrev    0x000e2b        0x1fb build/default/production/_ext/261206579/TMR.o
+ .debug_abbrev    0x001026        0x149 build/default/production/_ext/261206579/TMRInit.o
+ .debug_abbrev    0x00116f         0xd5 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_abbrev    0x001244        0x130 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_abbrev    0x001374        0x121 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_abbrev    0x001495        0x11e build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_abbrev    0x0015b3        0x113 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_abbrev    0x0016c6         0xc9 build/default/production/_ext/1566098207/UART_TX_Local.o
+ .debug_abbrev    0x00178f         0x70 build/default/production/main.o
+
+.debug_line       0x000000       0x28bf
+ *(.debug_line)
+ .debug_line      0x000000        0x244 build/default/production/_ext/261189241/BLI.o
+ .debug_line      0x000244        0x140 build/default/production/_ext/261189241/BLIInit.o
+ .debug_line      0x000384        0x151 build/default/production/_ext/261189241/BLILocal.o
+ .debug_line      0x0004d5        0x23d build/default/production/_ext/261189241/BLIMorse.o
+ .debug_line      0x000712        0x168 build/default/production/_ext/492825802/Init.o
+ .debug_line      0x00087a        0x16b build/default/production/_ext/261199537/MCM.o
+ .debug_line      0x0009e5        0x349 build/default/production/_ext/261199537/MCMInit.o
+ .debug_line      0x000d2e         0x62 build/default/production/_ext/261199537/MCMLocal.o
+ .debug_line      0x000d90        0x2a6 build/default/production/_ext/1099952713/RC.o
+ .debug_line      0x001036        0x1f9 build/default/production/_ext/1099952713/RCInit.o
+ .debug_line      0x00122f         0xe8 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_line      0x001317        0x453 build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_line      0x00176a        0x2c3 build/default/production/_ext/1099952713/RCSym.o
+ .debug_line      0x001a2d        0x2eb build/default/production/_ext/261206579/TMR.o
+ .debug_line      0x001d18        0x207 build/default/production/_ext/261206579/TMRInit.o
+ .debug_line      0x001f1f         0xd6 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_line      0x001ff5        0x159 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_line      0x00214e        0x19a build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_line      0x0022e8        0x275 build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_line      0x00255d        0x14e build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_line      0x0026ab         0xe7 build/default/production/_ext/1566098207/UART_TX_Local.o
+ .debug_line      0x002792        0x12d build/default/production/main.o
+
+.debug_frame      0x000000        0x448
+ *(.debug_frame)
+ .debug_frame     0x000000         0x74 build/default/production/_ext/261189241/BLI.o
+ .debug_frame     0x000074         0x24 build/default/production/_ext/261189241/BLIInit.o
+ .debug_frame     0x000098         0x24 build/default/production/_ext/261189241/BLILocal.o
+ .debug_frame     0x0000bc         0x24 build/default/production/_ext/261189241/BLIMorse.o
+ .debug_frame     0x0000e0         0x24 build/default/production/_ext/492825802/Init.o
+ .debug_frame     0x000104         0x24 build/default/production/_ext/261199537/MCM.o
+ .debug_frame     0x000128         0x44 build/default/production/_ext/261199537/MCMInit.o
+ .debug_frame     0x00016c         0x54 build/default/production/_ext/1099952713/RC.o
+ .debug_frame     0x0001c0         0x24 build/default/production/_ext/1099952713/RCInit.o
+ .debug_frame     0x0001e4         0x34 build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_frame     0x000218         0x54 build/default/production/_ext/1099952713/RCSym.o
+ .debug_frame     0x00026c         0xc4 build/default/production/_ext/261206579/TMR.o
+ .debug_frame     0x000330         0x34 build/default/production/_ext/261206579/TMRInit.o
+ .debug_frame     0x000364         0x34 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_frame     0x000398         0x34 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_frame     0x0003cc         0x34 build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_frame     0x000400         0x24 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_frame     0x000424         0x24 build/default/production/main.o
+
+.debug_str        0x000000        0x8fc
+ *(.debug_str)
+ .debug_str       0x000000         0x4c build/default/production/_ext/261189241/BLI.o
+ .debug_str       0x00004c         0x30 build/default/production/_ext/261189241/BLIInit.o
+ .debug_str       0x00007c         0x43 build/default/production/_ext/261189241/BLILocal.o
+ .debug_str       0x0000bf        0x14b build/default/production/_ext/261189241/BLIMorse.o
+ .debug_str       0x00020a         0x21 build/default/production/_ext/492825802/Init.o
+ .debug_str       0x00022b         0x19 build/default/production/_ext/261199537/MCM.o
+ .debug_str       0x000244         0xf1 build/default/production/_ext/261199537/MCMInit.o
+ .debug_str       0x000335         0x9d build/default/production/_ext/1099952713/RC.o
+ .debug_str       0x0003d2         0xa6 build/default/production/_ext/1099952713/RCInit.o
+ .debug_str       0x000478         0x14 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_str       0x00048c         0xfe build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_str       0x00058a         0x5a build/default/production/_ext/1099952713/RCSym.o
+ .debug_str       0x0005e4         0x6c build/default/production/_ext/261206579/TMR.o
+ .debug_str       0x000650         0x8c build/default/production/_ext/261206579/TMRInit.o
+ .debug_str       0x0006dc         0x14 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_str       0x0006f0         0x4e build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_str       0x00073e         0x82 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_str       0x0007c0         0x7b build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_str       0x00083b         0x94 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_str       0x0008cf         0x2d build/default/production/_ext/1566098207/UART_TX_Local.o
+
+.debug_loc
+ *(.debug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_pubnames
+                  0x000000        0x8d3
+ *(.debug_pubnames)
+ .debug_pubnames
+                  0x000000         0x78 build/default/production/_ext/261189241/BLI.o
+ .debug_pubnames
+                  0x000078         0x1e build/default/production/_ext/261189241/BLIInit.o
+ .debug_pubnames
+                  0x000096         0x6d build/default/production/_ext/261189241/BLILocal.o
+ .debug_pubnames
+                  0x000103        0x1a5 build/default/production/_ext/261189241/BLIMorse.o
+ .debug_pubnames
+                  0x0002a8         0x50 build/default/production/_ext/492825802/Init.o
+ .debug_pubnames
+                  0x0002f8         0x1d build/default/production/_ext/261199537/MCM.o
+ .debug_pubnames
+                  0x000315         0x3d build/default/production/_ext/261199537/MCMInit.o
+ .debug_pubnames
+                  0x000352         0x52 build/default/production/_ext/261199537/MCMLocal.o
+ .debug_pubnames
+                  0x0003a4         0x5e build/default/production/_ext/1099952713/RC.o
+ .debug_pubnames
+                  0x000402         0x1d build/default/production/_ext/1099952713/RCInit.o
+ .debug_pubnames
+                  0x00041f        0x145 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_pubnames
+                  0x000564         0x34 build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_pubnames
+                  0x000598         0x75 build/default/production/_ext/1099952713/RCSym.o
+ .debug_pubnames
+                  0x00060d         0xbf build/default/production/_ext/261206579/TMR.o
+ .debug_pubnames
+                  0x0006cc         0x31 build/default/production/_ext/261206579/TMRInit.o
+ .debug_pubnames
+                  0x0006fd         0x72 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_pubnames
+                  0x00076f         0x36 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_pubnames
+                  0x0007a5         0x3c build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_pubnames
+                  0x0007e1         0x21 build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_pubnames
+                  0x000802         0x25 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_pubnames
+                  0x000827         0x91 build/default/production/_ext/1566098207/UART_TX_Local.o
+ .debug_pubnames
+                  0x0008b8         0x1b build/default/production/main.o
+
+.debug_ranges
+ *(.debug_ranges)
+
+.debug_aranges    0x000000        0x1b0
+ *(.debug_aranges)
+ .debug_aranges
+                  0x000000         0x18 build/default/production/_ext/261189241/BLI.o
+ .debug_aranges
+                  0x000018         0x18 build/default/production/_ext/261189241/BLIInit.o
+ .debug_aranges
+                  0x000030         0x18 build/default/production/_ext/261189241/BLILocal.o
+ .debug_aranges
+                  0x000048         0x18 build/default/production/_ext/261189241/BLIMorse.o
+ .debug_aranges
+                  0x000060         0x18 build/default/production/_ext/492825802/Init.o
+ .debug_aranges
+                  0x000078         0x18 build/default/production/_ext/261199537/MCM.o
+ .debug_aranges
+                  0x000090         0x18 build/default/production/_ext/261199537/MCMInit.o
+ .debug_aranges
+                  0x0000a8         0x18 build/default/production/_ext/1099952713/RC.o
+ .debug_aranges
+                  0x0000c0         0x18 build/default/production/_ext/1099952713/RCInit.o
+ .debug_aranges
+                  0x0000d8         0x18 build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_aranges
+                  0x0000f0         0x18 build/default/production/_ext/1099952713/RCSym.o
+ .debug_aranges
+                  0x000108         0x18 build/default/production/_ext/261206579/TMR.o
+ .debug_aranges
+                  0x000120         0x18 build/default/production/_ext/261206579/TMRInit.o
+ .debug_aranges
+                  0x000138         0x18 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_aranges
+                  0x000150         0x18 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_aranges
+                  0x000168         0x18 build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_aranges
+                  0x000180         0x18 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_aranges
+                  0x000198         0x18 build/default/production/main.o
+
+.ivt              0x000004         0xfc
+                  0x000004          0x4 LONG 0x704 DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
+                  0x000006          0x4 LONG 0x704 DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
+                  0x000008          0x4 LONG 0x704 DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
+                  0x00000a          0x4 LONG 0x704 DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
+                  0x00000c          0x4 LONG 0x704 DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
+                  0x00000e          0x4 LONG 0x704 DEFINED (__DMACError)?ABSOLUTE (__DMACError):ABSOLUTE (__DefaultInterrupt)
+                  0x000010          0x4 LONG 0x704 DEFINED (__ReservedTrap6)?ABSOLUTE (__ReservedTrap6):ABSOLUTE (__DefaultInterrupt)
+                  0x000012          0x4 LONG 0x704 DEFINED (__ReservedTrap7)?ABSOLUTE (__ReservedTrap7):ABSOLUTE (__DefaultInterrupt)
+                  0x000014          0x4 LONG 0x704 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000016          0x4 LONG 0x704 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000018          0x4 LONG 0x704 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x64a DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001c          0x4 LONG 0x704 DEFINED (__DMA0Interrupt)?ABSOLUTE (__DMA0Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001e          0x4 LONG 0x704 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000020          0x4 LONG 0x704 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x704 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000024          0x4 LONG 0x298 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000026          0x4 LONG 0x704 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000028          0x4 LONG 0x704 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002a          0x4 LONG 0x704 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002c          0x4 LONG 0x6ae DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002e          0x4 LONG 0x704 DEFINED (__ADC1Interrupt)?ABSOLUTE (__ADC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000030          0x4 LONG 0x704 DEFINED (__DMA1Interrupt)?ABSOLUTE (__DMA1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000032          0x4 LONG 0x704 DEFINED (__Interrupt15)?ABSOLUTE (__Interrupt15):ABSOLUTE (__DefaultInterrupt)
+                  0x000034          0x4 LONG 0x704 DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000036          0x4 LONG 0x704 DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000038          0x4 LONG 0x704 DEFINED (__CMPInterrupt)?ABSOLUTE (__CMPInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00003a          0x4 LONG 0x2c8 DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00003c          0x4 LONG 0x704 DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00003e          0x4 LONG 0x704 DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
+                  0x000040          0x4 LONG 0x704 DEFINED (__IC7Interrupt)?ABSOLUTE (__IC7Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000042          0x4 LONG 0x704 DEFINED (__IC8Interrupt)?ABSOLUTE (__IC8Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000044          0x4 LONG 0x704 DEFINED (__DMA2Interrupt)?ABSOLUTE (__DMA2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000046          0x4 LONG 0x704 DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000048          0x4 LONG 0x704 DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00004a          0x4 LONG 0x704 DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00004c          0x4 LONG 0x704 DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00004e          0x4 LONG 0x704 DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000050          0x4 LONG 0x704 DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x704 DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000054          0x4 LONG 0x704 DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000056          0x4 LONG 0x704 DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000058          0x4 LONG 0x704 DEFINED (__Interrupt34)?ABSOLUTE (__Interrupt34):ABSOLUTE (__DefaultInterrupt)
+                  0x00005a          0x4 LONG 0x704 DEFINED (__Interrupt35)?ABSOLUTE (__Interrupt35):ABSOLUTE (__DefaultInterrupt)
+                  0x00005c          0x4 LONG 0x704 DEFINED (__DMA3Interrupt)?ABSOLUTE (__DMA3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00005e          0x4 LONG 0x704 DEFINED (__Interrupt37)?ABSOLUTE (__Interrupt37):ABSOLUTE (__DefaultInterrupt)
+                  0x000060          0x4 LONG 0x704 DEFINED (__Interrupt38)?ABSOLUTE (__Interrupt38):ABSOLUTE (__DefaultInterrupt)
+                  0x000062          0x4 LONG 0x704 DEFINED (__Interrupt39)?ABSOLUTE (__Interrupt39):ABSOLUTE (__DefaultInterrupt)
+                  0x000064          0x4 LONG 0x704 DEFINED (__Interrupt40)?ABSOLUTE (__Interrupt40):ABSOLUTE (__DefaultInterrupt)
+                  0x000066          0x4 LONG 0x704 DEFINED (__Interrupt41)?ABSOLUTE (__Interrupt41):ABSOLUTE (__DefaultInterrupt)
+                  0x000068          0x4 LONG 0x704 DEFINED (__Interrupt42)?ABSOLUTE (__Interrupt42):ABSOLUTE (__DefaultInterrupt)
+                  0x00006a          0x4 LONG 0x704 DEFINED (__Interrupt43)?ABSOLUTE (__Interrupt43):ABSOLUTE (__DefaultInterrupt)
+                  0x00006c          0x4 LONG 0x704 DEFINED (__Interrupt44)?ABSOLUTE (__Interrupt44):ABSOLUTE (__DefaultInterrupt)
+                  0x00006e          0x4 LONG 0x704 DEFINED (__PMPInterrupt)?ABSOLUTE (__PMPInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000070          0x4 LONG 0x704 DEFINED (__DMA4Interrupt)?ABSOLUTE (__DMA4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000072          0x4 LONG 0x704 DEFINED (__Interrupt47)?ABSOLUTE (__Interrupt47):ABSOLUTE (__DefaultInterrupt)
+                  0x000074          0x4 LONG 0x704 DEFINED (__Interrupt48)?ABSOLUTE (__Interrupt48):ABSOLUTE (__DefaultInterrupt)
+                  0x000076          0x4 LONG 0x704 DEFINED (__Interrupt49)?ABSOLUTE (__Interrupt49):ABSOLUTE (__DefaultInterrupt)
+                  0x000078          0x4 LONG 0x704 DEFINED (__Interrupt50)?ABSOLUTE (__Interrupt50):ABSOLUTE (__DefaultInterrupt)
+                  0x00007a          0x4 LONG 0x704 DEFINED (__Interrupt51)?ABSOLUTE (__Interrupt51):ABSOLUTE (__DefaultInterrupt)
+                  0x00007c          0x4 LONG 0x704 DEFINED (__Interrupt52)?ABSOLUTE (__Interrupt52):ABSOLUTE (__DefaultInterrupt)
+                  0x00007e          0x4 LONG 0x704 DEFINED (__Interrupt53)?ABSOLUTE (__Interrupt53):ABSOLUTE (__DefaultInterrupt)
+                  0x000080          0x4 LONG 0x704 DEFINED (__Interrupt54)?ABSOLUTE (__Interrupt54):ABSOLUTE (__DefaultInterrupt)
+                  0x000082          0x4 LONG 0x704 DEFINED (__Interrupt55)?ABSOLUTE (__Interrupt55):ABSOLUTE (__DefaultInterrupt)
+                  0x000084          0x4 LONG 0x704 DEFINED (__Interrupt56)?ABSOLUTE (__Interrupt56):ABSOLUTE (__DefaultInterrupt)
+                  0x000086          0x4 LONG 0x704 DEFINED (__Interrupt57)?ABSOLUTE (__Interrupt57):ABSOLUTE (__DefaultInterrupt)
+                  0x000088          0x4 LONG 0x704 DEFINED (__Interrupt58)?ABSOLUTE (__Interrupt58):ABSOLUTE (__DefaultInterrupt)
+                  0x00008a          0x4 LONG 0x704 DEFINED (__Interrupt59)?ABSOLUTE (__Interrupt59):ABSOLUTE (__DefaultInterrupt)
+                  0x00008c          0x4 LONG 0x704 DEFINED (__Interrupt60)?ABSOLUTE (__Interrupt60):ABSOLUTE (__DefaultInterrupt)
+                  0x00008e          0x4 LONG 0x704 DEFINED (__DMA5Interrupt)?ABSOLUTE (__DMA5Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000090          0x4 LONG 0x684 DEFINED (__RTCCInterrupt)?ABSOLUTE (__RTCCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000092          0x4 LONG 0x704 DEFINED (__Interrupt63)?ABSOLUTE (__Interrupt63):ABSOLUTE (__DefaultInterrupt)
+                  0x000094          0x4 LONG 0x704 DEFINED (__Interrupt64)?ABSOLUTE (__Interrupt64):ABSOLUTE (__DefaultInterrupt)
+                  0x000096          0x4 LONG 0x704 DEFINED (__U1ErrInterrupt)?ABSOLUTE (__U1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000098          0x4 LONG 0x704 DEFINED (__U2ErrInterrupt)?ABSOLUTE (__U2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00009a          0x4 LONG 0x704 DEFINED (__CRCInterrupt)?ABSOLUTE (__CRCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00009c          0x4 LONG 0x704 DEFINED (__DMA6Interrupt)?ABSOLUTE (__DMA6Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00009e          0x4 LONG 0x704 DEFINED (__DMA7Interrupt)?ABSOLUTE (__DMA7Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a0          0x4 LONG 0x704 DEFINED (__Interrupt70)?ABSOLUTE (__Interrupt70):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a2          0x4 LONG 0x704 DEFINED (__Interrupt71)?ABSOLUTE (__Interrupt71):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a4          0x4 LONG 0x704 DEFINED (__Interrupt72)?ABSOLUTE (__Interrupt72):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a6          0x4 LONG 0x704 DEFINED (__Interrupt73)?ABSOLUTE (__Interrupt73):ABSOLUTE (__DefaultInterrupt)
+                  0x0000a8          0x4 LONG 0x704 DEFINED (__Interrupt74)?ABSOLUTE (__Interrupt74):ABSOLUTE (__DefaultInterrupt)
+                  0x0000aa          0x4 LONG 0x704 DEFINED (__Interrupt75)?ABSOLUTE (__Interrupt75):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ac          0x4 LONG 0x704 DEFINED (__Interrupt76)?ABSOLUTE (__Interrupt76):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ae          0x4 LONG 0x704 DEFINED (__Interrupt77)?ABSOLUTE (__Interrupt77):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b0          0x4 LONG 0x704 DEFINED (__Interrupt78)?ABSOLUTE (__Interrupt78):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b2          0x4 LONG 0x704 DEFINED (__Interrupt79)?ABSOLUTE (__Interrupt79):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b4          0x4 LONG 0x704 DEFINED (__Interrupt80)?ABSOLUTE (__Interrupt80):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b6          0x4 LONG 0x704 DEFINED (__Interrupt81)?ABSOLUTE (__Interrupt81):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b8          0x4 LONG 0x704 DEFINED (__Interrupt82)?ABSOLUTE (__Interrupt82):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x704 DEFINED (__Interrupt83)?ABSOLUTE (__Interrupt83):ABSOLUTE (__DefaultInterrupt)
+                  0x0000bc          0x4 LONG 0x704 DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
+                  0x0000be          0x4 LONG 0x704 DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c0          0x4 LONG 0x704 DEFINED (__Interrupt86)?ABSOLUTE (__Interrupt86):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c2          0x4 LONG 0x704 DEFINED (__Interrupt87)?ABSOLUTE (__Interrupt87):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c4          0x4 LONG 0x704 DEFINED (__Interrupt88)?ABSOLUTE (__Interrupt88):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c6          0x4 LONG 0x704 DEFINED (__Interrupt89)?ABSOLUTE (__Interrupt89):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c8          0x4 LONG 0x704 DEFINED (__Interrupt90)?ABSOLUTE (__Interrupt90):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ca          0x4 LONG 0x704 DEFINED (__Interrupt91)?ABSOLUTE (__Interrupt91):ABSOLUTE (__DefaultInterrupt)
+                  0x0000cc          0x4 LONG 0x704 DEFINED (__Interrupt92)?ABSOLUTE (__Interrupt92):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ce          0x4 LONG 0x704 DEFINED (__Interrupt93)?ABSOLUTE (__Interrupt93):ABSOLUTE (__DefaultInterrupt)
+                  0x0000d0          0x4 LONG 0x704 DEFINED (__Interrupt94)?ABSOLUTE (__Interrupt94):ABSOLUTE (__DefaultInterrupt)
+                  0x0000d2          0x4 LONG 0x704 DEFINED (__Interrupt95)?ABSOLUTE (__Interrupt95):ABSOLUTE (__DefaultInterrupt)
+                  0x0000d4          0x4 LONG 0x704 DEFINED (__Interrupt96)?ABSOLUTE (__Interrupt96):ABSOLUTE (__DefaultInterrupt)
+                  0x0000d6          0x4 LONG 0x704 DEFINED (__Interrupt97)?ABSOLUTE (__Interrupt97):ABSOLUTE (__DefaultInterrupt)
+                  0x0000d8          0x4 LONG 0x704 DEFINED (__Interrupt98)?ABSOLUTE (__Interrupt98):ABSOLUTE (__DefaultInterrupt)
+                  0x0000da          0x4 LONG 0x704 DEFINED (__Interrupt99)?ABSOLUTE (__Interrupt99):ABSOLUTE (__DefaultInterrupt)
+                  0x0000dc          0x4 LONG 0x704 DEFINED (__Interrupt100)?ABSOLUTE (__Interrupt100):ABSOLUTE (__DefaultInterrupt)
+                  0x0000de          0x4 LONG 0x704 DEFINED (__Interrupt101)?ABSOLUTE (__Interrupt101):ABSOLUTE (__DefaultInterrupt)
+                  0x0000e0          0x4 LONG 0x704 DEFINED (__Interrupt102)?ABSOLUTE (__Interrupt102):ABSOLUTE (__DefaultInterrupt)
+                  0x0000e2          0x4 LONG 0x704 DEFINED (__Interrupt103)?ABSOLUTE (__Interrupt103):ABSOLUTE (__DefaultInterrupt)
+                  0x0000e4          0x4 LONG 0x704 DEFINED (__Interrupt104)?ABSOLUTE (__Interrupt104):ABSOLUTE (__DefaultInterrupt)
+                  0x0000e6          0x4 LONG 0x704 DEFINED (__Interrupt105)?ABSOLUTE (__Interrupt105):ABSOLUTE (__DefaultInterrupt)
+                  0x0000e8          0x4 LONG 0x704 DEFINED (__Interrupt106)?ABSOLUTE (__Interrupt106):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ea          0x4 LONG 0x704 DEFINED (__Interrupt107)?ABSOLUTE (__Interrupt107):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ec          0x4 LONG 0x704 DEFINED (__Interrupt108)?ABSOLUTE (__Interrupt108):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ee          0x4 LONG 0x704 DEFINED (__Interrupt109)?ABSOLUTE (__Interrupt109):ABSOLUTE (__DefaultInterrupt)
+                  0x0000f0          0x4 LONG 0x704 DEFINED (__Interrupt110)?ABSOLUTE (__Interrupt110):ABSOLUTE (__DefaultInterrupt)
+                  0x0000f2          0x4 LONG 0x704 DEFINED (__Interrupt111)?ABSOLUTE (__Interrupt111):ABSOLUTE (__DefaultInterrupt)
+                  0x0000f4          0x4 LONG 0x704 DEFINED (__Interrupt112)?ABSOLUTE (__Interrupt112):ABSOLUTE (__DefaultInterrupt)
+                  0x0000f6          0x4 LONG 0x704 DEFINED (__Interrupt113)?ABSOLUTE (__Interrupt113):ABSOLUTE (__DefaultInterrupt)
+                  0x0000f8          0x4 LONG 0x704 DEFINED (__Interrupt114)?ABSOLUTE (__Interrupt114):ABSOLUTE (__DefaultInterrupt)
+                  0x0000fa          0x4 LONG 0x704 DEFINED (__Interrupt115)?ABSOLUTE (__Interrupt115):ABSOLUTE (__DefaultInterrupt)
+                  0x0000fc          0x4 LONG 0x704 DEFINED (__Interrupt116)?ABSOLUTE (__Interrupt116):ABSOLUTE (__DefaultInterrupt)
+                  0x0000fe          0x4 LONG 0x704 DEFINED (__Interrupt117)?ABSOLUTE (__Interrupt117):ABSOLUTE (__DefaultInterrupt)
+
+.aivt             0x000104         0xfc
+                  0x000104          0x4 LONG 0x704 DEFINED (__AltReservedTrap0)?ABSOLUTE (__AltReservedTrap0):DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
+                  0x000106          0x4 LONG 0x704 DEFINED (__AltOscillatorFail)?ABSOLUTE (__AltOscillatorFail):DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
+                  0x000108          0x4 LONG 0x704 DEFINED (__AltAddressError)?ABSOLUTE (__AltAddressError):DEFINED (__AddressError)?ABSOLUTE (__AddressError):ABSOLUTE (__DefaultInterrupt)
+                  0x00010a          0x4 LONG 0x704 DEFINED (__AltStackError)?ABSOLUTE (__AltStackError):DEFINED (__StackError)?ABSOLUTE (__StackError):ABSOLUTE (__DefaultInterrupt)
+                  0x00010c          0x4 LONG 0x704 DEFINED (__AltMathError)?ABSOLUTE (__AltMathError):DEFINED (__MathError)?ABSOLUTE (__MathError):ABSOLUTE (__DefaultInterrupt)
+                  0x00010e          0x4 LONG 0x704 DEFINED (__AltDMACError)?ABSOLUTE (__AltDMACError):DEFINED (__DMACError)?ABSOLUTE (__DMACError):ABSOLUTE (__DefaultInterrupt)
+                  0x000110          0x4 LONG 0x704 DEFINED (__AltReservedTrap6)?ABSOLUTE (__AltReservedTrap6):DEFINED (__ReservedTrap6)?ABSOLUTE (__ReservedTrap6):ABSOLUTE (__DefaultInterrupt)
+                  0x000112          0x4 LONG 0x704 DEFINED (__AltReservedTrap7)?ABSOLUTE (__AltReservedTrap7):DEFINED (__ReservedTrap7)?ABSOLUTE (__ReservedTrap7):ABSOLUTE (__DefaultInterrupt)
+                  0x000114          0x4 LONG 0x704 DEFINED (__AltINT0Interrupt)?ABSOLUTE (__AltINT0Interrupt):DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000116          0x4 LONG 0x704 DEFINED (__AltIC1Interrupt)?ABSOLUTE (__AltIC1Interrupt):DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000118          0x4 LONG 0x704 DEFINED (__AltOC1Interrupt)?ABSOLUTE (__AltOC1Interrupt):DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011a          0x4 LONG 0x64a DEFINED (__AltT1Interrupt)?ABSOLUTE (__AltT1Interrupt):DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011c          0x4 LONG 0x704 DEFINED (__AltDMA0Interrupt)?ABSOLUTE (__AltDMA0Interrupt):DEFINED (__DMA0Interrupt)?ABSOLUTE (__DMA0Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00011e          0x4 LONG 0x704 DEFINED (__AltIC2Interrupt)?ABSOLUTE (__AltIC2Interrupt):DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000120          0x4 LONG 0x704 DEFINED (__AltOC2Interrupt)?ABSOLUTE (__AltOC2Interrupt):DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000122          0x4 LONG 0x704 DEFINED (__AltT2Interrupt)?ABSOLUTE (__AltT2Interrupt):DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000124          0x4 LONG 0x298 DEFINED (__AltT3Interrupt)?ABSOLUTE (__AltT3Interrupt):DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000126          0x4 LONG 0x704 DEFINED (__AltSPI1ErrInterrupt)?ABSOLUTE (__AltSPI1ErrInterrupt):DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000128          0x4 LONG 0x704 DEFINED (__AltSPI1Interrupt)?ABSOLUTE (__AltSPI1Interrupt):DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00012a          0x4 LONG 0x704 DEFINED (__AltU1RXInterrupt)?ABSOLUTE (__AltU1RXInterrupt):DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00012c          0x4 LONG 0x6ae DEFINED (__AltU1TXInterrupt)?ABSOLUTE (__AltU1TXInterrupt):DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00012e          0x4 LONG 0x704 DEFINED (__AltADC1Interrupt)?ABSOLUTE (__AltADC1Interrupt):DEFINED (__ADC1Interrupt)?ABSOLUTE (__ADC1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000130          0x4 LONG 0x704 DEFINED (__AltDMA1Interrupt)?ABSOLUTE (__AltDMA1Interrupt):DEFINED (__DMA1Interrupt)?ABSOLUTE (__DMA1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000132          0x4 LONG 0x704 DEFINED (__AltInterrupt15)?ABSOLUTE (__AltInterrupt15):DEFINED (__Interrupt15)?ABSOLUTE (__Interrupt15):ABSOLUTE (__DefaultInterrupt)
+                  0x000134          0x4 LONG 0x704 DEFINED (__AltSI2C1Interrupt)?ABSOLUTE (__AltSI2C1Interrupt):DEFINED (__SI2C1Interrupt)?ABSOLUTE (__SI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000136          0x4 LONG 0x704 DEFINED (__AltMI2C1Interrupt)?ABSOLUTE (__AltMI2C1Interrupt):DEFINED (__MI2C1Interrupt)?ABSOLUTE (__MI2C1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000138          0x4 LONG 0x704 DEFINED (__AltCMPInterrupt)?ABSOLUTE (__AltCMPInterrupt):DEFINED (__CMPInterrupt)?ABSOLUTE (__CMPInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00013a          0x4 LONG 0x2c8 DEFINED (__AltCNInterrupt)?ABSOLUTE (__AltCNInterrupt):DEFINED (__CNInterrupt)?ABSOLUTE (__CNInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00013c          0x4 LONG 0x704 DEFINED (__AltINT1Interrupt)?ABSOLUTE (__AltINT1Interrupt):DEFINED (__INT1Interrupt)?ABSOLUTE (__INT1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00013e          0x4 LONG 0x704 DEFINED (__AltInterrupt21)?ABSOLUTE (__AltInterrupt21):DEFINED (__Interrupt21)?ABSOLUTE (__Interrupt21):ABSOLUTE (__DefaultInterrupt)
+                  0x000140          0x4 LONG 0x704 DEFINED (__AltIC7Interrupt)?ABSOLUTE (__AltIC7Interrupt):DEFINED (__IC7Interrupt)?ABSOLUTE (__IC7Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000142          0x4 LONG 0x704 DEFINED (__AltIC8Interrupt)?ABSOLUTE (__AltIC8Interrupt):DEFINED (__IC8Interrupt)?ABSOLUTE (__IC8Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000144          0x4 LONG 0x704 DEFINED (__AltDMA2Interrupt)?ABSOLUTE (__AltDMA2Interrupt):DEFINED (__DMA2Interrupt)?ABSOLUTE (__DMA2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000146          0x4 LONG 0x704 DEFINED (__AltOC3Interrupt)?ABSOLUTE (__AltOC3Interrupt):DEFINED (__OC3Interrupt)?ABSOLUTE (__OC3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000148          0x4 LONG 0x704 DEFINED (__AltOC4Interrupt)?ABSOLUTE (__AltOC4Interrupt):DEFINED (__OC4Interrupt)?ABSOLUTE (__OC4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00014a          0x4 LONG 0x704 DEFINED (__AltT4Interrupt)?ABSOLUTE (__AltT4Interrupt):DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00014c          0x4 LONG 0x704 DEFINED (__AltT5Interrupt)?ABSOLUTE (__AltT5Interrupt):DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00014e          0x4 LONG 0x704 DEFINED (__AltINT2Interrupt)?ABSOLUTE (__AltINT2Interrupt):DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000150          0x4 LONG 0x704 DEFINED (__AltU2RXInterrupt)?ABSOLUTE (__AltU2RXInterrupt):DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000152          0x4 LONG 0x704 DEFINED (__AltU2TXInterrupt)?ABSOLUTE (__AltU2TXInterrupt):DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000154          0x4 LONG 0x704 DEFINED (__AltSPI2ErrInterrupt)?ABSOLUTE (__AltSPI2ErrInterrupt):DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000156          0x4 LONG 0x704 DEFINED (__AltSPI2Interrupt)?ABSOLUTE (__AltSPI2Interrupt):DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000158          0x4 LONG 0x704 DEFINED (__AltInterrupt34)?ABSOLUTE (__AltInterrupt34):DEFINED (__Interrupt34)?ABSOLUTE (__Interrupt34):ABSOLUTE (__DefaultInterrupt)
+                  0x00015a          0x4 LONG 0x704 DEFINED (__AltInterrupt35)?ABSOLUTE (__AltInterrupt35):DEFINED (__Interrupt35)?ABSOLUTE (__Interrupt35):ABSOLUTE (__DefaultInterrupt)
+                  0x00015c          0x4 LONG 0x704 DEFINED (__AltDMA3Interrupt)?ABSOLUTE (__AltDMA3Interrupt):DEFINED (__DMA3Interrupt)?ABSOLUTE (__DMA3Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00015e          0x4 LONG 0x704 DEFINED (__AltInterrupt37)?ABSOLUTE (__AltInterrupt37):DEFINED (__Interrupt37)?ABSOLUTE (__Interrupt37):ABSOLUTE (__DefaultInterrupt)
+                  0x000160          0x4 LONG 0x704 DEFINED (__AltInterrupt38)?ABSOLUTE (__AltInterrupt38):DEFINED (__Interrupt38)?ABSOLUTE (__Interrupt38):ABSOLUTE (__DefaultInterrupt)
+                  0x000162          0x4 LONG 0x704 DEFINED (__AltInterrupt39)?ABSOLUTE (__AltInterrupt39):DEFINED (__Interrupt39)?ABSOLUTE (__Interrupt39):ABSOLUTE (__DefaultInterrupt)
+                  0x000164          0x4 LONG 0x704 DEFINED (__AltInterrupt40)?ABSOLUTE (__AltInterrupt40):DEFINED (__Interrupt40)?ABSOLUTE (__Interrupt40):ABSOLUTE (__DefaultInterrupt)
+                  0x000166          0x4 LONG 0x704 DEFINED (__AltInterrupt41)?ABSOLUTE (__AltInterrupt41):DEFINED (__Interrupt41)?ABSOLUTE (__Interrupt41):ABSOLUTE (__DefaultInterrupt)
+                  0x000168          0x4 LONG 0x704 DEFINED (__AltInterrupt42)?ABSOLUTE (__AltInterrupt42):DEFINED (__Interrupt42)?ABSOLUTE (__Interrupt42):ABSOLUTE (__DefaultInterrupt)
+                  0x00016a          0x4 LONG 0x704 DEFINED (__AltInterrupt43)?ABSOLUTE (__AltInterrupt43):DEFINED (__Interrupt43)?ABSOLUTE (__Interrupt43):ABSOLUTE (__DefaultInterrupt)
+                  0x00016c          0x4 LONG 0x704 DEFINED (__AltInterrupt44)?ABSOLUTE (__AltInterrupt44):DEFINED (__Interrupt44)?ABSOLUTE (__Interrupt44):ABSOLUTE (__DefaultInterrupt)
+                  0x00016e          0x4 LONG 0x704 DEFINED (__AltPMPInterrupt)?ABSOLUTE (__AltPMPInterrupt):DEFINED (__PMPInterrupt)?ABSOLUTE (__PMPInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000170          0x4 LONG 0x704 DEFINED (__AltDMA4Interrupt)?ABSOLUTE (__AltDMA4Interrupt):DEFINED (__DMA4Interrupt)?ABSOLUTE (__DMA4Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000172          0x4 LONG 0x704 DEFINED (__AltInterrupt47)?ABSOLUTE (__AltInterrupt47):DEFINED (__Interrupt47)?ABSOLUTE (__Interrupt47):ABSOLUTE (__DefaultInterrupt)
+                  0x000174          0x4 LONG 0x704 DEFINED (__AltInterrupt48)?ABSOLUTE (__AltInterrupt48):DEFINED (__Interrupt48)?ABSOLUTE (__Interrupt48):ABSOLUTE (__DefaultInterrupt)
+                  0x000176          0x4 LONG 0x704 DEFINED (__AltInterrupt49)?ABSOLUTE (__AltInterrupt49):DEFINED (__Interrupt49)?ABSOLUTE (__Interrupt49):ABSOLUTE (__DefaultInterrupt)
+                  0x000178          0x4 LONG 0x704 DEFINED (__AltInterrupt50)?ABSOLUTE (__AltInterrupt50):DEFINED (__Interrupt50)?ABSOLUTE (__Interrupt50):ABSOLUTE (__DefaultInterrupt)
+                  0x00017a          0x4 LONG 0x704 DEFINED (__AltInterrupt51)?ABSOLUTE (__AltInterrupt51):DEFINED (__Interrupt51)?ABSOLUTE (__Interrupt51):ABSOLUTE (__DefaultInterrupt)
+                  0x00017c          0x4 LONG 0x704 DEFINED (__AltInterrupt52)?ABSOLUTE (__AltInterrupt52):DEFINED (__Interrupt52)?ABSOLUTE (__Interrupt52):ABSOLUTE (__DefaultInterrupt)
+                  0x00017e          0x4 LONG 0x704 DEFINED (__AltInterrupt53)?ABSOLUTE (__AltInterrupt53):DEFINED (__Interrupt53)?ABSOLUTE (__Interrupt53):ABSOLUTE (__DefaultInterrupt)
+                  0x000180          0x4 LONG 0x704 DEFINED (__AltInterrupt54)?ABSOLUTE (__AltInterrupt54):DEFINED (__Interrupt54)?ABSOLUTE (__Interrupt54):ABSOLUTE (__DefaultInterrupt)
+                  0x000182          0x4 LONG 0x704 DEFINED (__AltInterrupt55)?ABSOLUTE (__AltInterrupt55):DEFINED (__Interrupt55)?ABSOLUTE (__Interrupt55):ABSOLUTE (__DefaultInterrupt)
+                  0x000184          0x4 LONG 0x704 DEFINED (__AltInterrupt56)?ABSOLUTE (__AltInterrupt56):DEFINED (__Interrupt56)?ABSOLUTE (__Interrupt56):ABSOLUTE (__DefaultInterrupt)
+                  0x000186          0x4 LONG 0x704 DEFINED (__AltInterrupt57)?ABSOLUTE (__AltInterrupt57):DEFINED (__Interrupt57)?ABSOLUTE (__Interrupt57):ABSOLUTE (__DefaultInterrupt)
+                  0x000188          0x4 LONG 0x704 DEFINED (__AltInterrupt58)?ABSOLUTE (__AltInterrupt58):DEFINED (__Interrupt58)?ABSOLUTE (__Interrupt58):ABSOLUTE (__DefaultInterrupt)
+                  0x00018a          0x4 LONG 0x704 DEFINED (__AltInterrupt59)?ABSOLUTE (__AltInterrupt59):DEFINED (__Interrupt59)?ABSOLUTE (__Interrupt59):ABSOLUTE (__DefaultInterrupt)
+                  0x00018c          0x4 LONG 0x704 DEFINED (__AltInterrupt60)?ABSOLUTE (__AltInterrupt60):DEFINED (__Interrupt60)?ABSOLUTE (__Interrupt60):ABSOLUTE (__DefaultInterrupt)
+                  0x00018e          0x4 LONG 0x704 DEFINED (__AltDMA5Interrupt)?ABSOLUTE (__AltDMA5Interrupt):DEFINED (__DMA5Interrupt)?ABSOLUTE (__DMA5Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000190          0x4 LONG 0x684 DEFINED (__AltRTCCInterrupt)?ABSOLUTE (__AltRTCCInterrupt):DEFINED (__RTCCInterrupt)?ABSOLUTE (__RTCCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000192          0x4 LONG 0x704 DEFINED (__AltInterrupt63)?ABSOLUTE (__AltInterrupt63):DEFINED (__Interrupt63)?ABSOLUTE (__Interrupt63):ABSOLUTE (__DefaultInterrupt)
+                  0x000194          0x4 LONG 0x704 DEFINED (__AltInterrupt64)?ABSOLUTE (__AltInterrupt64):DEFINED (__Interrupt64)?ABSOLUTE (__Interrupt64):ABSOLUTE (__DefaultInterrupt)
+                  0x000196          0x4 LONG 0x704 DEFINED (__AltU1ErrInterrupt)?ABSOLUTE (__AltU1ErrInterrupt):DEFINED (__U1ErrInterrupt)?ABSOLUTE (__U1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000198          0x4 LONG 0x704 DEFINED (__AltU2ErrInterrupt)?ABSOLUTE (__AltU2ErrInterrupt):DEFINED (__U2ErrInterrupt)?ABSOLUTE (__U2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00019a          0x4 LONG 0x704 DEFINED (__AltCRCInterrupt)?ABSOLUTE (__AltCRCInterrupt):DEFINED (__CRCInterrupt)?ABSOLUTE (__CRCInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00019c          0x4 LONG 0x704 DEFINED (__AltDMA6Interrupt)?ABSOLUTE (__AltDMA6Interrupt):DEFINED (__DMA6Interrupt)?ABSOLUTE (__DMA6Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00019e          0x4 LONG 0x704 DEFINED (__AltDMA7Interrupt)?ABSOLUTE (__AltDMA7Interrupt):DEFINED (__DMA7Interrupt)?ABSOLUTE (__DMA7Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0001a0          0x4 LONG 0x704 DEFINED (__AltInterrupt70)?ABSOLUTE (__AltInterrupt70):DEFINED (__Interrupt70)?ABSOLUTE (__Interrupt70):ABSOLUTE (__DefaultInterrupt)
+                  0x0001a2          0x4 LONG 0x704 DEFINED (__AltInterrupt71)?ABSOLUTE (__AltInterrupt71):DEFINED (__Interrupt71)?ABSOLUTE (__Interrupt71):ABSOLUTE (__DefaultInterrupt)
+                  0x0001a4          0x4 LONG 0x704 DEFINED (__AltInterrupt72)?ABSOLUTE (__AltInterrupt72):DEFINED (__Interrupt72)?ABSOLUTE (__Interrupt72):ABSOLUTE (__DefaultInterrupt)
+                  0x0001a6          0x4 LONG 0x704 DEFINED (__AltInterrupt73)?ABSOLUTE (__AltInterrupt73):DEFINED (__Interrupt73)?ABSOLUTE (__Interrupt73):ABSOLUTE (__DefaultInterrupt)
+                  0x0001a8          0x4 LONG 0x704 DEFINED (__AltInterrupt74)?ABSOLUTE (__AltInterrupt74):DEFINED (__Interrupt74)?ABSOLUTE (__Interrupt74):ABSOLUTE (__DefaultInterrupt)
+                  0x0001aa          0x4 LONG 0x704 DEFINED (__AltInterrupt75)?ABSOLUTE (__AltInterrupt75):DEFINED (__Interrupt75)?ABSOLUTE (__Interrupt75):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ac          0x4 LONG 0x704 DEFINED (__AltInterrupt76)?ABSOLUTE (__AltInterrupt76):DEFINED (__Interrupt76)?ABSOLUTE (__Interrupt76):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ae          0x4 LONG 0x704 DEFINED (__AltInterrupt77)?ABSOLUTE (__AltInterrupt77):DEFINED (__Interrupt77)?ABSOLUTE (__Interrupt77):ABSOLUTE (__DefaultInterrupt)
+                  0x0001b0          0x4 LONG 0x704 DEFINED (__AltInterrupt78)?ABSOLUTE (__AltInterrupt78):DEFINED (__Interrupt78)?ABSOLUTE (__Interrupt78):ABSOLUTE (__DefaultInterrupt)
+                  0x0001b2          0x4 LONG 0x704 DEFINED (__AltInterrupt79)?ABSOLUTE (__AltInterrupt79):DEFINED (__Interrupt79)?ABSOLUTE (__Interrupt79):ABSOLUTE (__DefaultInterrupt)
+                  0x0001b4          0x4 LONG 0x704 DEFINED (__AltInterrupt80)?ABSOLUTE (__AltInterrupt80):DEFINED (__Interrupt80)?ABSOLUTE (__Interrupt80):ABSOLUTE (__DefaultInterrupt)
+                  0x0001b6          0x4 LONG 0x704 DEFINED (__AltInterrupt81)?ABSOLUTE (__AltInterrupt81):DEFINED (__Interrupt81)?ABSOLUTE (__Interrupt81):ABSOLUTE (__DefaultInterrupt)
+                  0x0001b8          0x4 LONG 0x704 DEFINED (__AltInterrupt82)?ABSOLUTE (__AltInterrupt82):DEFINED (__Interrupt82)?ABSOLUTE (__Interrupt82):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ba          0x4 LONG 0x704 DEFINED (__AltInterrupt83)?ABSOLUTE (__AltInterrupt83):DEFINED (__Interrupt83)?ABSOLUTE (__Interrupt83):ABSOLUTE (__DefaultInterrupt)
+                  0x0001bc          0x4 LONG 0x704 DEFINED (__AltInterrupt84)?ABSOLUTE (__AltInterrupt84):DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
+                  0x0001be          0x4 LONG 0x704 DEFINED (__AltInterrupt85)?ABSOLUTE (__AltInterrupt85):DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c0          0x4 LONG 0x704 DEFINED (__AltInterrupt86)?ABSOLUTE (__AltInterrupt86):DEFINED (__Interrupt86)?ABSOLUTE (__Interrupt86):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c2          0x4 LONG 0x704 DEFINED (__AltInterrupt87)?ABSOLUTE (__AltInterrupt87):DEFINED (__Interrupt87)?ABSOLUTE (__Interrupt87):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c4          0x4 LONG 0x704 DEFINED (__AltInterrupt88)?ABSOLUTE (__AltInterrupt88):DEFINED (__Interrupt88)?ABSOLUTE (__Interrupt88):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c6          0x4 LONG 0x704 DEFINED (__AltInterrupt89)?ABSOLUTE (__AltInterrupt89):DEFINED (__Interrupt89)?ABSOLUTE (__Interrupt89):ABSOLUTE (__DefaultInterrupt)
+                  0x0001c8          0x4 LONG 0x704 DEFINED (__AltInterrupt90)?ABSOLUTE (__AltInterrupt90):DEFINED (__Interrupt90)?ABSOLUTE (__Interrupt90):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ca          0x4 LONG 0x704 DEFINED (__AltInterrupt91)?ABSOLUTE (__AltInterrupt91):DEFINED (__Interrupt91)?ABSOLUTE (__Interrupt91):ABSOLUTE (__DefaultInterrupt)
+                  0x0001cc          0x4 LONG 0x704 DEFINED (__AltInterrupt92)?ABSOLUTE (__AltInterrupt92):DEFINED (__Interrupt92)?ABSOLUTE (__Interrupt92):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ce          0x4 LONG 0x704 DEFINED (__AltInterrupt93)?ABSOLUTE (__AltInterrupt93):DEFINED (__Interrupt93)?ABSOLUTE (__Interrupt93):ABSOLUTE (__DefaultInterrupt)
+                  0x0001d0          0x4 LONG 0x704 DEFINED (__AltInterrupt94)?ABSOLUTE (__AltInterrupt94):DEFINED (__Interrupt94)?ABSOLUTE (__Interrupt94):ABSOLUTE (__DefaultInterrupt)
+                  0x0001d2          0x4 LONG 0x704 DEFINED (__AltInterrupt95)?ABSOLUTE (__AltInterrupt95):DEFINED (__Interrupt95)?ABSOLUTE (__Interrupt95):ABSOLUTE (__DefaultInterrupt)
+                  0x0001d4          0x4 LONG 0x704 DEFINED (__AltInterrupt96)?ABSOLUTE (__AltInterrupt96):DEFINED (__Interrupt96)?ABSOLUTE (__Interrupt96):ABSOLUTE (__DefaultInterrupt)
+                  0x0001d6          0x4 LONG 0x704 DEFINED (__AltInterrupt97)?ABSOLUTE (__AltInterrupt97):DEFINED (__Interrupt97)?ABSOLUTE (__Interrupt97):ABSOLUTE (__DefaultInterrupt)
+                  0x0001d8          0x4 LONG 0x704 DEFINED (__AltInterrupt98)?ABSOLUTE (__AltInterrupt98):DEFINED (__Interrupt98)?ABSOLUTE (__Interrupt98):ABSOLUTE (__DefaultInterrupt)
+                  0x0001da          0x4 LONG 0x704 DEFINED (__AltInterrupt99)?ABSOLUTE (__AltInterrupt99):DEFINED (__Interrupt99)?ABSOLUTE (__Interrupt99):ABSOLUTE (__DefaultInterrupt)
+                  0x0001dc          0x4 LONG 0x704 DEFINED (__AltInterrupt100)?ABSOLUTE (__AltInterrupt100):DEFINED (__Interrupt100)?ABSOLUTE (__Interrupt100):ABSOLUTE (__DefaultInterrupt)
+                  0x0001de          0x4 LONG 0x704 DEFINED (__AltInterrupt101)?ABSOLUTE (__AltInterrupt101):DEFINED (__Interrupt101)?ABSOLUTE (__Interrupt101):ABSOLUTE (__DefaultInterrupt)
+                  0x0001e0          0x4 LONG 0x704 DEFINED (__AltInterrupt102)?ABSOLUTE (__AltInterrupt102):DEFINED (__Interrupt102)?ABSOLUTE (__Interrupt102):ABSOLUTE (__DefaultInterrupt)
+                  0x0001e2          0x4 LONG 0x704 DEFINED (__AltInterrupt103)?ABSOLUTE (__AltInterrupt103):DEFINED (__Interrupt103)?ABSOLUTE (__Interrupt103):ABSOLUTE (__DefaultInterrupt)
+                  0x0001e4          0x4 LONG 0x704 DEFINED (__AltInterrupt104)?ABSOLUTE (__AltInterrupt104):DEFINED (__Interrupt104)?ABSOLUTE (__Interrupt104):ABSOLUTE (__DefaultInterrupt)
+                  0x0001e6          0x4 LONG 0x704 DEFINED (__AltInterrupt105)?ABSOLUTE (__AltInterrupt105):DEFINED (__Interrupt105)?ABSOLUTE (__Interrupt105):ABSOLUTE (__DefaultInterrupt)
+                  0x0001e8          0x4 LONG 0x704 DEFINED (__AltInterrupt106)?ABSOLUTE (__AltInterrupt106):DEFINED (__Interrupt106)?ABSOLUTE (__Interrupt106):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ea          0x4 LONG 0x704 DEFINED (__AltInterrupt107)?ABSOLUTE (__AltInterrupt107):DEFINED (__Interrupt107)?ABSOLUTE (__Interrupt107):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ec          0x4 LONG 0x704 DEFINED (__AltInterrupt108)?ABSOLUTE (__AltInterrupt108):DEFINED (__Interrupt108)?ABSOLUTE (__Interrupt108):ABSOLUTE (__DefaultInterrupt)
+                  0x0001ee          0x4 LONG 0x704 DEFINED (__AltInterrupt109)?ABSOLUTE (__AltInterrupt109):DEFINED (__Interrupt109)?ABSOLUTE (__Interrupt109):ABSOLUTE (__DefaultInterrupt)
+                  0x0001f0          0x4 LONG 0x704 DEFINED (__AltInterrupt110)?ABSOLUTE (__AltInterrupt110):DEFINED (__Interrupt110)?ABSOLUTE (__Interrupt110):ABSOLUTE (__DefaultInterrupt)
+                  0x0001f2          0x4 LONG 0x704 DEFINED (__AltInterrupt111)?ABSOLUTE (__AltInterrupt111):DEFINED (__Interrupt111)?ABSOLUTE (__Interrupt111):ABSOLUTE (__DefaultInterrupt)
+                  0x0001f4          0x4 LONG 0x704 DEFINED (__AltInterrupt112)?ABSOLUTE (__AltInterrupt112):DEFINED (__Interrupt112)?ABSOLUTE (__Interrupt112):ABSOLUTE (__DefaultInterrupt)
+                  0x0001f6          0x4 LONG 0x704 DEFINED (__AltInterrupt113)?ABSOLUTE (__AltInterrupt113):DEFINED (__Interrupt113)?ABSOLUTE (__Interrupt113):ABSOLUTE (__DefaultInterrupt)
+                  0x0001f8          0x4 LONG 0x704 DEFINED (__AltInterrupt114)?ABSOLUTE (__AltInterrupt114):DEFINED (__Interrupt114)?ABSOLUTE (__Interrupt114):ABSOLUTE (__DefaultInterrupt)
+                  0x0001fa          0x4 LONG 0x704 DEFINED (__AltInterrupt115)?ABSOLUTE (__AltInterrupt115):DEFINED (__Interrupt115)?ABSOLUTE (__Interrupt115):ABSOLUTE (__DefaultInterrupt)
+                  0x0001fc          0x4 LONG 0x704 DEFINED (__AltInterrupt116)?ABSOLUTE (__AltInterrupt116):DEFINED (__Interrupt116)?ABSOLUTE (__Interrupt116):ABSOLUTE (__DefaultInterrupt)
+                  0x0001fe          0x4 LONG 0x704 DEFINED (__AltInterrupt117)?ABSOLUTE (__AltInterrupt117):DEFINED (__Interrupt117)?ABSOLUTE (__Interrupt117):ABSOLUTE (__DefaultInterrupt)
+                    0x0000                  WREG0 = 0x0
+                    0x0000                  _WREG0 = 0x0
+                    0x0002                  WREG1 = 0x2
+                    0x0002                  _WREG1 = 0x2
+                    0x0004                  WREG2 = 0x4
+                    0x0004                  _WREG2 = 0x4
+                    0x0006                  WREG3 = 0x6
+                    0x0006                  _WREG3 = 0x6
+                    0x0008                  WREG4 = 0x8
+                    0x0008                  _WREG4 = 0x8
+                    0x000a                  WREG5 = 0xa
+                    0x000a                  _WREG5 = 0xa
+                    0x000c                  WREG6 = 0xc
+                    0x000c                  _WREG6 = 0xc
+                    0x000e                  WREG7 = 0xe
+                    0x000e                  _WREG7 = 0xe
+                    0x0010                  WREG8 = 0x10
+                    0x0010                  _WREG8 = 0x10
+                    0x0012                  WREG9 = 0x12
+                    0x0012                  _WREG9 = 0x12
+                    0x0014                  WREG10 = 0x14
+                    0x0014                  _WREG10 = 0x14
+                    0x0016                  WREG11 = 0x16
+                    0x0016                  _WREG11 = 0x16
+                    0x0018                  WREG12 = 0x18
+                    0x0018                  _WREG12 = 0x18
+                    0x001a                  WREG13 = 0x1a
+                    0x001a                  _WREG13 = 0x1a
+                    0x001c                  WREG14 = 0x1c
+                    0x001c                  _WREG14 = 0x1c
+                    0x001e                  WREG15 = 0x1e
+                    0x001e                  _WREG15 = 0x1e
+                    0x0020                  SPLIM = 0x20
+                    0x0020                  _SPLIM = 0x20
+                    0x002e                  PCL = 0x2e
+                    0x002e                  _PCL = 0x2e
+                    0x0030                  PCH = 0x30
+                    0x0030                  _PCH = 0x30
+                    0x0032                  TBLPAG = 0x32
+                    0x0032                  _TBLPAG = 0x32
+                    0x0034                  PSVPAG = 0x34
+                    0x0034                  _PSVPAG = 0x34
+                    0x0036                  RCOUNT = 0x36
+                    0x0036                  _RCOUNT = 0x36
+                    0x0042                  SR = 0x42
+                    0x0042                  _SR = 0x42
+                    0x0042                  _SRbits = 0x42
+                    0x0044                  CORCON = 0x44
+                    0x0044                  _CORCON = 0x44
+                    0x0044                  _CORCONbits = 0x44
+                    0x0052                  DISICNT = 0x52
+                    0x0052                  _DISICNT = 0x52
+                    0x0060                  CNEN1 = 0x60
+                    0x0060                  _CNEN1 = 0x60
+                    0x0060                  _CNEN1bits = 0x60
+                    0x0062                  CNEN2 = 0x62
+                    0x0062                  _CNEN2 = 0x62
+                    0x0062                  _CNEN2bits = 0x62
+                    0x0068                  CNPU1 = 0x68
+                    0x0068                  _CNPU1 = 0x68
+                    0x0068                  _CNPU1bits = 0x68
+                    0x006a                  CNPU2 = 0x6a
+                    0x006a                  _CNPU2 = 0x6a
+                    0x006a                  _CNPU2bits = 0x6a
+                    0x0080                  INTCON1 = 0x80
+                    0x0080                  _INTCON1 = 0x80
+                    0x0080                  _INTCON1bits = 0x80
+                    0x0082                  INTCON2 = 0x82
+                    0x0082                  _INTCON2 = 0x82
+                    0x0082                  _INTCON2bits = 0x82
+                    0x0084                  IFS0 = 0x84
+                    0x0084                  _IFS0 = 0x84
+                    0x0084                  _IFS0bits = 0x84
+                    0x0086                  IFS1 = 0x86
+                    0x0086                  _IFS1 = 0x86
+                    0x0086                  _IFS1bits = 0x86
+                    0x0088                  IFS2 = 0x88
+                    0x0088                  _IFS2 = 0x88
+                    0x0088                  _IFS2bits = 0x88
+                    0x008a                  IFS3 = 0x8a
+                    0x008a                  _IFS3 = 0x8a
+                    0x008a                  _IFS3bits = 0x8a
+                    0x008c                  IFS4 = 0x8c
+                    0x008c                  _IFS4 = 0x8c
+                    0x008c                  _IFS4bits = 0x8c
+                    0x0094                  IEC0 = 0x94
+                    0x0094                  _IEC0 = 0x94
+                    0x0094                  _IEC0bits = 0x94
+                    0x0096                  IEC1 = 0x96
+                    0x0096                  _IEC1 = 0x96
+                    0x0096                  _IEC1bits = 0x96
+                    0x0098                  IEC2 = 0x98
+                    0x0098                  _IEC2 = 0x98
+                    0x0098                  _IEC2bits = 0x98
+                    0x009a                  IEC3 = 0x9a
+                    0x009a                  _IEC3 = 0x9a
+                    0x009a                  _IEC3bits = 0x9a
+                    0x009c                  IEC4 = 0x9c
+                    0x009c                  _IEC4 = 0x9c
+                    0x009c                  _IEC4bits = 0x9c
+                    0x00a4                  IPC0 = 0xa4
+                    0x00a4                  _IPC0 = 0xa4
+                    0x00a4                  _IPC0bits = 0xa4
+                    0x00a6                  IPC1 = 0xa6
+                    0x00a6                  _IPC1 = 0xa6
+                    0x00a6                  _IPC1bits = 0xa6
+                    0x00a8                  IPC2 = 0xa8
+                    0x00a8                  _IPC2 = 0xa8
+                    0x00a8                  _IPC2bits = 0xa8
+                    0x00aa                  IPC3 = 0xaa
+                    0x00aa                  _IPC3 = 0xaa
+                    0x00aa                  _IPC3bits = 0xaa
+                    0x00ac                  IPC4 = 0xac
+                    0x00ac                  _IPC4 = 0xac
+                    0x00ac                  _IPC4bits = 0xac
+                    0x00ae                  IPC5 = 0xae
+                    0x00ae                  _IPC5 = 0xae
+                    0x00ae                  _IPC5bits = 0xae
+                    0x00b0                  IPC6 = 0xb0
+                    0x00b0                  _IPC6 = 0xb0
+                    0x00b0                  _IPC6bits = 0xb0
+                    0x00b2                  IPC7 = 0xb2
+                    0x00b2                  _IPC7 = 0xb2
+                    0x00b2                  _IPC7bits = 0xb2
+                    0x00b4                  IPC8 = 0xb4
+                    0x00b4                  _IPC8 = 0xb4
+                    0x00b4                  _IPC8bits = 0xb4
+                    0x00b6                  IPC9 = 0xb6
+                    0x00b6                  _IPC9 = 0xb6
+                    0x00b6                  _IPC9bits = 0xb6
+                    0x00ba                  IPC11 = 0xba
+                    0x00ba                  _IPC11 = 0xba
+                    0x00ba                  _IPC11bits = 0xba
+                    0x00c2                  IPC15 = 0xc2
+                    0x00c2                  _IPC15 = 0xc2
+                    0x00c2                  _IPC15bits = 0xc2
+                    0x00c4                  IPC16 = 0xc4
+                    0x00c4                  _IPC16 = 0xc4
+                    0x00c4                  _IPC16bits = 0xc4
+                    0x00c6                  IPC17 = 0xc6
+                    0x00c6                  _IPC17 = 0xc6
+                    0x00c6                  _IPC17bits = 0xc6
+                    0x00e0                  INTTREG = 0xe0
+                    0x00e0                  _INTTREG = 0xe0
+                    0x00e0                  _INTTREGbits = 0xe0
+                    0x0100                  TMR1 = 0x100
+                    0x0100                  _TMR1 = 0x100
+                    0x0102                  PR1 = 0x102
+                    0x0102                  _PR1 = 0x102
+                    0x0104                  T1CON = 0x104
+                    0x0104                  _T1CON = 0x104
+                    0x0104                  _T1CONbits = 0x104
+                    0x0106                  TMR2 = 0x106
+                    0x0106                  _TMR2 = 0x106
+                    0x0108                  TMR3HLD = 0x108
+                    0x0108                  _TMR3HLD = 0x108
+                    0x010a                  TMR3 = 0x10a
+                    0x010a                  _TMR3 = 0x10a
+                    0x010c                  PR2 = 0x10c
+                    0x010c                  _PR2 = 0x10c
+                    0x010e                  PR3 = 0x10e
+                    0x010e                  _PR3 = 0x10e
+                    0x0110                  T2CON = 0x110
+                    0x0110                  _T2CON = 0x110
+                    0x0110                  _T2CONbits = 0x110
+                    0x0112                  T3CON = 0x112
+                    0x0112                  _T3CON = 0x112
+                    0x0112                  _T3CONbits = 0x112
+                    0x0114                  TMR4 = 0x114
+                    0x0114                  _TMR4 = 0x114
+                    0x0116                  TMR5HLD = 0x116
+                    0x0116                  _TMR5HLD = 0x116
+                    0x0118                  TMR5 = 0x118
+                    0x0118                  _TMR5 = 0x118
+                    0x011a                  PR4 = 0x11a
+                    0x011a                  _PR4 = 0x11a
+                    0x011c                  PR5 = 0x11c
+                    0x011c                  _PR5 = 0x11c
+                    0x011e                  T4CON = 0x11e
+                    0x011e                  _T4CON = 0x11e
+                    0x011e                  _T4CONbits = 0x11e
+                    0x0120                  T5CON = 0x120
+                    0x0120                  _T5CON = 0x120
+                    0x0120                  _T5CONbits = 0x120
+                    0x0140                  IC1BUF = 0x140
+                    0x0140                  _IC1BUF = 0x140
+                    0x0142                  IC1CON = 0x142
+                    0x0142                  _IC1CON = 0x142
+                    0x0142                  _IC1CONbits = 0x142
+                    0x0144                  IC2BUF = 0x144
+                    0x0144                  _IC2BUF = 0x144
+                    0x0146                  IC2CON = 0x146
+                    0x0146                  _IC2CON = 0x146
+                    0x0146                  _IC2CONbits = 0x146
+                    0x0158                  IC7BUF = 0x158
+                    0x0158                  _IC7BUF = 0x158
+                    0x015a                  IC7CON = 0x15a
+                    0x015a                  _IC7CON = 0x15a
+                    0x015a                  _IC7CONbits = 0x15a
+                    0x015c                  IC8BUF = 0x15c
+                    0x015c                  _IC8BUF = 0x15c
+                    0x015e                  IC8CON = 0x15e
+                    0x015e                  _IC8CON = 0x15e
+                    0x015e                  _IC8CONbits = 0x15e
+                    0x0180                  OC1RS = 0x180
+                    0x0180                  _OC1RS = 0x180
+                    0x0182                  OC1R = 0x182
+                    0x0182                  _OC1R = 0x182
+                    0x0184                  OC1CON = 0x184
+                    0x0184                  _OC1CON = 0x184
+                    0x0184                  _OC1CONbits = 0x184
+                    0x0186                  OC2RS = 0x186
+                    0x0186                  _OC2RS = 0x186
+                    0x0188                  OC2R = 0x188
+                    0x0188                  _OC2R = 0x188
+                    0x018a                  OC2CON = 0x18a
+                    0x018a                  _OC2CON = 0x18a
+                    0x018a                  _OC2CONbits = 0x18a
+                    0x018c                  OC3RS = 0x18c
+                    0x018c                  _OC3RS = 0x18c
+                    0x018e                  OC3R = 0x18e
+                    0x018e                  _OC3R = 0x18e
+                    0x0190                  OC3CON = 0x190
+                    0x0190                  _OC3CON = 0x190
+                    0x0190                  _OC3CONbits = 0x190
+                    0x0192                  OC4RS = 0x192
+                    0x0192                  _OC4RS = 0x192
+                    0x0194                  OC4R = 0x194
+                    0x0194                  _OC4R = 0x194
+                    0x0196                  OC4CON = 0x196
+                    0x0196                  _OC4CON = 0x196
+                    0x0196                  _OC4CONbits = 0x196
+                    0x0200                  I2C1RCV = 0x200
+                    0x0200                  _I2C1RCV = 0x200
+                    0x0200                  I2CRCV = 0x200
+                    0x0200                  _I2CRCV = 0x200
+                    0x0202                  I2C1TRN = 0x202
+                    0x0202                  _I2C1TRN = 0x202
+                    0x0202                  I2CTRN = 0x202
+                    0x0202                  _I2CTRN = 0x202
+                    0x0204                  I2C1BRG = 0x204
+                    0x0204                  _I2C1BRG = 0x204
+                    0x0206                  I2C1CON = 0x206
+                    0x0206                  _I2C1CON = 0x206
+                    0x0206                  _I2C1CONbits = 0x206
+                    0x0206                  I2CCON = 0x206
+                    0x0206                  _I2CCON = 0x206
+                    0x0206                  _I2CCONbits = 0x206
+                    0x0208                  I2C1STAT = 0x208
+                    0x0208                  _I2C1STAT = 0x208
+                    0x0208                  _I2C1STATbits = 0x208
+                    0x0208                  I2CSTAT = 0x208
+                    0x0208                  _I2CSTAT = 0x208
+                    0x0208                  _I2CSTATbits = 0x208
+                    0x020a                  I2C1ADD = 0x20a
+                    0x020a                  _I2C1ADD = 0x20a
+                    0x020a                  I2CADD = 0x20a
+                    0x020a                  _I2CADD = 0x20a
+                    0x020c                  I2C1MSK = 0x20c
+                    0x020c                  _I2C1MSK = 0x20c
+                    0x0220                  U1MODE = 0x220
+                    0x0220                  _U1MODE = 0x220
+                    0x0220                  _U1MODEbits = 0x220
+                    0x0222                  U1STA = 0x222
+                    0x0222                  _U1STA = 0x222
+                    0x0222                  _U1STAbits = 0x222
+                    0x0224                  U1TXREG = 0x224
+                    0x0224                  _U1TXREG = 0x224
+                    0x0224                  _U1TXREGbits = 0x224
+                    0x0226                  U1RXREG = 0x226
+                    0x0226                  _U1RXREG = 0x226
+                    0x0226                  _U1RXREGbits = 0x226
+                    0x0228                  U1BRG = 0x228
+                    0x0228                  _U1BRG = 0x228
+                    0x0230                  U2MODE = 0x230
+                    0x0230                  _U2MODE = 0x230
+                    0x0230                  _U2MODEbits = 0x230
+                    0x0232                  U2STA = 0x232
+                    0x0232                  _U2STA = 0x232
+                    0x0232                  _U2STAbits = 0x232
+                    0x0234                  U2TXREG = 0x234
+                    0x0234                  _U2TXREG = 0x234
+                    0x0234                  _U2TXREGbits = 0x234
+                    0x0236                  U2RXREG = 0x236
+                    0x0236                  _U2RXREG = 0x236
+                    0x0236                  _U2RXREGbits = 0x236
+                    0x0238                  U2BRG = 0x238
+                    0x0238                  _U2BRG = 0x238
+                    0x0240                  SPI1STAT = 0x240
+                    0x0240                  _SPI1STAT = 0x240
+                    0x0240                  _SPI1STATbits = 0x240
+                    0x0242                  SPI1CON1 = 0x242
+                    0x0242                  _SPI1CON1 = 0x242
+                    0x0242                  _SPI1CON1bits = 0x242
+                    0x0244                  SPI1CON2 = 0x244
+                    0x0244                  _SPI1CON2 = 0x244
+                    0x0244                  _SPI1CON2bits = 0x244
+                    0x0248                  SPI1BUF = 0x248
+                    0x0248                  _SPI1BUF = 0x248
+                    0x0260                  SPI2STAT = 0x260
+                    0x0260                  _SPI2STAT = 0x260
+                    0x0260                  _SPI2STATbits = 0x260
+                    0x0262                  SPI2CON1 = 0x262
+                    0x0262                  _SPI2CON1 = 0x262
+                    0x0262                  _SPI2CON1bits = 0x262
+                    0x0264                  SPI2CON2 = 0x264
+                    0x0264                  _SPI2CON2 = 0x264
+                    0x0264                  _SPI2CON2bits = 0x264
+                    0x0268                  SPI2BUF = 0x268
+                    0x0268                  _SPI2BUF = 0x268
+                    0x02c0                  TRISA = 0x2c0
+                    0x02c0                  _TRISA = 0x2c0
+                    0x02c0                  _TRISAbits = 0x2c0
+                    0x02c2                  PORTA = 0x2c2
+                    0x02c2                  _PORTA = 0x2c2
+                    0x02c2                  _PORTAbits = 0x2c2
+                    0x02c4                  LATA = 0x2c4
+                    0x02c4                  _LATA = 0x2c4
+                    0x02c4                  _LATAbits = 0x2c4
+                    0x02c6                  ODCA = 0x2c6
+                    0x02c6                  _ODCA = 0x2c6
+                    0x02c6                  _ODCAbits = 0x2c6
+                    0x02c8                  TRISB = 0x2c8
+                    0x02c8                  _TRISB = 0x2c8
+                    0x02c8                  _TRISBbits = 0x2c8
+                    0x02ca                  PORTB = 0x2ca
+                    0x02ca                  _PORTB = 0x2ca
+                    0x02ca                  _PORTBbits = 0x2ca
+                    0x02cc                  LATB = 0x2cc
+                    0x02cc                  _LATB = 0x2cc
+                    0x02cc                  _LATBbits = 0x2cc
+                    0x02ce                  ODCB = 0x2ce
+                    0x02ce                  _ODCB = 0x2ce
+                    0x02ce                  _ODCBbits = 0x2ce
+                    0x02d0                  TRISC = 0x2d0
+                    0x02d0                  _TRISC = 0x2d0
+                    0x02d0                  _TRISCbits = 0x2d0
+                    0x02d2                  PORTC = 0x2d2
+                    0x02d2                  _PORTC = 0x2d2
+                    0x02d2                  _PORTCbits = 0x2d2
+                    0x02d4                  LATC = 0x2d4
+                    0x02d4                  _LATC = 0x2d4
+                    0x02d4                  _LATCbits = 0x2d4
+                    0x02d6                  ODCC = 0x2d6
+                    0x02d6                  _ODCC = 0x2d6
+                    0x02d6                  _ODCCbits = 0x2d6
+                    0x02fc                  PADCFG1 = 0x2fc
+                    0x02fc                  _PADCFG1 = 0x2fc
+                    0x02fc                  _PADCFG1bits = 0x2fc
+                    0x0300                  ADC1BUF0 = 0x300
+                    0x0300                  _ADC1BUF0 = 0x300
+                    0x0300                  ADCBUF0 = 0x300
+                    0x0300                  _ADCBUF0 = 0x300
+                    0x0320                  AD1CON1 = 0x320
+                    0x0320                  _AD1CON1 = 0x320
+                    0x0320                  _AD1CON1bits = 0x320
+                    0x0322                  AD1CON2 = 0x322
+                    0x0322                  _AD1CON2 = 0x322
+                    0x0322                  _AD1CON2bits = 0x322
+                    0x0324                  AD1CON3 = 0x324
+                    0x0324                  _AD1CON3 = 0x324
+                    0x0324                  _AD1CON3bits = 0x324
+                    0x0326                  AD1CHS123 = 0x326
+                    0x0326                  _AD1CHS123 = 0x326
+                    0x0326                  _AD1CHS123bits = 0x326
+                    0x0328                  AD1CHS0 = 0x328
+                    0x0328                  _AD1CHS0 = 0x328
+                    0x0328                  _AD1CHS0bits = 0x328
+                    0x032c                  AD1PCFGL = 0x32c
+                    0x032c                  _AD1PCFGL = 0x32c
+                    0x032c                  _AD1PCFGLbits = 0x32c
+                    0x032c                  ADPCFG = 0x32c
+                    0x032c                  _ADPCFG = 0x32c
+                    0x032c                  _ADPCFGbits = 0x32c
+                    0x0330                  AD1CSSL = 0x330
+                    0x0330                  _AD1CSSL = 0x330
+                    0x0330                  _AD1CSSLbits = 0x330
+                    0x0332                  AD1CON4 = 0x332
+                    0x0332                  _AD1CON4 = 0x332
+                    0x0332                  _AD1CON4bits = 0x332
+                    0x0380                  DMA0CON = 0x380
+                    0x0380                  _DMA0CON = 0x380
+                    0x0380                  _DMA0CONbits = 0x380
+                    0x0382                  DMA0REQ = 0x382
+                    0x0382                  _DMA0REQ = 0x382
+                    0x0382                  _DMA0REQbits = 0x382
+                    0x0384                  DMA0STA = 0x384
+                    0x0384                  _DMA0STA = 0x384
+                    0x0386                  DMA0STB = 0x386
+                    0x0386                  _DMA0STB = 0x386
+                    0x0388                  DMA0PAD = 0x388
+                    0x0388                  _DMA0PAD = 0x388
+                    0x038a                  DMA0CNT = 0x38a
+                    0x038a                  _DMA0CNT = 0x38a
+                    0x038c                  DMA1CON = 0x38c
+                    0x038c                  _DMA1CON = 0x38c
+                    0x038c                  _DMA1CONbits = 0x38c
+                    0x038e                  DMA1REQ = 0x38e
+                    0x038e                  _DMA1REQ = 0x38e
+                    0x038e                  _DMA1REQbits = 0x38e
+                    0x0390                  DMA1STA = 0x390
+                    0x0390                  _DMA1STA = 0x390
+                    0x0392                  DMA1STB = 0x392
+                    0x0392                  _DMA1STB = 0x392
+                    0x0394                  DMA1PAD = 0x394
+                    0x0394                  _DMA1PAD = 0x394
+                    0x0396                  DMA1CNT = 0x396
+                    0x0396                  _DMA1CNT = 0x396
+                    0x0398                  DMA2CON = 0x398
+                    0x0398                  _DMA2CON = 0x398
+                    0x0398                  _DMA2CONbits = 0x398
+                    0x039a                  DMA2REQ = 0x39a
+                    0x039a                  _DMA2REQ = 0x39a
+                    0x039a                  _DMA2REQbits = 0x39a
+                    0x039c                  DMA2STA = 0x39c
+                    0x039c                  _DMA2STA = 0x39c
+                    0x039e                  DMA2STB = 0x39e
+                    0x039e                  _DMA2STB = 0x39e
+                    0x03a0                  DMA2PAD = 0x3a0
+                    0x03a0                  _DMA2PAD = 0x3a0
+                    0x03a2                  DMA2CNT = 0x3a2
+                    0x03a2                  _DMA2CNT = 0x3a2
+                    0x03a4                  DMA3CON = 0x3a4
+                    0x03a4                  _DMA3CON = 0x3a4
+                    0x03a4                  _DMA3CONbits = 0x3a4
+                    0x03a6                  DMA3REQ = 0x3a6
+                    0x03a6                  _DMA3REQ = 0x3a6
+                    0x03a6                  _DMA3REQbits = 0x3a6
+                    0x03a8                  DMA3STA = 0x3a8
+                    0x03a8                  _DMA3STA = 0x3a8
+                    0x03aa                  DMA3STB = 0x3aa
+                    0x03aa                  _DMA3STB = 0x3aa
+                    0x03ac                  DMA3PAD = 0x3ac
+                    0x03ac                  _DMA3PAD = 0x3ac
+                    0x03ae                  DMA3CNT = 0x3ae
+                    0x03ae                  _DMA3CNT = 0x3ae
+                    0x03b0                  DMA4CON = 0x3b0
+                    0x03b0                  _DMA4CON = 0x3b0
+                    0x03b0                  _DMA4CONbits = 0x3b0
+                    0x03b2                  DMA4REQ = 0x3b2
+                    0x03b2                  _DMA4REQ = 0x3b2
+                    0x03b2                  _DMA4REQbits = 0x3b2
+                    0x03b4                  DMA4STA = 0x3b4
+                    0x03b4                  _DMA4STA = 0x3b4
+                    0x03b6                  DMA4STB = 0x3b6
+                    0x03b6                  _DMA4STB = 0x3b6
+                    0x03b8                  DMA4PAD = 0x3b8
+                    0x03b8                  _DMA4PAD = 0x3b8
+                    0x03ba                  DMA4CNT = 0x3ba
+                    0x03ba                  _DMA4CNT = 0x3ba
+                    0x03bc                  DMA5CON = 0x3bc
+                    0x03bc                  _DMA5CON = 0x3bc
+                    0x03bc                  _DMA5CONbits = 0x3bc
+                    0x03be                  DMA5REQ = 0x3be
+                    0x03be                  _DMA5REQ = 0x3be
+                    0x03be                  _DMA5REQbits = 0x3be
+                    0x03c0                  DMA5STA = 0x3c0
+                    0x03c0                  _DMA5STA = 0x3c0
+                    0x03c2                  DMA5STB = 0x3c2
+                    0x03c2                  _DMA5STB = 0x3c2
+                    0x03c4                  DMA5PAD = 0x3c4
+                    0x03c4                  _DMA5PAD = 0x3c4
+                    0x03c6                  DMA5CNT = 0x3c6
+                    0x03c6                  _DMA5CNT = 0x3c6
+                    0x03c8                  DMA6CON = 0x3c8
+                    0x03c8                  _DMA6CON = 0x3c8
+                    0x03c8                  _DMA6CONbits = 0x3c8
+                    0x03ca                  DMA6REQ = 0x3ca
+                    0x03ca                  _DMA6REQ = 0x3ca
+                    0x03ca                  _DMA6REQbits = 0x3ca
+                    0x03cc                  DMA6STA = 0x3cc
+                    0x03cc                  _DMA6STA = 0x3cc
+                    0x03ce                  DMA6STB = 0x3ce
+                    0x03ce                  _DMA6STB = 0x3ce
+                    0x03d0                  DMA6PAD = 0x3d0
+                    0x03d0                  _DMA6PAD = 0x3d0
+                    0x03d2                  DMA6CNT = 0x3d2
+                    0x03d2                  _DMA6CNT = 0x3d2
+                    0x03d4                  DMA7CON = 0x3d4
+                    0x03d4                  _DMA7CON = 0x3d4
+                    0x03d4                  _DMA7CONbits = 0x3d4
+                    0x03d6                  DMA7REQ = 0x3d6
+                    0x03d6                  _DMA7REQ = 0x3d6
+                    0x03d6                  _DMA7REQbits = 0x3d6
+                    0x03d8                  DMA7STA = 0x3d8
+                    0x03d8                  _DMA7STA = 0x3d8
+                    0x03da                  DMA7STB = 0x3da
+                    0x03da                  _DMA7STB = 0x3da
+                    0x03dc                  DMA7PAD = 0x3dc
+                    0x03dc                  _DMA7PAD = 0x3dc
+                    0x03de                  DMA7CNT = 0x3de
+                    0x03de                  _DMA7CNT = 0x3de
+                    0x03e0                  DMACS0 = 0x3e0
+                    0x03e0                  _DMACS0 = 0x3e0
+                    0x03e0                  _DMACS0bits = 0x3e0
+                    0x03e2                  DMACS1 = 0x3e2
+                    0x03e2                  _DMACS1 = 0x3e2
+                    0x03e2                  _DMACS1bits = 0x3e2
+                    0x03e4                  DSADR = 0x3e4
+                    0x03e4                  _DSADR = 0x3e4
+                    0x0600                  PMCON = 0x600
+                    0x0600                  _PMCON = 0x600
+                    0x0600                  _PMCONbits = 0x600
+                    0x0602                  PMMODE = 0x602
+                    0x0602                  _PMMODE = 0x602
+                    0x0602                  _PMMODEbits = 0x602
+                    0x0604                  PMADDR = 0x604
+                    0x0604                  _PMADDR = 0x604
+                    0x0604                  _PMADDRbits = 0x604
+                    0x0604                  PMDOUT1 = 0x604
+                    0x0604                  _PMDOUT1 = 0x604
+                    0x0606                  PMDOUT2 = 0x606
+                    0x0606                  _PMDOUT2 = 0x606
+                    0x0608                  PMDIN1 = 0x608
+                    0x0608                  _PMDIN1 = 0x608
+                    0x060a                  PMDIN2 = 0x60a
+                    0x060a                  _PMDIN2 = 0x60a
+                    0x060c                  PMAEN = 0x60c
+                    0x060c                  _PMAEN = 0x60c
+                    0x060c                  _PMAENbits = 0x60c
+                    0x060e                  PMSTAT = 0x60e
+                    0x060e                  _PMSTAT = 0x60e
+                    0x060e                  _PMSTATbits = 0x60e
+                    0x0620                  ALRMVAL = 0x620
+                    0x0620                  _ALRMVAL = 0x620
+                    0x0622                  ALCFGRPT = 0x622
+                    0x0622                  _ALCFGRPT = 0x622
+                    0x0622                  _ALCFGRPTbits = 0x622
+                    0x0624                  RTCVAL = 0x624
+                    0x0624                  _RTCVAL = 0x624
+                    0x0626                  RCFGCAL = 0x626
+                    0x0626                  _RCFGCAL = 0x626
+                    0x0626                  _RCFGCALbits = 0x626
+                    0x0630                  CMCON = 0x630
+                    0x0630                  _CMCON = 0x630
+                    0x0630                  _CMCONbits = 0x630
+                    0x0632                  CVRCON = 0x632
+                    0x0632                  _CVRCON = 0x632
+                    0x0632                  _CVRCONbits = 0x632
+                    0x0640                  CRCCON = 0x640
+                    0x0640                  _CRCCON = 0x640
+                    0x0640                  _CRCCONbits = 0x640
+                    0x0642                  CRCXOR = 0x642
+                    0x0642                  _CRCXOR = 0x642
+                    0x0644                  CRCDAT = 0x644
+                    0x0644                  _CRCDAT = 0x644
+                    0x0646                  CRCWDAT = 0x646
+                    0x0646                  _CRCWDAT = 0x646
+                    0x0680                  RPINR0 = 0x680
+                    0x0680                  _RPINR0 = 0x680
+                    0x0680                  _RPINR0bits = 0x680
+                    0x0682                  RPINR1 = 0x682
+                    0x0682                  _RPINR1 = 0x682
+                    0x0682                  _RPINR1bits = 0x682
+                    0x0686                  RPINR3 = 0x686
+                    0x0686                  _RPINR3 = 0x686
+                    0x0686                  _RPINR3bits = 0x686
+                    0x0688                  RPINR4 = 0x688
+                    0x0688                  _RPINR4 = 0x688
+                    0x0688                  _RPINR4bits = 0x688
+                    0x068e                  RPINR7 = 0x68e
+                    0x068e                  _RPINR7 = 0x68e
+                    0x068e                  _RPINR7bits = 0x68e
+                    0x0694                  RPINR10 = 0x694
+                    0x0694                  _RPINR10 = 0x694
+                    0x0694                  _RPINR10bits = 0x694
+                    0x0696                  RPINR11 = 0x696
+                    0x0696                  _RPINR11 = 0x696
+                    0x0696                  _RPINR11bits = 0x696
+                    0x06a4                  RPINR18 = 0x6a4
+                    0x06a4                  _RPINR18 = 0x6a4
+                    0x06a4                  _RPINR18bits = 0x6a4
+                    0x06a6                  RPINR19 = 0x6a6
+                    0x06a6                  _RPINR19 = 0x6a6
+                    0x06a6                  _RPINR19bits = 0x6a6
+                    0x06a8                  RPINR20 = 0x6a8
+                    0x06a8                  _RPINR20 = 0x6a8
+                    0x06a8                  _RPINR20bits = 0x6a8
+                    0x06aa                  RPINR21 = 0x6aa
+                    0x06aa                  _RPINR21 = 0x6aa
+                    0x06aa                  _RPINR21bits = 0x6aa
+                    0x06ac                  RPINR22 = 0x6ac
+                    0x06ac                  _RPINR22 = 0x6ac
+                    0x06ac                  _RPINR22bits = 0x6ac
+                    0x06ae                  RPINR23 = 0x6ae
+                    0x06ae                  _RPINR23 = 0x6ae
+                    0x06ae                  _RPINR23bits = 0x6ae
+                    0x06c0                  RPOR0 = 0x6c0
+                    0x06c0                  _RPOR0 = 0x6c0
+                    0x06c0                  _RPOR0bits = 0x6c0
+                    0x06c2                  RPOR1 = 0x6c2
+                    0x06c2                  _RPOR1 = 0x6c2
+                    0x06c2                  _RPOR1bits = 0x6c2
+                    0x06c4                  RPOR2 = 0x6c4
+                    0x06c4                  _RPOR2 = 0x6c4
+                    0x06c4                  _RPOR2bits = 0x6c4
+                    0x06c6                  RPOR3 = 0x6c6
+                    0x06c6                  _RPOR3 = 0x6c6
+                    0x06c6                  _RPOR3bits = 0x6c6
+                    0x06c8                  RPOR4 = 0x6c8
+                    0x06c8                  _RPOR4 = 0x6c8
+                    0x06c8                  _RPOR4bits = 0x6c8
+                    0x06ca                  RPOR5 = 0x6ca
+                    0x06ca                  _RPOR5 = 0x6ca
+                    0x06ca                  _RPOR5bits = 0x6ca
+                    0x06cc                  RPOR6 = 0x6cc
+                    0x06cc                  _RPOR6 = 0x6cc
+                    0x06cc                  _RPOR6bits = 0x6cc
+                    0x06ce                  RPOR7 = 0x6ce
+                    0x06ce                  _RPOR7 = 0x6ce
+                    0x06ce                  _RPOR7bits = 0x6ce
+                    0x06d0                  RPOR8 = 0x6d0
+                    0x06d0                  _RPOR8 = 0x6d0
+                    0x06d0                  _RPOR8bits = 0x6d0
+                    0x06d2                  RPOR9 = 0x6d2
+                    0x06d2                  _RPOR9 = 0x6d2
+                    0x06d2                  _RPOR9bits = 0x6d2
+                    0x06d4                  RPOR10 = 0x6d4
+                    0x06d4                  _RPOR10 = 0x6d4
+                    0x06d4                  _RPOR10bits = 0x6d4
+                    0x06d6                  RPOR11 = 0x6d6
+                    0x06d6                  _RPOR11 = 0x6d6
+                    0x06d6                  _RPOR11bits = 0x6d6
+                    0x06d8                  RPOR12 = 0x6d8
+                    0x06d8                  _RPOR12 = 0x6d8
+                    0x06d8                  _RPOR12bits = 0x6d8
+                    0x0740                  RCON = 0x740
+                    0x0740                  _RCON = 0x740
+                    0x0740                  _RCONbits = 0x740
+                    0x0742                  OSCCON = 0x742
+                    0x0742                  _OSCCON = 0x742
+                    0x0742                  _OSCCONbits = 0x742
+                    0x0742                  OSCCONL = 0x742
+                    0x0742                  _OSCCONL = 0x742
+                    0x0743                  OSCCONH = 0x743
+                    0x0743                  _OSCCONH = 0x743
+                    0x0744                  CLKDIV = 0x744
+                    0x0744                  _CLKDIV = 0x744
+                    0x0744                  _CLKDIVbits = 0x744
+                    0x0746                  PLLFBD = 0x746
+                    0x0746                  _PLLFBD = 0x746
+                    0x0746                  _PLLFBDbits = 0x746
+                    0x0748                  OSCTUN = 0x748
+                    0x0748                  _OSCTUN = 0x748
+                    0x0748                  _OSCTUNbits = 0x748
+                    0x0750                  BSRAM = 0x750
+                    0x0750                  _BSRAM = 0x750
+                    0x0750                  _BSRAMbits = 0x750
+                    0x0752                  SSRAM = 0x752
+                    0x0752                  _SSRAM = 0x752
+                    0x0752                  _SSRAMbits = 0x752
+                    0x0760                  NVMCON = 0x760
+                    0x0760                  _NVMCON = 0x760
+                    0x0760                  _NVMCONbits = 0x760
+                    0x0766                  NVMKEY = 0x766
+                    0x0766                  _NVMKEY = 0x766
+                    0x0770                  PMD1 = 0x770
+                    0x0770                  _PMD1 = 0x770
+                    0x0770                  _PMD1bits = 0x770
+                    0x0772                  PMD2 = 0x772
+                    0x0772                  _PMD2 = 0x772
+                    0x0772                  _PMD2bits = 0x772
+                    0x0774                  PMD3 = 0x774
+                    0x0774                  _PMD3 = 0x774
+                    0x0774                  _PMD3bits = 0x774
+                    0x0140                  IC1 = 0x140
+                    0x0140                  _IC1 = 0x140
+                    0x0144                  IC2 = 0x144
+                    0x0144                  _IC2 = 0x144
+                    0x0158                  IC7 = 0x158
+                    0x0158                  _IC7 = 0x158
+                    0x015c                  IC8 = 0x15c
+                    0x015c                  _IC8 = 0x15c
+                    0x0180                  OC1 = 0x180
+                    0x0180                  _OC1 = 0x180
+                    0x0186                  OC2 = 0x186
+                    0x0186                  _OC2 = 0x186
+                    0x018c                  OC3 = 0x18c
+                    0x018c                  _OC3 = 0x18c
+                    0x0192                  OC4 = 0x192
+                    0x0192                  _OC4 = 0x192
+                    0x0240                  SPI1 = 0x240
+                    0x0240                  _SPI1 = 0x240
+                    0x0260                  SPI2 = 0x260
+                    0x0260                  _SPI2 = 0x260
+                    0x0220                  UART1 = 0x220
+                    0x0220                  _UART1 = 0x220
+                    0x0230                  UART2 = 0x230
+                    0x0230                  _UART2 = 0x230
+START GROUP
+LOAD /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfx-elf.a
+LOAD /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a
+LOAD /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a
+LOAD /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libc-elf.a
+END GROUP
+OUTPUT(dist/default/production/61-RCSym.production.elf elf32-pic30)
+LOAD jump_table
+LOAD default_isr
+LOAD data_init
+
+.debug_pubtypes
+                  0x0001b0       0x1001
+ .debug_pubtypes
+                  0x0001b0         0x64 build/default/production/_ext/261189241/BLI.o
+ .debug_pubtypes
+                  0x000214         0x83 build/default/production/_ext/261189241/BLIInit.o
+ .debug_pubtypes
+                  0x000297         0x64 build/default/production/_ext/261189241/BLILocal.o
+ .debug_pubtypes
+                  0x0002fb         0x5a build/default/production/_ext/261189241/BLIMorse.o
+ .debug_pubtypes
+                  0x000355         0x75 build/default/production/_ext/492825802/Init.o
+ .debug_pubtypes
+                  0x0003ca         0x27 build/default/production/_ext/261199537/MCM.o
+ .debug_pubtypes
+                  0x0003f1        0x209 build/default/production/_ext/261199537/MCMInit.o
+ .debug_pubtypes
+                  0x0005fa         0x1b build/default/production/_ext/261199537/MCMLocal.o
+ .debug_pubtypes
+                  0x000615         0x6a build/default/production/_ext/1099952713/RC.o
+ .debug_pubtypes
+                  0x00067f        0x1d6 build/default/production/_ext/1099952713/RCInit.o
+ .debug_pubtypes
+                  0x000855         0x70 build/default/production/_ext/1099952713/RCLocal.o
+ .debug_pubtypes
+                  0x0008c5        0x13b build/default/production/_ext/1099952713/RC_ISR.o
+ .debug_pubtypes
+                  0x000a00         0x60 build/default/production/_ext/1099952713/RCSym.o
+ .debug_pubtypes
+                  0x000a60         0x9a build/default/production/_ext/261206579/TMR.o
+ .debug_pubtypes
+                  0x000afa        0x1a9 build/default/production/_ext/261206579/TMRInit.o
+ .debug_pubtypes
+                  0x000ca3         0x57 build/default/production/_ext/261206579/TMRLocal.o
+ .debug_pubtypes
+                  0x000cfa         0x88 build/default/production/_ext/261206579/TMR_ISR.o
+ .debug_pubtypes
+                  0x000d82         0xc8 build/default/production/_ext/492512300/UART_TX_API.o
+ .debug_pubtypes
+                  0x000e4a        0x17c build/default/production/_ext/492512300/UART_TX_Init.o
+ .debug_pubtypes
+                  0x000fc6        0x104 build/default/production/_ext/492512300/UART_TX_ISR.o
+ .debug_pubtypes
+                  0x0010ca         0xab build/default/production/_ext/1566098207/UART_TX_Local.o
+ .debug_pubtypes
+                  0x001175         0x3c build/default/production/main.o
+
+__c30_signature
+                  0x0011b2         0xe4
+ __c30_signature
+                  0x0011b2          0x6 build/default/production/_ext/261189241/BLI.o
+ __c30_signature
+                  0x0011b8          0x6 build/default/production/_ext/261189241/BLIInit.o
+ __c30_signature
+                  0x0011be          0x6 build/default/production/_ext/261189241/BLILocal.o
+ __c30_signature
+                  0x0011c4          0x6 build/default/production/_ext/261189241/BLIMorse.o
+ __c30_signature
+                  0x0011ca          0x6 build/default/production/_ext/492825802/Init.o
+ __c30_signature
+                  0x0011d0          0x6 build/default/production/_ext/261199537/MCM.o
+ __c30_signature
+                  0x0011d6          0x6 build/default/production/_ext/261199537/MCMInit.o
+ __c30_signature
+                  0x0011dc          0x6 build/default/production/_ext/261199537/MCMLocal.o
+ __c30_signature
+                  0x0011e2          0x6 build/default/production/_ext/1099952713/RC.o
+ __c30_signature
+                  0x0011e8          0x6 build/default/production/_ext/1099952713/RCInit.o
+ __c30_signature
+                  0x0011ee          0x6 build/default/production/_ext/1099952713/RCLocal.o
+ __c30_signature
+                  0x0011f4          0x6 build/default/production/_ext/1099952713/RC_ISR.o
+ __c30_signature
+                  0x0011fa          0x6 build/default/production/_ext/1099952713/RCSym.o
+ __c30_signature
+                  0x001200          0x6 build/default/production/_ext/261206579/TMR.o
+ __c30_signature
+                  0x001206          0x6 build/default/production/_ext/261206579/TMRInit.o
+ __c30_signature
+                  0x00120c          0x6 build/default/production/_ext/261206579/TMRLocal.o
+ __c30_signature
+                  0x001212          0x6 build/default/production/_ext/261206579/TMR_ISR.o
+ __c30_signature
+                  0x001218          0x6 build/default/production/_ext/492512300/UART_TX_API.o
+ __c30_signature
+                  0x00121e          0x6 build/default/production/_ext/492512300/UART_TX_Init.o
+ __c30_signature
+                  0x001224          0x6 build/default/production/_ext/492512300/UART_TX_ISR.o
+ __c30_signature
+                  0x00122a          0x6 build/default/production/_ext/1566098207/UART_TX_Local.o
+ __c30_signature
+                  0x001230          0x6 build/default/production/main.o
+ __c30_signature
+                  0x001236          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(crt0_standard.o)
+ __c30_signature
+                  0x00123c          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libpic30-elf.a(data_init_standard.o)
+ __c30_signature
+                  0x001242          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(feqltle.eo)
+ __c30_signature
+                  0x001248          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fgtge.eo)
+ __c30_signature
+                  0x00124e          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fixunssfsi.eo)
+ __c30_signature
+                  0x001254          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatsisf.eo)
+ __c30_signature
+                  0x00125a          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatunsisf.eo)
+ __c30_signature
+                  0x001260          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floorf.eo)
+ __c30_signature
+                  0x001266          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack.eo)
+ __c30_signature
+                  0x00126c          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(errno.eo)
+ __c30_signature
+                  0x001272          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fchop.eo)
+ __c30_signature
+                  0x001278          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fcompare.eo)
+ __c30_signature
+                  0x00127e          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatdisf.eo)
+ __c30_signature
+                  0x001284          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(floatundisf.eo)
+ __c30_signature
+                  0x00128a          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(fpack.eo)
+ __c30_signature
+                  0x001290          0x6 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(funpack2.eo)
+
+.nbss               0x0800        0x200
+ .nbss              0x0800        0x100 build/default/production/_ext/261189241/BLILocal.o
+                    0x0800                  __BLIAsyncTimes
+ .nbss              0x0900        0x100 build/default/production/_ext/1566098207/UART_TX_Local.o
+                    0x0900                  __UART_TX_Buf
+
+.ndata              0x0a00        0x12a
+ .ndata             0x0a00         0xc4 build/default/production/_ext/261189241/BLIMorse.o
+                    0x0a00                  _BLIMorseA
+                    0x0a04                  _BLIMorseB
+                    0x0a0a                  _BLIMorseC
+                    0x0a10                  _BLIMorseD
+                    0x0a16                  _BLIMorseE
+                    0x0a1a                  _BLIMorseF
+                    0x0a20                  _BLIMorseG
+                    0x0a26                  _BLIMorseH
+                    0x0a2c                  _BLIMorseI
+                    0x0a30                  _BLIMorseJ
+                    0x0a36                  _BLIMorseK
+                    0x0a3c                  _BLIMorseL
+                    0x0a42                  _BLIMorseM
+                    0x0a46                  _BLIMorseN
+                    0x0a4a                  _BLIMorseO
+                    0x0a50                  _BLIMorseP
+                    0x0a56                  _BLIMorseQ
+                    0x0a5c                  _BLIMorseR
+                    0x0a62                  _BLIMorseS
+                    0x0a68                  _BLIMorseT
+                    0x0a6c                  _BLIMorseU
+                    0x0a72                  _BLIMorseV
+                    0x0a78                  _BLIMorseW
+                    0x0a7e                  _BLIMorseX
+                    0x0a84                  _BLIMorseY
+                    0x0a8a                  _BLIMorseZ
+                    0x0a90                  _BLIMorseAlphabet
+ .ndata             0x0ac4         0x38 build/default/production/_ext/1099952713/RCLocal.o
+                    0x0ac4                  __RCIL
+                    0x0ac6                  __RCInit
+                    0x0ac8                  __RCState
+                    0x0aca                  __RCTimes
+                    0x0ae2                  __RCConnActive
+                    0x0ae4                  __RCSampleReady
+                    0x0ae6                  __RCSampleTimed
+                    0x0ae8                  __RCRawSample
+ .ndata             0x0afc          0xe build/default/production/_ext/261206579/TMRLocal.o
+                    0x0afc                  __TMRInit
+                    0x0afe                  __TMRIL
+                    0x0b00                  __TMR_RT_ElapsedTime
+                    0x0b04                  __TMR_CallBack_TriggerTime
+                    0x0b08                  __TMR_CallBack
+ .ndata             0x0b0a          0xa build/default/production/_ext/261199537/MCMLocal.o
+                    0x0b0a                  __MC_Init
+                    0x0b0c                  __MC_Tmr_Count
+                    0x0b0e                  __MC_Base_Value
+                    0x0b10                  __MC_OCMax
+ .ndata             0x0b14          0x8 build/default/production/_ext/261189241/BLILocal.o
+                    0x0b14                  __BLIInit
+                    0x0b16                  __BLIIL
+                    0x0b18                  __BLIAsync
+                    0x0b1a                  __BLIAsyncPos
+ .ndata             0x0b1c          0x8 build/default/production/_ext/1566098207/UART_TX_Local.o
+                    0x0b1c                  __UART_IL_TX
+                    0x0b1e                  __UART_TX_Ready
+                    0x0b20                  __UART_TX_Buf_Len
+                    0x0b22                  __UART_TX_Buf_Index
+ .ndata             0x0b24          0x4 build/default/production/_ext/1099952713/RCSym.o
+                    0x0b24                  __RCSymStart
+ .ndata             0x0b28          0x2 build/default/production/_ext/1099952713/RC.o
+                    0x0b28                  __RCControlCount
+
+.nbss               0x0b2a          0x2
+ .nbss              0x0b2a          0x2 /Applications/microchip/xc16/v1.21/bin/bin/../../lib/libfastm-elf.a(errno.eo)
+                    0x0b2a                  _errno
+
+.const              0x906c       0x2350 load address 0x00106c  
+ .const             0x906c       0x232a build/default/production/_ext/1099952713/RCSym.o
+                    0x906c                  __RCSymCount
+                    0x906e                  __RCSymStream
+ .const             0xb396         0x20 build/default/production/_ext/1099952713/RCLocal.o
+                    0xb396                  __RC_Tmr_Count
+                    0xb398                  __RCTimeCountMinMin
+                    0xb39c                  __RCTimeCountMin
+                    0xb3a0                  __RCTimeCountMidPoint
+                    0xb3a4                  __RCTimeCountMax
+                    0xb3a8                  __RCTimeCountMaxMax
+                    0xb3ac                  __RCPlusRange
+                    0xb3b0                  __RCPlusMinusRange
+                    0xb3b4                  __RCControlMin
+ .const             0xb3b6          0x4 build/default/production/main.o
+ .const             0xb3ba          0x2 build/default/production/_ext/1566098207/UART_TX_Local.o
+                    0xb3ba                  __UART_Start
+                    0xb3bb                  __UART_Stop
+
+.text             0x0033bc        0xc16
+ .text            0x0033bc        0x27c build/default/production/_ext/1099952713/RC.o
+                  0x0033bc                  _RCArm
+                  0x003412                  _RCIsLinked
+                  0x00341c                  _RCReadWhenReady
+                  0x003434                  _RCRead
+ .text            0x003638        0x224 build/default/production/_ext/261199537/MCMInit.o
+                  0x003638                  _MCMInitF
+                  0x003676                  _MCMInitT
+                  0x0036ce                  _MCMInitLocal
+ .text            0x00385c        0x1e0 build/default/production/_ext/261206579/TMR.o
+                  0x0038ba                  _TMRGetTS
+                  0x0038cc                  _TMRGetRTC
+                  0x0038e4                  _TMRDelay
+                  0x0038f6                  _TMRDelayTicks
+                  0x003908                  _TMRSetAlarm
+                  0x003924                  _TMRSetAlarmTicks
+                  0x003938                  _TMRTestAlarm
+                  0x003952                  _TMRWaitAlarm
+                  0x003966                  _TMRCallBackAfter
+                  0x0039dc                  _TMRCallBackDiscard
+ .text            0x003a3c        0x196 build/default/production/_ext/261199537/MCM.o
+                  0x003a3c                  _MCMSet
+ .text            0x003bd2        0x18e build/default/production/_ext/1099952713/RCSym.o
+                  0x003be0                  _RCSymArm
+                  0x003c1c                  _RCSymReadWhenReady
+                  0x003c34                  _RCSymRead
+ .text            0x003d60        0x14e build/default/production/_ext/492512300/UART_TX_Init.o
+                  0x003d8c                  _UARTInitTX
+ .text            0x003eae        0x124 build/default/production/_ext/261189241/BLIMorse.o
+                  0x003eae                  _BLIAsyncMorse
+
+.dinit            0x003fd2        0x112
+ .dinit           0x003fd2        0x112 data_init
+
+.text             0x0040e4        0x3c2
+ .text            0x0040e4         0xb4 build/default/production/_ext/261206579/TMRInit.o
+                  0x0040e4                  _TMRInitDefault
+                  0x0040f4                  _TMRInit
+ .text            0x004198         0x9c build/default/production/_ext/261189241/BLI.o
+                  0x004198                  _BLISignalON
+                  0x0041a6                  _BLISignalOFF
+                  0x0041b4                  _BLISignalFlip
+                  0x0041da                  _BLIAsyncStart
+                  0x00420c                  _BLIAsyncStop
+                  0x004224                  _BLIDeadStop
+ .text            0x004234         0x9a build/default/production/_ext/492825802/Init.o
+                  0x004234                  _Init
+ .text            0x0042ce         0x94 build/default/production/_ext/1099952713/RCInit.o
+                  0x0042ce                  _RCInit
+ .text            0x004362         0x7c build/default/production/_ext/492512300/UART_TX_API.o
+                  0x004362                  _UARTPostWhenReady
+                  0x00437a                  _UARTPostIfReady
+ .text            0x0043de         0x5a build/default/production/main.o
+                  0x0043de                  _main
+ .text            0x004438         0x52 build/default/production/_ext/261189241/BLILocal.o
+                  0x004438                  __BLICallBack
+ .text            0x00448a         0x1c build/default/production/_ext/261189241/BLIInit.o
+                  0x00448a                  _BLIInit

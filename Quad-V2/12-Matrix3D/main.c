@@ -1,7 +1,7 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "Matrix3d\Matrix3D.h"
+#include "Init/Init.h"
+#include "Matrix3d/Matrix3D.h"
 
 int main(void)
 	{

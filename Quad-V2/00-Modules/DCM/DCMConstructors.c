@@ -1,4 +1,4 @@
-#include "DCM\DCMLocal.h"
+#include "DCM/DCMLocal.h"
 
 //==================================================================================
 DCM*	_DCMCopy(DCM* pBaseDCM, DCM* pNewDCM)

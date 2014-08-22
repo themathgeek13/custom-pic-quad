@@ -1,8 +1,8 @@
-#include "MXB\MXBLocal.h"
+#include "MXB/MXBLocal.h"
 //=====================================================
 #ifdef __MAG_Use__
 //*****************************************************
-#include "TMR\TMR.h"
+#include "TMR/TMR.h"
 
 //************************************************************
 // MXB-related Interrupt Routines

@@ -1,4 +1,4 @@
-#include "DCM\DCMLocal.h"
+#include "DCM/DCMLocal.h"
 
 //=============================================================
 // DCMGetMatrix returns current Rotation Matrix.

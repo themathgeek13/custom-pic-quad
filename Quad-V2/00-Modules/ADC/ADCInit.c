@@ -1,4 +1,4 @@
-#include "ADC\ADCLocal.h"
+#include "ADC/ADCLocal.h"
 
 //************************************************************
 void	ADCInit(uint IL)

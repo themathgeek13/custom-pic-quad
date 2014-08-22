@@ -1,4 +1,4 @@
-#include "BLI\BLILocal.h"
+#include "BLI/BLILocal.h"
 
 //************************************************************
 uint			_BLIInit 	= 0;	// BLI initializtion flag

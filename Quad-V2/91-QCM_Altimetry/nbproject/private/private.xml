@@ -1,13 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MCM/MCMInit.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/Altimeter/Altimeter.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/Altimeter/Altimeter.h</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/Profile.h</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MPL3115/MPL3115_Init.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/SR04/SR04.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/DCM/DCM.h</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MPL3115/MPL3115.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/91-QCM_Altimetry/main.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/Altimeter/Altimeter.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/Altimeter/Altimeter.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/Altimeter/AltimeterLocal.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04_Init.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04_ISR.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04_Local.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04_Local.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/SR04/SR04_Profile.h</file>
     </open-files>
 </project-private>

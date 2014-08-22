@@ -1,12 +1,15 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
-#include "MPU6050\MPU6050_Local.h"
-#include "UART\UART.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
+#include "MPU6050/MPU6050_Local.h"
+// rich kopelow - 8/19/14
+// change the following include
+// #include "UART/UART.h"
+#include "UART/UART_TX.h"
 
 
 int main(void)
@@ -27,7 +30,7 @@ int main(void)
 	//--------------------------
 	BLISignalOFF();
 	//--------------------------
-	UARTInitTX(6, 48);	// Initialize UART1 for TX on IPL=6 at 115200 bps
+	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 115200 bps
 	// This initialization routine accepts BaudRate in multiples
 	// of 2400 bps; Thus:
 	// BaudRate =   1	=>   2400 bps
@@ -44,7 +47,7 @@ int main(void)
 	// BaudRate =  500	=> 1,250,000 bps
 	// BaudRate = 1000	=> 2,500,000 bps
 	//*******************************************************************
-	MPUSample		Sample;
+	MPUData 		Sample;
 	//*******************************************************************
 	if ( MPUAsyncStart() )
 		BLIDeadStop("E", 1);
@@ -53,11 +56,11 @@ int main(void)
 		{
 		TMRDelay(500);
 		//------------------------
-		if ( MPUAsyncReadWhenReady(&Sample) )
+		if ( MPUAsyncReadIfReady(&Sample) )
 			BLIDeadStop("M", 1);
 		//---------------------------------------------	
 		UARTPostWhenReady((uchar*)&Sample, sizeof(Sample));
-		//---------------------------------------------	
+		//---------------------------------------------
 		}
 	return 1;
 	}

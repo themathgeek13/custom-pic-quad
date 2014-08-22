@@ -1,4 +1,4 @@
-#include "DCM\DCMLocal.h"
+#include "DCM/DCMLocal.h"
 
 //==================================================================
 // Rotation Matrix - defines rotations experienced by the body

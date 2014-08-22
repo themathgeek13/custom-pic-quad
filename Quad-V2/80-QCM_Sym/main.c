@@ -1,20 +1,20 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "MCM\MCM.h"
-#include "RC\RCSym.h"
-#include "ADC\ADC.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
-#include "UART\UART_TX.h"
-#include "DCM\DCM.h"
-#include "IMU\IMU.h"
-#include "QCM\QCM.h"
-#include "DEF\DEF.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "MCM/MCM.h"
+#include "RC/RCSym.h"
+#include "ADC/ADC.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
+#include "UART/UART_TX.h"
+#include "DCM/DCM.h"
+#include "IMU/IMU.h"
+#include "QCM/QCM.h"
+#include "DEF/DEF.h"
 
-#include "QCM\QCMStepData.h"		// Needed for Telemetry data
+#include "QCM/QCMStepData.h"		// Needed for Telemetry data
 
 //---------------------------------
 // Header for optional HW components
@@ -306,7 +306,8 @@ Re_Start:
 	// Start IMU and wait until orientation estimate stabilizes
 	//------------------------------------------------------------------
 	BLIAsyncMorse(	"E", 1);		// dit
-	IMUInit();
+	//IMUInit();
+        IMUReset();
 	//------------------------------------------------------------------
 	QCMReset();			// Initialize (reset) QCM variables
 	//------------------------------------------------------------------

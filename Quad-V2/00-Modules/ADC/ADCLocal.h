@@ -1,4 +1,4 @@
-#include "ADC\ADC.h"
+#include "ADC/ADC.h"
 
 //=====================================================
 #ifndef __ADCLocal_H

@@ -1,12 +1,12 @@
-#include "RC\RCSym_Local.h"
+#include "RC/RCSym_Local.h"
 
-//#include "RC\RCSymData_VibroTest.h"
-#include "RC\RCSymData_BalanceHard.h"
-//#include "RC\RCSymData_BalanceTest.h"
-//#include "RC\RCSymData_MB_Ramp.h"
-//#include "RC\RCSymData_MB_Soft.h"
-//#include "RC\RCSymData_MB_Hard.h"
-//#include "RC\RCSymData_YawTest.h"
+//#include "RC/RCSymData_VibroTest.h"
+#include "RC/RCSymData_BalanceHard.h"
+//#include "RC/RCSymData_BalanceTest.h"
+//#include "RC/RCSymData_MB_Ramp.h"
+//#include "RC/RCSymData_MB_Soft.h"
+//#include "RC/RCSymData_MB_Hard.h"
+//#include "RC/RCSymData_YawTest.h"
 
 //************************************************************
 // Simulation control values and access routines

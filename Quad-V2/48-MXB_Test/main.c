@@ -1,13 +1,13 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "UART\UART_TX.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "UART/UART_TX.h"
 
 //---------------------------------
-#include "MXB\MXB.h"
-#include "MXB\MXBLocal.h"
+#include "MXB/MXB.h"
+#include "MXB/MXBLocal.h"
 //---------------------------------
 
 #include <string.h>		// Required for memcpy(...)

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V2/42-MAG_Calibration/main.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V2/00-Modules/HMCMAG/HMCMAG_Sync.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V2/00-Modules/HMCMAG/HMCMAG.h</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-V2/00-Modules/TMR/TMR.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/42-MAG_Calibration/main.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/HMCMAG/HMCMAG_ISR_INT2.c</file>
     </open-files>
 </project-private>

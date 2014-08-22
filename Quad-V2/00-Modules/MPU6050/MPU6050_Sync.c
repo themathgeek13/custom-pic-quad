@@ -1,4 +1,4 @@
-#include "MPU6050\MPU6050_Local.h"
+#include "MPU6050/MPU6050_Local.h"
 
 //=============================================================
 // Synchronous READ SAMPLE API (visible externally)

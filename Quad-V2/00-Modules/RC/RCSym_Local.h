@@ -1,5 +1,5 @@
-#include "RC\RCSym.h"
-#include "RC\RCLocal.h"
+#include "RC/RCSym.h"
+#include "RC/RCLocal.h"
 
 //=====================================================
 #ifndef RCSYM_LOCAL_H

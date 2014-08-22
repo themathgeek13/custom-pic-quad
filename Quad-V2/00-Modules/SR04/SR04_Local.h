@@ -1,7 +1,7 @@
-#include "SR04\SR04.h"
-#include "SR04\SR04_Profile.h"
+#include "SR04/SR04.h"
+#include "SR04/SR04_Profile.h"
 
-#include "TMR\TMR.h"
+#include "TMR/TMR.h"
 
 //=====================================================
 #ifndef SR04LOCAL_H

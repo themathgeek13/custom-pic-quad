@@ -1,5 +1,5 @@
-#include "MCM\MCM.h"
-#include "TMR\TMR.h"
+#include "MCM/MCM.h"
+#include "TMR/TMR.h"
 
 //=====================================================
 #ifndef __MCMLocal_H

@@ -1,19 +1,19 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "ADC\ADC.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "ADC/ADC.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
 #ifdef __MAG_Use__
-#include "HMCMAG\HMCMAG.h"
+#include "HMCMAG/HMCMAG.h"
 #endif
-#include "UART\UART.h"
-#include "DCM\DCM.h"
-#include "IMU\IMU.h"
+#include "UART/UART_TX.h"
+#include "DCM/DCM.h"
+#include "IMU/IMU.h"
 
-#include "DBG\DBG.h"
+#include "DBG/DBG.h"
 
 int main(void)
 	{
@@ -38,7 +38,7 @@ int main(void)
 		BLIDeadStop("EM", 2);
 	#endif
 	//--------------------------
-	UARTInitTX(6, 48);	// Initialize UART1 for TX on IPL=6 at 115200 bps
+	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 115200 bps
 						// BaudRate =  1	=>   2400 bps
 						// BaudRate =  2	=>   4800 bps
 						// ...
@@ -62,7 +62,8 @@ int main(void)
 		} 		UARTData;
 	//*******************************************************************
 	DBG_1_ON();
-	StCount = 	IMUInit();
+	//StCount = 	IMUInit();
+	StCount = 	IMUReset();
 	DBG_1_OFF();
 	//*******************************************************************
 	BLISignalOFF();
@@ -82,7 +83,7 @@ int main(void)
 		UARTData.Azimuth	= IMUResult.Azimuth;
 		#endif
 		//----------------------------
-		UARTPostIfReady((uchar*)&UARTData, sizeof(UARTData));
+		UARTPostWhenReady((uchar*)&UARTData, sizeof(UARTData));
 		//---------------------------------------------	
 		BLISignalFlip();
 		}

@@ -1,7 +1,7 @@
-#include "TMR\TMR.h"
-#include "I2C\I2C_Profile.h"
+#include "TMR/TMR.h"
+#include "I2C/I2C_Profile.h"
 
-#include "MPU6050\MPU6050.h"
+#include "MPU6050/MPU6050.h"
 
 //==================================================================
 #ifndef __MPU6050_Local_H

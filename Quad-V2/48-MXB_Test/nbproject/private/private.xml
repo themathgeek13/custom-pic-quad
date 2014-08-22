@@ -1,9 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/48-MXB_Test/main.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MXB/MXBInit.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MXB/MXB.c</file>
-        <file>file:/D:/AZarenin/Development/HE/MicroChip/custom-pic-quad/svn/trunk/Quad-FW-V1/00-Modules/MXB/MXBLocal.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/48-MXB_Test/main.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXBLocal.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXB.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXBInit.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXBLocal.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXB_ISR.c</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXB.h</file>
+        <file>file:/Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/MXB/MXBProfile.h</file>
     </open-files>
 </project-private>

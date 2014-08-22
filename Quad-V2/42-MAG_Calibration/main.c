@@ -1,12 +1,12 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "I2C\I2C.h"
-#include "HMCMAG\HMCMAG.h"
-#include "HMCMAG\HMCMAG_Local.h"
-#include "UART\UART_TX.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "I2C/I2C.h"
+#include "HMCMAG/HMCMAG.h"
+#include "HMCMAG/HMCMAG_Local.h"
+#include "UART/UART_TX.h"
 
 int main(void)
 	{

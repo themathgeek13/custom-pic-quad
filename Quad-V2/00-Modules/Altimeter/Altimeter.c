@@ -1,5 +1,5 @@
-#include "Altimeter\AltimeterLocal.h"
-#include "DEF\DEF.h"
+#include "Altimeter/AltimeterLocal.h"
+#include "DEF/DEF.h"
 
 AltmData	AltmLocal;
 //-------------------------------

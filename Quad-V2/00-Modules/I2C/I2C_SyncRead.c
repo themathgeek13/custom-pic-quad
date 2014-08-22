@@ -1,5 +1,5 @@
-#include "I2C\I2C_Local.h"
-#include "TMR\TMR.h"
+#include "I2C/I2C_Local.h"
+#include "TMR/TMR.h"
 
 //************************************************************
 // Synchronous READ - I2C API (visible externally) component

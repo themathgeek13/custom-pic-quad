@@ -1,20 +1,20 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "MCM\MCM.h"
-#include "RC\RC.h"
-#include "ADC\ADC.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
-#include "HMCMAG\HMCMAG.h"
-#include "UART\UART_TX.h"
-#include "DCM\DCM.h"
-#include "IMU\IMU.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "MCM/MCM.h"
+#include "RC/RC.h"
+#include "ADC/ADC.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
+#include "HMCMAG/HMCMAG.h"
+#include "UART/UART_TX.h"
+#include "DCM/DCM.h"
+#include "IMU/IMU.h"
 
-#include "QCM\QCM.h"
-#include "QCM\QCMStepData.h"		// Needed for Telemetry data
+#include "QCM/QCM.h"
+#include "QCM/QCMStepData.h"		// Needed for Telemetry data
 
 //=======================================================================
 
@@ -488,7 +488,7 @@ Re_Start:
 		else
 			{
 			// Without Course-Lock Yaw is treated as "direct input" and
-			// just smoothed similar to other control variables.
+			// just smothed similar to other control variables.
 			RCSmthd.Yaw		= (RCSmthd.Yaw	+ RCFeed.Yaw  ) * 0.5;
 			}
 		//------------------------------------------------------------

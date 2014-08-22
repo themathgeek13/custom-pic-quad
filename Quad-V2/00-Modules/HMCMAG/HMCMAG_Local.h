@@ -1,8 +1,8 @@
-#include "TMR\TMR.h"
-#include "I2C\I2C.h"
+#include "TMR/TMR.h"
+#include "I2C/I2C.h"
 //*************************************************************
-#include "HMCMAG\HMCMAG.h"
-#include "HMCMAG\HMCMAG_Profile.h"
+#include "HMCMAG/HMCMAG.h"
+#include "HMCMAG/HMCMAG_Profile.h"
 
 //=====================================================
 #ifndef __HMCMAG_Local_H

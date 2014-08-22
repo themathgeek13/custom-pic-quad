@@ -1,4 +1,4 @@
-#include "DCM\DCMLocal.h"
+#include "DCM/DCMLocal.h"
 
 //==================================================================================
 DCM*	_DCMMultiply(DCM* pLeft, DCM* pRight, DCM* pResult)

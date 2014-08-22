@@ -1,7 +1,7 @@
 #include "System.h"
-#include "MPU6050\MPU6050.h"
-#include "HMCMAG\HMCMAG.h"
-#include "DCM\DCM.h"
+#include "MPU6050/MPU6050.h"
+#include "HMCMAG/HMCMAG.h"
+#include "DCM/DCM.h"
 
 //=====================================================
 #ifndef __IMU_H

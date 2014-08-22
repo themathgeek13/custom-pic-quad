@@ -1,6 +1,6 @@
 #include "System.h"
-#include "Vector\Vector.h"
-#include "Matrix3D\Matrix3D.h"
+#include "Vector/Vector.h"
+#include "Matrix3D/Matrix3D.h"
 
 //=====================================================
 #ifndef __DCM_H

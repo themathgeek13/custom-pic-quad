@@ -1,9 +1,8 @@
 #include "System.h"
 //---------------------------------
 #include "Init/Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-//---------------------------------
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
 
 int main(void)
 	{

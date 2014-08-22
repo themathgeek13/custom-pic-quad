@@ -1,5 +1,5 @@
-#include "BLI\BLI.h"
-#include "TMR\TMRLocal.h"
+#include "BLI/BLI.h"
+#include "TMR/TMRLocal.h"
 
 //=====================================================
 #ifndef __BLILocal_H

@@ -1,6 +1,6 @@
 #include "System.h"
 //*****************************************************
-#include "Vector\Vector.h"
+#include "Vector/Vector.h"
 
 //=====================================================
 #ifndef __HMCMAG_H

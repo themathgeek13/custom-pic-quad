@@ -1,5 +1,5 @@
-#include "DCM\DCM.h"
-#include "HMCMAG\HMCMAG.h"
+#include "DCM/DCM.h"
+#include "HMCMAG/HMCMAG.h"
 
 //=====================================================
 #ifndef __DCMLocal_H

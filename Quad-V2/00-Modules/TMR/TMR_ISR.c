@@ -1,4 +1,4 @@
-#include "TMR\TMRLocal.h"
+#include "TMR/TMRLocal.h"
 
 //*************************************************************
 void __attribute__((__interrupt__, __no_auto_psv__)) _T1Interrupt(void)

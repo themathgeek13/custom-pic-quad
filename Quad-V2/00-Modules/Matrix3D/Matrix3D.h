@@ -1,7 +1,7 @@
 #include "System.h"
 #include <math.h>
 
-#include "Vector\Vector.h"
+#include "Vector/Vector.h"
 //=====================================================================
 #ifndef __MATRIX3D_H
 #define	__MATRIX3D_H

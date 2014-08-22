@@ -1,5 +1,5 @@
-#include "DCM\DCMLocal.h"
-#include "TMR\TMR.h"
+#include "DCM/DCMLocal.h"
+#include "TMR/TMR.h"
 
 //==================================================================================
 void	DCMReset()

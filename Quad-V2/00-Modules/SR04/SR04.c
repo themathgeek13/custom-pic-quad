@@ -1,4 +1,4 @@
-#include "SR04\SR04_Local.h"
+#include "SR04/SR04_Local.h"
 
 //*******************************************************************
 // SR04ReadWhenReady(...) function - returns calculated Altitude and

@@ -1,4 +1,4 @@
-#include "ADC\ADCLocal.h"
+#include "ADC/ADCLocal.h"
 
 //==================================================================
 uint			_ADCIL			= 4;	// ADC default interrupt level

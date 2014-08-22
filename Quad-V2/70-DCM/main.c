@@ -1,13 +1,13 @@
 #include "System.h"
 //---------------------------------
-#include "Init\Init.h"
-#include "TMR\TMR.h"
-#include "BLI\BLI.h"
-#include "ADC\ADC.h"
-#include "I2C\I2C.h"
-#include "MPU6050\MPU6050.h"
-#include "UART\UART.h"
-#include "DCM\DCM.h"
+#include "Init/Init.h"
+#include "TMR/TMR.h"
+#include "BLI/BLI.h"
+#include "ADC/ADC.h"
+#include "I2C/I2C.h"
+#include "MPU6050/MPU6050.h"
+#include "UART/UART_TX.h"
+#include "DCM/DCM.h"
 
 struct
 	{
@@ -71,7 +71,8 @@ int main(void)
 	//*******************************************************************
 	uint		RC		= 0;
 	//----------------------------
-	MPUSample	MPUReading;
+	//MPUSample	MPUReading;
+	MPUData 	MPUReading;
 	//----------------------------
 	//*******************************************************************
 	if (MPUAsyncStart())
@@ -90,6 +91,7 @@ int main(void)
 		RC 	= MPUAsyncReadWhenReady(&MPUReading);
 		if (RC) BLIDeadStop("T", 1);
 		//----------------------------
+// need Time Stamp as first argument
 		IsReady = DCMPerformStep(	&MPUReading.G, &MPUReading.A, 
 									&TMData.IMUResult);
 		//----------------------------

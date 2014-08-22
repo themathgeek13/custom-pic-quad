@@ -1,4 +1,4 @@
-#include "QCM\QCM.h"
+#include "QCM/QCM.h"
 
 //=====================================================
 #ifndef __QCMLocal_H
@@ -6,12 +6,12 @@
 //=====================================================
 // HW Components
 //-------------------------
-#include "TMR\TMR.h"
-#include "ADC\ADC.h"
+#include "TMR/TMR.h"
+#include "ADC/ADC.h"
 //-------------------------
 // Step local storage
 //-------------------------
-#include "QCM\QCMStepData.h"
+#include "QCM/QCMStepData.h"
 
 //*****************************************************
 // QCM internal data objects

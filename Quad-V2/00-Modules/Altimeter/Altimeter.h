@@ -4,15 +4,15 @@
 #ifndef __ALTIMETER_H
 #define	__ALTIMETER_H
 //---------------------------------
-#include "DCM\DCM.h"
+#include "DCM/DCM.h"
 //---------------------------------
 // Header for optional HW components
 //---------------------------------
 #ifdef __MPL_Use__
-	#include "MPL3115\MPL3115.h"
+	#include "MPL3115/MPL3115.h"
 #endif
 #ifdef __SR04_Use__
-	#include "SR04\SR04.h"
+	#include "SR04/SR04.h"
 #endif
 
 

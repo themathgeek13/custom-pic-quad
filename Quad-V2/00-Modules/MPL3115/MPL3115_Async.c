@@ -1,4 +1,4 @@
-#include "MPL3115\MPL3115_Local.h"
+#include "MPL3115/MPL3115_Local.h"
 
 //-------------------------------------------------------
 // MPL3115 Asynchronous Read operation is closely linked with
