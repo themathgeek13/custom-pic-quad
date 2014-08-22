@@ -1,0 +1,43 @@
+[Eagle]
+Version="06 04 00"
+Platform="Windows"
+Serial="7107CCF3B6-LSR-WLM-1SS"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/docu-dummy.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/frames.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/holes.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/solpad.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/special.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/supply1.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/supply2.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/AZ Custom/AZ Custom.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Connectors.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/Microchip/MicroChip.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/LilyPad-Wearables.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Aesthetics.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-AnalogIC.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Boards.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-DigitalIC.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-DiscreteSemi.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Displays.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Electromechanical.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-FreqCtrl.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-LED.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Passives.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-PowerIC.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-RF.lbr"
+UsedLibrary="D:/AZarenin/@@Development/HE/Eagle/Eagle Libraries/SparkFun/SparkFun-Eagle-Libraries-ed91611/SparkFun-Sensors.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="-1765 63 -27 1091"
+State=2
+Number=0
+
+[Desktop]
+Screen="4480 1440"
+Window="Win_1"
