@@ -281,7 +281,7 @@ int main(void)
 	//--------------------------
 	I2CInit(5, 1);		// Initialize I2C1 module with IPL=5 and Fscl=400 KHz
 	//--------------------------
-	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 
+	UARTInitTX(6, 48);	// Initialize UART1 for TX on IPL=6 at
 	// BaudRate =   48	=>   115,200 bps	- ZigBEE
 	//--------------------------------------
 	// BaudRate =  100	=>   250,000 bps

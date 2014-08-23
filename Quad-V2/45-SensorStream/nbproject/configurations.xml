@@ -27,11 +27,12 @@
           <itemPath>../00-Modules/HMCMAG/HMCMAG.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Async.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Init.c</itemPath>
-          <itemPath>../00-Modules/HMCMAG/HMCMAG_ISR_INT2.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Local.h</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Mgmt.c</itemPath>
           <itemPath>../00-Modules/HMCMAG/HMCMAG_Sync.c</itemPath>
+          <itemPath>/Users/rich/quads/alexcontroller/branches/Kopelow/Quad-V2/00-Modules/HMCMAG/HMCMAG_ISR.c</itemPath>
+          <itemPath>/Users/rich/quads/alexcontroller/branches/Kopelow/Quad-V2/00-Modules/HMCMAG/HMCMAG_Profile.h</itemPath>
         </logicalFolder>
         <logicalFolder name="I2C" displayName="I2C" projectFiles="true">
           <itemPath>../00-Modules/I2C/I2C.h</itemPath>
@@ -235,7 +236,7 @@
         <property key="fast-math" value="true"/>
         <property key="generic-16-bit" value="false"/>
         <property key="legacy-libc" value="false"/>
-        <property key="oXC16glb-macros" value="__PIC24H__;__MAG_xUse__"/>
+        <property key="oXC16glb-macros" value="__PIC24H__;__MAG_Use__"/>
         <property key="output-file-format" value="elf"/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
