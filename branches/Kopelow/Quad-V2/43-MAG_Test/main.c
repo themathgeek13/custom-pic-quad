@@ -27,7 +27,7 @@ int main(void)
 		BLIDeadStop("M", 1);
 	#endif
 	//--------------------------
-	UARTInitTX(6, 350);	// Initialize UART1 for TX on IPL=6 at 115200 bps
+	UARTInitTX(6, 48);	// Initialize UART1 for TX on IPL=6 at 115200 bps
 	// This initialization routine accepts BaudRate in multiples
 	// of 2400 bps; Thus:
 	// BaudRate =   1	=>   2400 bps

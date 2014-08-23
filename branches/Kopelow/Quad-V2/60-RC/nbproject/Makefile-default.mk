@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/Init/Init.c ../00-Modules/MCM/MCM.c ../00-Modules/MCM/MCMInit.c ../00-Modules/MCM/MCMLocal.c ../00-Modules/RC/RC.c ../00-Modules/RC/RCInit.c ../00-Modules/RC/RCLocal.c ../00-Modules/RC/RC_ISR.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_ISR.c main.c /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c
+SOURCEFILES_QUOTED_IF_SPACED=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/Init/Init.c ../00-Modules/MCM/MCM.c ../00-Modules/MCM/MCMInit.c ../00-Modules/MCM/MCMLocal.c ../00-Modules/RC/RC.c ../00-Modules/RC/RCInit.c ../00-Modules/RC/RCLocal.c ../00-Modules/RC/RC_ISR.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_ISR.c /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/261199537/MCM.o ${OBJECTDIR}/_ext/261199537/MCMInit.o ${OBJECTDIR}/_ext/261199537/MCMLocal.o ${OBJECTDIR}/_ext/1099952713/RC.o ${OBJECTDIR}/_ext/1099952713/RCInit.o ${OBJECTDIR}/_ext/1099952713/RCLocal.o ${OBJECTDIR}/_ext/1099952713/RC_ISR.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/261189241/BLI.o.d ${OBJECTDIR}/_ext/261189241/BLIInit.o.d ${OBJECTDIR}/_ext/261189241/BLILocal.o.d ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d ${OBJECTDIR}/_ext/492825802/Init.o.d ${OBJECTDIR}/_ext/261199537/MCM.o.d ${OBJECTDIR}/_ext/261199537/MCMInit.o.d ${OBJECTDIR}/_ext/261199537/MCMLocal.o.d ${OBJECTDIR}/_ext/1099952713/RC.o.d ${OBJECTDIR}/_ext/1099952713/RCInit.o.d ${OBJECTDIR}/_ext/1099952713/RCLocal.o.d ${OBJECTDIR}/_ext/1099952713/RC_ISR.o.d ${OBJECTDIR}/_ext/261206579/TMR.o.d ${OBJECTDIR}/_ext/261206579/TMRInit.o.d ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/261199537/MCM.o ${OBJECTDIR}/_ext/261199537/MCMInit.o ${OBJECTDIR}/_ext/261199537/MCMLocal.o ${OBJECTDIR}/_ext/1099952713/RC.o ${OBJECTDIR}/_ext/1099952713/RCInit.o ${OBJECTDIR}/_ext/1099952713/RCLocal.o ${OBJECTDIR}/_ext/1099952713/RC_ISR.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o ${OBJECTDIR}/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/261189241/BLI.o.d ${OBJECTDIR}/_ext/261189241/BLIInit.o.d ${OBJECTDIR}/_ext/261189241/BLILocal.o.d ${OBJECTDIR}/_ext/261189241/BLIMorse.o.d ${OBJECTDIR}/_ext/492825802/Init.o.d ${OBJECTDIR}/_ext/261199537/MCM.o.d ${OBJECTDIR}/_ext/261199537/MCMInit.o.d ${OBJECTDIR}/_ext/261199537/MCMLocal.o.d ${OBJECTDIR}/_ext/1099952713/RC.o.d ${OBJECTDIR}/_ext/1099952713/RCInit.o.d ${OBJECTDIR}/_ext/1099952713/RCLocal.o.d ${OBJECTDIR}/_ext/1099952713/RC_ISR.o.d ${OBJECTDIR}/_ext/261206579/TMR.o.d ${OBJECTDIR}/_ext/261206579/TMRInit.o.d ${OBJECTDIR}/_ext/261206579/TMRLocal.o.d ${OBJECTDIR}/_ext/261206579/TMR_ISR.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_API.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o.d ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d ${OBJECTDIR}/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/261199537/MCM.o ${OBJECTDIR}/_ext/261199537/MCMInit.o ${OBJECTDIR}/_ext/261199537/MCMLocal.o ${OBJECTDIR}/_ext/1099952713/RC.o ${OBJECTDIR}/_ext/1099952713/RCInit.o ${OBJECTDIR}/_ext/1099952713/RCLocal.o ${OBJECTDIR}/_ext/1099952713/RC_ISR.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/main.o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o
+OBJECTFILES=${OBJECTDIR}/_ext/261189241/BLI.o ${OBJECTDIR}/_ext/261189241/BLIInit.o ${OBJECTDIR}/_ext/261189241/BLILocal.o ${OBJECTDIR}/_ext/261189241/BLIMorse.o ${OBJECTDIR}/_ext/492825802/Init.o ${OBJECTDIR}/_ext/261199537/MCM.o ${OBJECTDIR}/_ext/261199537/MCMInit.o ${OBJECTDIR}/_ext/261199537/MCMLocal.o ${OBJECTDIR}/_ext/1099952713/RC.o ${OBJECTDIR}/_ext/1099952713/RCInit.o ${OBJECTDIR}/_ext/1099952713/RCLocal.o ${OBJECTDIR}/_ext/1099952713/RC_ISR.o ${OBJECTDIR}/_ext/261206579/TMR.o ${OBJECTDIR}/_ext/261206579/TMRInit.o ${OBJECTDIR}/_ext/261206579/TMRLocal.o ${OBJECTDIR}/_ext/261206579/TMR_ISR.o ${OBJECTDIR}/_ext/492512300/UART_TX_API.o ${OBJECTDIR}/_ext/492512300/UART_TX_Init.o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o ${OBJECTDIR}/main.o
 
 # Source Files
-SOURCEFILES=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/Init/Init.c ../00-Modules/MCM/MCM.c ../00-Modules/MCM/MCMInit.c ../00-Modules/MCM/MCMLocal.c ../00-Modules/RC/RC.c ../00-Modules/RC/RCInit.c ../00-Modules/RC/RCLocal.c ../00-Modules/RC/RC_ISR.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_ISR.c main.c /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c
+SOURCEFILES=../00-Modules/BLI/BLI.c ../00-Modules/BLI/BLIInit.c ../00-Modules/BLI/BLILocal.c ../00-Modules/BLI/BLIMorse.c ../00-Modules/Init/Init.c ../00-Modules/MCM/MCM.c ../00-Modules/MCM/MCMInit.c ../00-Modules/MCM/MCMLocal.c ../00-Modules/RC/RC.c ../00-Modules/RC/RCInit.c ../00-Modules/RC/RCLocal.c ../00-Modules/RC/RC_ISR.c ../00-Modules/TMR/TMR.c ../00-Modules/TMR/TMRInit.c ../00-Modules/TMR/TMRLocal.c ../00-Modules/TMR/TMR_ISR.c ../00-Modules/UART/UART_TX_API.c ../00-Modules/UART/UART_TX_Init.c ../00-Modules/UART/UART_TX_ISR.c /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c main.c
 
 
 CFLAGS=
@@ -212,19 +212,19 @@ ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o: ../00-Modules/UART/UART_TX_ISR.c  nbp
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o: /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1566098207 
 	@${RM} ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c  -o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/_ext/261189241/BLI.o: ../00-Modules/BLI/BLI.c  nbproject/Makefile-${CND_CONF}.mk
@@ -360,19 +360,19 @@ ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o: ../00-Modules/UART/UART_TX_ISR.c  nbp
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ../00-Modules/UART/UART_TX_ISR.c  -o ${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d"        -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/492512300/UART_TX_ISR.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/main.o.d 
-	@${RM} ${OBJECTDIR}/main.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o: /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1566098207 
 	@${RM} ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  /Users/rich/quads/alexcontroller/svnRoot/Quad-V2/00-Modules/UART/UART_TX_Local.c  -o ${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d"        -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1566098207/UART_TX_Local.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR} 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"        -g -omf=elf -D__PIC24H__ -fast-math -O0 -I"../00-Modules" -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

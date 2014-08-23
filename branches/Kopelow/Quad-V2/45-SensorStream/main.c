@@ -18,7 +18,6 @@ int main(void)
 	//--------------------------
 	TMRDelay(1000);		// Wait for 1 sec so that the shake from turning on
 						// power switch dissipates...
-        //BLIDeadStop("SOS",3);
 	//--------------------------
 	if (MPUInit(3, 1))	// Initialize motion Sensor - 1 kHz/4 (250 Hz)
 		BLIDeadStop("EA", 2);
