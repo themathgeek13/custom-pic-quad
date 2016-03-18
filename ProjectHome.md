@@ -1,0 +1,3 @@
+I am working on completely independent (not a port of existing autopilots) quadrocopter firmware for Microchip PIC24 microprocessors.
+The project includes full source code of all the libraries (I2C, UART, ADC, RC Receiver) written from the ground up to be interrupt-based, which allowed to implement control loop that can operate at up to 500 Hz.
+My quad is flying and I am planning to concentrate now on additions to the project to include more sensors like ultrasonic range finder, GPS, barometer as well as testin new RC components like RC receivers with the UART output.
